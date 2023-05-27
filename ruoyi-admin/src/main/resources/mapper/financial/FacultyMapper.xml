@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.financial.mapper.FacultyMapper">
+    
+    <resultMap type="Faculty" id="FacultyResult">
+        <result property="id"    column="id"    />
+        <result property="name"    column="name"    />
+        <result property="type"    column="type"    />
+        <result property="position"    column="position"    />
+        <result property="title"    column="title"    />
+    </resultMap>
+
+    <sql id="selectFacultyVo">
+        select id, name, type, position, title from faculty
+    </sql>
+
+    <select id="selectFacultyList" parameterType="Faculty" resultMap="FacultyResult">
+        <include refid="selectFacultyVo"/>
+        <where>  
+            <if test="name != null  and name != ''"> and name like concat('%', #{name}, '%')</if>
+            <if test="type != null "> and type = #{type}</if>
+            <if test="position != null "> and position = #{position}</if>
+            <if test="title != null "> and title = #{title}</if>
+        </where>
+    </select>
+    
+    <select id="selectFacultyById" parameterType="Long" resultMap="FacultyResult">
+        <include refid="selectFacultyVo"/>
+        where id = #{id}
+    </select>
+        
+    <insert id="insertFaculty" parameterType="Faculty">
+        insert into faculty
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">id,</if>
+            <if test="name != null and name != ''">name,</if>
+            <if test="type != null">type,</if>
+            <if test="position != null">position,</if>
+            <if test="title != null">title,</if>
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">#{id},</if>
+            <if test="name != null and name != ''">#{name},</if>
+            <if test="type != null">#{type},</if>
+            <if test="position != null">#{position},</if>
+            <if test="title != null">#{title},</if>
+         </trim>
+    </insert>
+
+    <update id="updateFaculty" parameterType="Faculty">
+        update faculty
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="name != null and name != ''">name = #{name},</if>
+            <if test="type != null">type = #{type},</if>
+            <if test="position != null">position = #{position},</if>
+            <if test="title != null">title = #{title},</if>
+        </trim>
+        where id = #{id}
+    </update>
+
+    <delete id="deleteFacultyById" parameterType="Long">
+        delete from faculty where id = #{id}
+    </delete>
+
+    <delete id="deleteFacultyByIds" parameterType="String">
+        delete from faculty where id in 
+        <foreach item="id" collection="array" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+</mapper>
