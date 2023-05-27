@@ -39,6 +39,22 @@
           />
         </el-select>
       </el-form-item>
+      <el-form-item label="月工资" prop="month">
+        <el-input
+          v-model="queryParams.month"
+          placeholder="请输入月工资"
+          clearable
+          @keyup.enter.native="handleQuery"
+        />
+      </el-form-item>
+      <el-form-item label="年工资" prop="year">
+        <el-input
+          v-model="queryParams.year"
+          placeholder="请输入年工资"
+          clearable
+          @keyup.enter.native="handleQuery"
+        />
+      </el-form-item>
       <el-form-item>
         <el-button type="primary" icon="el-icon-search" size="mini" @click="handleQuery">搜索</el-button>
         <el-button icon="el-icon-refresh" size="mini" @click="resetQuery">重置</el-button>
@@ -110,6 +126,8 @@
           <dict-tag :options="dict.type.faculty_title" :value="scope.row.title"/>
         </template>
       </el-table-column>
+      <el-table-column label="月工资" align="center" prop="month" />
+      <el-table-column label="年工资" align="center" prop="year" />
       <el-table-column label="操作" align="center" class-name="small-padding fixed-width">
         <template slot-scope="scope">
           <el-button
@@ -216,7 +234,9 @@ export default {
         name: null,
         type: null,
         position: null,
-        title: null
+        title: null,
+        month: null,
+        year: null
       },
       // 表单参数
       form: {},
@@ -256,7 +276,9 @@ export default {
         name: null,
         type: null,
         position: null,
-        title: null
+        title: null,
+        month: null,
+        year: null
       };
       this.resetForm("form");
     },

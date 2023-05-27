@@ -10,10 +10,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         <result property="type"    column="type"    />
         <result property="position"    column="position"    />
         <result property="title"    column="title"    />
+        <result property="month"    column="month"    />
+        <result property="year"    column="year"    />
     </resultMap>
 
     <sql id="selectFacultyVo">
-        select id, name, type, position, title from faculty
+        select id, name, type, position, title, month, year from faculty
     </sql>
 
     <select id="selectFacultyList" parameterType="Faculty" resultMap="FacultyResult">
@@ -23,6 +25,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             <if test="type != null "> and type = #{type}</if>
             <if test="position != null "> and position = #{position}</if>
             <if test="title != null "> and title = #{title}</if>
+            <if test="month != null "> and month = #{month}</if>
+            <if test="year != null "> and year = #{year}</if>
         </where>
     </select>
     
@@ -39,6 +43,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             <if test="type != null">type,</if>
             <if test="position != null">position,</if>
             <if test="title != null">title,</if>
+            <if test="month != null">month,</if>
+            <if test="year != null">year,</if>
          </trim>
         <trim prefix="values (" suffix=")" suffixOverrides=",">
             <if test="id != null">#{id},</if>
@@ -46,6 +52,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             <if test="type != null">#{type},</if>
             <if test="position != null">#{position},</if>
             <if test="title != null">#{title},</if>
+            <if test="month != null">#{month},</if>
+            <if test="year != null">#{year},</if>
          </trim>
     </insert>
 
@@ -56,6 +64,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             <if test="type != null">type = #{type},</if>
             <if test="position != null">position = #{position},</if>
             <if test="title != null">title = #{title},</if>
+            <if test="month != null">month = #{month},</if>
+            <if test="year != null">year = #{year},</if>
         </trim>
         where id = #{id}
     </update>

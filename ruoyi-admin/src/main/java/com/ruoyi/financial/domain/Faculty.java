@@ -8,7 +8,7 @@ import com.ruoyi.common.core.domain.BaseEntity;
 /**
  * 教职工对象 faculty
  * 
- * @author ruoyi
+ * @author Keven
  * @date 2023-05-27
  */
 public class Faculty extends BaseEntity
@@ -33,6 +33,14 @@ public class Faculty extends BaseEntity
     /** 职称 */
     @Excel(name = "职称")
     private Long title;
+
+    /** 月工资 */
+    @Excel(name = "月工资")
+    private Long month;
+
+    /** 年工资 */
+    @Excel(name = "年工资")
+    private Long year;
 
     public void setId(Long id) 
     {
@@ -79,6 +87,24 @@ public class Faculty extends BaseEntity
     {
         return title;
     }
+    public void setMonth(Long month) 
+    {
+        this.month = month;
+    }
+
+    public Long getMonth() 
+    {
+        return month;
+    }
+    public void setYear(Long year) 
+    {
+        this.year = year;
+    }
+
+    public Long getYear() 
+    {
+        return year;
+    }
 
     @Override
     public String toString() {
@@ -88,6 +114,8 @@ public class Faculty extends BaseEntity
             .append("type", getType())
             .append("position", getPosition())
             .append("title", getTitle())
+            .append("month", getMonth())
+            .append("year", getYear())
             .toString();
     }
 }

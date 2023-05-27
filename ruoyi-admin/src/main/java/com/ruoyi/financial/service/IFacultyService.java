@@ -6,7 +6,7 @@ import com.ruoyi.financial.domain.Faculty;
 /**
  * 教职工Service接口
  * 
- * @author ruoyi
+ * @author Keven
  * @date 2023-05-27
  */
 public interface IFacultyService 
