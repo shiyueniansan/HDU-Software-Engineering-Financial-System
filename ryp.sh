@@ -40,7 +40,8 @@ function start()
   cd ruoyi-admin/target
 
   echo 启动项目
-  nohup java -jar ruoyi-admin.jar &> reggie_take_out.log &
+#  nohup java -jar ruoyi-admin.jar &> reggie_take_out.log &
+  nohup java -jar ruoyi-admin.jar >catalina.out 2>&1 &
   echo 项目启动完成
 }
 
