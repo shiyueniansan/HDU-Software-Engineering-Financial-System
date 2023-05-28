@@ -2,6 +2,8 @@ package com.ruoyi.financial.controller;
 
 import java.util.List;
 import javax.servlet.http.HttpServletResponse;
+
+import com.ruoyi.common.core.domain.model.LoginUser;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -23,7 +25,7 @@ import com.ruoyi.common.core.page.TableDataInfo;
 
 /**
  * 教职工Controller
- * 
+ *
  * @author Keven
  * @date 2023-05-27
  */
@@ -45,6 +47,15 @@ public class FacultyController extends BaseController
         List<Faculty> list = facultyService.selectFacultyList(faculty);
         return getDataTable(list);
     }
+
+//    @PreAuthorize("@ss.hasPermi('financial:faculty:queryself')")
+//    @GetMapping("/list")
+//    public TableDataInfo qs(Faculty faculty)
+//    {
+//        startPage();
+//        List<Faculty> list = facultyService.selectFacultyList(faculty);
+//        return getDataTable(list);
+//    }
 
     /**
      * 导出教职工列表
@@ -101,4 +112,34 @@ public class FacultyController extends BaseController
     {
         return toAjax(facultyService.deleteFacultyByIds(ids));
     }
+
+    /**
+     * 导出教职工个人
+     */
+    @PreAuthorize("@ss.hasPermi('financial:faculty:exportself')")
+    @Log(title = "教职工个人", businessType = BusinessType.EXPORT)
+    @PostMapping("/exportSelf")
+    public void exportSelf(HttpServletResponse response, Faculty faculty)
+    {
+        List<Faculty> list = facultyService.selectFacultyList(faculty);
+        ExcelUtil<Faculty> util = new ExcelUtil<Faculty>(Faculty.class);
+        util.exportExcel(response, list, "教职工数据");
+    }
+
+    /**
+     * 获取教职工详细信息个人
+     */
+    @PreAuthorize("@ss.hasPermi('financial:faculty:queryself')")
+//    @GetMapping(value = "/{id}")
+    @GetMapping("/self")
+    public AjaxResult getInfoSelf()
+    {
+//        Long id = getLoginUser().getUser().getFacultyId();
+        Long id = getLoginUser().getFacultyId();
+//        LoginUser loginUser = getLoginUser();
+//        id = loginUser.getUser().getUserId();
+        return success(facultyService.selectFacultyById(id));
+    }
+
+
 }
