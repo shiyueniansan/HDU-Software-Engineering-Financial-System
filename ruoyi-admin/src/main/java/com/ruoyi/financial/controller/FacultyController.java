@@ -38,9 +38,6 @@ public class FacultyController extends BaseController
     @Autowired
     private IFacultyService facultyService;
 
-//    @Autowired
-//    private ISysUserService userService;
-
     @Autowired
     private PermissionService permissionService;
 
@@ -48,59 +45,43 @@ public class FacultyController extends BaseController
     /**
       * 查询教职工列表及个人
       */
+//    @PreAuthorize("@ss.hasPermi('financial:faculty:list')")
     @PreAuthorize("@ss.hasAnyPermi('financial:faculty:list,financial:faculty:self')")
-//    @PreAuthorize("@ss.hasPermi('financial:faculty:list')","@ss.hasPermi('financial:faculty:self)")
     @GetMapping("/list")
     public TableDataInfo list(Faculty faculty)
     {
-//        startPage();
-//        List<Faculty> list = facultyService.selectFacultyList(faculty);
-//        return getDataTable(list);
         startPage();
-        List<Faculty> list = facultyService.selectFacultyList(faculty);
-        if( permissionService.hasPermi("financial:faculty:self") )
+        List<Faculty> list = null;
+        if( permissionService.hasPermi("financial:faculty:list") )
         {
-            Long facultyId = getLoginUser().getUser().getFacultyId();
-            Faculty faculty1 = facultyService.selectFacultyById(facultyId);
-            list = facultyService.selectFacultyList(faculty1);
+            list = facultyService.selectFacultyList(faculty);
+        }
+        else if( permissionService.hasPermi("financial:faculty:self") )
+        {
+            list = facultyService.selectFacultyList(facultyService.selectFacultyById(getLoginUser().getUser().getFacultyId()));
         }
         return getDataTable(list);
     }
-//    /**
-//     * 查询教职工列表
-//     */
-//    @PreAuthorize("@ss.hasPermi('financial:faculty:list')")
-//    @GetMapping("/list")
-//    public TableDataInfo list(Faculty faculty)
-//    {
-//        startPage();
-//        List<Faculty> list = facultyService.selectFacultyList(faculty);
-//        return getDataTable(list);
-//    }
 
-//    /**
-//     * 查询教职工个人
-//     */
-//    @PreAuthorize("@ss.hasPermi('financial:faculty:self')")
-//    @GetMapping("/self")
-//    public TableDataInfo self()
-//    {
-//        startPage();
-//        Long facultyId = getLoginUser().getUser().getFacultyId();
-//        Faculty faculty = facultyService.selectFacultyById(facultyId);
-//        List<Faculty> list = facultyService.selectFacultyList(faculty);
-//        return getDataTable(list);
-//    }
 
     /**
-     * 导出教职工列表
+     * 导出教职工列表及个人
      */
-    @PreAuthorize("@ss.hasPermi('financial:faculty:export')")
+//    @PreAuthorize("@ss.hasPermi('financial:faculty:export')")
+    @PreAuthorize("@ss.hasAnyPermi('financial:faculty:export,financial:faculty:exportself')")
     @Log(title = "教职工", businessType = BusinessType.EXPORT)
     @PostMapping("/export")
     public void export(HttpServletResponse response, Faculty faculty)
     {
-        List<Faculty> list = facultyService.selectFacultyList(faculty);
+        List<Faculty> list = null;
+        if( permissionService.hasPermi("financial:faculty:export") )
+        {
+            list = facultyService.selectFacultyList(faculty);
+        }
+        else if( permissionService.hasPermi("financial:faculty:exportself") )
+        {
+            list = facultyService.selectFacultyList(facultyService.selectFacultyById(getLoginUser().getUser().getFacultyId()));
+        }
         ExcelUtil<Faculty> util = new ExcelUtil<Faculty>(Faculty.class);
         util.exportExcel(response, list, "教职工数据");
     }
@@ -147,34 +128,5 @@ public class FacultyController extends BaseController
     {
         return toAjax(facultyService.deleteFacultyByIds(ids));
     }
-
-    /**
-     * 导出教职工个人
-     */
-    @PreAuthorize("@ss.hasPermi('financial:faculty:exportself')")
-    @Log(title = "教职工个人", businessType = BusinessType.EXPORT)
-    @PostMapping("/exportSelf")
-    public void exportSelf(HttpServletResponse response, Faculty faculty)
-    {
-        List<Faculty> list = facultyService.selectFacultyList(faculty);
-        ExcelUtil<Faculty> util = new ExcelUtil<Faculty>(Faculty.class);
-        util.exportExcel(response, list, "教职工数据");
-    }
-
-//    /**
-//     * 获取教职工详细信息个人
-//     */
-//    @PreAuthorize("@ss.hasPermi('financial:faculty:queryself')")
-////    @GetMapping(value = "/{id}")
-//    @GetMapping("/self")
-//    public AjaxResult getInfoSelf()
-//    {
-////        Long id = getLoginUser().getUser().getFacultyId();
-//        Long id = getLoginUser().getFacultyId();
-////        LoginUser loginUser = getLoginUser();
-////        id = loginUser.getUser().getUserId();
-//        return success(facultyService.selectFacultyById(id));
-//    }
-
 
 }
