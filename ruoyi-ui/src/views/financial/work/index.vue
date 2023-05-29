@@ -17,7 +17,7 @@
           @keyup.enter.native="handleQuery"
         />
       </el-form-item>
-      <el-form-item label="教职工编号" prop="facultyId"  v-if="checkRole(['admin','root','finance'])">
+      <el-form-item label="教职工编号" prop="facultyId"  v-if="checkRole(['admin','root','financial'])">
         <el-input
           v-model="queryParams.facultyId"
           placeholder="请输入教职工编号"
@@ -33,16 +33,17 @@
 
     <el-row :gutter="10" class="mb8">
       <el-col :span="1.5">
+        <!--          v-hasPermi="['financial:work:add']"-->
         <el-button
           type="primary"
           plain
           icon="el-icon-plus"
           size="mini"
           @click="handleAdd"
-          v-hasPermi="['financial:work:add']"
         >新增</el-button>
       </el-col>
       <el-col :span="1.5">
+        <!--          v-hasPermi="['financial:work:edit']"-->
         <el-button
           type="success"
           plain
@@ -50,10 +51,10 @@
           size="mini"
           :disabled="single"
           @click="handleUpdate"
-          v-hasPermi="['financial:work:edit']"
         >修改</el-button>
       </el-col>
       <el-col :span="1.5">
+        <!--          v-hasPermi="['financial:work:remove']"-->
         <el-button
           type="danger"
           plain
@@ -61,17 +62,16 @@
           size="mini"
           :disabled="multiple"
           @click="handleDelete"
-          v-hasPermi="['financial:work:remove']"
         >删除</el-button>
       </el-col>
       <el-col :span="1.5">
+        <!--          v-hasPermi="['financial:work:export']"-->
         <el-button
           type="warning"
           plain
           icon="el-icon-download"
           size="mini"
           @click="handleExport"
-          v-hasPermi="['financial:work:export']"
         >导出</el-button>
       </el-col>
       <right-toolbar :showSearch.sync="showSearch" @queryTable="getList"></right-toolbar>
@@ -82,22 +82,24 @@
       <el-table-column label="编号" align="center" prop="id" />
       <el-table-column label="描述" align="center" prop="des" />
       <el-table-column label="时长" align="center" prop="hour" />
-      <el-table-column label="教职工编号" align="center" prop="facultyId" v-if="checkRole(['admin','root','finance'])" />
+      <el-table-column label="教职工编号" align="center" prop="facultyId" v-if="checkRole(['admin','root','financial'])" />
       <el-table-column label="操作" align="center" class-name="small-padding fixed-width">
         <template slot-scope="scope">
+          <!--            v-hasPermi="['financial:work:edit']"-->
+          <!--            v-hasPermiOr="['financial:work:edit','financial:work:editself']"-->
           <el-button
             size="mini"
             type="text"
             icon="el-icon-edit"
             @click="handleUpdate(scope.row)"
-            v-hasPermi="['financial:work:edit']"
           >修改</el-button>
+          <!--            v-hasPermi="['financial:work:remove']"-->
+          <!--            v-hasPermiOr="['financial:work:remove','financial:work:removeself']"-->
           <el-button
             size="mini"
             type="text"
             icon="el-icon-delete"
             @click="handleDelete(scope.row)"
-            v-hasPermi="['financial:work:remove']"
           >删除</el-button>
         </template>
       </el-table-column>
@@ -120,7 +122,7 @@
         <el-form-item label="时长" prop="hour">
           <el-input v-model="form.hour" placeholder="请输入时长" />
         </el-form-item>
-        <el-form-item label="教职工编号" prop="facultyId" v-if="checkRole(['admin','root','finance'])">
+        <el-form-item label="教职工编号" prop="facultyId" v-if="checkRole(['admin','root','financial'])">
           <el-input v-model="form.facultyId" placeholder="请输入教职工编号" />
         </el-form-item>
       </el-form>
@@ -134,6 +136,7 @@
 
 <script>
 import { listWork, getWork, delWork, addWork, updateWork } from "@/api/financial/work";
+import { checkPermi, checkRole } from "@/utils/permission"; // 权限判断函数
 
 export default {
   name: "Work",
@@ -179,6 +182,9 @@ export default {
     this.getList();
   },
   methods: {
+    // 权限判断
+    checkPermi,
+    checkRole,
     /** 查询课时任务列表 */
     getList() {
       this.loading = true;
