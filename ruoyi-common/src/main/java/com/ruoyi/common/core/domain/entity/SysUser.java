@@ -89,9 +89,9 @@ public class SysUser extends BaseEntity
     /** 角色ID */
     private Long roleId;
 
-    /** 教职工编号 */
-    @Excel(name = "教职工编号")
-    private Long facultyId;
+//    /** 教职工编号 */
+//    @Excel(name = "教职工编号")
+//    private Long facultyId;
 
 
     public SysUser()
@@ -302,15 +302,15 @@ public class SysUser extends BaseEntity
         this.roleId = roleId;
     }
 
-    public void setFacultyId(Long facultyId)
-    {
-        this.facultyId = facultyId;
-    }
+//    public void setFacultyId(Long facultyId)
+//    {
+//        this.facultyId = facultyId;
+//    }
 
-    public Long getFacultyId()
-    {
-        return facultyId;
-    }
+//    public Long getFacultyId()
+//    {
+//        return facultyId;
+//    }
 
     @Override
     public String toString() {
@@ -334,7 +334,7 @@ public class SysUser extends BaseEntity
             .append("updateTime", getUpdateTime())
             .append("remark", getRemark())
             .append("dept", getDept())
-            .append("facultyId", getFacultyId())
+//            .append("facultyId", getFacultyId())
             .toString();
     }
 }

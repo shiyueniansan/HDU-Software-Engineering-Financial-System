@@ -118,11 +118,12 @@ public class LoginUser implements UserDetails
         this.permissions = permissions;
     }
 
-    public LoginUser(Long userId, Long deptId, Long facultyId, SysUser user, Set<String> permissions)
+//    public LoginUser(Long userId, Long deptId, Long facultyId, SysUser user, Set<String> permissions)
+    public LoginUser(Long userId, Long deptId, SysUser user, Set<String> permissions)
     {
         this.userId = userId;
         this.deptId = deptId;
-        this.facultyId = facultyId;
+//        this.facultyId = facultyId;
         this.user = user;
         this.permissions = permissions;
     }

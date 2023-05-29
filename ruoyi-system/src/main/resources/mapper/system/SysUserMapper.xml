@@ -25,7 +25,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         <result property="remark"       column="remark"       />
         <association property="dept"    column="dept_id" javaType="SysDept" resultMap="deptResult" />
         <collection  property="roles"   javaType="java.util.List"           resultMap="RoleResult" />
-		<result property="facultyId"    column="faculty_id"    />
+<!--		<result property="facultyId"    column="faculty_id"    />-->
     </resultMap>
 
     <resultMap id="deptResult" type="SysDept">
