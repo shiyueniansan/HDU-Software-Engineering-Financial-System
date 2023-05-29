@@ -4,6 +4,8 @@ import java.util.List;
 import javax.servlet.http.HttpServletResponse;
 
 import com.ruoyi.common.core.domain.model.LoginUser;
+import com.ruoyi.framework.web.service.PermissionService;
+import com.ruoyi.system.service.ISysUserService;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -36,21 +38,40 @@ public class FacultyController extends BaseController
     @Autowired
     private IFacultyService facultyService;
 
+//    @Autowired
+//    private ISysUserService userService;
+
+    @Autowired
+    private PermissionService permissionService;
+
+
     /**
-     * 查询教职工列表
-     */
-    @PreAuthorize("@ss.hasPermi('financial:faculty:list')")
+      * 查询教职工列表及个人
+      */
+    @PreAuthorize("@ss.hasAnyPermi('financial:faculty:list,financial:faculty:self')")
+//    @PreAuthorize("@ss.hasPermi('financial:faculty:list')","@ss.hasPermi('financial:faculty:self)")
     @GetMapping("/list")
     public TableDataInfo list(Faculty faculty)
     {
+//        startPage();
+//        List<Faculty> list = facultyService.selectFacultyList(faculty);
+//        return getDataTable(list);
         startPage();
         List<Faculty> list = facultyService.selectFacultyList(faculty);
+        if( permissionService.hasPermi("financial:faculty:self") )
+        {
+            Long facultyId = getLoginUser().getUser().getFacultyId();
+            Faculty faculty1 = facultyService.selectFacultyById(facultyId);
+            list = facultyService.selectFacultyList(faculty1);
+        }
         return getDataTable(list);
     }
-
-//    @PreAuthorize("@ss.hasPermi('financial:faculty:queryself')")
+//    /**
+//     * 查询教职工列表
+//     */
+//    @PreAuthorize("@ss.hasPermi('financial:faculty:list')")
 //    @GetMapping("/list")
-//    public TableDataInfo qs(Faculty faculty)
+//    public TableDataInfo list(Faculty faculty)
 //    {
 //        startPage();
 //        List<Faculty> list = facultyService.selectFacultyList(faculty);
@@ -61,12 +82,12 @@ public class FacultyController extends BaseController
 //     * 查询教职工个人
 //     */
 //    @PreAuthorize("@ss.hasPermi('financial:faculty:self')")
-//    @GetMapping("/list")
+//    @GetMapping("/self")
 //    public TableDataInfo self()
 //    {
 //        startPage();
-//        LoginUser loginUser = getLoginUser();
-//        Faculty faculty = getLoginUser().getUserId();
+//        Long facultyId = getLoginUser().getUser().getFacultyId();
+//        Faculty faculty = facultyService.selectFacultyById(facultyId);
 //        List<Faculty> list = facultyService.selectFacultyList(faculty);
 //        return getDataTable(list);
 //    }
@@ -140,20 +161,20 @@ public class FacultyController extends BaseController
         util.exportExcel(response, list, "教职工数据");
     }
 
-    /**
-     * 获取教职工详细信息个人
-     */
-    @PreAuthorize("@ss.hasPermi('financial:faculty:queryself')")
-//    @GetMapping(value = "/{id}")
-    @GetMapping("/self")
-    public AjaxResult getInfoSelf()
-    {
-//        Long id = getLoginUser().getUser().getFacultyId();
-        Long id = getLoginUser().getFacultyId();
-//        LoginUser loginUser = getLoginUser();
-//        id = loginUser.getUser().getUserId();
-        return success(facultyService.selectFacultyById(id));
-    }
+//    /**
+//     * 获取教职工详细信息个人
+//     */
+//    @PreAuthorize("@ss.hasPermi('financial:faculty:queryself')")
+////    @GetMapping(value = "/{id}")
+//    @GetMapping("/self")
+//    public AjaxResult getInfoSelf()
+//    {
+////        Long id = getLoginUser().getUser().getFacultyId();
+//        Long id = getLoginUser().getFacultyId();
+////        LoginUser loginUser = getLoginUser();
+////        id = loginUser.getUser().getUserId();
+//        return success(facultyService.selectFacultyById(id));
+//    }
 
 
 }
