@@ -11,7 +11,7 @@
  Target Server Version : 80031
  File Encoding         : 65001
 
- Date: 29/05/2023 16:52:22
+ Date: 29/05/2023 21:45:20
 */
 
 SET NAMES utf8mb4;
@@ -245,7 +245,9 @@ CREATE TABLE `gen_table`  (
 -- Records of gen_table
 -- ----------------------------
 INSERT INTO `gen_table` VALUES (1, 'sys_user', '用户信息表', NULL, NULL, 'SysUser', 'crud', 'com.ruoyi.system', 'system', 'sysUser', '用户信息', 'ruoyi', '0', '/', '{}', 'admin', '2023-05-28 14:41:50', '', '2023-05-29 14:00:12', NULL);
-INSERT INTO `gen_table` VALUES (2, 'work', '课时任务', '', '', 'Work', 'crud', 'com.ruoyi.financial', 'financial', 'work', '课时任务', 'ruoyi', '0', '/', '{}', 'admin', '2023-05-29 08:20:30', '', '2023-05-29 08:22:43', NULL);
+INSERT INTO `gen_table` VALUES (3, 'work', '课时任务', NULL, NULL, 'Work', 'crud', 'com.ruoyi.financial', 'financial', 'work', '课时任务', 'ruoyi', '0', '/', '{}', 'admin', '2023-05-29 16:53:45', '', '2023-05-29 16:54:49', NULL);
+INSERT INTO `gen_table` VALUES (4, 'position', '职位表', NULL, NULL, 'Position', 'crud', 'com.ruoyi.system', 'system', 'position', '职位', 'ruoyi', '0', '/', NULL, 'admin', '2023-05-29 19:19:14', '', NULL, NULL);
+INSERT INTO `gen_table` VALUES (5, 'title', '职称表', NULL, NULL, 'Title', 'crud', 'com.ruoyi.system', 'system', 'title', '职称', 'ruoyi', '0', '/', NULL, 'admin', '2023-05-29 19:19:15', '', NULL, NULL);
 
 -- ----------------------------
 -- Table structure for gen_table_column
@@ -300,10 +302,16 @@ INSERT INTO `gen_table_column` VALUES (17, '1', 'update_by', '更新者', 'varch
 INSERT INTO `gen_table_column` VALUES (18, '1', 'update_time', '更新时间', 'datetime', 'Date', 'updateTime', '0', '0', NULL, '1', '1', NULL, NULL, 'EQ', 'datetime', '', 18, 'admin', '2023-05-28 14:41:51', '', '2023-05-29 14:00:12');
 INSERT INTO `gen_table_column` VALUES (19, '1', 'remark', '备注', 'varchar(500)', 'String', 'remark', '0', '0', NULL, '1', '1', '1', NULL, 'EQ', 'textarea', '', 19, 'admin', '2023-05-28 14:41:51', '', '2023-05-29 14:00:12');
 INSERT INTO `gen_table_column` VALUES (20, '1', 'faculty_id', '教职工编号', 'bigint', 'Long', 'facultyId', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'input', '', 20, 'admin', '2023-05-28 14:41:51', '', '2023-05-29 14:00:12');
-INSERT INTO `gen_table_column` VALUES (21, '2', 'id', '编号', 'bigint', 'Long', 'id', '1', '1', NULL, '1', NULL, NULL, NULL, 'EQ', 'input', '', 1, 'admin', '2023-05-29 08:20:30', '', '2023-05-29 08:22:43');
-INSERT INTO `gen_table_column` VALUES (22, '2', 'des', '描述', 'varchar(90)', 'String', 'des', '0', '0', '1', '1', '1', '1', '1', 'EQ', 'input', '', 2, 'admin', '2023-05-29 08:20:30', '', '2023-05-29 08:22:43');
-INSERT INTO `gen_table_column` VALUES (23, '2', 'hour', '时长', 'int', 'Long', 'hour', '0', '0', '1', '1', '1', '1', '1', 'EQ', 'input', '', 3, 'admin', '2023-05-29 08:20:30', '', '2023-05-29 08:22:43');
-INSERT INTO `gen_table_column` VALUES (24, '2', 'faculty_id', '教职工编号', 'bigint', 'Long', 'facultyId', '0', '0', '1', '1', '1', '1', '1', 'EQ', 'input', '', 4, 'admin', '2023-05-29 08:20:30', '', '2023-05-29 08:22:43');
+INSERT INTO `gen_table_column` VALUES (25, '3', 'id', '编号', 'bigint', 'Long', 'id', '1', '1', NULL, '1', NULL, NULL, NULL, 'EQ', 'input', '', 1, 'admin', '2023-05-29 16:53:45', '', '2023-05-29 16:54:49');
+INSERT INTO `gen_table_column` VALUES (26, '3', 'des', '描述', 'varchar(90)', 'String', 'des', '0', '0', '1', '1', '1', '1', '1', 'EQ', 'input', '', 2, 'admin', '2023-05-29 16:53:45', '', '2023-05-29 16:54:49');
+INSERT INTO `gen_table_column` VALUES (27, '3', 'hour', '时长', 'int', 'Long', 'hour', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'input', '', 3, 'admin', '2023-05-29 16:53:45', '', '2023-05-29 16:54:49');
+INSERT INTO `gen_table_column` VALUES (28, '3', 'faculty_id', '教职工编号', 'bigint', 'Long', 'facultyId', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'input', '', 4, 'admin', '2023-05-29 16:53:45', '', '2023-05-29 16:54:49');
+INSERT INTO `gen_table_column` VALUES (29, '4', 'id', '编号', 'bigint', 'Long', 'id', '1', '1', NULL, '1', NULL, NULL, NULL, 'EQ', 'input', '', 1, 'admin', '2023-05-29 19:19:14', '', NULL);
+INSERT INTO `gen_table_column` VALUES (30, '4', 'des', '职务', 'varchar(60)', 'String', 'des', '0', '0', '1', '1', '1', '1', '1', 'EQ', 'input', '', 2, 'admin', '2023-05-29 19:19:15', '', NULL);
+INSERT INTO `gen_table_column` VALUES (31, '4', 'wage', '基本薪资', 'int', 'Long', 'wage', '0', '0', '1', '1', '1', '1', '1', 'EQ', 'input', '', 3, 'admin', '2023-05-29 19:19:15', '', NULL);
+INSERT INTO `gen_table_column` VALUES (32, '5', 'id', '编号', 'bigint', 'Long', 'id', '1', '1', NULL, '1', NULL, NULL, NULL, 'EQ', 'input', '', 1, 'admin', '2023-05-29 19:19:15', '', NULL);
+INSERT INTO `gen_table_column` VALUES (33, '5', 'des', '职称', 'varchar(60)', 'String', 'des', '0', '0', '1', '1', '1', '1', '1', 'EQ', 'input', '', 2, 'admin', '2023-05-29 19:19:15', '', NULL);
+INSERT INTO `gen_table_column` VALUES (34, '5', 'wage', '基本工资', 'int', 'Long', 'wage', '0', '0', '1', '1', '1', '1', '1', 'EQ', 'input', '', 3, 'admin', '2023-05-29 19:19:15', '', NULL);
 
 -- ----------------------------
 -- Table structure for position
@@ -569,6 +577,7 @@ CREATE TABLE `sys_logininfor`  (
 -- ----------------------------
 -- Records of sys_logininfor
 -- ----------------------------
+INSERT INTO `sys_logininfor` VALUES (173, '管理员', '127.0.0.1', '内网IP', 'Chrome 11', 'Windows 10', '0', '登录成功', '2023-05-29 21:44:37');
 
 -- ----------------------------
 -- Table structure for sys_menu
@@ -717,7 +726,7 @@ INSERT INTO `sys_menu` VALUES (2045, '课时任务修改个人', 2023, 9, '', NU
 INSERT INTO `sys_menu` VALUES (2046, '课时任务删除个人', 2023, 10, '', NULL, NULL, 1, 0, 'F', '0', '0', 'financial:work:removeself', '#', 'admin', '2023-05-27 20:34:40', 'admin', '2023-05-29 13:21:29', '');
 INSERT INTO `sys_menu` VALUES (2047, '课时任务导出个人', 2023, 11, '', NULL, NULL, 1, 0, 'F', '0', '0', 'financial:work:exportself', '#', 'admin', '2023-05-27 20:35:07', 'admin', '2023-05-29 13:21:19', '');
 INSERT INTO `sys_menu` VALUES (2048, '教职工列表', 2011, 0, '1', NULL, NULL, 1, 0, 'C', '1', '0', 'financial:faculty:list', '#', 'admin', '2023-05-28 17:28:31', 'admin', '2023-05-28 17:31:48', '');
-INSERT INTO `sys_menu` VALUES (2049, '课时任务列表', 2023, 0, 'financial:work:list', NULL, NULL, 1, 0, 'C', '1', '0', NULL, '#', 'admin', '2023-05-28 17:32:41', '', NULL, '');
+INSERT INTO `sys_menu` VALUES (2049, '课时任务列表', 2023, 0, '1', NULL, NULL, 1, 0, 'C', '1', '0', 'financial:work:list', '#', 'admin', '2023-05-28 17:32:41', 'admin', '2023-05-29 18:36:00', '');
 INSERT INTO `sys_menu` VALUES (2050, '教职工个人', 2011, 6, '2', NULL, NULL, 1, 0, 'C', '1', '0', 'financial:faculty:self', '#', 'admin', '2023-05-29 13:17:27', '', NULL, '');
 INSERT INTO `sys_menu` VALUES (2051, '课时任务个人', 2023, 6, '2', NULL, NULL, 1, 0, 'C', '1', '0', 'financial:work:self', '#', 'admin', '2023-05-29 13:19:45', 'admin', '2023-05-29 13:20:52', '');
 
@@ -1035,11 +1044,11 @@ CREATE TABLE `sys_user`  (
 -- ----------------------------
 -- Records of sys_user
 -- ----------------------------
-INSERT INTO `sys_user` VALUES (1, 103, 'admin', '若依', '00', 'ry@163.com', '15888888888', '1', '', '$2a$10$7JB720yubVSZvUI0rEqK/.VqGOZTH.ulu33dHOiBE8ByOhJIrdAu2', '0', '0', '127.0.0.1', '2023-05-29 16:27:35', 'admin', '2023-05-28 07:54:27', '', '2023-05-29 16:27:35', '管理员', NULL);
+INSERT INTO `sys_user` VALUES (1, 103, 'admin', '若依', '00', 'ry@163.com', '15888888888', '1', '', '$2a$10$7JB720yubVSZvUI0rEqK/.VqGOZTH.ulu33dHOiBE8ByOhJIrdAu2', '0', '0', '127.0.0.1', '2023-05-29 19:18:35', 'admin', '2023-05-28 07:54:27', '', '2023-05-29 19:18:35', '管理员', NULL);
 INSERT INTO `sys_user` VALUES (2, 105, 'ry', '若依', '00', 'ry@qq.com', '15666666666', '1', '', '$2a$10$7JB720yubVSZvUI0rEqK/.VqGOZTH.ulu33dHOiBE8ByOhJIrdAu2', '0', '0', '127.0.0.1', '2023-05-28 07:54:27', 'admin', '2023-05-28 07:54:27', '', NULL, '测试员', NULL);
 INSERT INTO `sys_user` VALUES (100, NULL, '会计', '会计', '00', '', '', '0', '', '$2a$10$GIAJySInsBxv1mmg9FwDeOzmn.oVTnCGvngbwy0Uye2MJYj2hJsuK', '0', '0', '', NULL, 'admin', '2023-05-27 15:16:18', '', NULL, NULL, 2);
-INSERT INTO `sys_user` VALUES (101, NULL, '张三', '张三', '00', '', '', '0', '', '$2a$10$IDvnC7OcqO2h/cIiuyBvwe0iu8VoLH.sL.1htCChn9zdQ3NGhweJe', '0', '0', '127.0.0.1', '2023-05-29 15:50:36', 'admin', '2023-05-27 15:16:43', '', '2023-05-29 15:50:36', NULL, 1);
-INSERT INTO `sys_user` VALUES (102, NULL, '管理员', '管理员', '00', '', '', '0', '', '$2a$10$3qU6MrBmHx1DOD2vGym.cOpsKkuoom/giTLbAenY4BmmE0a2Izc1y', '0', '0', '127.0.0.1', '2023-05-29 16:25:25', 'admin', '2023-05-27 19:22:32', '', '2023-05-29 16:25:25', NULL, NULL);
+INSERT INTO `sys_user` VALUES (101, NULL, '张三', '张三', '00', '', '', '0', '', '$2a$10$IDvnC7OcqO2h/cIiuyBvwe0iu8VoLH.sL.1htCChn9zdQ3NGhweJe', '0', '0', '127.0.0.1', '2023-05-29 18:47:14', 'admin', '2023-05-27 15:16:43', '', '2023-05-29 18:47:13', NULL, 1);
+INSERT INTO `sys_user` VALUES (102, NULL, '管理员', '管理员', '00', '', '', '0', '', '$2a$10$3qU6MrBmHx1DOD2vGym.cOpsKkuoom/giTLbAenY4BmmE0a2Izc1y', '0', '0', '127.0.0.1', '2023-05-29 21:44:38', 'admin', '2023-05-27 19:22:32', '', '2023-05-29 21:44:37', NULL, NULL);
 INSERT INTO `sys_user` VALUES (103, NULL, '银行', '银行', '00', '', '', '0', '', '$2a$10$2.kU9IFrlDDZvxf63yUQEuPTZGeZcsrn99oR0Kf97IzoTS2MloovG', '0', '0', '', NULL, 'admin', '2023-05-27 19:23:11', '', NULL, NULL, NULL);
 INSERT INTO `sys_user` VALUES (104, NULL, '李四', '李四', '00', '', '', '0', '', '$2a$10$sznQVulcqjy97edpdmzpDuwUfY1aWSHBnv/HI8Hg7L1dY5uVi1w2u', '0', '0', '127.0.0.1', '2023-05-29 13:09:01', 'admin', '2023-05-28 15:15:59', '', '2023-05-29 13:09:01', NULL, NULL);
 INSERT INTO `sys_user` VALUES (105, NULL, '王五', '王五', '00', '', '', '0', '', '$2a$10$dp312W9GwZDhNFqdmvTkY.gkOtzoo0/sI9eTZ6h5hNNLKqPFaTNa.', '0', '0', '127.0.0.1', '2023-05-29 08:44:08', 'admin', '2023-05-28 15:27:55', '', '2023-05-29 08:44:08', NULL, 5);
