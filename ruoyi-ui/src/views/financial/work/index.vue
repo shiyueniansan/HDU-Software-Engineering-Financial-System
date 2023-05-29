@@ -17,6 +17,14 @@
           @keyup.enter.native="handleQuery"
         />
       </el-form-item>
+      <el-form-item label="教职工编号" prop="facultyId">
+        <el-input
+          v-model="queryParams.facultyId"
+          placeholder="请输入教职工编号"
+          clearable
+          @keyup.enter.native="handleQuery"
+        />
+      </el-form-item>
       <el-form-item>
         <el-button type="primary" icon="el-icon-search" size="mini" @click="handleQuery">搜索</el-button>
         <el-button icon="el-icon-refresh" size="mini" @click="resetQuery">重置</el-button>
@@ -74,6 +82,7 @@
       <el-table-column label="编号" align="center" prop="id" />
       <el-table-column label="描述" align="center" prop="des" />
       <el-table-column label="时长" align="center" prop="hour" />
+      <el-table-column label="教职工编号" align="center" prop="facultyId" />
       <el-table-column label="操作" align="center" class-name="small-padding fixed-width">
         <template slot-scope="scope">
           <el-button
@@ -110,6 +119,9 @@
         </el-form-item>
         <el-form-item label="时长" prop="hour">
           <el-input v-model="form.hour" placeholder="请输入时长" />
+        </el-form-item>
+        <el-form-item label="教职工编号" prop="facultyId">
+          <el-input v-model="form.facultyId" placeholder="请输入教职工编号" />
         </el-form-item>
       </el-form>
       <div slot="footer" class="dialog-footer">
@@ -150,7 +162,8 @@ export default {
         pageNum: 1,
         pageSize: 10,
         des: null,
-        hour: null
+        hour: null,
+        facultyId: null
       },
       // 表单参数
       form: {},
@@ -161,6 +174,9 @@ export default {
         ],
         hour: [
           { required: true, message: "时长不能为空", trigger: "blur" }
+        ],
+        facultyId: [
+          { required: true, message: "教职工编号不能为空", trigger: "blur" }
         ]
       }
     };
@@ -188,7 +204,8 @@ export default {
       this.form = {
         id: null,
         des: null,
-        hour: null
+        hour: null,
+        facultyId: null
       };
       this.resetForm("form");
     },

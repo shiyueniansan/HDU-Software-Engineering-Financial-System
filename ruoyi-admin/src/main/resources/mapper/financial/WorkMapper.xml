@@ -8,10 +8,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         <result property="id"    column="id"    />
         <result property="des"    column="des"    />
         <result property="hour"    column="hour"    />
+        <result property="facultyId"    column="faculty_id"    />
     </resultMap>
 
     <sql id="selectWorkVo">
-        select id, des, hour from work
+        select id, des, hour, faculty_id from work
     </sql>
 
     <select id="selectWorkList" parameterType="Work" resultMap="WorkResult">
@@ -19,6 +20,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         <where>  
             <if test="des != null  and des != ''"> and des = #{des}</if>
             <if test="hour != null "> and hour = #{hour}</if>
+            <if test="facultyId != null "> and faculty_id = #{facultyId}</if>
         </where>
     </select>
     
@@ -32,10 +34,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         <trim prefix="(" suffix=")" suffixOverrides=",">
             <if test="des != null and des != ''">des,</if>
             <if test="hour != null">hour,</if>
+            <if test="facultyId != null">faculty_id,</if>
          </trim>
         <trim prefix="values (" suffix=")" suffixOverrides=",">
             <if test="des != null and des != ''">#{des},</if>
             <if test="hour != null">#{hour},</if>
+            <if test="facultyId != null">#{facultyId},</if>
          </trim>
     </insert>
 
@@ -44,6 +48,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         <trim prefix="SET" suffixOverrides=",">
             <if test="des != null and des != ''">des = #{des},</if>
             <if test="hour != null">hour = #{hour},</if>
+            <if test="facultyId != null">faculty_id = #{facultyId},</if>
         </trim>
         where id = #{id}
     </update>

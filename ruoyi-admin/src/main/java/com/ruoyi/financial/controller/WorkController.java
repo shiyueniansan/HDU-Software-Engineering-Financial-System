@@ -24,8 +24,8 @@ import com.ruoyi.common.core.page.TableDataInfo;
 /**
  * 课时任务Controller
  * 
- * @author Keven
- * @date 2023-05-27
+ * @author ruoyi
+ * @date 2023-05-29
  */
 @RestController
 @RequestMapping("/financial/work")
