@@ -6,8 +6,8 @@ import com.ruoyi.financial.domain.Work;
 /**
  * 课时任务Service接口
  * 
- * @author Keven
- * @date 2023-05-27
+ * @author ruoyi
+ * @date 2023-05-29
  */
 public interface IWorkService 
 {

@@ -8,8 +8,8 @@ import com.ruoyi.common.core.domain.BaseEntity;
 /**
  * 课时任务对象 work
  * 
- * @author Keven
- * @date 2023-05-27
+ * @author ruoyi
+ * @date 2023-05-29
  */
 public class Work extends BaseEntity
 {
@@ -25,6 +25,10 @@ public class Work extends BaseEntity
     /** 时长 */
     @Excel(name = "时长")
     private Long hour;
+
+    /** 教职工编号 */
+    @Excel(name = "教职工编号")
+    private Long facultyId;
 
     public void setId(Long id) 
     {
@@ -53,6 +57,15 @@ public class Work extends BaseEntity
     {
         return hour;
     }
+    public void setFacultyId(Long facultyId) 
+    {
+        this.facultyId = facultyId;
+    }
+
+    public Long getFacultyId() 
+    {
+        return facultyId;
+    }
 
     @Override
     public String toString() {
@@ -60,6 +73,7 @@ public class Work extends BaseEntity
             .append("id", getId())
             .append("des", getDes())
             .append("hour", getHour())
+            .append("facultyId", getFacultyId())
             .toString();
     }
 }

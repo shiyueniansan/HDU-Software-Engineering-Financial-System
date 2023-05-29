@@ -58,6 +58,20 @@ public class FacultyController extends BaseController
 //    }
 
     /**
+     * 查询教职工列表
+     */
+    @PreAuthorize("@ss.hasPermi('financial:faculty:self')")
+    @GetMapping("/list")
+    public TableDataInfo self()
+    {
+        startPage();
+        LoginUser loginUser = getLoginUser();
+        Faculty faculty = getLoginUser().getUserId();
+        List<Faculty> list = facultyService.selectFacultyList(faculty);
+        return getDataTable(list);
+    }
+
+    /**
      * 导出教职工列表
      */
     @PreAuthorize("@ss.hasPermi('financial:faculty:export')")
