@@ -1,6 +1,6 @@
 <template>
   <div class="app-container">
-    <el-form :model="queryParams" ref="queryForm" size="small" :inline="true" v-show="showSearch" label-width="68px">
+    <el-form :model="queryParams" ref="queryForm" size="small" :inline="true" v-show="showSearch" label-width="68px" v-if="checkRole(['admin','root','bank'])">
       <el-form-item label="姓名" prop="name">
         <el-input
           v-model="queryParams.name"
@@ -109,26 +109,26 @@
 
     <el-table v-loading="loading" :data="facultyList" @selection-change="handleSelectionChange">
       <el-table-column type="selection" width="55" align="center" />
-      <el-table-column label="编号" align="center" prop="id" />
-      <el-table-column label="姓名" align="center" prop="name" />
-      <el-table-column label="教师/职工" align="center" prop="type">
+      <el-table-column label="编号" align="center" prop="id" v-if="checkRole(['admin','root','bank'])" />
+      <el-table-column label="姓名" align="center" prop="name" v-if="checkRole(['admin','root','bank'])" />
+      <el-table-column label="教师/职工" align="center" prop="type" v-if="checkRole(['admin','root','bank'])" >
         <template slot-scope="scope">
           <dict-tag :options="dict.type.faculty_type" :value="scope.row.type"/>
         </template>
       </el-table-column>
-      <el-table-column label="职务" align="center" prop="position">
+      <el-table-column label="职务" align="center" prop="position" v-if="checkRole(['admin','root','bank'])" >
         <template slot-scope="scope">
           <dict-tag :options="dict.type.faculty_position" :value="scope.row.position"/>
         </template>
       </el-table-column>
-      <el-table-column label="职称" align="center" prop="title">
+      <el-table-column label="职称" align="center" prop="title" v-if="checkRole(['admin','root','bank'])" >
         <template slot-scope="scope">
           <dict-tag :options="dict.type.faculty_title" :value="scope.row.title"/>
         </template>
       </el-table-column>
       <el-table-column label="月工资" align="center" prop="month" />
       <el-table-column label="年工资" align="center" prop="year" />
-      <el-table-column label="操作" align="center" class-name="small-padding fixed-width">
+      <el-table-column label="操作" align="center" class-name="small-padding fixed-width" v-if="checkRole(['admin','root','bank'])">
         <template slot-scope="scope">
           <el-button
             size="mini"
@@ -147,7 +147,7 @@
         </template>
       </el-table-column>
     </el-table>
-    
+
     <pagination
       v-show="total>0"
       :total="total"
@@ -203,6 +203,7 @@
 
 <script>
 import { listFaculty, getFaculty, delFaculty, addFaculty, updateFaculty } from "@/api/financial/faculty";
+import { checkPermi, checkRole } from "@/utils/permission"; // 权限判断函数
 
 export default {
   name: "Faculty",
@@ -255,6 +256,9 @@ export default {
     this.getList();
   },
   methods: {
+    // 权限判断
+    checkPermi,
+    checkRole,
     /** 查询教职工列表 */
     getList() {
       this.loading = true;

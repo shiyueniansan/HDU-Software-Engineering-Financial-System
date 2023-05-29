@@ -2,6 +2,8 @@ package com.ruoyi.financial.controller;
 
 import java.util.List;
 import javax.servlet.http.HttpServletResponse;
+
+import com.ruoyi.common.core.domain.model.LoginUser;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -23,7 +25,7 @@ import com.ruoyi.common.core.page.TableDataInfo;
 
 /**
  * 教职工Controller
- * 
+ *
  * @author Keven
  * @date 2023-05-27
  */
@@ -42,6 +44,20 @@ public class FacultyController extends BaseController
     public TableDataInfo list(Faculty faculty)
     {
         startPage();
+        List<Faculty> list = facultyService.selectFacultyList(faculty);
+        return getDataTable(list);
+    }
+
+    /**
+     * 查询教职工列表
+     */
+    @PreAuthorize("@ss.hasPermi('financial:faculty:self')")
+    @GetMapping("/list")
+    public TableDataInfo self()
+    {
+        startPage();
+        LoginUser loginUser = getLoginUser();
+        Faculty faculty = getLoginUser().getUserId();
         List<Faculty> list = facultyService.selectFacultyList(faculty);
         return getDataTable(list);
     }
