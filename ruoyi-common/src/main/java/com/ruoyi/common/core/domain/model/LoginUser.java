@@ -2,6 +2,8 @@ package com.ruoyi.common.core.domain.model;
 
 import java.util.Collection;
 import java.util.Set;
+
+import com.ruoyi.common.annotation.Excel;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import com.alibaba.fastjson2.annotation.JSONField;
@@ -9,7 +11,7 @@ import com.ruoyi.common.core.domain.entity.SysUser;
 
 /**
  * 登录用户身份权限
- * 
+ *
  * @author ruoyi
  */
 public class LoginUser implements UserDetails
@@ -67,6 +69,11 @@ public class LoginUser implements UserDetails
     private Set<String> permissions;
 
     /**
+     * 教职工编号
+     */
+    private Long facultyId;
+
+    /**
      * 用户信息
      */
     private SysUser user;
@@ -111,10 +118,11 @@ public class LoginUser implements UserDetails
         this.permissions = permissions;
     }
 
-    public LoginUser(Long userId, Long deptId, SysUser user, Set<String> permissions)
+    public LoginUser(Long userId, Long deptId, Long facultyId, SysUser user, Set<String> permissions)
     {
         this.userId = userId;
         this.deptId = deptId;
+        this.facultyId = facultyId;
         this.user = user;
         this.permissions = permissions;
     }
@@ -144,7 +152,7 @@ public class LoginUser implements UserDetails
 
     /**
      * 指定用户是否解锁,锁定的用户无法进行身份验证
-     * 
+     *
      * @return
      */
     @JSONField(serialize = false)
@@ -156,7 +164,7 @@ public class LoginUser implements UserDetails
 
     /**
      * 指示是否已过期的用户的凭据(密码),过期的凭据防止认证
-     * 
+     *
      * @return
      */
     @JSONField(serialize = false)
@@ -168,7 +176,7 @@ public class LoginUser implements UserDetails
 
     /**
      * 是否可用 ,禁用的用户不能身份验证
-     * 
+     *
      * @return
      */
     @JSONField(serialize = false)
@@ -246,6 +254,16 @@ public class LoginUser implements UserDetails
     public void setPermissions(Set<String> permissions)
     {
         this.permissions = permissions;
+    }
+
+    public Long getFacultyId()
+    {
+        return facultyId;
+    }
+
+    public void setFacultyId(Long facultyId)
+    {
+        this.facultyId = facultyId;
     }
 
     public SysUser getUser()
