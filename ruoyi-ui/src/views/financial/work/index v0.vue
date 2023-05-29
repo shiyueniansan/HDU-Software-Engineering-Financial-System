@@ -17,7 +17,7 @@
           @keyup.enter.native="handleQuery"
         />
       </el-form-item>
-      <el-form-item label="教职工编号" prop="facultyId"  v-if="checkRole(['admin','root','finance'])">
+      <el-form-item label="教职工编号" prop="facultyId" v-if="checkRole(['admin','root','finance'])">
         <el-input
           v-model="queryParams.facultyId"
           placeholder="请输入教职工编号"
@@ -82,7 +82,7 @@
       <el-table-column label="编号" align="center" prop="id" />
       <el-table-column label="描述" align="center" prop="des" />
       <el-table-column label="时长" align="center" prop="hour" />
-      <el-table-column label="教职工编号" align="center" prop="facultyId" v-if="checkRole(['admin','root','finance'])" />
+      <el-table-column label="教职工编号" align="center" prop="facultyId"  v-if="checkRole(['admin','root','finance'])" />
       <el-table-column label="操作" align="center" class-name="small-padding fixed-width">
         <template slot-scope="scope">
           <el-button
@@ -120,7 +120,7 @@
         <el-form-item label="时长" prop="hour">
           <el-input v-model="form.hour" placeholder="请输入时长" />
         </el-form-item>
-        <el-form-item label="教职工编号" prop="facultyId" v-if="checkRole(['admin','root','finance'])">
+        <el-form-item label="教职工编号" prop="facultyId" v-if="checkRole(['admin','root','finance'])" >
           <el-input v-model="form.facultyId" placeholder="请输入教职工编号" />
         </el-form-item>
       </el-form>
@@ -134,6 +134,7 @@
 
 <script>
 import { listWork, getWork, delWork, addWork, updateWork } from "@/api/financial/work";
+import { checkPermi, checkRole } from "@/utils/permission"; // 权限判断函数
 
 export default {
   name: "Work",
@@ -172,6 +173,12 @@ export default {
         des: [
           { required: true, message: "描述不能为空", trigger: "blur" }
         ],
+        hour: [
+          { required: true, message: "时长不能为空", trigger: "blur" }
+        ],
+        facultyId: [
+          { required: true, message: "教职工编号不能为空", trigger: "blur" }
+        ]
       }
     };
   },
@@ -179,6 +186,9 @@ export default {
     this.getList();
   },
   methods: {
+    // 权限判断
+    checkPermi,
+    checkRole,
     /** 查询课时任务列表 */
     getList() {
       this.loading = true;
