@@ -15,9 +15,6 @@ public class FacultyYearly extends BaseEntity
 {
     private static final long serialVersionUID = 1L;
 
-    /** 编号 */
-    private Long id;
-
     /** 教职工编号 */
     @Excel(name = "教职工编号")
     private Long facultyId;
@@ -42,15 +39,6 @@ public class FacultyYearly extends BaseEntity
     @Excel(name = "本年度累计实发工资")
     private Long netPay;
 
-    public void setId(Long id) 
-    {
-        this.id = id;
-    }
-
-    public Long getId() 
-    {
-        return id;
-    }
     public void setFacultyId(Long facultyId) 
     {
         this.facultyId = facultyId;
@@ -109,7 +97,6 @@ public class FacultyYearly extends BaseEntity
     @Override
     public String toString() {
         return new ToStringBuilder(this,ToStringStyle.MULTI_LINE_STYLE)
-            .append("id", getId())
             .append("facultyId", getFacultyId())
             .append("name", getName())
             .append("totalPay", getTotalPay())

@@ -10,9 +10,9 @@ export function listYearly(query) {
 }
 
 // 查询教职工年度详细
-export function getYearly(id) {
+export function getYearly(facultyId) {
   return request({
-    url: '/financial/yearly/' + id,
+    url: '/financial/yearly/' + facultyId,
     method: 'get'
   })
 }
@@ -36,9 +36,9 @@ export function updateYearly(data) {
 }
 
 // 删除教职工年度
-export function delYearly(id) {
+export function delYearly(facultyId) {
   return request({
-    url: '/financial/yearly/' + id,
+    url: '/financial/yearly/' + facultyId,
     method: 'delete'
   })
 }

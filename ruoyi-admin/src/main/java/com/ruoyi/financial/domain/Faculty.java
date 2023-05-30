@@ -34,28 +34,28 @@ public class Faculty extends BaseEntity
     @Excel(name = "职务")
     private Long job;
 
-    /** $column.columnComment */
-    @Excel(name = "${comment}", readConverterExp = "$column.readConverterExp()")
+    /** 基本工资 */
+    @Excel(name = "基本工资")
     private Long basicPay;
 
-    /** $column.columnComment */
-    @Excel(name = "${comment}", readConverterExp = "$column.readConverterExp()")
+    /** 生活补贴 */
+    @Excel(name = "生活补贴")
     private Long livingSubsidy;
 
-    /** $column.columnComment */
-    @Excel(name = "${comment}", readConverterExp = "$column.readConverterExp()")
+    /** 书报费 */
+    @Excel(name = "书报费")
     private Long readingSubsidy;
 
-    /** $column.columnComment */
-    @Excel(name = "${comment}", readConverterExp = "$column.readConverterExp()")
+    /** 交通费 */
+    @Excel(name = "交通费")
     private Long transportationSubsidy;
 
-    /** $column.columnComment */
-    @Excel(name = "${comment}", readConverterExp = "$column.readConverterExp()")
+    /** 洗理费 */
+    @Excel(name = "洗理费")
     private Long washingSubsidy;
 
-    /** $column.columnComment */
-    @Excel(name = "${comment}", readConverterExp = "$column.readConverterExp()")
+    /** 定额课时 */
+    @Excel(name = "定额课时")
     private Long quotaHour;
 
     public void setId(Long id) 

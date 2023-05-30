@@ -16,89 +16,89 @@ import com.ruoyi.common.annotation.Log;
 import com.ruoyi.common.core.controller.BaseController;
 import com.ruoyi.common.core.domain.AjaxResult;
 import com.ruoyi.common.enums.BusinessType;
-import com.ruoyi.financial.domain.FacultyMonthly;
-import com.ruoyi.financial.service.IFacultyMonthlyService;
+import com.ruoyi.financial.domain.Pay;
+import com.ruoyi.financial.service.IPayService;
 import com.ruoyi.common.utils.poi.ExcelUtil;
 import com.ruoyi.common.core.page.TableDataInfo;
 
 /**
- * 工资Controller
+ * 工资表Controller
  * 
  * @author Keven
  * @date 2023-05-30
  */
 @RestController
 @RequestMapping("/financial/pay")
-public class FacultyMonthlyController extends BaseController
+public class PayController extends BaseController
 {
     @Autowired
-    private IFacultyMonthlyService facultyMonthlyService;
+    private IPayService payService;
 
     /**
-     * 查询工资列表
+     * 查询工资表列表
      */
     @PreAuthorize("@ss.hasPermi('financial:pay:list')")
     @GetMapping("/list")
-    public TableDataInfo list(FacultyMonthly facultyMonthly)
+    public TableDataInfo list(Pay pay)
     {
         startPage();
-        List<FacultyMonthly> list = facultyMonthlyService.selectFacultyMonthlyList(facultyMonthly);
+        List<Pay> list = payService.selectPayList(pay);
         return getDataTable(list);
     }
 
     /**
-     * 导出工资列表
+     * 导出工资表列表
      */
     @PreAuthorize("@ss.hasPermi('financial:pay:export')")
-    @Log(title = "工资", businessType = BusinessType.EXPORT)
+    @Log(title = "工资表", businessType = BusinessType.EXPORT)
     @PostMapping("/export")
-    public void export(HttpServletResponse response, FacultyMonthly facultyMonthly)
+    public void export(HttpServletResponse response, Pay pay)
     {
-        List<FacultyMonthly> list = facultyMonthlyService.selectFacultyMonthlyList(facultyMonthly);
-        ExcelUtil<FacultyMonthly> util = new ExcelUtil<FacultyMonthly>(FacultyMonthly.class);
-        util.exportExcel(response, list, "工资数据");
+        List<Pay> list = payService.selectPayList(pay);
+        ExcelUtil<Pay> util = new ExcelUtil<Pay>(Pay.class);
+        util.exportExcel(response, list, "工资表数据");
     }
 
     /**
-     * 获取工资详细信息
+     * 获取工资表详细信息
      */
     @PreAuthorize("@ss.hasPermi('financial:pay:query')")
-    @GetMapping(value = "/{id}")
-    public AjaxResult getInfo(@PathVariable("id") Long id)
+    @GetMapping(value = "/{facultyId}")
+    public AjaxResult getInfo(@PathVariable("facultyId") Long facultyId)
     {
-        return success(facultyMonthlyService.selectFacultyMonthlyById(id));
+        return success(payService.selectPayByFacultyId(facultyId));
     }
 
     /**
-     * 新增工资
+     * 新增工资表
      */
     @PreAuthorize("@ss.hasPermi('financial:pay:add')")
-    @Log(title = "工资", businessType = BusinessType.INSERT)
+    @Log(title = "工资表", businessType = BusinessType.INSERT)
     @PostMapping
-    public AjaxResult add(@RequestBody FacultyMonthly facultyMonthly)
+    public AjaxResult add(@RequestBody Pay pay)
     {
-        return toAjax(facultyMonthlyService.insertFacultyMonthly(facultyMonthly));
+        return toAjax(payService.insertPay(pay));
     }
 
     /**
-     * 修改工资
+     * 修改工资表
      */
     @PreAuthorize("@ss.hasPermi('financial:pay:edit')")
-    @Log(title = "工资", businessType = BusinessType.UPDATE)
+    @Log(title = "工资表", businessType = BusinessType.UPDATE)
     @PutMapping
-    public AjaxResult edit(@RequestBody FacultyMonthly facultyMonthly)
+    public AjaxResult edit(@RequestBody Pay pay)
     {
-        return toAjax(facultyMonthlyService.updateFacultyMonthly(facultyMonthly));
+        return toAjax(payService.updatePay(pay));
     }
 
     /**
-     * 删除工资
+     * 删除工资表
      */
     @PreAuthorize("@ss.hasPermi('financial:pay:remove')")
-    @Log(title = "工资", businessType = BusinessType.DELETE)
-	@DeleteMapping("/{ids}")
-    public AjaxResult remove(@PathVariable Long[] ids)
+    @Log(title = "工资表", businessType = BusinessType.DELETE)
+	@DeleteMapping("/{facultyIds}")
+    public AjaxResult remove(@PathVariable Long[] facultyIds)
     {
-        return toAjax(facultyMonthlyService.deleteFacultyMonthlyByIds(ids));
+        return toAjax(payService.deletePayByFacultyIds(facultyIds));
     }
 }

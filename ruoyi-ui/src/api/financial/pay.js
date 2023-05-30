@@ -1,6 +1,6 @@
 import request from '@/utils/request'
 
-// 查询工资列表
+// 查询工资表列表
 export function listPay(query) {
   return request({
     url: '/financial/pay/list',
@@ -9,15 +9,15 @@ export function listPay(query) {
   })
 }
 
-// 查询工资详细
-export function getPay(id) {
+// 查询工资表详细
+export function getPay(facultyId) {
   return request({
-    url: '/financial/pay/' + id,
+    url: '/financial/pay/' + facultyId,
     method: 'get'
   })
 }
 
-// 新增工资
+// 新增工资表
 export function addPay(data) {
   return request({
     url: '/financial/pay',
@@ -26,7 +26,7 @@ export function addPay(data) {
   })
 }
 
-// 修改工资
+// 修改工资表
 export function updatePay(data) {
   return request({
     url: '/financial/pay',
@@ -35,10 +35,10 @@ export function updatePay(data) {
   })
 }
 
-// 删除工资
-export function delPay(id) {
+// 删除工资表
+export function delPay(facultyId) {
   return request({
-    url: '/financial/pay/' + id,
+    url: '/financial/pay/' + facultyId,
     method: 'delete'
   })
 }

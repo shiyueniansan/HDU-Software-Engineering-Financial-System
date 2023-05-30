@@ -22,13 +22,13 @@ public class FacultyYearlyServiceImpl implements IFacultyYearlyService
     /**
      * 查询教职工年度
      * 
-     * @param id 教职工年度主键
+     * @param facultyId 教职工年度主键
      * @return 教职工年度
      */
     @Override
-    public FacultyYearly selectFacultyYearlyById(Long id)
+    public FacultyYearly selectFacultyYearlyByFacultyId(Long facultyId)
     {
-        return facultyYearlyMapper.selectFacultyYearlyById(id);
+        return facultyYearlyMapper.selectFacultyYearlyByFacultyId(facultyId);
     }
 
     /**
@@ -70,24 +70,24 @@ public class FacultyYearlyServiceImpl implements IFacultyYearlyService
     /**
      * 批量删除教职工年度
      * 
-     * @param ids 需要删除的教职工年度主键
+     * @param facultyIds 需要删除的教职工年度主键
      * @return 结果
      */
     @Override
-    public int deleteFacultyYearlyByIds(Long[] ids)
+    public int deleteFacultyYearlyByFacultyIds(Long[] facultyIds)
     {
-        return facultyYearlyMapper.deleteFacultyYearlyByIds(ids);
+        return facultyYearlyMapper.deleteFacultyYearlyByFacultyIds(facultyIds);
     }
 
     /**
      * 删除教职工年度信息
      * 
-     * @param id 教职工年度主键
+     * @param facultyId 教职工年度主键
      * @return 结果
      */
     @Override
-    public int deleteFacultyYearlyById(Long id)
+    public int deleteFacultyYearlyByFacultyId(Long facultyId)
     {
-        return facultyYearlyMapper.deleteFacultyYearlyById(id);
+        return facultyYearlyMapper.deleteFacultyYearlyByFacultyId(facultyId);
     }
 }

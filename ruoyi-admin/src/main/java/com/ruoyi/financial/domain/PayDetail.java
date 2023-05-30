@@ -6,17 +6,14 @@ import com.ruoyi.common.annotation.Excel;
 import com.ruoyi.common.core.domain.BaseEntity;
 
 /**
- * 工资对象 faculty_monthly
+ * 工资明细表对象 faculty_monthly
  * 
  * @author Keven
  * @date 2023-05-30
  */
-public class FacultyMonthly extends BaseEntity
+public class PayDetail extends BaseEntity
 {
     private static final long serialVersionUID = 1L;
-
-    /** 编号 */
-    private Long id;
 
     /** 教职工编号 */
     @Excel(name = "教职工编号")
@@ -62,15 +59,6 @@ public class FacultyMonthly extends BaseEntity
     @Excel(name = "实发工资")
     private Long netPay;
 
-    public void setId(Long id) 
-    {
-        this.id = id;
-    }
-
-    public Long getId() 
-    {
-        return id;
-    }
     public void setFacultyId(Long facultyId) 
     {
         this.facultyId = facultyId;
@@ -174,7 +162,6 @@ public class FacultyMonthly extends BaseEntity
     @Override
     public String toString() {
         return new ToStringBuilder(this,ToStringStyle.MULTI_LINE_STYLE)
-            .append("id", getId())
             .append("facultyId", getFacultyId())
             .append("name", getName())
             .append("month", getMonth())

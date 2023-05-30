@@ -39,50 +39,50 @@
           />
         </el-select>
       </el-form-item>
-      <el-form-item label="${comment}" prop="basicPay">
+      <el-form-item label="基本工资" prop="basicPay">
         <el-input
           v-model="queryParams.basicPay"
-          placeholder="请输入${comment}"
+          placeholder="请输入基本工资"
           clearable
           @keyup.enter.native="handleQuery"
         />
       </el-form-item>
-      <el-form-item label="${comment}" prop="livingSubsidy">
+      <el-form-item label="生活补贴" prop="livingSubsidy">
         <el-input
           v-model="queryParams.livingSubsidy"
-          placeholder="请输入${comment}"
+          placeholder="请输入生活补贴"
           clearable
           @keyup.enter.native="handleQuery"
         />
       </el-form-item>
-      <el-form-item label="${comment}" prop="readingSubsidy">
+      <el-form-item label="书报费" prop="readingSubsidy">
         <el-input
           v-model="queryParams.readingSubsidy"
-          placeholder="请输入${comment}"
+          placeholder="请输入书报费"
           clearable
           @keyup.enter.native="handleQuery"
         />
       </el-form-item>
-      <el-form-item label="${comment}" prop="transportationSubsidy">
+      <el-form-item label="交通费" prop="transportationSubsidy">
         <el-input
           v-model="queryParams.transportationSubsidy"
-          placeholder="请输入${comment}"
+          placeholder="请输入交通费"
           clearable
           @keyup.enter.native="handleQuery"
         />
       </el-form-item>
-      <el-form-item label="${comment}" prop="washingSubsidy">
+      <el-form-item label="洗理费" prop="washingSubsidy">
         <el-input
           v-model="queryParams.washingSubsidy"
-          placeholder="请输入${comment}"
+          placeholder="请输入洗理费"
           clearable
           @keyup.enter.native="handleQuery"
         />
       </el-form-item>
-      <el-form-item label="${comment}" prop="quotaHour">
+      <el-form-item label="定额课时" prop="quotaHour">
         <el-input
           v-model="queryParams.quotaHour"
-          placeholder="请输入${comment}"
+          placeholder="请输入定额课时"
           clearable
           @keyup.enter.native="handleQuery"
         />
@@ -158,12 +158,12 @@
           <dict-tag :options="dict.type.faculty_job" :value="scope.row.job"/>
         </template>
       </el-table-column>
-      <el-table-column label="${comment}" align="center" prop="basicPay" />
-      <el-table-column label="${comment}" align="center" prop="livingSubsidy" />
-      <el-table-column label="${comment}" align="center" prop="readingSubsidy" />
-      <el-table-column label="${comment}" align="center" prop="transportationSubsidy" />
-      <el-table-column label="${comment}" align="center" prop="washingSubsidy" />
-      <el-table-column label="${comment}" align="center" prop="quotaHour" />
+      <el-table-column label="基本工资" align="center" prop="basicPay" />
+      <el-table-column label="生活补贴" align="center" prop="livingSubsidy" />
+      <el-table-column label="书报费" align="center" prop="readingSubsidy" />
+      <el-table-column label="交通费" align="center" prop="transportationSubsidy" />
+      <el-table-column label="洗理费" align="center" prop="washingSubsidy" />
+      <el-table-column label="定额课时" align="center" prop="quotaHour" />
       <el-table-column label="操作" align="center" class-name="small-padding fixed-width">
         <template slot-scope="scope">
           <el-button
@@ -228,23 +228,23 @@
             ></el-option>
           </el-select>
         </el-form-item>
-        <el-form-item label="${comment}" prop="basicPay">
-          <el-input v-model="form.basicPay" placeholder="请输入${comment}" />
+        <el-form-item label="基本工资" prop="basicPay">
+          <el-input v-model="form.basicPay" placeholder="请输入基本工资" />
         </el-form-item>
-        <el-form-item label="${comment}" prop="livingSubsidy">
-          <el-input v-model="form.livingSubsidy" placeholder="请输入${comment}" />
+        <el-form-item label="生活补贴" prop="livingSubsidy">
+          <el-input v-model="form.livingSubsidy" placeholder="请输入生活补贴" />
         </el-form-item>
-        <el-form-item label="${comment}" prop="readingSubsidy">
-          <el-input v-model="form.readingSubsidy" placeholder="请输入${comment}" />
+        <el-form-item label="书报费" prop="readingSubsidy">
+          <el-input v-model="form.readingSubsidy" placeholder="请输入书报费" />
         </el-form-item>
-        <el-form-item label="${comment}" prop="transportationSubsidy">
-          <el-input v-model="form.transportationSubsidy" placeholder="请输入${comment}" />
+        <el-form-item label="交通费" prop="transportationSubsidy">
+          <el-input v-model="form.transportationSubsidy" placeholder="请输入交通费" />
         </el-form-item>
-        <el-form-item label="${comment}" prop="washingSubsidy">
-          <el-input v-model="form.washingSubsidy" placeholder="请输入${comment}" />
+        <el-form-item label="洗理费" prop="washingSubsidy">
+          <el-input v-model="form.washingSubsidy" placeholder="请输入洗理费" />
         </el-form-item>
-        <el-form-item label="${comment}" prop="quotaHour">
-          <el-input v-model="form.quotaHour" placeholder="请输入${comment}" />
+        <el-form-item label="定额课时" prop="quotaHour">
+          <el-input v-model="form.quotaHour" placeholder="请输入定额课时" />
         </el-form-item>
       </el-form>
       <div slot="footer" class="dialog-footer">

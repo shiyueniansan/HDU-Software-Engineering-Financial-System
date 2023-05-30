@@ -63,10 +63,10 @@ public class FacultyYearlyController extends BaseController
      * 获取教职工年度详细信息
      */
     @PreAuthorize("@ss.hasPermi('financial:yearly:query')")
-    @GetMapping(value = "/{id}")
-    public AjaxResult getInfo(@PathVariable("id") Long id)
+    @GetMapping(value = "/{facultyId}")
+    public AjaxResult getInfo(@PathVariable("facultyId") Long facultyId)
     {
-        return success(facultyYearlyService.selectFacultyYearlyById(id));
+        return success(facultyYearlyService.selectFacultyYearlyByFacultyId(facultyId));
     }
 
     /**
@@ -96,9 +96,9 @@ public class FacultyYearlyController extends BaseController
      */
     @PreAuthorize("@ss.hasPermi('financial:yearly:remove')")
     @Log(title = "教职工年度", businessType = BusinessType.DELETE)
-	@DeleteMapping("/{ids}")
-    public AjaxResult remove(@PathVariable Long[] ids)
+	@DeleteMapping("/{facultyIds}")
+    public AjaxResult remove(@PathVariable Long[] facultyIds)
     {
-        return toAjax(facultyYearlyService.deleteFacultyYearlyByIds(ids));
+        return toAjax(facultyYearlyService.deleteFacultyYearlyByFacultyIds(facultyIds));
     }
 }

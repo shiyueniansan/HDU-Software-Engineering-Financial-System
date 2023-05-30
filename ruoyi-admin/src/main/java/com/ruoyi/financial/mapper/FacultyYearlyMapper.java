@@ -14,10 +14,10 @@ public interface FacultyYearlyMapper
     /**
      * 查询教职工年度
      * 
-     * @param id 教职工年度主键
+     * @param facultyId 教职工年度主键
      * @return 教职工年度
      */
-    public FacultyYearly selectFacultyYearlyById(Long id);
+    public FacultyYearly selectFacultyYearlyByFacultyId(Long facultyId);
 
     /**
      * 查询教职工年度列表
@@ -46,16 +46,16 @@ public interface FacultyYearlyMapper
     /**
      * 删除教职工年度
      * 
-     * @param id 教职工年度主键
+     * @param facultyId 教职工年度主键
      * @return 结果
      */
-    public int deleteFacultyYearlyById(Long id);
+    public int deleteFacultyYearlyByFacultyId(Long facultyId);
 
     /**
      * 批量删除教职工年度
      * 
-     * @param ids 需要删除的数据主键集合
+     * @param facultyIds 需要删除的数据主键集合
      * @return 结果
      */
-    public int deleteFacultyYearlyByIds(Long[] ids);
+    public int deleteFacultyYearlyByFacultyIds(Long[] facultyIds);
 }

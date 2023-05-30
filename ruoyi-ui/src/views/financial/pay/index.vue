@@ -25,62 +25,6 @@
           @keyup.enter.native="handleQuery"
         />
       </el-form-item>
-      <el-form-item label="课时费" prop="teacherPay">
-        <el-input
-          v-model="queryParams.teacherPay"
-          placeholder="请输入课时费"
-          clearable
-          @keyup.enter.native="handleQuery"
-        />
-      </el-form-item>
-      <el-form-item label="岗位津贴" prop="staffPay">
-        <el-input
-          v-model="queryParams.staffPay"
-          placeholder="请输入岗位津贴"
-          clearable
-          @keyup.enter.native="handleQuery"
-        />
-      </el-form-item>
-      <el-form-item label="超额课时费" prop="extraTeacherPay">
-        <el-input
-          v-model="queryParams.extraTeacherPay"
-          placeholder="请输入超额课时费"
-          clearable
-          @keyup.enter.native="handleQuery"
-        />
-      </el-form-item>
-      <el-form-item label="工资总额" prop="totalPay">
-        <el-input
-          v-model="queryParams.totalPay"
-          placeholder="请输入工资总额"
-          clearable
-          @keyup.enter.native="handleQuery"
-        />
-      </el-form-item>
-      <el-form-item label="个人所得税" prop="tax">
-        <el-input
-          v-model="queryParams.tax"
-          placeholder="请输入个人所得税"
-          clearable
-          @keyup.enter.native="handleQuery"
-        />
-      </el-form-item>
-      <el-form-item label="住房公积金" prop="housing">
-        <el-input
-          v-model="queryParams.housing"
-          placeholder="请输入住房公积金"
-          clearable
-          @keyup.enter.native="handleQuery"
-        />
-      </el-form-item>
-      <el-form-item label="保险费" prop="insurance">
-        <el-input
-          v-model="queryParams.insurance"
-          placeholder="请输入保险费"
-          clearable
-          @keyup.enter.native="handleQuery"
-        />
-      </el-form-item>
       <el-form-item label="实发工资" prop="netPay">
         <el-input
           v-model="queryParams.netPay"
@@ -143,17 +87,9 @@
 
     <el-table v-loading="loading" :data="payList" @selection-change="handleSelectionChange">
       <el-table-column type="selection" width="55" align="center" />
-      <el-table-column label="编号" align="center" prop="id" />
       <el-table-column label="教职工编号" align="center" prop="facultyId" />
       <el-table-column label="姓名" align="center" prop="name" />
       <el-table-column label="月份" align="center" prop="month" />
-      <el-table-column label="课时费" align="center" prop="teacherPay" />
-      <el-table-column label="岗位津贴" align="center" prop="staffPay" />
-      <el-table-column label="超额课时费" align="center" prop="extraTeacherPay" />
-      <el-table-column label="工资总额" align="center" prop="totalPay" />
-      <el-table-column label="个人所得税" align="center" prop="tax" />
-      <el-table-column label="住房公积金" align="center" prop="housing" />
-      <el-table-column label="保险费" align="center" prop="insurance" />
       <el-table-column label="实发工资" align="center" prop="netPay" />
       <el-table-column label="操作" align="center" class-name="small-padding fixed-width">
         <template slot-scope="scope">
@@ -183,42 +119,9 @@
       @pagination="getList"
     />
 
-    <!-- 添加或修改工资对话框 -->
+    <!-- 添加或修改工资表对话框 -->
     <el-dialog :title="title" :visible.sync="open" width="500px" append-to-body>
       <el-form ref="form" :model="form" :rules="rules" label-width="80px">
-        <el-form-item label="教职工编号" prop="facultyId">
-          <el-input v-model="form.facultyId" placeholder="请输入教职工编号" />
-        </el-form-item>
-        <el-form-item label="姓名" prop="name">
-          <el-input v-model="form.name" placeholder="请输入姓名" />
-        </el-form-item>
-        <el-form-item label="月份" prop="month">
-          <el-input v-model="form.month" placeholder="请输入月份" />
-        </el-form-item>
-        <el-form-item label="课时费" prop="teacherPay">
-          <el-input v-model="form.teacherPay" placeholder="请输入课时费" />
-        </el-form-item>
-        <el-form-item label="岗位津贴" prop="staffPay">
-          <el-input v-model="form.staffPay" placeholder="请输入岗位津贴" />
-        </el-form-item>
-        <el-form-item label="超额课时费" prop="extraTeacherPay">
-          <el-input v-model="form.extraTeacherPay" placeholder="请输入超额课时费" />
-        </el-form-item>
-        <el-form-item label="工资总额" prop="totalPay">
-          <el-input v-model="form.totalPay" placeholder="请输入工资总额" />
-        </el-form-item>
-        <el-form-item label="个人所得税" prop="tax">
-          <el-input v-model="form.tax" placeholder="请输入个人所得税" />
-        </el-form-item>
-        <el-form-item label="住房公积金" prop="housing">
-          <el-input v-model="form.housing" placeholder="请输入住房公积金" />
-        </el-form-item>
-        <el-form-item label="保险费" prop="insurance">
-          <el-input v-model="form.insurance" placeholder="请输入保险费" />
-        </el-form-item>
-        <el-form-item label="实发工资" prop="netPay">
-          <el-input v-model="form.netPay" placeholder="请输入实发工资" />
-        </el-form-item>
       </el-form>
       <div slot="footer" class="dialog-footer">
         <el-button type="primary" @click="submitForm">确 定</el-button>
@@ -247,7 +150,7 @@ export default {
       showSearch: true,
       // 总条数
       total: 0,
-      // 工资表格数据
+      // 工资表表格数据
       payList: [],
       // 弹出层标题
       title: "",
@@ -260,28 +163,12 @@ export default {
         facultyId: null,
         name: null,
         month: null,
-        teacherPay: null,
-        staffPay: null,
-        extraTeacherPay: null,
-        totalPay: null,
-        tax: null,
-        housing: null,
-        insurance: null,
         netPay: null
       },
       // 表单参数
       form: {},
       // 表单校验
       rules: {
-        facultyId: [
-          { required: true, message: "教职工编号不能为空", trigger: "blur" }
-        ],
-        name: [
-          { required: true, message: "姓名不能为空", trigger: "blur" }
-        ],
-        month: [
-          { required: true, message: "月份不能为空", trigger: "blur" }
-        ],
       }
     };
   },
@@ -289,7 +176,7 @@ export default {
     this.getList();
   },
   methods: {
-    /** 查询工资列表 */
+    /** 查询工资表列表 */
     getList() {
       this.loading = true;
       listPay(this.queryParams).then(response => {
@@ -306,7 +193,6 @@ export default {
     // 表单重置
     reset() {
       this.form = {
-        id: null,
         facultyId: null,
         name: null,
         month: null,
@@ -333,7 +219,7 @@ export default {
     },
     // 多选框选中数据
     handleSelectionChange(selection) {
-      this.ids = selection.map(item => item.id)
+      this.ids = selection.map(item => item.facultyId)
       this.single = selection.length!==1
       this.multiple = !selection.length
     },
@@ -341,23 +227,23 @@ export default {
     handleAdd() {
       this.reset();
       this.open = true;
-      this.title = "添加工资";
+      this.title = "添加工资表";
     },
     /** 修改按钮操作 */
     handleUpdate(row) {
       this.reset();
-      const id = row.id || this.ids
-      getPay(id).then(response => {
+      const facultyId = row.facultyId || this.ids
+      getPay(facultyId).then(response => {
         this.form = response.data;
         this.open = true;
-        this.title = "修改工资";
+        this.title = "修改工资表";
       });
     },
     /** 提交按钮 */
     submitForm() {
       this.$refs["form"].validate(valid => {
         if (valid) {
-          if (this.form.id != null) {
+          if (this.form.facultyId != null) {
             updatePay(this.form).then(response => {
               this.$modal.msgSuccess("修改成功");
               this.open = false;
@@ -375,9 +261,9 @@ export default {
     },
     /** 删除按钮操作 */
     handleDelete(row) {
-      const ids = row.id || this.ids;
-      this.$modal.confirm('是否确认删除工资编号为"' + ids + '"的数据项？').then(function() {
-        return delPay(ids);
+      const facultyIds = row.facultyId || this.ids;
+      this.$modal.confirm('是否确认删除工资表编号为"' + facultyIds + '"的数据项？').then(function() {
+        return delPay(facultyIds);
       }).then(() => {
         this.getList();
         this.$modal.msgSuccess("删除成功");
