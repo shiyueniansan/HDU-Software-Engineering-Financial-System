@@ -9,7 +9,7 @@ import com.ruoyi.common.core.domain.BaseEntity;
  * 全部工资明细表对象 faculty_monthly
  * 
  * @author Keven
- * @date 2023-05-30
+ * @date 2023-05-31
  */
 public class PayDetails extends BaseEntity
 {
@@ -26,6 +26,34 @@ public class PayDetails extends BaseEntity
     /** 月份 */
     @Excel(name = "月份")
     private Long month;
+
+    /** 基本工资 */
+    @Excel(name = "基本工资")
+    private Long basicPay;
+
+    /** 职务 */
+    @Excel(name = "职务")
+    private Long job;
+
+    /** 职称 */
+    @Excel(name = "职称")
+    private Long title;
+
+    /** 生活补贴 */
+    @Excel(name = "生活补贴")
+    private Long livingSubsidy;
+
+    /** 书报费 */
+    @Excel(name = "书报费")
+    private Long readingSubsidy;
+
+    /** 交通费 */
+    @Excel(name = "交通费")
+    private Long transportationSubsidy;
+
+    /** 洗理费 */
+    @Excel(name = "洗理费")
+    private Long washingSubsidy;
 
     /** 课时费 */
     @Excel(name = "课时费")
@@ -85,6 +113,69 @@ public class PayDetails extends BaseEntity
     public Long getMonth() 
     {
         return month;
+    }
+    public void setBasicPay(Long basicPay) 
+    {
+        this.basicPay = basicPay;
+    }
+
+    public Long getBasicPay() 
+    {
+        return basicPay;
+    }
+    public void setJob(Long job) 
+    {
+        this.job = job;
+    }
+
+    public Long getJob() 
+    {
+        return job;
+    }
+    public void setTitle(Long title) 
+    {
+        this.title = title;
+    }
+
+    public Long getTitle() 
+    {
+        return title;
+    }
+    public void setLivingSubsidy(Long livingSubsidy) 
+    {
+        this.livingSubsidy = livingSubsidy;
+    }
+
+    public Long getLivingSubsidy() 
+    {
+        return livingSubsidy;
+    }
+    public void setReadingSubsidy(Long readingSubsidy) 
+    {
+        this.readingSubsidy = readingSubsidy;
+    }
+
+    public Long getReadingSubsidy() 
+    {
+        return readingSubsidy;
+    }
+    public void setTransportationSubsidy(Long transportationSubsidy) 
+    {
+        this.transportationSubsidy = transportationSubsidy;
+    }
+
+    public Long getTransportationSubsidy() 
+    {
+        return transportationSubsidy;
+    }
+    public void setWashingSubsidy(Long washingSubsidy) 
+    {
+        this.washingSubsidy = washingSubsidy;
+    }
+
+    public Long getWashingSubsidy() 
+    {
+        return washingSubsidy;
     }
     public void setTeacherPay(Long teacherPay) 
     {
@@ -165,6 +256,13 @@ public class PayDetails extends BaseEntity
             .append("facultyId", getFacultyId())
             .append("name", getName())
             .append("month", getMonth())
+            .append("basicPay", getBasicPay())
+            .append("job", getJob())
+            .append("title", getTitle())
+            .append("livingSubsidy", getLivingSubsidy())
+            .append("readingSubsidy", getReadingSubsidy())
+            .append("transportationSubsidy", getTransportationSubsidy())
+            .append("washingSubsidy", getWashingSubsidy())
             .append("teacherPay", getTeacherPay())
             .append("staffPay", getStaffPay())
             .append("extraTeacherPay", getExtraTeacherPay())

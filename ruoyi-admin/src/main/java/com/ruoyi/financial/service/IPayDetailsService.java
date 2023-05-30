@@ -7,7 +7,7 @@ import com.ruoyi.financial.domain.PayDetails;
  * 全部工资明细表Service接口
  * 
  * @author Keven
- * @date 2023-05-30
+ * @date 2023-05-31
  */
 public interface IPayDetailsService 
 {

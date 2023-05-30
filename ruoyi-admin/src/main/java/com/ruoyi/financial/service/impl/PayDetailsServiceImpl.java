@@ -11,7 +11,7 @@ import com.ruoyi.financial.service.IPayDetailsService;
  * 全部工资明细表Service业务层处理
  * 
  * @author Keven
- * @date 2023-05-30
+ * @date 2023-05-31
  */
 @Service
 public class PayDetailsServiceImpl implements IPayDetailsService 

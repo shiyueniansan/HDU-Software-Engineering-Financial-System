@@ -25,7 +25,7 @@ import com.ruoyi.common.core.page.TableDataInfo;
  * 工资明细表Controller
  * 
  * @author Keven
- * @date 2023-05-30
+ * @date 2023-05-31
  */
 @RestController
 @RequestMapping("/financial/payDetail")

@@ -206,6 +206,7 @@
       <el-table-column label="教职工编号" align="center" prop="facultyId" />
       <el-table-column label="姓名" align="center" prop="name" />
       <el-table-column label="月份" align="center" prop="month" />
+      <el-table-column label="基本工资" align="center" prop="basicPay" />
       <el-table-column label="职务" align="center" prop="job">
         <template slot-scope="scope">
           <dict-tag :options="dict.type.faculty_job" :value="scope.row.job"/>
@@ -216,7 +217,6 @@
           <dict-tag :options="dict.type.faculty_title" :value="scope.row.title"/>
         </template>
       </el-table-column>
-      <el-table-column label="基本工资" align="center" prop="basicPay" />
       <el-table-column label="生活补贴" align="center" prop="livingSubsidy" />
       <el-table-column label="书报费" align="center" prop="readingSubsidy" />
       <el-table-column label="交通费" align="center" prop="transportationSubsidy" />
@@ -248,7 +248,7 @@
         </template>
       </el-table-column>
     </el-table>
-
+    
     <pagination
       v-show="total>0"
       :total="total"
@@ -274,6 +274,7 @@ import { listPayDetails, getPayDetails, delPayDetails, addPayDetails, updatePayD
 
 export default {
   name: "PayDetails",
+  dicts: ['faculty_job', 'faculty_title'],
   data() {
     return {
       // 遮罩层
@@ -301,6 +302,13 @@ export default {
         facultyId: null,
         name: null,
         month: null,
+        basicPay: null,
+        job: null,
+        title: null,
+        livingSubsidy: null,
+        readingSubsidy: null,
+        transportationSubsidy: null,
+        washingSubsidy: null,
         teacherPay: null,
         staffPay: null,
         extraTeacherPay: null,
@@ -341,6 +349,13 @@ export default {
         facultyId: null,
         name: null,
         month: null,
+        basicPay: null,
+        job: null,
+        title: null,
+        livingSubsidy: null,
+        readingSubsidy: null,
+        transportationSubsidy: null,
+        washingSubsidy: null,
         teacherPay: null,
         staffPay: null,
         extraTeacherPay: null,
