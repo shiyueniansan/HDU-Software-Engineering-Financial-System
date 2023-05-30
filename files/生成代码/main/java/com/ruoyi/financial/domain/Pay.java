@@ -9,7 +9,7 @@ import com.ruoyi.common.core.domain.BaseEntity;
  * 工资表对象 faculty_monthly
  * 
  * @author Keven
- * @date 2023-05-30
+ * @date 2023-05-31
  */
 public class Pay extends BaseEntity
 {
@@ -26,27 +26,6 @@ public class Pay extends BaseEntity
     /** 月份 */
     @Excel(name = "月份")
     private Long month;
-
-    /** 课时费 */
-    private Long teacherPay;
-
-    /** 岗位津贴 */
-    private Long staffPay;
-
-    /** 超额课时费 */
-    private Long extraTeacherPay;
-
-    /** 工资总额 */
-    private Long totalPay;
-
-    /** 个人所得税 */
-    private Long tax;
-
-    /** 住房公积金 */
-    private Long housing;
-
-    /** 保险费 */
-    private Long insurance;
 
     /** 实发工资 */
     @Excel(name = "实发工资")
@@ -79,69 +58,6 @@ public class Pay extends BaseEntity
     {
         return month;
     }
-    public void setTeacherPay(Long teacherPay) 
-    {
-        this.teacherPay = teacherPay;
-    }
-
-    public Long getTeacherPay() 
-    {
-        return teacherPay;
-    }
-    public void setStaffPay(Long staffPay) 
-    {
-        this.staffPay = staffPay;
-    }
-
-    public Long getStaffPay() 
-    {
-        return staffPay;
-    }
-    public void setExtraTeacherPay(Long extraTeacherPay) 
-    {
-        this.extraTeacherPay = extraTeacherPay;
-    }
-
-    public Long getExtraTeacherPay() 
-    {
-        return extraTeacherPay;
-    }
-    public void setTotalPay(Long totalPay) 
-    {
-        this.totalPay = totalPay;
-    }
-
-    public Long getTotalPay() 
-    {
-        return totalPay;
-    }
-    public void setTax(Long tax) 
-    {
-        this.tax = tax;
-    }
-
-    public Long getTax() 
-    {
-        return tax;
-    }
-    public void setHousing(Long housing) 
-    {
-        this.housing = housing;
-    }
-
-    public Long getHousing() 
-    {
-        return housing;
-    }
-    public void setInsurance(Long insurance) 
-    {
-        this.insurance = insurance;
-    }
-
-    public Long getInsurance() 
-    {
-        return insurance;
-    }
     public void setNetPay(Long netPay) 
     {
         this.netPay = netPay;
@@ -158,13 +74,6 @@ public class Pay extends BaseEntity
             .append("facultyId", getFacultyId())
             .append("name", getName())
             .append("month", getMonth())
-            .append("teacherPay", getTeacherPay())
-            .append("staffPay", getStaffPay())
-            .append("extraTeacherPay", getExtraTeacherPay())
-            .append("totalPay", getTotalPay())
-            .append("tax", getTax())
-            .append("housing", getHousing())
-            .append("insurance", getInsurance())
             .append("netPay", getNetPay())
             .toString();
     }

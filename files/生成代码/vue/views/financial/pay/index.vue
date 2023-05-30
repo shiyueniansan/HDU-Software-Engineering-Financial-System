@@ -196,13 +196,6 @@ export default {
         facultyId: null,
         name: null,
         month: null,
-        teacherPay: null,
-        staffPay: null,
-        extraTeacherPay: null,
-        totalPay: null,
-        tax: null,
-        housing: null,
-        insurance: null,
         netPay: null
       };
       this.resetForm("form");

@@ -8,18 +8,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         <result property="facultyId"    column="faculty_id"    />
         <result property="name"    column="name"    />
         <result property="month"    column="month"    />
-        <result property="teacherPay"    column="teacher_pay"    />
-        <result property="staffPay"    column="staff_pay"    />
-        <result property="extraTeacherPay"    column="extra_teacher_pay"    />
-        <result property="totalPay"    column="total_pay"    />
-        <result property="tax"    column="tax"    />
-        <result property="housing"    column="housing"    />
-        <result property="insurance"    column="insurance"    />
         <result property="netPay"    column="net_pay"    />
     </resultMap>
 
     <sql id="selectPayVo">
-        select faculty_id, name, month, teacher_pay, staff_pay, extra_teacher_pay, total_pay, tax, housing, insurance, net_pay from faculty_monthly
+        select faculty_id, name, month, net_pay from faculty_monthly
     </sql>
 
     <select id="selectPayList" parameterType="Pay" resultMap="PayResult">
@@ -43,26 +36,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             <if test="facultyId != null">faculty_id,</if>
             <if test="name != null">name,</if>
             <if test="month != null">month,</if>
-            <if test="teacherPay != null">teacher_pay,</if>
-            <if test="staffPay != null">staff_pay,</if>
-            <if test="extraTeacherPay != null">extra_teacher_pay,</if>
-            <if test="totalPay != null">total_pay,</if>
-            <if test="tax != null">tax,</if>
-            <if test="housing != null">housing,</if>
-            <if test="insurance != null">insurance,</if>
             <if test="netPay != null">net_pay,</if>
          </trim>
         <trim prefix="values (" suffix=")" suffixOverrides=",">
             <if test="facultyId != null">#{facultyId},</if>
             <if test="name != null">#{name},</if>
             <if test="month != null">#{month},</if>
-            <if test="teacherPay != null">#{teacherPay},</if>
-            <if test="staffPay != null">#{staffPay},</if>
-            <if test="extraTeacherPay != null">#{extraTeacherPay},</if>
-            <if test="totalPay != null">#{totalPay},</if>
-            <if test="tax != null">#{tax},</if>
-            <if test="housing != null">#{housing},</if>
-            <if test="insurance != null">#{insurance},</if>
             <if test="netPay != null">#{netPay},</if>
          </trim>
     </insert>
@@ -72,13 +51,6 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         <trim prefix="SET" suffixOverrides=",">
             <if test="name != null">name = #{name},</if>
             <if test="month != null">month = #{month},</if>
-            <if test="teacherPay != null">teacher_pay = #{teacherPay},</if>
-            <if test="staffPay != null">staff_pay = #{staffPay},</if>
-            <if test="extraTeacherPay != null">extra_teacher_pay = #{extraTeacherPay},</if>
-            <if test="totalPay != null">total_pay = #{totalPay},</if>
-            <if test="tax != null">tax = #{tax},</if>
-            <if test="housing != null">housing = #{housing},</if>
-            <if test="insurance != null">insurance = #{insurance},</if>
             <if test="netPay != null">net_pay = #{netPay},</if>
         </trim>
         where faculty_id = #{facultyId}
