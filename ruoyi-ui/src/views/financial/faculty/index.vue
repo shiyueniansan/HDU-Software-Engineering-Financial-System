@@ -19,20 +19,20 @@
           />
         </el-select>
       </el-form-item>
-      <el-form-item label="职称" prop="title">
-        <el-select v-model="queryParams.title" placeholder="请选择职称" clearable>
+      <el-form-item label="职务" prop="job">
+        <el-select v-model="queryParams.job" placeholder="请选择职务" clearable>
           <el-option
-            v-for="dict in dict.type.faculty_title"
+            v-for="dict in dict.type.faculty_job"
             :key="dict.value"
             :label="dict.label"
             :value="dict.value"
           />
         </el-select>
       </el-form-item>
-      <el-form-item label="职务" prop="job">
-        <el-select v-model="queryParams.job" placeholder="请选择职务" clearable>
+      <el-form-item label="职称" prop="title">
+        <el-select v-model="queryParams.title" placeholder="请选择职称" clearable>
           <el-option
-            v-for="dict in dict.type.faculty_job"
+            v-for="dict in dict.type.faculty_title"
             :key="dict.value"
             :label="dict.label"
             :value="dict.value"
@@ -148,14 +148,14 @@
           <dict-tag :options="dict.type.faculty_type" :value="scope.row.type"/>
         </template>
       </el-table-column>
-      <el-table-column label="职称" align="center" prop="title">
-        <template slot-scope="scope">
-          <dict-tag :options="dict.type.faculty_title" :value="scope.row.title"/>
-        </template>
-      </el-table-column>
       <el-table-column label="职务" align="center" prop="job">
         <template slot-scope="scope">
           <dict-tag :options="dict.type.faculty_job" :value="scope.row.job"/>
+        </template>
+      </el-table-column>
+      <el-table-column label="职称" align="center" prop="title">
+        <template slot-scope="scope">
+          <dict-tag :options="dict.type.faculty_title" :value="scope.row.title"/>
         </template>
       </el-table-column>
       <el-table-column label="基本工资" align="center" prop="basicPay" />
@@ -183,7 +183,7 @@
         </template>
       </el-table-column>
     </el-table>
-    
+
     <pagination
       v-show="total>0"
       :total="total"
@@ -207,21 +207,21 @@
               :value="parseInt(dict.value)"
             ></el-option>
           </el-select>
-        </el-form-item>
-        <el-form-item label="职称" prop="title">
-          <el-select v-model="form.title" placeholder="请选择职称">
+        <el-form-item label="职务" prop="job">
+          <el-select v-model="form.job" placeholder="请选择职务">
             <el-option
-              v-for="dict in dict.type.faculty_title"
+              v-for="dict in dict.type.faculty_job"
               :key="dict.value"
               :label="dict.label"
               :value="parseInt(dict.value)"
             ></el-option>
           </el-select>
         </el-form-item>
-        <el-form-item label="职务" prop="job">
-          <el-select v-model="form.job" placeholder="请选择职务">
+        </el-form-item>
+        <el-form-item label="职称" prop="title">
+          <el-select v-model="form.title" placeholder="请选择职称">
             <el-option
-              v-for="dict in dict.type.faculty_job"
+              v-for="dict in dict.type.faculty_title"
               :key="dict.value"
               :label="dict.label"
               :value="parseInt(dict.value)"
