@@ -25,7 +25,7 @@ import com.ruoyi.common.core.page.TableDataInfo;
  * 职称Controller
  * 
  * @author Keven
- * @date 2023-05-27
+ * @date 2023-05-30
  */
 @RestController
 @RequestMapping("/financial/title")

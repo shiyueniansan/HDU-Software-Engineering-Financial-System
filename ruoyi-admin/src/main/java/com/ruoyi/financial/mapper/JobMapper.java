@@ -1,15 +1,15 @@
 package com.ruoyi.financial.mapper;
 
 import java.util.List;
-import com.ruoyi.financial.domain.Position;
+import com.ruoyi.financial.domain.Job;
 
 /**
  * 职务Mapper接口
  * 
  * @author Keven
- * @date 2023-05-27
+ * @date 2023-05-30
  */
-public interface PositionMapper 
+public interface JobMapper 
 {
     /**
      * 查询职务
@@ -17,31 +17,31 @@ public interface PositionMapper
      * @param id 职务主键
      * @return 职务
      */
-    public Position selectPositionById(Long id);
+    public Job selectJobById(Long id);
 
     /**
      * 查询职务列表
      * 
-     * @param position 职务
+     * @param job 职务
      * @return 职务集合
      */
-    public List<Position> selectPositionList(Position position);
+    public List<Job> selectJobList(Job job);
 
     /**
      * 新增职务
      * 
-     * @param position 职务
+     * @param job 职务
      * @return 结果
      */
-    public int insertPosition(Position position);
+    public int insertJob(Job job);
 
     /**
      * 修改职务
      * 
-     * @param position 职务
+     * @param job 职务
      * @return 结果
      */
-    public int updatePosition(Position position);
+    public int updateJob(Job job);
 
     /**
      * 删除职务
@@ -49,7 +49,7 @@ public interface PositionMapper
      * @param id 职务主键
      * @return 结果
      */
-    public int deletePositionById(Long id);
+    public int deleteJobById(Long id);
 
     /**
      * 批量删除职务
@@ -57,5 +57,5 @@ public interface PositionMapper
      * @param ids 需要删除的数据主键集合
      * @return 结果
      */
-    public int deletePositionByIds(Long[] ids);
+    public int deleteJobByIds(Long[] ids);
 }

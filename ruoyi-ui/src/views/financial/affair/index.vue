@@ -1,18 +1,42 @@
 <template>
   <div class="app-container">
     <el-form :model="queryParams" ref="queryForm" size="small" :inline="true" v-show="showSearch" label-width="68px">
-      <el-form-item label="职务" prop="des">
+      <el-form-item label="教职工编号" prop="facultyId">
         <el-input
-          v-model="queryParams.des"
-          placeholder="请输入职务"
+          v-model="queryParams.facultyId"
+          placeholder="请输入教职工编号"
           clearable
           @keyup.enter.native="handleQuery"
         />
       </el-form-item>
-      <el-form-item label="基本薪资" prop="wage">
+      <el-form-item label="姓名" prop="name">
         <el-input
-          v-model="queryParams.wage"
-          placeholder="请输入基本薪资"
+          v-model="queryParams.name"
+          placeholder="请输入姓名"
+          clearable
+          @keyup.enter.native="handleQuery"
+        />
+      </el-form-item>
+      <el-form-item label="月份" prop="month">
+        <el-input
+          v-model="queryParams.month"
+          placeholder="请输入月份"
+          clearable
+          @keyup.enter.native="handleQuery"
+        />
+      </el-form-item>
+      <el-form-item label="描述" prop="des">
+        <el-input
+          v-model="queryParams.des"
+          placeholder="请输入描述"
+          clearable
+          @keyup.enter.native="handleQuery"
+        />
+      </el-form-item>
+      <el-form-item label="时长" prop="hour">
+        <el-input
+          v-model="queryParams.hour"
+          placeholder="请输入时长"
           clearable
           @keyup.enter.native="handleQuery"
         />
@@ -31,7 +55,7 @@
           icon="el-icon-plus"
           size="mini"
           @click="handleAdd"
-          v-hasPermi="['financial:position:add']"
+          v-hasPermi="['financial:affair:add']"
         >新增</el-button>
       </el-col>
       <el-col :span="1.5">
@@ -42,7 +66,7 @@
           size="mini"
           :disabled="single"
           @click="handleUpdate"
-          v-hasPermi="['financial:position:edit']"
+          v-hasPermi="['financial:affair:edit']"
         >修改</el-button>
       </el-col>
       <el-col :span="1.5">
@@ -53,7 +77,7 @@
           size="mini"
           :disabled="multiple"
           @click="handleDelete"
-          v-hasPermi="['financial:position:remove']"
+          v-hasPermi="['financial:affair:remove']"
         >删除</el-button>
       </el-col>
       <el-col :span="1.5">
@@ -63,17 +87,20 @@
           icon="el-icon-download"
           size="mini"
           @click="handleExport"
-          v-hasPermi="['financial:position:export']"
+          v-hasPermi="['financial:affair:export']"
         >导出</el-button>
       </el-col>
       <right-toolbar :showSearch.sync="showSearch" @queryTable="getList"></right-toolbar>
     </el-row>
 
-    <el-table v-loading="loading" :data="positionList" @selection-change="handleSelectionChange">
+    <el-table v-loading="loading" :data="affairList" @selection-change="handleSelectionChange">
       <el-table-column type="selection" width="55" align="center" />
       <el-table-column label="编号" align="center" prop="id" />
-      <el-table-column label="职务" align="center" prop="des" />
-      <el-table-column label="基本薪资" align="center" prop="wage" />
+      <el-table-column label="教职工编号" align="center" prop="facultyId" />
+      <el-table-column label="姓名" align="center" prop="name" />
+      <el-table-column label="月份" align="center" prop="month" />
+      <el-table-column label="描述" align="center" prop="des" />
+      <el-table-column label="时长" align="center" prop="hour" />
       <el-table-column label="操作" align="center" class-name="small-padding fixed-width">
         <template slot-scope="scope">
           <el-button
@@ -81,14 +108,14 @@
             type="text"
             icon="el-icon-edit"
             @click="handleUpdate(scope.row)"
-            v-hasPermi="['financial:position:edit']"
+            v-hasPermi="['financial:affair:edit']"
           >修改</el-button>
           <el-button
             size="mini"
             type="text"
             icon="el-icon-delete"
             @click="handleDelete(scope.row)"
-            v-hasPermi="['financial:position:remove']"
+            v-hasPermi="['financial:affair:remove']"
           >删除</el-button>
         </template>
       </el-table-column>
@@ -102,9 +129,24 @@
       @pagination="getList"
     />
 
-    <!-- 添加或修改职务对话框 -->
+    <!-- 添加或修改事务对话框 -->
     <el-dialog :title="title" :visible.sync="open" width="500px" append-to-body>
       <el-form ref="form" :model="form" :rules="rules" label-width="80px">
+        <el-form-item label="教职工编号" prop="facultyId">
+          <el-input v-model="form.facultyId" placeholder="请输入教职工编号" />
+        </el-form-item>
+        <el-form-item label="姓名" prop="name">
+          <el-input v-model="form.name" placeholder="请输入姓名" />
+        </el-form-item>
+        <el-form-item label="月份" prop="month">
+          <el-input v-model="form.month" placeholder="请输入月份" />
+        </el-form-item>
+        <el-form-item label="描述" prop="des">
+          <el-input v-model="form.des" placeholder="请输入描述" />
+        </el-form-item>
+        <el-form-item label="时长" prop="hour">
+          <el-input v-model="form.hour" placeholder="请输入时长" />
+        </el-form-item>
       </el-form>
       <div slot="footer" class="dialog-footer">
         <el-button type="primary" @click="submitForm">确 定</el-button>
@@ -115,10 +157,10 @@
 </template>
 
 <script>
-import { listPosition, getPosition, delPosition, addPosition, updatePosition } from "@/api/financial/position";
+import { listAffair, getAffair, delAffair, addAffair, updateAffair } from "@/api/financial/affair";
 
 export default {
-  name: "Position",
+  name: "Affair",
   data() {
     return {
       // 遮罩层
@@ -133,8 +175,8 @@ export default {
       showSearch: true,
       // 总条数
       total: 0,
-      // 职务表格数据
-      positionList: [],
+      // 事务表格数据
+      affairList: [],
       // 弹出层标题
       title: "",
       // 是否显示弹出层
@@ -143,18 +185,30 @@ export default {
       queryParams: {
         pageNum: 1,
         pageSize: 10,
+        facultyId: null,
+        name: null,
+        month: null,
         des: null,
-        wage: null
+        hour: null
       },
       // 表单参数
       form: {},
       // 表单校验
       rules: {
-        des: [
-          { required: true, message: "职务不能为空", trigger: "blur" }
+        facultyId: [
+          { required: true, message: "教职工编号不能为空", trigger: "blur" }
         ],
-        wage: [
-          { required: true, message: "基本薪资不能为空", trigger: "blur" }
+        name: [
+          { required: true, message: "姓名不能为空", trigger: "blur" }
+        ],
+        month: [
+          { required: true, message: "月份不能为空", trigger: "blur" }
+        ],
+        des: [
+          { required: true, message: "描述不能为空", trigger: "blur" }
+        ],
+        hour: [
+          { required: true, message: "时长不能为空", trigger: "blur" }
         ]
       }
     };
@@ -163,11 +217,11 @@ export default {
     this.getList();
   },
   methods: {
-    /** 查询职务列表 */
+    /** 查询事务列表 */
     getList() {
       this.loading = true;
-      listPosition(this.queryParams).then(response => {
-        this.positionList = response.rows;
+      listAffair(this.queryParams).then(response => {
+        this.affairList = response.rows;
         this.total = response.total;
         this.loading = false;
       });
@@ -181,8 +235,11 @@ export default {
     reset() {
       this.form = {
         id: null,
+        facultyId: null,
+        name: null,
+        month: null,
         des: null,
-        wage: null
+        hour: null
       };
       this.resetForm("form");
     },
@@ -206,16 +263,16 @@ export default {
     handleAdd() {
       this.reset();
       this.open = true;
-      this.title = "添加职务";
+      this.title = "添加事务";
     },
     /** 修改按钮操作 */
     handleUpdate(row) {
       this.reset();
       const id = row.id || this.ids
-      getPosition(id).then(response => {
+      getAffair(id).then(response => {
         this.form = response.data;
         this.open = true;
-        this.title = "修改职务";
+        this.title = "修改事务";
       });
     },
     /** 提交按钮 */
@@ -223,13 +280,13 @@ export default {
       this.$refs["form"].validate(valid => {
         if (valid) {
           if (this.form.id != null) {
-            updatePosition(this.form).then(response => {
+            updateAffair(this.form).then(response => {
               this.$modal.msgSuccess("修改成功");
               this.open = false;
               this.getList();
             });
           } else {
-            addPosition(this.form).then(response => {
+            addAffair(this.form).then(response => {
               this.$modal.msgSuccess("新增成功");
               this.open = false;
               this.getList();
@@ -241,8 +298,8 @@ export default {
     /** 删除按钮操作 */
     handleDelete(row) {
       const ids = row.id || this.ids;
-      this.$modal.confirm('是否确认删除职务编号为"' + ids + '"的数据项？').then(function() {
-        return delPosition(ids);
+      this.$modal.confirm('是否确认删除事务编号为"' + ids + '"的数据项？').then(function() {
+        return delAffair(ids);
       }).then(() => {
         this.getList();
         this.$modal.msgSuccess("删除成功");
@@ -250,9 +307,9 @@ export default {
     },
     /** 导出按钮操作 */
     handleExport() {
-      this.download('financial/position/export', {
+      this.download('financial/affair/export', {
         ...this.queryParams
-      }, `position_${new Date().getTime()}.xlsx`)
+      }, `affair_${new Date().getTime()}.xlsx`)
     }
   }
 };

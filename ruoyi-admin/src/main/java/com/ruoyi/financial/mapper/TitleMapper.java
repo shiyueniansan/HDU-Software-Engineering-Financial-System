@@ -7,7 +7,7 @@ import com.ruoyi.financial.domain.Title;
  * 职称Mapper接口
  * 
  * @author Keven
- * @date 2023-05-27
+ * @date 2023-05-30
  */
 public interface TitleMapper 
 {

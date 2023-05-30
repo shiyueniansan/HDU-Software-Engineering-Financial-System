@@ -1,18 +1,10 @@
 <template>
   <div class="app-container">
     <el-form :model="queryParams" ref="queryForm" size="small" :inline="true" v-show="showSearch" label-width="68px">
-      <el-form-item label="职称" prop="des">
+      <el-form-item label="职务" prop="des">
         <el-input
           v-model="queryParams.des"
-          placeholder="请输入职称"
-          clearable
-          @keyup.enter.native="handleQuery"
-        />
-      </el-form-item>
-      <el-form-item label="职称系数" prop="factor">
-        <el-input
-          v-model="queryParams.factor"
-          placeholder="请输入职称系数"
+          placeholder="请输入职务"
           clearable
           @keyup.enter.native="handleQuery"
         />
@@ -31,7 +23,7 @@
           icon="el-icon-plus"
           size="mini"
           @click="handleAdd"
-          v-hasPermi="['financial:title:add']"
+          v-hasPermi="['financial:job:add']"
         >新增</el-button>
       </el-col>
       <el-col :span="1.5">
@@ -42,7 +34,7 @@
           size="mini"
           :disabled="single"
           @click="handleUpdate"
-          v-hasPermi="['financial:title:edit']"
+          v-hasPermi="['financial:job:edit']"
         >修改</el-button>
       </el-col>
       <el-col :span="1.5">
@@ -53,7 +45,7 @@
           size="mini"
           :disabled="multiple"
           @click="handleDelete"
-          v-hasPermi="['financial:title:remove']"
+          v-hasPermi="['financial:job:remove']"
         >删除</el-button>
       </el-col>
       <el-col :span="1.5">
@@ -63,17 +55,16 @@
           icon="el-icon-download"
           size="mini"
           @click="handleExport"
-          v-hasPermi="['financial:title:export']"
+          v-hasPermi="['financial:job:export']"
         >导出</el-button>
       </el-col>
       <right-toolbar :showSearch.sync="showSearch" @queryTable="getList"></right-toolbar>
     </el-row>
 
-    <el-table v-loading="loading" :data="titleList" @selection-change="handleSelectionChange">
+    <el-table v-loading="loading" :data="jobList" @selection-change="handleSelectionChange">
       <el-table-column type="selection" width="55" align="center" />
       <el-table-column label="编号" align="center" prop="id" />
-      <el-table-column label="职称" align="center" prop="des" />
-      <el-table-column label="职称系数" align="center" prop="factor" />
+      <el-table-column label="职务" align="center" prop="des" />
       <el-table-column label="操作" align="center" class-name="small-padding fixed-width">
         <template slot-scope="scope">
           <el-button
@@ -81,14 +72,14 @@
             type="text"
             icon="el-icon-edit"
             @click="handleUpdate(scope.row)"
-            v-hasPermi="['financial:title:edit']"
+            v-hasPermi="['financial:job:edit']"
           >修改</el-button>
           <el-button
             size="mini"
             type="text"
             icon="el-icon-delete"
             @click="handleDelete(scope.row)"
-            v-hasPermi="['financial:title:remove']"
+            v-hasPermi="['financial:job:remove']"
           >删除</el-button>
         </template>
       </el-table-column>
@@ -102,14 +93,11 @@
       @pagination="getList"
     />
 
-    <!-- 添加或修改职称对话框 -->
+    <!-- 添加或修改职务对话框 -->
     <el-dialog :title="title" :visible.sync="open" width="500px" append-to-body>
       <el-form ref="form" :model="form" :rules="rules" label-width="80px">
-        <el-form-item label="职称" prop="des">
-          <el-input v-model="form.des" placeholder="请输入职称" />
-        </el-form-item>
-        <el-form-item label="职称系数" prop="factor">
-          <el-input v-model="form.factor" placeholder="请输入职称系数" />
+        <el-form-item label="职务" prop="des">
+          <el-input v-model="form.des" placeholder="请输入职务" />
         </el-form-item>
       </el-form>
       <div slot="footer" class="dialog-footer">
@@ -121,10 +109,10 @@
 </template>
 
 <script>
-import { listTitle, getTitle, delTitle, addTitle, updateTitle } from "@/api/financial/title";
+import { listJob, getJob, delJob, addJob, updateJob } from "@/api/financial/job";
 
 export default {
-  name: "Title",
+  name: "Job",
   data() {
     return {
       // 遮罩层
@@ -139,8 +127,8 @@ export default {
       showSearch: true,
       // 总条数
       total: 0,
-      // 职称表格数据
-      titleList: [],
+      // 职务表格数据
+      jobList: [],
       // 弹出层标题
       title: "",
       // 是否显示弹出层
@@ -149,18 +137,14 @@ export default {
       queryParams: {
         pageNum: 1,
         pageSize: 10,
-        des: null,
-        factor: null
+        des: null
       },
       // 表单参数
       form: {},
       // 表单校验
       rules: {
         des: [
-          { required: true, message: "职称不能为空", trigger: "blur" }
-        ],
-        factor: [
-          { required: true, message: "职称系数不能为空", trigger: "blur" }
+          { required: true, message: "职务不能为空", trigger: "blur" }
         ]
       }
     };
@@ -169,11 +153,11 @@ export default {
     this.getList();
   },
   methods: {
-    /** 查询职称列表 */
+    /** 查询职务列表 */
     getList() {
       this.loading = true;
-      listTitle(this.queryParams).then(response => {
-        this.titleList = response.rows;
+      listJob(this.queryParams).then(response => {
+        this.jobList = response.rows;
         this.total = response.total;
         this.loading = false;
       });
@@ -187,8 +171,7 @@ export default {
     reset() {
       this.form = {
         id: null,
-        des: null,
-        factor: null
+        des: null
       };
       this.resetForm("form");
     },
@@ -212,16 +195,16 @@ export default {
     handleAdd() {
       this.reset();
       this.open = true;
-      this.title = "添加职称";
+      this.title = "添加职务";
     },
     /** 修改按钮操作 */
     handleUpdate(row) {
       this.reset();
       const id = row.id || this.ids
-      getTitle(id).then(response => {
+      getJob(id).then(response => {
         this.form = response.data;
         this.open = true;
-        this.title = "修改职称";
+        this.title = "修改职务";
       });
     },
     /** 提交按钮 */
@@ -229,13 +212,13 @@ export default {
       this.$refs["form"].validate(valid => {
         if (valid) {
           if (this.form.id != null) {
-            updateTitle(this.form).then(response => {
+            updateJob(this.form).then(response => {
               this.$modal.msgSuccess("修改成功");
               this.open = false;
               this.getList();
             });
           } else {
-            addTitle(this.form).then(response => {
+            addJob(this.form).then(response => {
               this.$modal.msgSuccess("新增成功");
               this.open = false;
               this.getList();
@@ -247,8 +230,8 @@ export default {
     /** 删除按钮操作 */
     handleDelete(row) {
       const ids = row.id || this.ids;
-      this.$modal.confirm('是否确认删除职称编号为"' + ids + '"的数据项？').then(function() {
-        return delTitle(ids);
+      this.$modal.confirm('是否确认删除职务编号为"' + ids + '"的数据项？').then(function() {
+        return delJob(ids);
       }).then(() => {
         this.getList();
         this.$modal.msgSuccess("删除成功");
@@ -256,9 +239,9 @@ export default {
     },
     /** 导出按钮操作 */
     handleExport() {
-      this.download('financial/title/export', {
+      this.download('financial/job/export', {
         ...this.queryParams
-      }, `title_${new Date().getTime()}.xlsx`)
+      }, `job_${new Date().getTime()}.xlsx`)
     }
   }
 };

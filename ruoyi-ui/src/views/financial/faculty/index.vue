@@ -1,6 +1,6 @@
 <template>
   <div class="app-container">
-    <el-form :model="queryParams" ref="queryForm" size="small" :inline="true" v-show="showSearch" label-width="68px" v-if="checkRole(['admin','root','bank'])">
+    <el-form :model="queryParams" ref="queryForm" size="small" :inline="true" v-show="showSearch" label-width="68px">
       <el-form-item label="姓名" prop="name">
         <el-input
           v-model="queryParams.name"
@@ -19,16 +19,6 @@
           />
         </el-select>
       </el-form-item>
-      <el-form-item label="职务" prop="position">
-        <el-select v-model="queryParams.position" placeholder="请选择职务" clearable>
-          <el-option
-            v-for="dict in dict.type.faculty_position"
-            :key="dict.value"
-            :label="dict.label"
-            :value="dict.value"
-          />
-        </el-select>
-      </el-form-item>
       <el-form-item label="职称" prop="title">
         <el-select v-model="queryParams.title" placeholder="请选择职称" clearable>
           <el-option
@@ -39,18 +29,60 @@
           />
         </el-select>
       </el-form-item>
-      <el-form-item label="月工资" prop="month">
+      <el-form-item label="职务" prop="job">
+        <el-select v-model="queryParams.job" placeholder="请选择职务" clearable>
+          <el-option
+            v-for="dict in dict.type.faculty_job"
+            :key="dict.value"
+            :label="dict.label"
+            :value="dict.value"
+          />
+        </el-select>
+      </el-form-item>
+      <el-form-item label="${comment}" prop="basicPay">
         <el-input
-          v-model="queryParams.month"
-          placeholder="请输入月工资"
+          v-model="queryParams.basicPay"
+          placeholder="请输入${comment}"
           clearable
           @keyup.enter.native="handleQuery"
         />
       </el-form-item>
-      <el-form-item label="年工资" prop="year">
+      <el-form-item label="${comment}" prop="livingSubsidy">
         <el-input
-          v-model="queryParams.year"
-          placeholder="请输入年工资"
+          v-model="queryParams.livingSubsidy"
+          placeholder="请输入${comment}"
+          clearable
+          @keyup.enter.native="handleQuery"
+        />
+      </el-form-item>
+      <el-form-item label="${comment}" prop="readingSubsidy">
+        <el-input
+          v-model="queryParams.readingSubsidy"
+          placeholder="请输入${comment}"
+          clearable
+          @keyup.enter.native="handleQuery"
+        />
+      </el-form-item>
+      <el-form-item label="${comment}" prop="transportationSubsidy">
+        <el-input
+          v-model="queryParams.transportationSubsidy"
+          placeholder="请输入${comment}"
+          clearable
+          @keyup.enter.native="handleQuery"
+        />
+      </el-form-item>
+      <el-form-item label="${comment}" prop="washingSubsidy">
+        <el-input
+          v-model="queryParams.washingSubsidy"
+          placeholder="请输入${comment}"
+          clearable
+          @keyup.enter.native="handleQuery"
+        />
+      </el-form-item>
+      <el-form-item label="${comment}" prop="quotaHour">
+        <el-input
+          v-model="queryParams.quotaHour"
+          placeholder="请输入${comment}"
           clearable
           @keyup.enter.native="handleQuery"
         />
@@ -109,26 +141,30 @@
 
     <el-table v-loading="loading" :data="facultyList" @selection-change="handleSelectionChange">
       <el-table-column type="selection" width="55" align="center" />
-      <el-table-column label="编号" align="center" prop="id" v-if="checkRole(['admin','root','bank'])" />
-      <el-table-column label="姓名" align="center" prop="name" v-if="checkRole(['admin','root','bank'])" />
-      <el-table-column label="教师/职工" align="center" prop="type" v-if="checkRole(['admin','root','bank'])" >
+      <el-table-column label="编号" align="center" prop="id" />
+      <el-table-column label="姓名" align="center" prop="name" />
+      <el-table-column label="教师/职工" align="center" prop="type">
         <template slot-scope="scope">
           <dict-tag :options="dict.type.faculty_type" :value="scope.row.type"/>
         </template>
       </el-table-column>
-      <el-table-column label="职务" align="center" prop="position" v-if="checkRole(['admin','root','bank'])" >
-        <template slot-scope="scope">
-          <dict-tag :options="dict.type.faculty_position" :value="scope.row.position"/>
-        </template>
-      </el-table-column>
-      <el-table-column label="职称" align="center" prop="title" v-if="checkRole(['admin','root','bank'])" >
+      <el-table-column label="职称" align="center" prop="title">
         <template slot-scope="scope">
           <dict-tag :options="dict.type.faculty_title" :value="scope.row.title"/>
         </template>
       </el-table-column>
-      <el-table-column label="月工资" align="center" prop="month" />
-      <el-table-column label="年工资" align="center" prop="year" />
-      <el-table-column label="操作" align="center" class-name="small-padding fixed-width" v-if="checkRole(['admin','root','bank'])">
+      <el-table-column label="职务" align="center" prop="job">
+        <template slot-scope="scope">
+          <dict-tag :options="dict.type.faculty_job" :value="scope.row.job"/>
+        </template>
+      </el-table-column>
+      <el-table-column label="${comment}" align="center" prop="basicPay" />
+      <el-table-column label="${comment}" align="center" prop="livingSubsidy" />
+      <el-table-column label="${comment}" align="center" prop="readingSubsidy" />
+      <el-table-column label="${comment}" align="center" prop="transportationSubsidy" />
+      <el-table-column label="${comment}" align="center" prop="washingSubsidy" />
+      <el-table-column label="${comment}" align="center" prop="quotaHour" />
+      <el-table-column label="操作" align="center" class-name="small-padding fixed-width">
         <template slot-scope="scope">
           <el-button
             size="mini"
@@ -147,7 +183,7 @@
         </template>
       </el-table-column>
     </el-table>
-
+    
     <pagination
       v-show="total>0"
       :total="total"
@@ -172,16 +208,6 @@
             ></el-option>
           </el-select>
         </el-form-item>
-        <el-form-item label="职务" prop="position">
-          <el-select v-model="form.position" placeholder="请选择职务">
-            <el-option
-              v-for="dict in dict.type.faculty_position"
-              :key="dict.value"
-              :label="dict.label"
-              :value="parseInt(dict.value)"
-            ></el-option>
-          </el-select>
-        </el-form-item>
         <el-form-item label="职称" prop="title">
           <el-select v-model="form.title" placeholder="请选择职称">
             <el-option
@@ -191,6 +217,34 @@
               :value="parseInt(dict.value)"
             ></el-option>
           </el-select>
+        </el-form-item>
+        <el-form-item label="职务" prop="job">
+          <el-select v-model="form.job" placeholder="请选择职务">
+            <el-option
+              v-for="dict in dict.type.faculty_job"
+              :key="dict.value"
+              :label="dict.label"
+              :value="parseInt(dict.value)"
+            ></el-option>
+          </el-select>
+        </el-form-item>
+        <el-form-item label="${comment}" prop="basicPay">
+          <el-input v-model="form.basicPay" placeholder="请输入${comment}" />
+        </el-form-item>
+        <el-form-item label="${comment}" prop="livingSubsidy">
+          <el-input v-model="form.livingSubsidy" placeholder="请输入${comment}" />
+        </el-form-item>
+        <el-form-item label="${comment}" prop="readingSubsidy">
+          <el-input v-model="form.readingSubsidy" placeholder="请输入${comment}" />
+        </el-form-item>
+        <el-form-item label="${comment}" prop="transportationSubsidy">
+          <el-input v-model="form.transportationSubsidy" placeholder="请输入${comment}" />
+        </el-form-item>
+        <el-form-item label="${comment}" prop="washingSubsidy">
+          <el-input v-model="form.washingSubsidy" placeholder="请输入${comment}" />
+        </el-form-item>
+        <el-form-item label="${comment}" prop="quotaHour">
+          <el-input v-model="form.quotaHour" placeholder="请输入${comment}" />
         </el-form-item>
       </el-form>
       <div slot="footer" class="dialog-footer">
@@ -203,11 +257,10 @@
 
 <script>
 import { listFaculty, getFaculty, delFaculty, addFaculty, updateFaculty } from "@/api/financial/faculty";
-import { checkPermi, checkRole } from "@/utils/permission"; // 权限判断函数
 
 export default {
   name: "Faculty",
-  dicts: ['faculty_title', 'faculty_type', 'faculty_position'],
+  dicts: ['faculty_title', 'faculty_job', 'faculty_type'],
   data() {
     return {
       // 遮罩层
@@ -234,10 +287,14 @@ export default {
         pageSize: 10,
         name: null,
         type: null,
-        position: null,
         title: null,
-        month: null,
-        year: null
+        job: null,
+        basicPay: null,
+        livingSubsidy: null,
+        readingSubsidy: null,
+        transportationSubsidy: null,
+        washingSubsidy: null,
+        quotaHour: null
       },
       // 表单参数
       form: {},
@@ -256,9 +313,6 @@ export default {
     this.getList();
   },
   methods: {
-    // 权限判断
-    checkPermi,
-    checkRole,
     /** 查询教职工列表 */
     getList() {
       this.loading = true;
@@ -279,10 +333,14 @@ export default {
         id: null,
         name: null,
         type: null,
-        position: null,
         title: null,
-        month: null,
-        year: null
+        job: null,
+        basicPay: null,
+        livingSubsidy: null,
+        readingSubsidy: null,
+        transportationSubsidy: null,
+        washingSubsidy: null,
+        quotaHour: null
       };
       this.resetForm("form");
     },

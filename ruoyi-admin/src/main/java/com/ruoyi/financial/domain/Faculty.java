@@ -9,7 +9,7 @@ import com.ruoyi.common.core.domain.BaseEntity;
  * 教职工对象 faculty
  * 
  * @author Keven
- * @date 2023-05-27
+ * @date 2023-05-30
  */
 public class Faculty extends BaseEntity
 {
@@ -26,21 +26,37 @@ public class Faculty extends BaseEntity
     @Excel(name = "教师/职工")
     private Long type;
 
-    /** 职务 */
-    @Excel(name = "职务")
-    private Long position;
-
     /** 职称 */
     @Excel(name = "职称")
     private Long title;
 
-    /** 月工资 */
-    @Excel(name = "月工资")
-    private Long month;
+    /** 职务 */
+    @Excel(name = "职务")
+    private Long job;
 
-    /** 年工资 */
-    @Excel(name = "年工资")
-    private Long year;
+    /** $column.columnComment */
+    @Excel(name = "${comment}", readConverterExp = "$column.readConverterExp()")
+    private Long basicPay;
+
+    /** $column.columnComment */
+    @Excel(name = "${comment}", readConverterExp = "$column.readConverterExp()")
+    private Long livingSubsidy;
+
+    /** $column.columnComment */
+    @Excel(name = "${comment}", readConverterExp = "$column.readConverterExp()")
+    private Long readingSubsidy;
+
+    /** $column.columnComment */
+    @Excel(name = "${comment}", readConverterExp = "$column.readConverterExp()")
+    private Long transportationSubsidy;
+
+    /** $column.columnComment */
+    @Excel(name = "${comment}", readConverterExp = "$column.readConverterExp()")
+    private Long washingSubsidy;
+
+    /** $column.columnComment */
+    @Excel(name = "${comment}", readConverterExp = "$column.readConverterExp()")
+    private Long quotaHour;
 
     public void setId(Long id) 
     {
@@ -69,15 +85,6 @@ public class Faculty extends BaseEntity
     {
         return type;
     }
-    public void setPosition(Long position) 
-    {
-        this.position = position;
-    }
-
-    public Long getPosition() 
-    {
-        return position;
-    }
     public void setTitle(Long title) 
     {
         this.title = title;
@@ -87,23 +94,68 @@ public class Faculty extends BaseEntity
     {
         return title;
     }
-    public void setMonth(Long month) 
+    public void setJob(Long job) 
     {
-        this.month = month;
+        this.job = job;
     }
 
-    public Long getMonth() 
+    public Long getJob() 
     {
-        return month;
+        return job;
     }
-    public void setYear(Long year) 
+    public void setBasicPay(Long basicPay) 
     {
-        this.year = year;
+        this.basicPay = basicPay;
     }
 
-    public Long getYear() 
+    public Long getBasicPay() 
     {
-        return year;
+        return basicPay;
+    }
+    public void setLivingSubsidy(Long livingSubsidy) 
+    {
+        this.livingSubsidy = livingSubsidy;
+    }
+
+    public Long getLivingSubsidy() 
+    {
+        return livingSubsidy;
+    }
+    public void setReadingSubsidy(Long readingSubsidy) 
+    {
+        this.readingSubsidy = readingSubsidy;
+    }
+
+    public Long getReadingSubsidy() 
+    {
+        return readingSubsidy;
+    }
+    public void setTransportationSubsidy(Long transportationSubsidy) 
+    {
+        this.transportationSubsidy = transportationSubsidy;
+    }
+
+    public Long getTransportationSubsidy() 
+    {
+        return transportationSubsidy;
+    }
+    public void setWashingSubsidy(Long washingSubsidy) 
+    {
+        this.washingSubsidy = washingSubsidy;
+    }
+
+    public Long getWashingSubsidy() 
+    {
+        return washingSubsidy;
+    }
+    public void setQuotaHour(Long quotaHour) 
+    {
+        this.quotaHour = quotaHour;
+    }
+
+    public Long getQuotaHour() 
+    {
+        return quotaHour;
     }
 
     @Override
@@ -112,10 +164,14 @@ public class Faculty extends BaseEntity
             .append("id", getId())
             .append("name", getName())
             .append("type", getType())
-            .append("position", getPosition())
             .append("title", getTitle())
-            .append("month", getMonth())
-            .append("year", getYear())
+            .append("job", getJob())
+            .append("basicPay", getBasicPay())
+            .append("livingSubsidy", getLivingSubsidy())
+            .append("readingSubsidy", getReadingSubsidy())
+            .append("transportationSubsidy", getTransportationSubsidy())
+            .append("washingSubsidy", getWashingSubsidy())
+            .append("quotaHour", getQuotaHour())
             .toString();
     }
 }

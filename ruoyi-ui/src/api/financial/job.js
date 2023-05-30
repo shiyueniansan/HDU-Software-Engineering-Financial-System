@@ -1,44 +1,44 @@
 import request from '@/utils/request'
 
 // 查询职务列表
-export function listPosition(query) {
+export function listJob(query) {
   return request({
-    url: '/financial/position/list',
+    url: '/financial/job/list',
     method: 'get',
     params: query
   })
 }
 
 // 查询职务详细
-export function getPosition(id) {
+export function getJob(id) {
   return request({
-    url: '/financial/position/' + id,
+    url: '/financial/job/' + id,
     method: 'get'
   })
 }
 
 // 新增职务
-export function addPosition(data) {
+export function addJob(data) {
   return request({
-    url: '/financial/position',
+    url: '/financial/job',
     method: 'post',
     data: data
   })
 }
 
 // 修改职务
-export function updatePosition(data) {
+export function updateJob(data) {
   return request({
-    url: '/financial/position',
+    url: '/financial/job',
     method: 'put',
     data: data
   })
 }
 
 // 删除职务
-export function delPosition(id) {
+export function delJob(id) {
   return request({
-    url: '/financial/position/' + id,
+    url: '/financial/job/' + id,
     method: 'delete'
   })
 }

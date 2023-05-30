@@ -16,8 +16,8 @@ import com.ruoyi.common.annotation.Log;
 import com.ruoyi.common.core.controller.BaseController;
 import com.ruoyi.common.core.domain.AjaxResult;
 import com.ruoyi.common.enums.BusinessType;
-import com.ruoyi.financial.domain.Position;
-import com.ruoyi.financial.service.IPositionService;
+import com.ruoyi.financial.domain.Job;
+import com.ruoyi.financial.service.IJobService;
 import com.ruoyi.common.utils.poi.ExcelUtil;
 import com.ruoyi.common.core.page.TableDataInfo;
 
@@ -25,80 +25,80 @@ import com.ruoyi.common.core.page.TableDataInfo;
  * 职务Controller
  * 
  * @author Keven
- * @date 2023-05-27
+ * @date 2023-05-30
  */
 @RestController
-@RequestMapping("/financial/position")
-public class PositionController extends BaseController
+@RequestMapping("/financial/job")
+public class JobController extends BaseController
 {
     @Autowired
-    private IPositionService positionService;
+    private IJobService jobService;
 
     /**
      * 查询职务列表
      */
-    @PreAuthorize("@ss.hasPermi('financial:position:list')")
+    @PreAuthorize("@ss.hasPermi('financial:job:list')")
     @GetMapping("/list")
-    public TableDataInfo list(Position position)
+    public TableDataInfo list(Job job)
     {
         startPage();
-        List<Position> list = positionService.selectPositionList(position);
+        List<Job> list = jobService.selectJobList(job);
         return getDataTable(list);
     }
 
     /**
      * 导出职务列表
      */
-    @PreAuthorize("@ss.hasPermi('financial:position:export')")
+    @PreAuthorize("@ss.hasPermi('financial:job:export')")
     @Log(title = "职务", businessType = BusinessType.EXPORT)
     @PostMapping("/export")
-    public void export(HttpServletResponse response, Position position)
+    public void export(HttpServletResponse response, Job job)
     {
-        List<Position> list = positionService.selectPositionList(position);
-        ExcelUtil<Position> util = new ExcelUtil<Position>(Position.class);
+        List<Job> list = jobService.selectJobList(job);
+        ExcelUtil<Job> util = new ExcelUtil<Job>(Job.class);
         util.exportExcel(response, list, "职务数据");
     }
 
     /**
      * 获取职务详细信息
      */
-    @PreAuthorize("@ss.hasPermi('financial:position:query')")
+    @PreAuthorize("@ss.hasPermi('financial:job:query')")
     @GetMapping(value = "/{id}")
     public AjaxResult getInfo(@PathVariable("id") Long id)
     {
-        return success(positionService.selectPositionById(id));
+        return success(jobService.selectJobById(id));
     }
 
     /**
      * 新增职务
      */
-    @PreAuthorize("@ss.hasPermi('financial:position:add')")
+    @PreAuthorize("@ss.hasPermi('financial:job:add')")
     @Log(title = "职务", businessType = BusinessType.INSERT)
     @PostMapping
-    public AjaxResult add(@RequestBody Position position)
+    public AjaxResult add(@RequestBody Job job)
     {
-        return toAjax(positionService.insertPosition(position));
+        return toAjax(jobService.insertJob(job));
     }
 
     /**
      * 修改职务
      */
-    @PreAuthorize("@ss.hasPermi('financial:position:edit')")
+    @PreAuthorize("@ss.hasPermi('financial:job:edit')")
     @Log(title = "职务", businessType = BusinessType.UPDATE)
     @PutMapping
-    public AjaxResult edit(@RequestBody Position position)
+    public AjaxResult edit(@RequestBody Job job)
     {
-        return toAjax(positionService.updatePosition(position));
+        return toAjax(jobService.updateJob(job));
     }
 
     /**
      * 删除职务
      */
-    @PreAuthorize("@ss.hasPermi('financial:position:remove')")
+    @PreAuthorize("@ss.hasPermi('financial:job:remove')")
     @Log(title = "职务", businessType = BusinessType.DELETE)
 	@DeleteMapping("/{ids}")
     public AjaxResult remove(@PathVariable Long[] ids)
     {
-        return toAjax(positionService.deletePositionByIds(ids));
+        return toAjax(jobService.deleteJobByIds(ids));
     }
 }
