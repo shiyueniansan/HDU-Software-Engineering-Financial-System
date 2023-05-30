@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.financial.mapper.AffairsMapper">
+    
+    <resultMap type="Affairs" id="AffairsResult">
+        <result property="id"    column="id"    />
+        <result property="facultyId"    column="faculty_id"    />
+        <result property="name"    column="name"    />
+        <result property="month"    column="month"    />
+        <result property="des"    column="des"    />
+        <result property="hour"    column="hour"    />
+    </resultMap>
+
+    <sql id="selectAffairsVo">
+        select id, faculty_id, name, month, des, hour from affair
+    </sql>
+
+    <select id="selectAffairsList" parameterType="Affairs" resultMap="AffairsResult">
+        <include refid="selectAffairsVo"/>
+        <where>  
+            <if test="facultyId != null "> and faculty_id = #{facultyId}</if>
+            <if test="name != null  and name != ''"> and name like concat('%', #{name}, '%')</if>
+            <if test="month != null "> and month = #{month}</if>
+            <if test="des != null  and des != ''"> and des = #{des}</if>
+            <if test="hour != null "> and hour = #{hour}</if>
+        </where>
+    </select>
+    
+    <select id="selectAffairsById" parameterType="Long" resultMap="AffairsResult">
+        <include refid="selectAffairsVo"/>
+        where id = #{id}
+    </select>
+        
+    <insert id="insertAffairs" parameterType="Affairs" useGeneratedKeys="true" keyProperty="id">
+        insert into affair
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="facultyId != null">faculty_id,</if>
+            <if test="name != null and name != ''">name,</if>
+            <if test="month != null">month,</if>
+            <if test="des != null and des != ''">des,</if>
+            <if test="hour != null">hour,</if>
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="facultyId != null">#{facultyId},</if>
+            <if test="name != null and name != ''">#{name},</if>
+            <if test="month != null">#{month},</if>
+            <if test="des != null and des != ''">#{des},</if>
+            <if test="hour != null">#{hour},</if>
+         </trim>
+    </insert>
+
+    <update id="updateAffairs" parameterType="Affairs">
+        update affair
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="facultyId != null">faculty_id = #{facultyId},</if>
+            <if test="name != null and name != ''">name = #{name},</if>
+            <if test="month != null">month = #{month},</if>
+            <if test="des != null and des != ''">des = #{des},</if>
+            <if test="hour != null">hour = #{hour},</if>
+        </trim>
+        where id = #{id}
+    </update>
+
+    <delete id="deleteAffairsById" parameterType="Long">
+        delete from affair where id = #{id}
+    </delete>
+
+    <delete id="deleteAffairsByIds" parameterType="String">
+        delete from affair where id in 
+        <foreach item="id" collection="array" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+</mapper>

@@ -55,7 +55,7 @@
           icon="el-icon-plus"
           size="mini"
           @click="handleAdd"
-          v-hasPermi="['financial:affair:add']"
+          v-hasPermi="['financial:affairs:add']"
         >新增</el-button>
       </el-col>
       <el-col :span="1.5">
@@ -66,7 +66,7 @@
           size="mini"
           :disabled="single"
           @click="handleUpdate"
-          v-hasPermi="['financial:affair:edit']"
+          v-hasPermi="['financial:affairs:edit']"
         >修改</el-button>
       </el-col>
       <el-col :span="1.5">
@@ -77,7 +77,7 @@
           size="mini"
           :disabled="multiple"
           @click="handleDelete"
-          v-hasPermi="['financial:affair:remove']"
+          v-hasPermi="['financial:affairs:remove']"
         >删除</el-button>
       </el-col>
       <el-col :span="1.5">
@@ -87,13 +87,13 @@
           icon="el-icon-download"
           size="mini"
           @click="handleExport"
-          v-hasPermi="['financial:affair:export']"
+          v-hasPermi="['financial:affairs:export']"
         >导出</el-button>
       </el-col>
       <right-toolbar :showSearch.sync="showSearch" @queryTable="getList"></right-toolbar>
     </el-row>
 
-    <el-table v-loading="loading" :data="affairList" @selection-change="handleSelectionChange">
+    <el-table v-loading="loading" :data="affairsList" @selection-change="handleSelectionChange">
       <el-table-column type="selection" width="55" align="center" />
       <el-table-column label="编号" align="center" prop="id" />
       <el-table-column label="教职工编号" align="center" prop="facultyId" />
@@ -108,14 +108,14 @@
             type="text"
             icon="el-icon-edit"
             @click="handleUpdate(scope.row)"
-            v-hasPermi="['financial:affair:edit']"
+            v-hasPermi="['financial:affairs:edit']"
           >修改</el-button>
           <el-button
             size="mini"
             type="text"
             icon="el-icon-delete"
             @click="handleDelete(scope.row)"
-            v-hasPermi="['financial:affair:remove']"
+            v-hasPermi="['financial:affairs:remove']"
           >删除</el-button>
         </template>
       </el-table-column>
@@ -129,7 +129,7 @@
       @pagination="getList"
     />
 
-    <!-- 添加或修改个人事务对话框 -->
+    <!-- 添加或修改事务对话框 -->
     <el-dialog :title="title" :visible.sync="open" width="500px" append-to-body>
       <el-form ref="form" :model="form" :rules="rules" label-width="80px">
         <el-form-item label="教职工编号" prop="facultyId">
@@ -157,10 +157,10 @@
 </template>
 
 <script>
-import { listAffair, getAffair, delAffair, addAffair, updateAffair } from "@/api/financial/affair";
+import { listAffairs, getAffairs, delAffairs, addAffairs, updateAffairs } from "@/api/financial/affairs";
 
 export default {
-  name: "Affair",
+  name: "Affairs",
   data() {
     return {
       // 遮罩层
@@ -175,8 +175,8 @@ export default {
       showSearch: true,
       // 总条数
       total: 0,
-      // 个人事务表格数据
-      affairList: [],
+      // 事务表格数据
+      affairsList: [],
       // 弹出层标题
       title: "",
       // 是否显示弹出层
@@ -217,11 +217,11 @@ export default {
     this.getList();
   },
   methods: {
-    /** 查询个人事务列表 */
+    /** 查询事务列表 */
     getList() {
       this.loading = true;
-      listAffair(this.queryParams).then(response => {
-        this.affairList = response.rows;
+      listAffairs(this.queryParams).then(response => {
+        this.affairsList = response.rows;
         this.total = response.total;
         this.loading = false;
       });
@@ -263,16 +263,16 @@ export default {
     handleAdd() {
       this.reset();
       this.open = true;
-      this.title = "添加个人事务";
+      this.title = "添加事务";
     },
     /** 修改按钮操作 */
     handleUpdate(row) {
       this.reset();
       const id = row.id || this.ids
-      getAffair(id).then(response => {
+      getAffairs(id).then(response => {
         this.form = response.data;
         this.open = true;
-        this.title = "修改个人事务";
+        this.title = "修改事务";
       });
     },
     /** 提交按钮 */
@@ -280,13 +280,13 @@ export default {
       this.$refs["form"].validate(valid => {
         if (valid) {
           if (this.form.id != null) {
-            updateAffair(this.form).then(response => {
+            updateAffairs(this.form).then(response => {
               this.$modal.msgSuccess("修改成功");
               this.open = false;
               this.getList();
             });
           } else {
-            addAffair(this.form).then(response => {
+            addAffairs(this.form).then(response => {
               this.$modal.msgSuccess("新增成功");
               this.open = false;
               this.getList();
@@ -298,8 +298,8 @@ export default {
     /** 删除按钮操作 */
     handleDelete(row) {
       const ids = row.id || this.ids;
-      this.$modal.confirm('是否确认删除个人事务编号为"' + ids + '"的数据项？').then(function() {
-        return delAffair(ids);
+      this.$modal.confirm('是否确认删除事务编号为"' + ids + '"的数据项？').then(function() {
+        return delAffairs(ids);
       }).then(() => {
         this.getList();
         this.$modal.msgSuccess("删除成功");
@@ -307,9 +307,9 @@ export default {
     },
     /** 导出按钮操作 */
     handleExport() {
-      this.download('financial/affair/export', {
+      this.download('financial/affairs/export', {
         ...this.queryParams
-      }, `affair_${new Date().getTime()}.xlsx`)
+      }, `affairs_${new Date().getTime()}.xlsx`)
     }
   }
 };

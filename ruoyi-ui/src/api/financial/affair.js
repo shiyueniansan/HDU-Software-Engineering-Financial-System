@@ -1,6 +1,6 @@
 import request from '@/utils/request'
 
-// 查询事务列表
+// 查询个人事务列表
 export function listAffair(query) {
   return request({
     url: '/financial/affair/list',
@@ -9,7 +9,7 @@ export function listAffair(query) {
   })
 }
 
-// 查询事务详细
+// 查询个人事务详细
 export function getAffair(id) {
   return request({
     url: '/financial/affair/' + id,
@@ -17,7 +17,7 @@ export function getAffair(id) {
   })
 }
 
-// 新增事务
+// 新增个人事务
 export function addAffair(data) {
   return request({
     url: '/financial/affair',
@@ -26,7 +26,7 @@ export function addAffair(data) {
   })
 }
 
-// 修改事务
+// 修改个人事务
 export function updateAffair(data) {
   return request({
     url: '/financial/affair',
@@ -35,7 +35,7 @@ export function updateAffair(data) {
   })
 }
 
-// 删除事务
+// 删除个人事务
 export function delAffair(id) {
   return request({
     url: '/financial/affair/' + id,

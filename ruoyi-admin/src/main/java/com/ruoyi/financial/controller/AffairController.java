@@ -22,7 +22,7 @@ import com.ruoyi.common.utils.poi.ExcelUtil;
 import com.ruoyi.common.core.page.TableDataInfo;
 
 /**
- * 事务Controller
+ * 个人事务Controller
  * 
  * @author Keven
  * @date 2023-05-30
@@ -35,7 +35,7 @@ public class AffairController extends BaseController
     private IAffairService affairService;
 
     /**
-     * 查询事务列表
+     * 查询个人事务列表
      */
     @PreAuthorize("@ss.hasPermi('financial:affair:list')")
     @GetMapping("/list")
@@ -47,20 +47,20 @@ public class AffairController extends BaseController
     }
 
     /**
-     * 导出事务列表
+     * 导出个人事务列表
      */
     @PreAuthorize("@ss.hasPermi('financial:affair:export')")
-    @Log(title = "事务", businessType = BusinessType.EXPORT)
+    @Log(title = "个人事务", businessType = BusinessType.EXPORT)
     @PostMapping("/export")
     public void export(HttpServletResponse response, Affair affair)
     {
         List<Affair> list = affairService.selectAffairList(affair);
         ExcelUtil<Affair> util = new ExcelUtil<Affair>(Affair.class);
-        util.exportExcel(response, list, "事务数据");
+        util.exportExcel(response, list, "个人事务数据");
     }
 
     /**
-     * 获取事务详细信息
+     * 获取个人事务详细信息
      */
     @PreAuthorize("@ss.hasPermi('financial:affair:query')")
     @GetMapping(value = "/{id}")
@@ -70,10 +70,10 @@ public class AffairController extends BaseController
     }
 
     /**
-     * 新增事务
+     * 新增个人事务
      */
     @PreAuthorize("@ss.hasPermi('financial:affair:add')")
-    @Log(title = "事务", businessType = BusinessType.INSERT)
+    @Log(title = "个人事务", businessType = BusinessType.INSERT)
     @PostMapping
     public AjaxResult add(@RequestBody Affair affair)
     {
@@ -81,10 +81,10 @@ public class AffairController extends BaseController
     }
 
     /**
-     * 修改事务
+     * 修改个人事务
      */
     @PreAuthorize("@ss.hasPermi('financial:affair:edit')")
-    @Log(title = "事务", businessType = BusinessType.UPDATE)
+    @Log(title = "个人事务", businessType = BusinessType.UPDATE)
     @PutMapping
     public AjaxResult edit(@RequestBody Affair affair)
     {
@@ -92,10 +92,10 @@ public class AffairController extends BaseController
     }
 
     /**
-     * 删除事务
+     * 删除个人事务
      */
     @PreAuthorize("@ss.hasPermi('financial:affair:remove')")
-    @Log(title = "事务", businessType = BusinessType.DELETE)
+    @Log(title = "个人事务", businessType = BusinessType.DELETE)
 	@DeleteMapping("/{ids}")
     public AjaxResult remove(@PathVariable Long[] ids)
     {

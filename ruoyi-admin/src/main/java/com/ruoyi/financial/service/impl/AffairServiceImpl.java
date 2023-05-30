@@ -8,7 +8,7 @@ import com.ruoyi.financial.domain.Affair;
 import com.ruoyi.financial.service.IAffairService;
 
 /**
- * 事务Service业务层处理
+ * 个人事务Service业务层处理
  * 
  * @author Keven
  * @date 2023-05-30
@@ -20,10 +20,10 @@ public class AffairServiceImpl implements IAffairService
     private AffairMapper affairMapper;
 
     /**
-     * 查询事务
+     * 查询个人事务
      * 
-     * @param id 事务主键
-     * @return 事务
+     * @param id 个人事务主键
+     * @return 个人事务
      */
     @Override
     public Affair selectAffairById(Long id)
@@ -32,10 +32,10 @@ public class AffairServiceImpl implements IAffairService
     }
 
     /**
-     * 查询事务列表
+     * 查询个人事务列表
      * 
-     * @param affair 事务
-     * @return 事务
+     * @param affair 个人事务
+     * @return 个人事务
      */
     @Override
     public List<Affair> selectAffairList(Affair affair)
@@ -44,9 +44,9 @@ public class AffairServiceImpl implements IAffairService
     }
 
     /**
-     * 新增事务
+     * 新增个人事务
      * 
-     * @param affair 事务
+     * @param affair 个人事务
      * @return 结果
      */
     @Override
@@ -56,9 +56,9 @@ public class AffairServiceImpl implements IAffairService
     }
 
     /**
-     * 修改事务
+     * 修改个人事务
      * 
-     * @param affair 事务
+     * @param affair 个人事务
      * @return 结果
      */
     @Override
@@ -68,9 +68,9 @@ public class AffairServiceImpl implements IAffairService
     }
 
     /**
-     * 批量删除事务
+     * 批量删除个人事务
      * 
-     * @param ids 需要删除的事务主键
+     * @param ids 需要删除的个人事务主键
      * @return 结果
      */
     @Override
@@ -80,9 +80,9 @@ public class AffairServiceImpl implements IAffairService
     }
 
     /**
-     * 删除事务信息
+     * 删除个人事务信息
      * 
-     * @param id 事务主键
+     * @param id 个人事务主键
      * @return 结果
      */
     @Override

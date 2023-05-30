@@ -6,12 +6,12 @@ import com.ruoyi.common.annotation.Excel;
 import com.ruoyi.common.core.domain.BaseEntity;
 
 /**
- * 个人事务对象 affair
+ * 事务对象 affair
  * 
  * @author Keven
  * @date 2023-05-30
  */
-public class Affair extends BaseEntity
+public class Affairs extends BaseEntity
 {
     private static final long serialVersionUID = 1L;
 
