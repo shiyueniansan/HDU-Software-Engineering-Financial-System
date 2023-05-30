@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.financial.mapper.PayMapper">
+    
+    <resultMap type="Pay" id="PayResult">
+        <result property="facultyId"    column="faculty_id"    />
+        <result property="name"    column="name"    />
+        <result property="month"    column="month"    />
+        <result property="teacherPay"    column="teacher_pay"    />
+        <result property="staffPay"    column="staff_pay"    />
+        <result property="extraTeacherPay"    column="extra_teacher_pay"    />
+        <result property="totalPay"    column="total_pay"    />
+        <result property="tax"    column="tax"    />
+        <result property="housing"    column="housing"    />
+        <result property="insurance"    column="insurance"    />
+        <result property="netPay"    column="net_pay"    />
+    </resultMap>
+
+    <sql id="selectPayVo">
+        select faculty_id, name, month, teacher_pay, staff_pay, extra_teacher_pay, total_pay, tax, housing, insurance, net_pay from faculty_monthly
+    </sql>
+
+    <select id="selectPayList" parameterType="Pay" resultMap="PayResult">
+        <include refid="selectPayVo"/>
+        <where>  
+            <if test="facultyId != null "> and faculty_id = #{facultyId}</if>
+            <if test="name != null  and name != ''"> and name like concat('%', #{name}, '%')</if>
+            <if test="month != null "> and month = #{month}</if>
+            <if test="netPay != null "> and net_pay = #{netPay}</if>
+        </where>
+    </select>
+    
+    <select id="selectPayByFacultyId" parameterType="Long" resultMap="PayResult">
+        <include refid="selectPayVo"/>
+        where faculty_id = #{facultyId}
+    </select>
+        
+    <insert id="insertPay" parameterType="Pay">
+        insert into faculty_monthly
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="facultyId != null">faculty_id,</if>
+            <if test="name != null">name,</if>
+            <if test="month != null">month,</if>
+            <if test="teacherPay != null">teacher_pay,</if>
+            <if test="staffPay != null">staff_pay,</if>
+            <if test="extraTeacherPay != null">extra_teacher_pay,</if>
+            <if test="totalPay != null">total_pay,</if>
+            <if test="tax != null">tax,</if>
+            <if test="housing != null">housing,</if>
+            <if test="insurance != null">insurance,</if>
+            <if test="netPay != null">net_pay,</if>
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="facultyId != null">#{facultyId},</if>
+            <if test="name != null">#{name},</if>
+            <if test="month != null">#{month},</if>
+            <if test="teacherPay != null">#{teacherPay},</if>
+            <if test="staffPay != null">#{staffPay},</if>
+            <if test="extraTeacherPay != null">#{extraTeacherPay},</if>
+            <if test="totalPay != null">#{totalPay},</if>
+            <if test="tax != null">#{tax},</if>
+            <if test="housing != null">#{housing},</if>
+            <if test="insurance != null">#{insurance},</if>
+            <if test="netPay != null">#{netPay},</if>
+         </trim>
+    </insert>
+
+    <update id="updatePay" parameterType="Pay">
+        update faculty_monthly
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="name != null">name = #{name},</if>
+            <if test="month != null">month = #{month},</if>
+            <if test="teacherPay != null">teacher_pay = #{teacherPay},</if>
+            <if test="staffPay != null">staff_pay = #{staffPay},</if>
+            <if test="extraTeacherPay != null">extra_teacher_pay = #{extraTeacherPay},</if>
+            <if test="totalPay != null">total_pay = #{totalPay},</if>
+            <if test="tax != null">tax = #{tax},</if>
+            <if test="housing != null">housing = #{housing},</if>
+            <if test="insurance != null">insurance = #{insurance},</if>
+            <if test="netPay != null">net_pay = #{netPay},</if>
+        </trim>
+        where faculty_id = #{facultyId}
+    </update>
+
+    <delete id="deletePayByFacultyId" parameterType="Long">
+        delete from faculty_monthly where faculty_id = #{facultyId}
+    </delete>
+
+    <delete id="deletePayByFacultyIds" parameterType="String">
+        delete from faculty_monthly where faculty_id in 
+        <foreach item="facultyId" collection="array" open="(" separator="," close=")">
+            #{facultyId}
+        </foreach>
+    </delete>
+</mapper>
