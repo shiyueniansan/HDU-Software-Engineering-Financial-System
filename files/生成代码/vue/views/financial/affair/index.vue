@@ -1,22 +1,6 @@
 <template>
   <div class="app-container">
     <el-form :model="queryParams" ref="queryForm" size="small" :inline="true" v-show="showSearch" label-width="68px">
-      <el-form-item label="教职工编号" prop="facultyId">
-        <el-input
-          v-model="queryParams.facultyId"
-          placeholder="请输入教职工编号"
-          clearable
-          @keyup.enter.native="handleQuery"
-        />
-      </el-form-item>
-      <el-form-item label="姓名" prop="name">
-        <el-input
-          v-model="queryParams.name"
-          placeholder="请输入姓名"
-          clearable
-          @keyup.enter.native="handleQuery"
-        />
-      </el-form-item>
       <el-form-item label="月份" prop="month">
         <el-input
           v-model="queryParams.month"
@@ -96,8 +80,6 @@
     <el-table v-loading="loading" :data="affairList" @selection-change="handleSelectionChange">
       <el-table-column type="selection" width="55" align="center" />
       <el-table-column label="编号" align="center" prop="id" />
-      <el-table-column label="教职工编号" align="center" prop="facultyId" />
-      <el-table-column label="姓名" align="center" prop="name" />
       <el-table-column label="月份" align="center" prop="month" />
       <el-table-column label="描述" align="center" prop="des" />
       <el-table-column label="时长" align="center" prop="hour" />
@@ -132,12 +114,6 @@
     <!-- 添加或修改个人事务对话框 -->
     <el-dialog :title="title" :visible.sync="open" width="500px" append-to-body>
       <el-form ref="form" :model="form" :rules="rules" label-width="80px">
-        <el-form-item label="教职工编号" prop="facultyId">
-          <el-input v-model="form.facultyId" placeholder="请输入教职工编号" />
-        </el-form-item>
-        <el-form-item label="姓名" prop="name">
-          <el-input v-model="form.name" placeholder="请输入姓名" />
-        </el-form-item>
         <el-form-item label="月份" prop="month">
           <el-input v-model="form.month" placeholder="请输入月份" />
         </el-form-item>
@@ -185,8 +161,6 @@ export default {
       queryParams: {
         pageNum: 1,
         pageSize: 10,
-        facultyId: null,
-        name: null,
         month: null,
         des: null,
         hour: null
@@ -195,12 +169,6 @@ export default {
       form: {},
       // 表单校验
       rules: {
-        facultyId: [
-          { required: true, message: "教职工编号不能为空", trigger: "blur" }
-        ],
-        name: [
-          { required: true, message: "姓名不能为空", trigger: "blur" }
-        ],
         month: [
           { required: true, message: "月份不能为空", trigger: "blur" }
         ],

@@ -9,7 +9,7 @@ import com.ruoyi.common.core.domain.BaseEntity;
  * 个人事务对象 affair
  * 
  * @author Keven
- * @date 2023-05-30
+ * @date 2023-05-31
  */
 public class Affair extends BaseEntity
 {
@@ -19,11 +19,9 @@ public class Affair extends BaseEntity
     private Long id;
 
     /** 教职工编号 */
-    @Excel(name = "教职工编号")
     private Long facultyId;
 
     /** 姓名 */
-    @Excel(name = "姓名")
     private String name;
 
     /** 月份 */

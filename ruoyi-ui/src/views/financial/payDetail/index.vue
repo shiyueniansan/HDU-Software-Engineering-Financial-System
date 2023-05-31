@@ -1,22 +1,6 @@
 <template>
   <div class="app-container">
     <el-form :model="queryParams" ref="queryForm" size="small" :inline="true" v-show="showSearch" label-width="68px">
-      <el-form-item label="教职工编号" prop="facultyId">
-        <el-input
-          v-model="queryParams.facultyId"
-          placeholder="请输入教职工编号"
-          clearable
-          @keyup.enter.native="handleQuery"
-        />
-      </el-form-item>
-      <el-form-item label="姓名" prop="name">
-        <el-input
-          v-model="queryParams.name"
-          placeholder="请输入姓名"
-          clearable
-          @keyup.enter.native="handleQuery"
-        />
-      </el-form-item>
       <el-form-item label="月份" prop="month">
         <el-input
           v-model="queryParams.month"
@@ -299,8 +283,6 @@ export default {
       queryParams: {
         pageNum: 1,
         pageSize: 10,
-        facultyId: null,
-        name: null,
         month: null,
         basicPay: null,
         job: null,
