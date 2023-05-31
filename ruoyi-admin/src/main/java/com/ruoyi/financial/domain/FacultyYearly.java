@@ -9,7 +9,7 @@ import com.ruoyi.common.core.domain.BaseEntity;
  * 教职工年度对象 faculty_yearly
  *
  * @author Keven
- * @date 2023-05-30
+ * @date 2023-05-31
  */
 public class FacultyYearly extends BaseEntity
 {

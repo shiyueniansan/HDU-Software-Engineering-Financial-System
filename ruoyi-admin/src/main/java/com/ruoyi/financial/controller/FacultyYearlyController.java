@@ -23,9 +23,9 @@ import com.ruoyi.common.core.page.TableDataInfo;
 
 /**
  * 教职工年度Controller
- * 
+ *
  * @author Keven
- * @date 2023-05-30
+ * @date 2023-05-31
  */
 @RestController
 @RequestMapping("/financial/yearly")
@@ -59,46 +59,46 @@ public class FacultyYearlyController extends BaseController
         util.exportExcel(response, list, "教职工年度数据");
     }
 
-    /**
-     * 获取教职工年度详细信息
-     */
-    @PreAuthorize("@ss.hasPermi('financial:yearly:query')")
-    @GetMapping(value = "/{facultyId}")
-    public AjaxResult getInfo(@PathVariable("facultyId") Long facultyId)
-    {
-        return success(facultyYearlyService.selectFacultyYearlyByFacultyId(facultyId));
-    }
-
-    /**
-     * 新增教职工年度
-     */
-    @PreAuthorize("@ss.hasPermi('financial:yearly:add')")
-    @Log(title = "教职工年度", businessType = BusinessType.INSERT)
-    @PostMapping
-    public AjaxResult add(@RequestBody FacultyYearly facultyYearly)
-    {
-        return toAjax(facultyYearlyService.insertFacultyYearly(facultyYearly));
-    }
-
-    /**
-     * 修改教职工年度
-     */
-    @PreAuthorize("@ss.hasPermi('financial:yearly:edit')")
-    @Log(title = "教职工年度", businessType = BusinessType.UPDATE)
-    @PutMapping
-    public AjaxResult edit(@RequestBody FacultyYearly facultyYearly)
-    {
-        return toAjax(facultyYearlyService.updateFacultyYearly(facultyYearly));
-    }
-
-    /**
-     * 删除教职工年度
-     */
-    @PreAuthorize("@ss.hasPermi('financial:yearly:remove')")
-    @Log(title = "教职工年度", businessType = BusinessType.DELETE)
-	@DeleteMapping("/{facultyIds}")
-    public AjaxResult remove(@PathVariable Long[] facultyIds)
-    {
-        return toAjax(facultyYearlyService.deleteFacultyYearlyByFacultyIds(facultyIds));
-    }
+//    /**
+//     * 获取教职工年度详细信息
+//     */
+//    @PreAuthorize("@ss.hasPermi('financial:yearly:query')")
+//    @GetMapping(value = "/{facultyId}")
+//    public AjaxResult getInfo(@PathVariable("facultyId") Long facultyId)
+//    {
+//        return success(facultyYearlyService.selectFacultyYearlyByFacultyId(facultyId));
+//    }
+//
+//    /**
+//     * 新增教职工年度
+//     */
+//    @PreAuthorize("@ss.hasPermi('financial:yearly:add')")
+//    @Log(title = "教职工年度", businessType = BusinessType.INSERT)
+//    @PostMapping
+//    public AjaxResult add(@RequestBody FacultyYearly facultyYearly)
+//    {
+//        return toAjax(facultyYearlyService.insertFacultyYearly(facultyYearly));
+//    }
+//
+//    /**
+//     * 修改教职工年度
+//     */
+//    @PreAuthorize("@ss.hasPermi('financial:yearly:edit')")
+//    @Log(title = "教职工年度", businessType = BusinessType.UPDATE)
+//    @PutMapping
+//    public AjaxResult edit(@RequestBody FacultyYearly facultyYearly)
+//    {
+//        return toAjax(facultyYearlyService.updateFacultyYearly(facultyYearly));
+//    }
+//
+//    /**
+//     * 删除教职工年度
+//     */
+//    @PreAuthorize("@ss.hasPermi('financial:yearly:remove')")
+//    @Log(title = "教职工年度", businessType = BusinessType.DELETE)
+//	@DeleteMapping("/{facultyIds}")
+//    public AjaxResult remove(@PathVariable Long[] facultyIds)
+//    {
+//        return toAjax(facultyYearlyService.deleteFacultyYearlyByFacultyIds(facultyIds));
+//    }
 }

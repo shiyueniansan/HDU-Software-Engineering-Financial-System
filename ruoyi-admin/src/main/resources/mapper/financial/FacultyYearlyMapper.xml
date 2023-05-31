@@ -38,7 +38,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         insert into faculty_yearly
         <trim prefix="(" suffix=")" suffixOverrides=",">
             <if test="facultyId != null">faculty_id,</if>
-            <if test="name != null and name != ''">name,</if>
+            <if test="name != null">name,</if>
             <if test="totalPay != null">total_pay,</if>
             <if test="hour != null">hour,</if>
             <if test="avgPay != null">avg_pay,</if>
@@ -46,7 +46,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
          </trim>
         <trim prefix="values (" suffix=")" suffixOverrides=",">
             <if test="facultyId != null">#{facultyId},</if>
-            <if test="name != null and name != ''">#{name},</if>
+            <if test="name != null">#{name},</if>
             <if test="totalPay != null">#{totalPay},</if>
             <if test="hour != null">#{hour},</if>
             <if test="avgPay != null">#{avgPay},</if>
@@ -57,7 +57,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     <update id="updateFacultyYearly" parameterType="FacultyYearly">
         update faculty_yearly
         <trim prefix="SET" suffixOverrides=",">
-            <if test="name != null and name != ''">name = #{name},</if>
+            <if test="name != null">name = #{name},</if>
             <if test="totalPay != null">total_pay = #{totalPay},</if>
             <if test="hour != null">hour = #{hour},</if>
             <if test="avgPay != null">avg_pay = #{avgPay},</if>
