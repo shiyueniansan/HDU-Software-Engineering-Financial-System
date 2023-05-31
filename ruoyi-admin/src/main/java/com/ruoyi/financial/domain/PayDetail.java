@@ -7,7 +7,7 @@ import com.ruoyi.common.core.domain.BaseEntity;
 
 /**
  * 工资明细表对象 faculty_monthly
- * 
+ *
  * @author Keven
  * @date 2023-05-31
  */
@@ -87,165 +87,171 @@ public class PayDetail extends BaseEntity
     @Excel(name = "实发工资")
     private Long netPay;
 
-    public void setFacultyId(Long facultyId) 
+    //constructor with facultyId and name
+    public PayDetail(Long facultyId, String name) {
+        this.facultyId = facultyId;
+        this.name = name;
+    }
+
+    public void setFacultyId(Long facultyId)
     {
         this.facultyId = facultyId;
     }
 
-    public Long getFacultyId() 
+    public Long getFacultyId()
     {
         return facultyId;
     }
-    public void setName(String name) 
+    public void setName(String name)
     {
         this.name = name;
     }
 
-    public String getName() 
+    public String getName()
     {
         return name;
     }
-    public void setMonth(Long month) 
+    public void setMonth(Long month)
     {
         this.month = month;
     }
 
-    public Long getMonth() 
+    public Long getMonth()
     {
         return month;
     }
-    public void setBasicPay(Long basicPay) 
+    public void setBasicPay(Long basicPay)
     {
         this.basicPay = basicPay;
     }
 
-    public Long getBasicPay() 
+    public Long getBasicPay()
     {
         return basicPay;
     }
-    public void setJob(Long job) 
+    public void setJob(Long job)
     {
         this.job = job;
     }
 
-    public Long getJob() 
+    public Long getJob()
     {
         return job;
     }
-    public void setTitle(Long title) 
+    public void setTitle(Long title)
     {
         this.title = title;
     }
 
-    public Long getTitle() 
+    public Long getTitle()
     {
         return title;
     }
-    public void setLivingSubsidy(Long livingSubsidy) 
+    public void setLivingSubsidy(Long livingSubsidy)
     {
         this.livingSubsidy = livingSubsidy;
     }
 
-    public Long getLivingSubsidy() 
+    public Long getLivingSubsidy()
     {
         return livingSubsidy;
     }
-    public void setReadingSubsidy(Long readingSubsidy) 
+    public void setReadingSubsidy(Long readingSubsidy)
     {
         this.readingSubsidy = readingSubsidy;
     }
 
-    public Long getReadingSubsidy() 
+    public Long getReadingSubsidy()
     {
         return readingSubsidy;
     }
-    public void setTransportationSubsidy(Long transportationSubsidy) 
+    public void setTransportationSubsidy(Long transportationSubsidy)
     {
         this.transportationSubsidy = transportationSubsidy;
     }
 
-    public Long getTransportationSubsidy() 
+    public Long getTransportationSubsidy()
     {
         return transportationSubsidy;
     }
-    public void setWashingSubsidy(Long washingSubsidy) 
+    public void setWashingSubsidy(Long washingSubsidy)
     {
         this.washingSubsidy = washingSubsidy;
     }
 
-    public Long getWashingSubsidy() 
+    public Long getWashingSubsidy()
     {
         return washingSubsidy;
     }
-    public void setTeacherPay(Long teacherPay) 
+    public void setTeacherPay(Long teacherPay)
     {
         this.teacherPay = teacherPay;
     }
 
-    public Long getTeacherPay() 
+    public Long getTeacherPay()
     {
         return teacherPay;
     }
-    public void setStaffPay(Long staffPay) 
+    public void setStaffPay(Long staffPay)
     {
         this.staffPay = staffPay;
     }
 
-    public Long getStaffPay() 
+    public Long getStaffPay()
     {
         return staffPay;
     }
-    public void setExtraTeacherPay(Long extraTeacherPay) 
+    public void setExtraTeacherPay(Long extraTeacherPay)
     {
         this.extraTeacherPay = extraTeacherPay;
     }
 
-    public Long getExtraTeacherPay() 
+    public Long getExtraTeacherPay()
     {
         return extraTeacherPay;
     }
-    public void setTotalPay(Long totalPay) 
+    public void setTotalPay(Long totalPay)
     {
         this.totalPay = totalPay;
     }
 
-    public Long getTotalPay() 
+    public Long getTotalPay()
     {
         return totalPay;
     }
-    public void setTax(Long tax) 
+    public void setTax(Long tax)
     {
         this.tax = tax;
     }
 
-    public Long getTax() 
+    public Long getTax()
     {
         return tax;
     }
-    public void setHousing(Long housing) 
+    public void setHousing(Long housing)
     {
         this.housing = housing;
     }
 
-    public Long getHousing() 
+    public Long getHousing()
     {
         return housing;
     }
-    public void setInsurance(Long insurance) 
+    public void setInsurance(Long insurance)
     {
         this.insurance = insurance;
     }
 
-    public Long getInsurance() 
+    public Long getInsurance()
     {
         return insurance;
     }
-    public void setNetPay(Long netPay) 
+    public void setNetPay(Long netPay)
     {
         this.netPay = netPay;
     }
 
-    public Long getNetPay() 
+    public Long getNetPay()
     {
         return netPay;
     }

@@ -7,7 +7,7 @@ import com.ruoyi.common.core.domain.BaseEntity;
 
 /**
  * 教职工年度对象 faculty_yearly
- * 
+ *
  * @author Keven
  * @date 2023-05-30
  */
@@ -39,57 +39,63 @@ public class FacultyYearly extends BaseEntity
     @Excel(name = "本年度累计实发工资")
     private Long netPay;
 
-    public void setFacultyId(Long facultyId) 
+    //constructor with facultyId and name
+    public FacultyYearly(Long facultyId, String name) {
+        this.facultyId = facultyId;
+        this.name = name;
+    }
+
+    public void setFacultyId(Long facultyId)
     {
         this.facultyId = facultyId;
     }
 
-    public Long getFacultyId() 
+    public Long getFacultyId()
     {
         return facultyId;
     }
-    public void setName(String name) 
+    public void setName(String name)
     {
         this.name = name;
     }
 
-    public String getName() 
+    public String getName()
     {
         return name;
     }
-    public void setTotalPay(Long totalPay) 
+    public void setTotalPay(Long totalPay)
     {
         this.totalPay = totalPay;
     }
 
-    public Long getTotalPay() 
+    public Long getTotalPay()
     {
         return totalPay;
     }
-    public void setHour(Long hour) 
+    public void setHour(Long hour)
     {
         this.hour = hour;
     }
 
-    public Long getHour() 
+    public Long getHour()
     {
         return hour;
     }
-    public void setAvgPay(Long avgPay) 
+    public void setAvgPay(Long avgPay)
     {
         this.avgPay = avgPay;
     }
 
-    public Long getAvgPay() 
+    public Long getAvgPay()
     {
         return avgPay;
     }
-    public void setNetPay(Long netPay) 
+    public void setNetPay(Long netPay)
     {
         this.netPay = netPay;
     }
 
-    public Long getNetPay() 
+    public Long getNetPay()
     {
         return netPay;
     }

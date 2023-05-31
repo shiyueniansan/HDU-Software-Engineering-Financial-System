@@ -5,15 +5,15 @@ import com.ruoyi.financial.domain.Affair;
 
 /**
  * 个人事务Service接口
- * 
+ *
  * @author Keven
  * @date 2023-05-31
  */
-public interface IAffairService 
+public interface IAffairService
 {
     /**
      * 查询个人事务
-     * 
+     *
      * @param id 个人事务主键
      * @return 个人事务
      */
@@ -21,7 +21,7 @@ public interface IAffairService
 
     /**
      * 查询个人事务列表
-     * 
+     *
      * @param affair 个人事务
      * @return 个人事务集合
      */
@@ -29,7 +29,7 @@ public interface IAffairService
 
     /**
      * 新增个人事务
-     * 
+     *
      * @param affair 个人事务
      * @return 结果
      */
@@ -37,7 +37,7 @@ public interface IAffairService
 
     /**
      * 修改个人事务
-     * 
+     *
      * @param affair 个人事务
      * @return 结果
      */
@@ -45,7 +45,7 @@ public interface IAffairService
 
     /**
      * 批量删除个人事务
-     * 
+     *
      * @param ids 需要删除的个人事务主键集合
      * @return 结果
      */
@@ -53,9 +53,17 @@ public interface IAffairService
 
     /**
      * 删除个人事务信息
-     * 
+     *
      * @param id 个人事务主键
      * @return 结果
      */
     public int deleteAffairById(Long id);
+
+    /**
+     * 根据facultyIds批量删除个人事务
+     *
+     * @param facultyIds 需要删除的个人事务的facultyIds集合
+     * @return 结果
+     */
+    public int deleteAffairByFacultyIds(Long[] facultyIds);
 }

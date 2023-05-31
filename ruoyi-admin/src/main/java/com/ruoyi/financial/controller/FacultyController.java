@@ -2,6 +2,12 @@ package com.ruoyi.financial.controller;
 
 import java.util.List;
 import javax.servlet.http.HttpServletResponse;
+
+import com.ruoyi.financial.domain.FacultyYearly;
+import com.ruoyi.financial.domain.PayDetail;
+import com.ruoyi.financial.service.IAffairService;
+import com.ruoyi.financial.service.IFacultyYearlyService;
+import com.ruoyi.financial.service.IPayDetailService;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -23,7 +29,7 @@ import com.ruoyi.common.core.page.TableDataInfo;
 
 /**
  * 教职工Controller
- * 
+ *
  * @author Keven
  * @date 2023-05-30
  */
@@ -33,6 +39,15 @@ public class FacultyController extends BaseController
 {
     @Autowired
     private IFacultyService facultyService;
+
+    @Autowired
+    private IFacultyYearlyService facultyYearlyService;
+
+    @Autowired
+    private IAffairService affairService;
+
+    @Autowired
+    private IPayDetailService payDetailService;
 
     /**
      * 查询教职工列表
@@ -77,7 +92,13 @@ public class FacultyController extends BaseController
     @PostMapping
     public AjaxResult add(@RequestBody Faculty faculty)
     {
-        return toAjax(facultyService.insertFaculty(faculty));
+//        return toAjax(facultyService.insertFaculty(faculty));
+        Integer result = facultyService.insertFaculty(faculty);
+        if(result > 0){
+            facultyYearlyService.insertFacultyYearly(new FacultyYearly(faculty.getId(), faculty.getName()));
+            payDetailService.insertPayDetail(new PayDetail(faculty.getId(), faculty.getName()));
+        }
+        return toAjax(result);
     }
 
     /**
@@ -99,6 +120,13 @@ public class FacultyController extends BaseController
 	@DeleteMapping("/{ids}")
     public AjaxResult remove(@PathVariable Long[] ids)
     {
-        return toAjax(facultyService.deleteFacultyByIds(ids));
+//        return toAjax(facultyService.deleteFacultyByIds(ids));
+        Integer result = facultyService.deleteFacultyByIds(ids);
+        if(result > 0){
+            facultyYearlyService.deleteFacultyYearlyByFacultyIds(ids);
+            affairService.deleteAffairByFacultyIds(ids);
+            payDetailService.deletePayDetailByFacultyIds(ids);
+        }
+        return toAjax(result);
     }
 }

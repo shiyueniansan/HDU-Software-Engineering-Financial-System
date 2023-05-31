@@ -189,12 +189,6 @@ export default {
       form: {},
       // 表单校验
       rules: {
-        facultyId: [
-          { required: true, message: "教职工编号不能为空", trigger: "blur" }
-        ],
-        name: [
-          { required: true, message: "姓名不能为空", trigger: "blur" }
-        ],
       }
     };
   },
