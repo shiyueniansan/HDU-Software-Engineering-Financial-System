@@ -88,9 +88,10 @@ public class PayDetail extends BaseEntity
     private Long netPay;
 
     //constructor with facultyId and name
-    public PayDetail(Long facultyId, String name) {
+    public PayDetail(Long facultyId, String name, Long month) {
         this.facultyId = facultyId;
         this.name = name;
+        this.month = month;
     }
 
     public void setFacultyId(Long facultyId)
