@@ -5,14 +5,11 @@ import java.util.List;
 import com.ruoyi.financial.constant.FinancialConstants;
 import com.ruoyi.financial.domain.Affair;
 import com.ruoyi.financial.domain.Faculty;
-import com.ruoyi.financial.service.IAffairService;
-import com.ruoyi.financial.service.IFacultyService;
-import com.ruoyi.financial.service.ITitleService;
+import com.ruoyi.financial.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.ruoyi.financial.mapper.PayDetailMapper;
 import com.ruoyi.financial.domain.PayDetail;
-import com.ruoyi.financial.service.IPayDetailService;
 
 /**
  * 工资明细表Service业务层处理
@@ -34,6 +31,9 @@ public class PayDetailServiceImpl implements IPayDetailService
 
     @Autowired
     private ITitleService titleService;
+
+    @Autowired
+    private IJobService jobService;
 
     /**
      * 查询工资明细表
@@ -107,10 +107,17 @@ public class PayDetailServiceImpl implements IPayDetailService
         return payDetailMapper.deletePayDetailByFacultyId(facultyId);
     }
 
+    /**
+     * 计算工资明细表
+     *
+     * @param list 工资明细表
+     * @return 结果
+     */
     @Override
     public void calculatePayDetail(List<PayDetail> list) {
         for (PayDetail payDetail : list) {
             Faculty faculty = facultyService.selectFacultyById(payDetail.getFacultyId());
+//            if()
             List<Affair> affairList = affairService.selectAffairList(new Affair(faculty.getId()));
             Float hours = 0F;
             for (Affair affair : affairList) {
@@ -119,14 +126,13 @@ public class PayDetailServiceImpl implements IPayDetailService
             if(faculty.getType()==0)//教师
             {
                 payDetail.setTeacherPay(
-                        hours* FinancialConstants.TEACHER_PAY_PER_HOUR *
+                        hours * FinancialConstants.TEACHER_PAY_PER_HOUR *
                                 titleService.selectTitleById(faculty.getTitle()).getFactor());
-                if(payDetail.getMonth()==12)
-                {
+                if (payDetail.getMonth() == 12) {
                     payDetail.setExtraTeacherPay(
-                            (hours-faculty.getQuotaHour())* FinancialConstants.TEACHER_PAY_PER_HOUR *
+                            (hours - faculty.getQuotaHour()) * FinancialConstants.TEACHER_PAY_PER_HOUR *
                                     titleService.selectTitleById(faculty.getTitle()).getFactor()
-                                    *FinancialConstants.TEACHER_EXTRA_PAY_FACTOR
+                                    * FinancialConstants.TEACHER_EXTRA_PAY_FACTOR
                     );
                 }
                 payDetail.setStaffPay(0F);
@@ -135,7 +141,8 @@ public class PayDetailServiceImpl implements IPayDetailService
             {
                 payDetail.setStaffPay(
                         hours* FinancialConstants.STAFF_PAY_PER_HOUR *
-                                titleService.selectTitleById(faculty.getTitle()).getFactor());
+                                jobService.selectJobById(faculty.getJob()).getFactor()
+                );
                 payDetail.setTeacherPay(0F);
                 payDetail.setExtraTeacherPay(0F);
             }

@@ -42,9 +42,9 @@ public class Affair extends BaseEntity
 //        this.name = name;
 //    }
 
-//    //constructor with no parameters
-//    public Affair() {
-//    }
+    //constructor with no parameters
+    public Affair() {
+    }
 
     //constructor with facultyId
     public Affair(Long facultyId) {

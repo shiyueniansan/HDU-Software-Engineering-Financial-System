@@ -23,7 +23,7 @@ import com.ruoyi.common.core.page.TableDataInfo;
 
 /**
  * 工资表Controller
- * 
+ *
  * @author Keven
  * @date 2023-05-31
  */
@@ -59,46 +59,46 @@ public class PayController extends BaseController
         util.exportExcel(response, list, "工资表数据");
     }
 
-    /**
-     * 获取工资表详细信息
-     */
-    @PreAuthorize("@ss.hasPermi('financial:pay:query')")
-    @GetMapping(value = "/{facultyId}")
-    public AjaxResult getInfo(@PathVariable("facultyId") Long facultyId)
-    {
-        return success(payService.selectPayByFacultyId(facultyId));
-    }
-
-    /**
-     * 新增工资表
-     */
-    @PreAuthorize("@ss.hasPermi('financial:pay:add')")
-    @Log(title = "工资表", businessType = BusinessType.INSERT)
-    @PostMapping
-    public AjaxResult add(@RequestBody Pay pay)
-    {
-        return toAjax(payService.insertPay(pay));
-    }
-
-    /**
-     * 修改工资表
-     */
-    @PreAuthorize("@ss.hasPermi('financial:pay:edit')")
-    @Log(title = "工资表", businessType = BusinessType.UPDATE)
-    @PutMapping
-    public AjaxResult edit(@RequestBody Pay pay)
-    {
-        return toAjax(payService.updatePay(pay));
-    }
-
-    /**
-     * 删除工资表
-     */
-    @PreAuthorize("@ss.hasPermi('financial:pay:remove')")
-    @Log(title = "工资表", businessType = BusinessType.DELETE)
-	@DeleteMapping("/{facultyIds}")
-    public AjaxResult remove(@PathVariable Long[] facultyIds)
-    {
-        return toAjax(payService.deletePayByFacultyIds(facultyIds));
-    }
+//    /**
+//     * 获取工资表详细信息
+//     */
+//    @PreAuthorize("@ss.hasPermi('financial:pay:query')")
+//    @GetMapping(value = "/{facultyId}")
+//    public AjaxResult getInfo(@PathVariable("facultyId") Long facultyId)
+//    {
+//        return success(payService.selectPayByFacultyId(facultyId));
+//    }
+//
+//    /**
+//     * 新增工资表
+//     */
+//    @PreAuthorize("@ss.hasPermi('financial:pay:add')")
+//    @Log(title = "工资表", businessType = BusinessType.INSERT)
+//    @PostMapping
+//    public AjaxResult add(@RequestBody Pay pay)
+//    {
+//        return toAjax(payService.insertPay(pay));
+//    }
+//
+//    /**
+//     * 修改工资表
+//     */
+//    @PreAuthorize("@ss.hasPermi('financial:pay:edit')")
+//    @Log(title = "工资表", businessType = BusinessType.UPDATE)
+//    @PutMapping
+//    public AjaxResult edit(@RequestBody Pay pay)
+//    {
+//        return toAjax(payService.updatePay(pay));
+//    }
+//
+//    /**
+//     * 删除工资表
+//     */
+//    @PreAuthorize("@ss.hasPermi('financial:pay:remove')")
+//    @Log(title = "工资表", businessType = BusinessType.DELETE)
+//	@DeleteMapping("/{facultyIds}")
+//    public AjaxResult remove(@PathVariable Long[] facultyIds)
+//    {
+//        return toAjax(payService.deletePayByFacultyIds(facultyIds));
+//    }
 }

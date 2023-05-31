@@ -51,6 +51,10 @@ public class FacultyYearly extends BaseEntity
         this.name = faculty.getName();
     }
 
+    //constructor with no parameters
+    public FacultyYearly() {
+    }
+
     public void setFacultyId(Long facultyId)
     {
         this.facultyId = facultyId;
