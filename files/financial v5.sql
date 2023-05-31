@@ -11,7 +11,7 @@
  Target Server Version : 80031
  File Encoding         : 65001
 
- Date: 30/05/2023 23:42:57
+ Date: 31/05/2023 08:12:25
 */
 
 SET NAMES utf8mb4;
@@ -154,8 +154,8 @@ CREATE TABLE `faculty`  (
   `id` bigint NOT NULL AUTO_INCREMENT COMMENT '编号',
   `name` varchar(30) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL COMMENT '姓名',
   `type` int NOT NULL COMMENT '教师/职工',
-  `title` int NULL DEFAULT 0 COMMENT '职称',
   `job` int NULL DEFAULT 0 COMMENT '职务',
+  `title` int NULL DEFAULT 0 COMMENT '职称',
   `basic_pay` float NULL DEFAULT 0 COMMENT '基本工资',
   `living_subsidy` float NULL DEFAULT 0 COMMENT '生活补贴',
   `reading_subsidy` float NULL DEFAULT 0 COMMENT '书报费',
@@ -170,106 +170,106 @@ CREATE TABLE `faculty`  (
 -- ----------------------------
 -- Records of faculty
 -- ----------------------------
-INSERT INTO `faculty` VALUES (1, '张璐', 0, 3, 1, 13923, 260.58, 69.68, 228.62, 127.7, 45);
-INSERT INTO `faculty` VALUES (2, '廖宇宁', 1, 0, 3, 5860.16, 327.66, 51.67, 261.13, 147.39, 34);
+INSERT INTO `faculty` VALUES (1, '张璐', 0, 1, 3, 13923, 260.58, 69.68, 228.62, 127.7, 45);
+INSERT INTO `faculty` VALUES (2, '廖宇宁', 1, 3, 0, 5860.16, 327.66, 51.67, 261.13, 147.39, 34);
 INSERT INTO `faculty` VALUES (3, '夏晓明', 0, 1, 1, 8582.1, 259.46, 6.27, 255.03, 117.92, 33);
 INSERT INTO `faculty` VALUES (4, '蔡璐', 0, 4, 4, 16966, 53.99, 54.01, 315.78, 140.84, 58);
-INSERT INTO `faculty` VALUES (5, '顾杰宏', 1, 1, 7, 9756.86, 199.68, 32.47, 164.07, 25.78, 42);
-INSERT INTO `faculty` VALUES (6, '顾宇宁', 0, 0, 4, 9441.27, 892.27, 23.41, 237.59, 108.26, 48);
-INSERT INTO `faculty` VALUES (7, '江秀英', 1, 3, 4, 11563.9, 246.96, 39.1, 97.94, 56.1, 57);
-INSERT INTO `faculty` VALUES (8, '谭子异', 0, 1, 0, 18780.5, 174.52, 70.16, 434.96, 199.04, 33);
-INSERT INTO `faculty` VALUES (9, '陆杰宏', 1, 2, 6, 5511.1, 736.25, 52.82, 274.45, 28.82, 57);
-INSERT INTO `faculty` VALUES (10, '薛岚', 1, 3, 7, 9045.74, 530.15, 13, 0.11, 116.84, 47);
-INSERT INTO `faculty` VALUES (11, '曾睿', 0, 3, 4, 18379.8, 248.81, 70.33, 344.08, 41.85, 35);
-INSERT INTO `faculty` VALUES (12, '莫杰宏', 1, 4, 1, 7846.48, 660.49, 98.67, 136.66, 112.93, 53);
-INSERT INTO `faculty` VALUES (13, '雷睿', 1, 2, 3, 10459.2, 348.27, 12.03, 37.22, 162.02, 32);
-INSERT INTO `faculty` VALUES (14, '廖詩涵', 0, 3, 0, 15603.2, 870.52, 28.3, 83.04, 141.25, 45);
+INSERT INTO `faculty` VALUES (5, '顾杰宏', 1, 7, 1, 9756.86, 199.68, 32.47, 164.07, 25.78, 42);
+INSERT INTO `faculty` VALUES (6, '顾宇宁', 0, 4, 0, 9441.27, 892.27, 23.41, 237.59, 108.26, 48);
+INSERT INTO `faculty` VALUES (7, '江秀英', 1, 4, 3, 11563.9, 246.96, 39.1, 97.94, 56.1, 57);
+INSERT INTO `faculty` VALUES (8, '谭子异', 0, 0, 1, 18780.5, 174.52, 70.16, 434.96, 199.04, 33);
+INSERT INTO `faculty` VALUES (9, '陆杰宏', 1, 6, 2, 5511.1, 736.25, 52.82, 274.45, 28.82, 57);
+INSERT INTO `faculty` VALUES (10, '薛岚', 1, 7, 3, 9045.74, 530.15, 13, 0.11, 116.84, 47);
+INSERT INTO `faculty` VALUES (11, '曾睿', 0, 4, 3, 18379.8, 248.81, 70.33, 344.08, 41.85, 35);
+INSERT INTO `faculty` VALUES (12, '莫杰宏', 1, 1, 4, 7846.48, 660.49, 98.67, 136.66, 112.93, 53);
+INSERT INTO `faculty` VALUES (13, '雷睿', 1, 3, 2, 10459.2, 348.27, 12.03, 37.22, 162.02, 32);
+INSERT INTO `faculty` VALUES (14, '廖詩涵', 0, 0, 3, 15603.2, 870.52, 28.3, 83.04, 141.25, 45);
 INSERT INTO `faculty` VALUES (15, '黄云熙', 1, 3, 3, 12623.9, 127.9, 81.96, 451.95, 107.47, 45);
-INSERT INTO `faculty` VALUES (16, '龙子异', 1, 2, 7, 6137.76, 310.77, 44.57, 485.14, 182.04, 57);
-INSERT INTO `faculty` VALUES (17, '杜晓明', 1, 4, 6, 8002.86, 734.06, 21.57, 136.39, 81.15, 31);
-INSERT INTO `faculty` VALUES (18, '江子异', 1, 3, 7, 10317, 511.21, 84.84, 397.52, 20.94, 37);
+INSERT INTO `faculty` VALUES (16, '龙子异', 1, 7, 2, 6137.76, 310.77, 44.57, 485.14, 182.04, 57);
+INSERT INTO `faculty` VALUES (17, '杜晓明', 1, 6, 4, 8002.86, 734.06, 21.57, 136.39, 81.15, 31);
+INSERT INTO `faculty` VALUES (18, '江子异', 1, 7, 3, 10317, 511.21, 84.84, 397.52, 20.94, 37);
 INSERT INTO `faculty` VALUES (19, '熊晓明', 0, 2, 2, 5224.87, 320.93, 5.14, 33.18, 173.39, 31);
-INSERT INTO `faculty` VALUES (20, '苏杰宏', 0, 3, 1, 6524.05, 351.04, 87.64, 266.15, 4.14, 37);
-INSERT INTO `faculty` VALUES (21, '阎璐', 0, 0, 4, 13509.9, 827.72, 63.33, 156.6, 145.35, 37);
+INSERT INTO `faculty` VALUES (20, '苏杰宏', 0, 1, 3, 6524.05, 351.04, 87.64, 266.15, 4.14, 37);
+INSERT INTO `faculty` VALUES (21, '阎璐', 0, 4, 0, 13509.9, 827.72, 63.33, 156.6, 145.35, 37);
 INSERT INTO `faculty` VALUES (22, '徐秀英', 0, 4, 4, 16092.9, 410.85, 68.17, 79.08, 67.77, 59);
 INSERT INTO `faculty` VALUES (23, '韦嘉伦', 0, 2, 2, 14784.6, 322.74, 57.5, 90.31, 127.61, 41);
-INSERT INTO `faculty` VALUES (24, '程安琪', 0, 2, 8, 18176.6, 349.06, 48.25, 167.31, 6.37, 49);
-INSERT INTO `faculty` VALUES (25, '梁子异', 1, 4, 1, 9678.73, 714.87, 77.77, 159.56, 13.93, 43);
-INSERT INTO `faculty` VALUES (26, '姜嘉伦', 1, 1, 3, 5390.73, 21.03, 44.25, 260.07, 153.66, 56);
-INSERT INTO `faculty` VALUES (27, '吴睿', 0, 1, 4, 8979.09, 809.37, 13.21, 317.54, 155.25, 44);
-INSERT INTO `faculty` VALUES (28, '蒋宇宁', 0, 2, 3, 17212, 104.98, 44.54, 68.34, 61.82, 30);
-INSERT INTO `faculty` VALUES (29, '丁子韬', 0, 1, 6, 8987.26, 401.15, 30.74, 481.55, 14.82, 43);
-INSERT INTO `faculty` VALUES (30, '于安琪', 0, 4, 1, 17947.7, 921.5, 43.8, 409.71, 146.68, 31);
-INSERT INTO `faculty` VALUES (31, '林致远', 0, 4, 0, 10333.1, 548.09, 5.15, 247.95, 182.88, 43);
-INSERT INTO `faculty` VALUES (32, '李岚', 0, 3, 4, 7931.19, 803.34, 58.48, 85.04, 130.22, 43);
+INSERT INTO `faculty` VALUES (24, '程安琪', 0, 8, 2, 18176.6, 349.06, 48.25, 167.31, 6.37, 49);
+INSERT INTO `faculty` VALUES (25, '梁子异', 1, 1, 4, 9678.73, 714.87, 77.77, 159.56, 13.93, 43);
+INSERT INTO `faculty` VALUES (26, '姜嘉伦', 1, 3, 1, 5390.73, 21.03, 44.25, 260.07, 153.66, 56);
+INSERT INTO `faculty` VALUES (27, '吴睿', 0, 4, 1, 8979.09, 809.37, 13.21, 317.54, 155.25, 44);
+INSERT INTO `faculty` VALUES (28, '蒋宇宁', 0, 3, 2, 17212, 104.98, 44.54, 68.34, 61.82, 30);
+INSERT INTO `faculty` VALUES (29, '丁子韬', 0, 6, 1, 8987.26, 401.15, 30.74, 481.55, 14.82, 43);
+INSERT INTO `faculty` VALUES (30, '于安琪', 0, 1, 4, 17947.7, 921.5, 43.8, 409.71, 146.68, 31);
+INSERT INTO `faculty` VALUES (31, '林致远', 0, 0, 4, 10333.1, 548.09, 5.15, 247.95, 182.88, 43);
+INSERT INTO `faculty` VALUES (32, '李岚', 0, 4, 3, 7931.19, 803.34, 58.48, 85.04, 130.22, 43);
 INSERT INTO `faculty` VALUES (33, '卢嘉伦', 0, 2, 2, 7455.76, 41.17, 42.33, 387.84, 142.14, 42);
-INSERT INTO `faculty` VALUES (34, '李杰宏', 0, 3, 7, 7489.29, 81.52, 30.45, 364.43, 116.12, 35);
-INSERT INTO `faculty` VALUES (35, '徐岚', 1, 1, 5, 12632.5, 202.27, 81.74, 288.77, 108.59, 53);
-INSERT INTO `faculty` VALUES (36, '蒋嘉伦', 0, 2, 5, 12980.7, 118.88, 17.98, 319.28, 113.77, 57);
-INSERT INTO `faculty` VALUES (37, '冯璐', 0, 3, 4, 6862.41, 878.92, 10.7, 439.35, 87.19, 50);
-INSERT INTO `faculty` VALUES (38, '丁震南', 1, 0, 3, 5917.93, 305.83, 5.83, 445.02, 133.42, 59);
-INSERT INTO `faculty` VALUES (39, '高璐', 0, 2, 5, 11190.1, 346.89, 67.66, 466.11, 46.46, 58);
-INSERT INTO `faculty` VALUES (40, '钱秀英', 0, 2, 5, 12144, 20.15, 61.61, 385.74, 96.6, 59);
-INSERT INTO `faculty` VALUES (41, '严子韬', 1, 1, 3, 10009.8, 563.49, 65.23, 236.29, 185.89, 33);
-INSERT INTO `faculty` VALUES (42, '曾嘉伦', 0, 1, 4, 15294.7, 80.8, 25.39, 167.84, 188.47, 41);
-INSERT INTO `faculty` VALUES (43, '卢宇宁', 1, 0, 7, 6258.95, 447.85, 79.97, 487.57, 145.54, 32);
-INSERT INTO `faculty` VALUES (44, '董晓明', 0, 0, 4, 14752.3, 300.31, 20.59, 191.49, 43.76, 54);
+INSERT INTO `faculty` VALUES (34, '李杰宏', 0, 7, 3, 7489.29, 81.52, 30.45, 364.43, 116.12, 35);
+INSERT INTO `faculty` VALUES (35, '徐岚', 1, 5, 1, 12632.5, 202.27, 81.74, 288.77, 108.59, 53);
+INSERT INTO `faculty` VALUES (36, '蒋嘉伦', 0, 5, 2, 12980.7, 118.88, 17.98, 319.28, 113.77, 57);
+INSERT INTO `faculty` VALUES (37, '冯璐', 0, 4, 3, 6862.41, 878.92, 10.7, 439.35, 87.19, 50);
+INSERT INTO `faculty` VALUES (38, '丁震南', 1, 3, 0, 5917.93, 305.83, 5.83, 445.02, 133.42, 59);
+INSERT INTO `faculty` VALUES (39, '高璐', 0, 5, 2, 11190.1, 346.89, 67.66, 466.11, 46.46, 58);
+INSERT INTO `faculty` VALUES (40, '钱秀英', 0, 5, 2, 12144, 20.15, 61.61, 385.74, 96.6, 59);
+INSERT INTO `faculty` VALUES (41, '严子韬', 1, 3, 1, 10009.8, 563.49, 65.23, 236.29, 185.89, 33);
+INSERT INTO `faculty` VALUES (42, '曾嘉伦', 0, 4, 1, 15294.7, 80.8, 25.39, 167.84, 188.47, 41);
+INSERT INTO `faculty` VALUES (43, '卢宇宁', 1, 7, 0, 6258.95, 447.85, 79.97, 487.57, 145.54, 32);
+INSERT INTO `faculty` VALUES (44, '董晓明', 0, 4, 0, 14752.3, 300.31, 20.59, 191.49, 43.76, 54);
 INSERT INTO `faculty` VALUES (45, '孟宇宁', 1, 3, 3, 12790.7, 478.95, 63.19, 243.37, 180.45, 38);
-INSERT INTO `faculty` VALUES (46, '毛杰宏', 1, 3, 6, 19052.9, 294.19, 35.03, 355.89, 105.31, 38);
+INSERT INTO `faculty` VALUES (46, '毛杰宏', 1, 6, 3, 19052.9, 294.19, 35.03, 355.89, 105.31, 38);
 INSERT INTO `faculty` VALUES (47, '姜安琪', 0, 3, 3, 6784.61, 670.34, 76.4, 91.38, 77.3, 55);
-INSERT INTO `faculty` VALUES (48, '范子异', 0, 3, 1, 10394.3, 592.18, 90.14, 256.55, 39.77, 42);
-INSERT INTO `faculty` VALUES (49, '韩睿', 0, 4, 6, 17739.7, 621.39, 10.77, 476.06, 66.93, 56);
-INSERT INTO `faculty` VALUES (50, '何晓明', 0, 2, 5, 15588.3, 895.99, 16.06, 27.52, 87.13, 56);
-INSERT INTO `faculty` VALUES (51, '叶璐', 1, 2, 4, 14566.5, 128.53, 90.06, 286, 178.85, 43);
-INSERT INTO `faculty` VALUES (52, '孙晓明', 1, 4, 7, 9969.29, 404.91, 38.31, 54.5, 180.94, 42);
-INSERT INTO `faculty` VALUES (53, '许岚', 1, 2, 4, 14626.7, 689.48, 6.29, 55.49, 175.94, 33);
-INSERT INTO `faculty` VALUES (54, '张璐', 0, 2, 4, 6826.39, 793.55, 6.09, 154.33, 2.68, 40);
-INSERT INTO `faculty` VALUES (55, '石璐', 0, 3, 7, 16634.8, 849.83, 43.3, 469.08, 36.19, 39);
-INSERT INTO `faculty` VALUES (56, '金晓明', 0, 2, 4, 13038.5, 906.03, 21.36, 257.69, 109.8, 37);
-INSERT INTO `faculty` VALUES (57, '邹岚', 1, 2, 1, 6048.9, 848.48, 56.16, 13.97, 164.8, 49);
-INSERT INTO `faculty` VALUES (58, '段宇宁', 1, 0, 2, 9766.37, 304, 27.83, 66.18, 34.13, 56);
-INSERT INTO `faculty` VALUES (59, '孟致远', 0, 1, 6, 10204.4, 282.36, 19.58, 470.98, 76.57, 39);
-INSERT INTO `faculty` VALUES (60, '吴致远', 0, 3, 2, 19967.9, 908.79, 34.37, 408.11, 148.8, 48);
-INSERT INTO `faculty` VALUES (61, '段嘉伦', 1, 3, 8, 19522.4, 193.12, 31.27, 353.72, 183.56, 44);
+INSERT INTO `faculty` VALUES (48, '范子异', 0, 1, 3, 10394.3, 592.18, 90.14, 256.55, 39.77, 42);
+INSERT INTO `faculty` VALUES (49, '韩睿', 0, 6, 4, 17739.7, 621.39, 10.77, 476.06, 66.93, 56);
+INSERT INTO `faculty` VALUES (50, '何晓明', 0, 5, 2, 15588.3, 895.99, 16.06, 27.52, 87.13, 56);
+INSERT INTO `faculty` VALUES (51, '叶璐', 1, 4, 2, 14566.5, 128.53, 90.06, 286, 178.85, 43);
+INSERT INTO `faculty` VALUES (52, '孙晓明', 1, 7, 4, 9969.29, 404.91, 38.31, 54.5, 180.94, 42);
+INSERT INTO `faculty` VALUES (53, '许岚', 1, 4, 2, 14626.7, 689.48, 6.29, 55.49, 175.94, 33);
+INSERT INTO `faculty` VALUES (54, '张璐', 0, 4, 2, 6826.39, 793.55, 6.09, 154.33, 2.68, 40);
+INSERT INTO `faculty` VALUES (55, '石璐', 0, 7, 3, 16634.8, 849.83, 43.3, 469.08, 36.19, 39);
+INSERT INTO `faculty` VALUES (56, '金晓明', 0, 4, 2, 13038.5, 906.03, 21.36, 257.69, 109.8, 37);
+INSERT INTO `faculty` VALUES (57, '邹岚', 1, 1, 2, 6048.9, 848.48, 56.16, 13.97, 164.8, 49);
+INSERT INTO `faculty` VALUES (58, '段宇宁', 1, 2, 0, 9766.37, 304, 27.83, 66.18, 34.13, 56);
+INSERT INTO `faculty` VALUES (59, '孟致远', 0, 6, 1, 10204.4, 282.36, 19.58, 470.98, 76.57, 39);
+INSERT INTO `faculty` VALUES (60, '吴致远', 0, 2, 3, 19967.9, 908.79, 34.37, 408.11, 148.8, 48);
+INSERT INTO `faculty` VALUES (61, '段嘉伦', 1, 8, 3, 19522.4, 193.12, 31.27, 353.72, 183.56, 44);
 INSERT INTO `faculty` VALUES (62, '熊致远', 1, 2, 2, 17070.8, 682.63, 87.19, 293.61, 110.53, 49);
-INSERT INTO `faculty` VALUES (63, '薛杰宏', 0, 3, 4, 9616.21, 882.03, 53.36, 198.49, 198.74, 46);
-INSERT INTO `faculty` VALUES (64, '方子异', 0, 1, 7, 8050.71, 538.66, 49.96, 226.73, 15.45, 42);
-INSERT INTO `faculty` VALUES (65, '石岚', 0, 4, 6, 18077.2, 383.88, 32.2, 340.65, 97.06, 50);
+INSERT INTO `faculty` VALUES (63, '薛杰宏', 0, 4, 3, 9616.21, 882.03, 53.36, 198.49, 198.74, 46);
+INSERT INTO `faculty` VALUES (64, '方子异', 0, 7, 1, 8050.71, 538.66, 49.96, 226.73, 15.45, 42);
+INSERT INTO `faculty` VALUES (65, '石岚', 0, 6, 4, 18077.2, 383.88, 32.2, 340.65, 97.06, 50);
 INSERT INTO `faculty` VALUES (66, '薛子韬', 1, 3, 3, 17659.9, 61.85, 62.22, 367.57, 193.79, 44);
 INSERT INTO `faculty` VALUES (67, '黎晓明', 0, 3, 3, 9997.06, 645.22, 45.47, 69.7, 65.49, 55);
-INSERT INTO `faculty` VALUES (68, '邱子韬', 0, 3, 2, 10021.6, 955.23, 48.99, 427.76, 60.36, 31);
-INSERT INTO `faculty` VALUES (69, '朱子韬', 0, 1, 5, 17056.7, 529.5, 51.25, 289.63, 25.24, 55);
-INSERT INTO `faculty` VALUES (70, '顾云熙', 0, 4, 5, 12551.7, 609.85, 6.44, 147.55, 169.5, 48);
-INSERT INTO `faculty` VALUES (71, '陶睿', 0, 0, 5, 18028.7, 811.9, 68.75, 193.57, 199.34, 32);
-INSERT INTO `faculty` VALUES (72, '马杰宏', 1, 2, 5, 15935, 451.36, 74.57, 303.8, 36.3, 50);
-INSERT INTO `faculty` VALUES (73, '王云熙', 0, 0, 3, 19905.9, 832.39, 64.95, 158.26, 167, 55);
-INSERT INTO `faculty` VALUES (74, '许安琪', 0, 2, 5, 13193, 886.04, 16.7, 98.06, 194.91, 59);
-INSERT INTO `faculty` VALUES (75, '任睿', 0, 1, 8, 12175.3, 419.16, 61.51, 362.85, 131.72, 44);
-INSERT INTO `faculty` VALUES (76, '雷云熙', 0, 2, 4, 14537.8, 955.29, 15.48, 368.32, 192.22, 54);
-INSERT INTO `faculty` VALUES (77, '石嘉伦', 1, 1, 5, 19341.8, 113.64, 36.44, 252.49, 119.03, 44);
-INSERT INTO `faculty` VALUES (78, '袁晓明', 0, 3, 1, 11478.8, 770.19, 12.75, 447.79, 5.69, 32);
-INSERT INTO `faculty` VALUES (79, '梁子异', 1, 3, 8, 7473.37, 901.3, 53.02, 232.31, 85.09, 53);
-INSERT INTO `faculty` VALUES (80, '王致远', 1, 3, 5, 18835.3, 430.11, 6.46, 46.15, 108.42, 56);
-INSERT INTO `faculty` VALUES (81, '李晓明', 0, 2, 0, 18264.3, 927.49, 56.89, 259.09, 157.93, 34);
-INSERT INTO `faculty` VALUES (82, '吴秀英', 0, 2, 4, 8858.45, 859.55, 31.83, 450.28, 18.89, 32);
+INSERT INTO `faculty` VALUES (68, '邱子韬', 0, 2, 3, 10021.6, 955.23, 48.99, 427.76, 60.36, 31);
+INSERT INTO `faculty` VALUES (69, '朱子韬', 0, 5, 1, 17056.7, 529.5, 51.25, 289.63, 25.24, 55);
+INSERT INTO `faculty` VALUES (70, '顾云熙', 0, 5, 4, 12551.7, 609.85, 6.44, 147.55, 169.5, 48);
+INSERT INTO `faculty` VALUES (71, '陶睿', 0, 5, 0, 18028.7, 811.9, 68.75, 193.57, 199.34, 32);
+INSERT INTO `faculty` VALUES (72, '马杰宏', 1, 5, 2, 15935, 451.36, 74.57, 303.8, 36.3, 50);
+INSERT INTO `faculty` VALUES (73, '王云熙', 0, 3, 0, 19905.9, 832.39, 64.95, 158.26, 167, 55);
+INSERT INTO `faculty` VALUES (74, '许安琪', 0, 5, 2, 13193, 886.04, 16.7, 98.06, 194.91, 59);
+INSERT INTO `faculty` VALUES (75, '任睿', 0, 8, 1, 12175.3, 419.16, 61.51, 362.85, 131.72, 44);
+INSERT INTO `faculty` VALUES (76, '雷云熙', 0, 4, 2, 14537.8, 955.29, 15.48, 368.32, 192.22, 54);
+INSERT INTO `faculty` VALUES (77, '石嘉伦', 1, 5, 1, 19341.8, 113.64, 36.44, 252.49, 119.03, 44);
+INSERT INTO `faculty` VALUES (78, '袁晓明', 0, 1, 3, 11478.8, 770.19, 12.75, 447.79, 5.69, 32);
+INSERT INTO `faculty` VALUES (79, '梁子异', 1, 8, 3, 7473.37, 901.3, 53.02, 232.31, 85.09, 53);
+INSERT INTO `faculty` VALUES (80, '王致远', 1, 5, 3, 18835.3, 430.11, 6.46, 46.15, 108.42, 56);
+INSERT INTO `faculty` VALUES (81, '李晓明', 0, 0, 2, 18264.3, 927.49, 56.89, 259.09, 157.93, 34);
+INSERT INTO `faculty` VALUES (82, '吴秀英', 0, 4, 2, 8858.45, 859.55, 31.83, 450.28, 18.89, 32);
 INSERT INTO `faculty` VALUES (83, '吕震南', 1, 2, 2, 18367.4, 519.89, 70.24, 176.63, 52.82, 50);
-INSERT INTO `faculty` VALUES (84, '冯震南', 0, 3, 7, 19626.8, 492.58, 12.03, 340.44, 99.65, 53);
-INSERT INTO `faculty` VALUES (85, '朱杰宏', 1, 0, 7, 15260.1, 347.64, 99.98, 301, 82.11, 32);
-INSERT INTO `faculty` VALUES (86, '唐云熙', 0, 0, 1, 15352.2, 602.18, 50.92, 172.52, 101.51, 56);
-INSERT INTO `faculty` VALUES (87, '魏璐', 1, 2, 3, 15368.1, 787.11, 96.71, 383.76, 185.12, 45);
-INSERT INTO `faculty` VALUES (88, '曾致远', 1, 3, 7, 10316.9, 907.97, 38.89, 449.36, 23.06, 42);
-INSERT INTO `faculty` VALUES (89, '何詩涵', 0, 4, 6, 9654.61, 864.24, 17.25, 47.54, 169.89, 41);
-INSERT INTO `faculty` VALUES (90, '严璐', 1, 4, 1, 18559.3, 462.74, 18.22, 218.81, 61.82, 44);
-INSERT INTO `faculty` VALUES (91, '方子异', 1, 2, 4, 19099.4, 390.74, 32.49, 245.41, 104.93, 56);
-INSERT INTO `faculty` VALUES (92, '蔡杰宏', 1, 1, 6, 5755.95, 809.63, 71.09, 262.07, 148.9, 33);
-INSERT INTO `faculty` VALUES (93, '陆震南', 1, 2, 4, 16650.4, 14.07, 16.36, 223.27, 124.43, 53);
-INSERT INTO `faculty` VALUES (94, '金安琪', 0, 3, 7, 16821.3, 74.72, 25.94, 223.5, 71.2, 58);
-INSERT INTO `faculty` VALUES (95, '罗云熙', 0, 2, 6, 13196.6, 20.35, 52.5, 182.91, 29.46, 32);
+INSERT INTO `faculty` VALUES (84, '冯震南', 0, 7, 3, 19626.8, 492.58, 12.03, 340.44, 99.65, 53);
+INSERT INTO `faculty` VALUES (85, '朱杰宏', 1, 7, 0, 15260.1, 347.64, 99.98, 301, 82.11, 32);
+INSERT INTO `faculty` VALUES (86, '唐云熙', 0, 1, 0, 15352.2, 602.18, 50.92, 172.52, 101.51, 56);
+INSERT INTO `faculty` VALUES (87, '魏璐', 1, 3, 2, 15368.1, 787.11, 96.71, 383.76, 185.12, 45);
+INSERT INTO `faculty` VALUES (88, '曾致远', 1, 7, 3, 10316.9, 907.97, 38.89, 449.36, 23.06, 42);
+INSERT INTO `faculty` VALUES (89, '何詩涵', 0, 6, 4, 9654.61, 864.24, 17.25, 47.54, 169.89, 41);
+INSERT INTO `faculty` VALUES (90, '严璐', 1, 1, 4, 18559.3, 462.74, 18.22, 218.81, 61.82, 44);
+INSERT INTO `faculty` VALUES (91, '方子异', 1, 4, 2, 19099.4, 390.74, 32.49, 245.41, 104.93, 56);
+INSERT INTO `faculty` VALUES (92, '蔡杰宏', 1, 6, 1, 5755.95, 809.63, 71.09, 262.07, 148.9, 33);
+INSERT INTO `faculty` VALUES (93, '陆震南', 1, 4, 2, 16650.4, 14.07, 16.36, 223.27, 124.43, 53);
+INSERT INTO `faculty` VALUES (94, '金安琪', 0, 7, 3, 16821.3, 74.72, 25.94, 223.5, 71.2, 58);
+INSERT INTO `faculty` VALUES (95, '罗云熙', 0, 6, 2, 13196.6, 20.35, 52.5, 182.91, 29.46, 32);
 INSERT INTO `faculty` VALUES (96, '萧杰宏', 0, 2, 2, 17523.4, 602.16, 86.84, 234.93, 53.36, 51);
-INSERT INTO `faculty` VALUES (97, '尹子异', 1, 3, 1, 15101, 620.78, 87.77, 195.66, 120.14, 53);
-INSERT INTO `faculty` VALUES (98, '何岚', 1, 4, 7, 18693.8, 840.38, 53.31, 429.44, 134.47, 56);
-INSERT INTO `faculty` VALUES (99, '龚安琪', 1, 4, 2, 9665.13, 965.78, 25.49, 431.44, 195.97, 48);
-INSERT INTO `faculty` VALUES (100, '顾宇宁', 0, 1, 4, 18999.9, 947.59, 6.82, 139.63, 196.71, 44);
+INSERT INTO `faculty` VALUES (97, '尹子异', 1, 1, 3, 15101, 620.78, 87.77, 195.66, 120.14, 53);
+INSERT INTO `faculty` VALUES (98, '何岚', 1, 7, 4, 18693.8, 840.38, 53.31, 429.44, 134.47, 56);
+INSERT INTO `faculty` VALUES (99, '龚安琪', 1, 2, 4, 9665.13, 965.78, 25.49, 431.44, 195.97, 48);
+INSERT INTO `faculty` VALUES (100, '顾宇宁', 0, 4, 1, 18999.9, 947.59, 6.82, 139.63, 196.71, 44);
 
 -- ----------------------------
 -- Table structure for faculty_monthly
@@ -393,6 +393,62 @@ INSERT INTO `faculty_monthly` VALUES (97, '贾睿', 3, 7539.48, 1127.42, 3981.71
 INSERT INTO `faculty_monthly` VALUES (98, '苏震南', 4, 7969.47, 4019.87, 869.38, 15170.9, 438.6, 456.41, 614.95, 14337.3);
 INSERT INTO `faculty_monthly` VALUES (99, '杨宇宁', 5, 4410.45, 2463.2, 2830.19, 8417.27, 409.84, 37.24, 664.09, 10855.1);
 INSERT INTO `faculty_monthly` VALUES (100, '郝震南', 6, 7285.9, 567.15, 784.6, 11597.9, 248.68, 17.39, 517.55, 15090.4);
+
+-- ----------------------------
+-- Table structure for faculty_monthly_pay
+-- ----------------------------
+DROP TABLE IF EXISTS `faculty_monthly_pay`;
+CREATE TABLE `faculty_monthly_pay`  (
+  `faculty_id` bigint NOT NULL COMMENT '教职工编号',
+  `name` varchar(30) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL COMMENT '姓名',
+  `month` int NOT NULL COMMENT '月份',
+  `net_pay` float NULL DEFAULT 0 COMMENT '实发工资',
+  PRIMARY KEY (`faculty_id`, `month`) USING BTREE
+) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci COMMENT = '教职工月度表' ROW_FORMAT = DYNAMIC;
+
+-- ----------------------------
+-- Records of faculty_monthly_pay
+-- ----------------------------
+INSERT INTO `faculty_monthly_pay` VALUES (1, '龚嘉伦', 1, 18755.2);
+INSERT INTO `faculty_monthly_pay` VALUES (2, '叶云熙', 2, 12496.4);
+INSERT INTO `faculty_monthly_pay` VALUES (3, '林震南', 3, 12550.2);
+INSERT INTO `faculty_monthly_pay` VALUES (4, '吴岚', 4, 7227.57);
+INSERT INTO `faculty_monthly_pay` VALUES (5, '刘睿', 5, 18067.9);
+
+-- ----------------------------
+-- Table structure for faculty_monthly_pay_detail
+-- ----------------------------
+DROP TABLE IF EXISTS `faculty_monthly_pay_detail`;
+CREATE TABLE `faculty_monthly_pay_detail`  (
+  `faculty_id` bigint NOT NULL COMMENT '教职工编号',
+  `name` varchar(30) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL COMMENT '姓名',
+  `month` int NOT NULL COMMENT '月份',
+  `basic_pay` float NULL DEFAULT 0 COMMENT '基本工资',
+  `job` int NULL DEFAULT 0 COMMENT '职务',
+  `title` int NULL DEFAULT 0 COMMENT '职称',
+  `living_subsidy` float NULL DEFAULT 0 COMMENT '生活补贴',
+  `reading_subsidy` float NULL DEFAULT 0 COMMENT '书报费',
+  `transportation_subsidy` float NULL DEFAULT 0 COMMENT '交通费',
+  `washing_subsidy` float NULL DEFAULT 0 COMMENT '洗理费',
+  `teacher_pay` float NULL DEFAULT 0 COMMENT '课时费',
+  `staff_pay` float NULL DEFAULT 0 COMMENT '岗位津贴',
+  `extra_teacher_pay` float NULL DEFAULT 0 COMMENT '超额课时费',
+  `total_pay` float NULL DEFAULT 0 COMMENT '工资总额',
+  `tax` float NULL DEFAULT 0 COMMENT '个人所得税',
+  `housing` float NULL DEFAULT 0 COMMENT '住房公积金',
+  `insurance` float NULL DEFAULT 0 COMMENT '保险费',
+  `net_pay` float NULL DEFAULT 0 COMMENT '实发工资',
+  PRIMARY KEY (`faculty_id`, `month`) USING BTREE
+) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci COMMENT = '教职工月度表' ROW_FORMAT = DYNAMIC;
+
+-- ----------------------------
+-- Records of faculty_monthly_pay_detail
+-- ----------------------------
+INSERT INTO `faculty_monthly_pay_detail` VALUES (1, '龚嘉伦', 1, 0, 0, 0, 0, 0, 0, 0, 5259.73, 2190.32, 3772.36, 10147.2, 762.6, 597.18, 171.17, 18755.2);
+INSERT INTO `faculty_monthly_pay_detail` VALUES (2, '叶云熙', 2, 0, 0, 0, 0, 0, 0, 0, 2527.7, 49.56, 2462.93, 15607.1, 593.9, 726.91, 540.07, 12496.4);
+INSERT INTO `faculty_monthly_pay_detail` VALUES (3, '林震南', 3, 0, 0, 0, 0, 0, 0, 0, 3228.42, 2802.99, 134.22, 16957.5, 416.39, 298.88, 915.43, 12550.2);
+INSERT INTO `faculty_monthly_pay_detail` VALUES (4, '吴岚', 4, 0, 0, 0, 0, 0, 0, 0, 7544.67, 2300.4, 1382.5, 9897.04, 324.55, 27.84, 125.78, 7227.57);
+INSERT INTO `faculty_monthly_pay_detail` VALUES (5, '刘睿', 5, 0, 0, 0, 0, 0, 0, 0, 3122.63, 2959.62, 45.56, 18204.2, 123.03, 76.28, 986.48, 18067.9);
 
 -- ----------------------------
 -- Table structure for faculty_yearly
@@ -551,7 +607,10 @@ INSERT INTO `gen_table` VALUES (15, 'affair', '事务（课时任务）表', NUL
 INSERT INTO `gen_table` VALUES (17, 'faculty_monthly1', '教职工月度表', NULL, NULL, 'Pay', 'crud', 'com.ruoyi.financial', 'financial', 'pay', '工资表', 'Keven', '0', '/', '{}', 'admin', '2023-05-30 21:35:48', '', '2023-05-30 21:49:34', NULL);
 INSERT INTO `gen_table` VALUES (18, 'faculty_monthly2', '教职工月度表', NULL, NULL, 'PayDetail', 'crud', 'com.ruoyi.financial', 'financial', 'payDetail', '工资明细表', 'Keven', '0', '/', '{}', 'admin', '2023-05-30 21:37:20', '', '2023-05-30 23:32:28', NULL);
 INSERT INTO `gen_table` VALUES (19, 'affair1', '事务（课时任务）表', NULL, NULL, 'Affair', 'crud', 'com.ruoyi.financial', 'financial', 'affair', '个人事务', 'Keven', '0', '/', '{}', 'admin', '2023-05-30 22:57:18', '', '2023-05-30 23:08:12', NULL);
-INSERT INTO `gen_table` VALUES (20, 'faculty_monthly', '教职工月度表', NULL, NULL, 'PayDetails', 'crud', 'com.ruoyi.financial', 'financial', 'payDetails', '全部工资明细表', 'Keven', '0', '/', '{}', 'admin', '2023-05-30 23:32:35', '', '2023-05-30 23:35:55', NULL);
+INSERT INTO `gen_table` VALUES (20, 'faculty_monthly3', '教职工月度表', NULL, NULL, 'PayDetails', 'crud', 'com.ruoyi.financial', 'financial', 'payDetails', '全部工资明细表', 'Keven', '0', '/', '{}', 'admin', '2023-05-30 23:32:35', '', '2023-05-31 07:23:23', NULL);
+INSERT INTO `gen_table` VALUES (21, 'faculty_monthly_pay', '教职工月度表', NULL, NULL, 'Pay', 'crud', 'com.ruoyi.financial', 'financial', 'pay', '工资表', 'Keven', '0', '/', '{}', 'admin', '2023-05-31 07:23:29', '', '2023-05-31 07:33:25', NULL);
+INSERT INTO `gen_table` VALUES (22, 'faculty_monthly_pay_detail', '教职工月度表', NULL, NULL, 'PayDetail', 'crud', 'com.ruoyi.financial', 'financial', 'payDetail', '工资明细表', 'Keven', '0', '/', '{}', 'admin', '2023-05-31 07:23:29', '', '2023-05-31 07:54:25', NULL);
+INSERT INTO `gen_table` VALUES (23, 'faculty_monthly_pay_details', '教职工月度表', NULL, NULL, 'PayDetails', 'crud', 'com.ruoyi.financial', 'financial', 'payDetails', '全部工资明细表', 'Keven', '0', '/', '{}', 'admin', '2023-05-31 07:48:43', '', '2023-05-31 07:54:17', NULL);
 
 -- ----------------------------
 -- Table structure for gen_table_column
@@ -642,17 +701,57 @@ INSERT INTO `gen_table_column` VALUES (139, '19', 'name', '姓名', 'varchar(30)
 INSERT INTO `gen_table_column` VALUES (140, '19', 'month', '月份', 'int', 'Long', 'month', '0', '0', '1', '1', '1', '1', '1', 'EQ', 'input', '', 4, 'admin', '2023-05-30 22:57:18', '', '2023-05-30 23:08:12');
 INSERT INTO `gen_table_column` VALUES (141, '19', 'des', '描述', 'varchar(90)', 'String', 'des', '0', '0', '1', '1', '1', '1', '1', 'EQ', 'input', '', 5, 'admin', '2023-05-30 22:57:18', '', '2023-05-30 23:08:12');
 INSERT INTO `gen_table_column` VALUES (142, '19', 'hour', '时长', 'float', 'Long', 'hour', '0', '0', '1', '1', '1', '1', '1', 'EQ', 'input', '', 6, 'admin', '2023-05-30 22:57:18', '', '2023-05-30 23:08:12');
-INSERT INTO `gen_table_column` VALUES (143, '20', 'faculty_id', '教职工编号', 'bigint', 'Long', 'facultyId', '1', '0', NULL, '0', NULL, '1', '1', 'EQ', 'input', '', 1, 'admin', '2023-05-30 21:37:20', '', '2023-05-30 23:35:55');
-INSERT INTO `gen_table_column` VALUES (144, '20', 'name', '姓名', 'varchar(30)', 'String', 'name', '0', '0', '0', '0', '0', '1', '1', 'LIKE', 'input', '', 2, 'admin', '2023-05-30 21:37:20', '', '2023-05-30 23:35:55');
-INSERT INTO `gen_table_column` VALUES (145, '20', 'month', '月份', 'int', 'Long', 'month', '1', '0', NULL, '0', NULL, '1', '1', 'EQ', 'input', '', 3, 'admin', '2023-05-30 21:37:20', '', '2023-05-30 23:35:55');
-INSERT INTO `gen_table_column` VALUES (146, '20', 'teacher_pay', '课时费', 'float', 'Long', 'teacherPay', '0', '0', NULL, '0', '0', '1', '1', 'EQ', 'input', '', 4, 'admin', '2023-05-30 21:37:20', '', '2023-05-30 23:35:55');
-INSERT INTO `gen_table_column` VALUES (147, '20', 'staff_pay', '岗位津贴', 'float', 'Long', 'staffPay', '0', '0', NULL, '0', '0', '1', '1', 'EQ', 'input', '', 5, 'admin', '2023-05-30 21:37:20', '', '2023-05-30 23:35:55');
-INSERT INTO `gen_table_column` VALUES (148, '20', 'extra_teacher_pay', '超额课时费', 'float', 'Long', 'extraTeacherPay', '0', '0', NULL, '0', '0', '1', '1', 'EQ', 'input', '', 6, 'admin', '2023-05-30 21:37:20', '', '2023-05-30 23:35:55');
-INSERT INTO `gen_table_column` VALUES (149, '20', 'total_pay', '工资总额', 'float', 'Long', 'totalPay', '0', '0', NULL, '0', '0', '1', '1', 'EQ', 'input', '', 7, 'admin', '2023-05-30 21:37:20', '', '2023-05-30 23:35:55');
-INSERT INTO `gen_table_column` VALUES (150, '20', 'tax', '个人所得税', 'float', 'Long', 'tax', '0', '0', NULL, '0', '0', '1', '1', 'EQ', 'input', '', 8, 'admin', '2023-05-30 21:37:20', '', '2023-05-30 23:35:55');
-INSERT INTO `gen_table_column` VALUES (151, '20', 'housing', '住房公积金', 'float', 'Long', 'housing', '0', '0', NULL, '0', '0', '1', '1', 'EQ', 'input', '', 9, 'admin', '2023-05-30 21:37:20', '', '2023-05-30 23:35:55');
-INSERT INTO `gen_table_column` VALUES (152, '20', 'insurance', '保险费', 'float', 'Long', 'insurance', '0', '0', NULL, '0', '0', '1', '1', 'EQ', 'input', '', 10, 'admin', '2023-05-30 21:37:20', '', '2023-05-30 23:35:55');
-INSERT INTO `gen_table_column` VALUES (153, '20', 'net_pay', '实发工资', 'float', 'Long', 'netPay', '0', '0', NULL, '0', '0', '1', '1', 'EQ', 'input', '', 11, 'admin', '2023-05-30 21:37:20', '', '2023-05-30 23:35:55');
+INSERT INTO `gen_table_column` VALUES (143, '20', 'faculty_id', '教职工编号', 'bigint', 'Long', 'facultyId', '1', '0', NULL, '0', NULL, '1', '1', 'EQ', 'input', '', 1, 'admin', '2023-05-30 21:37:20', '', '2023-05-31 07:23:23');
+INSERT INTO `gen_table_column` VALUES (144, '20', 'name', '姓名', 'varchar(30)', 'String', 'name', '0', '0', '0', '0', '0', '1', '1', 'LIKE', 'input', '', 2, 'admin', '2023-05-30 21:37:20', '', '2023-05-31 07:23:23');
+INSERT INTO `gen_table_column` VALUES (145, '20', 'month', '月份', 'int', 'Long', 'month', '1', '0', NULL, '0', NULL, '1', '1', 'EQ', 'input', '', 3, 'admin', '2023-05-30 21:37:20', '', '2023-05-31 07:23:23');
+INSERT INTO `gen_table_column` VALUES (146, '20', 'teacher_pay', '课时费', 'float', 'Long', 'teacherPay', '0', '0', NULL, '0', '0', '1', '1', 'EQ', 'input', '', 4, 'admin', '2023-05-30 21:37:20', '', '2023-05-31 07:23:23');
+INSERT INTO `gen_table_column` VALUES (147, '20', 'staff_pay', '岗位津贴', 'float', 'Long', 'staffPay', '0', '0', NULL, '0', '0', '1', '1', 'EQ', 'input', '', 5, 'admin', '2023-05-30 21:37:20', '', '2023-05-31 07:23:23');
+INSERT INTO `gen_table_column` VALUES (148, '20', 'extra_teacher_pay', '超额课时费', 'float', 'Long', 'extraTeacherPay', '0', '0', NULL, '0', '0', '1', '1', 'EQ', 'input', '', 6, 'admin', '2023-05-30 21:37:20', '', '2023-05-31 07:23:23');
+INSERT INTO `gen_table_column` VALUES (149, '20', 'total_pay', '工资总额', 'float', 'Long', 'totalPay', '0', '0', NULL, '0', '0', '1', '1', 'EQ', 'input', '', 7, 'admin', '2023-05-30 21:37:20', '', '2023-05-31 07:23:23');
+INSERT INTO `gen_table_column` VALUES (150, '20', 'tax', '个人所得税', 'float', 'Long', 'tax', '0', '0', NULL, '0', '0', '1', '1', 'EQ', 'input', '', 8, 'admin', '2023-05-30 21:37:20', '', '2023-05-31 07:23:23');
+INSERT INTO `gen_table_column` VALUES (151, '20', 'housing', '住房公积金', 'float', 'Long', 'housing', '0', '0', NULL, '0', '0', '1', '1', 'EQ', 'input', '', 9, 'admin', '2023-05-30 21:37:20', '', '2023-05-31 07:23:23');
+INSERT INTO `gen_table_column` VALUES (152, '20', 'insurance', '保险费', 'float', 'Long', 'insurance', '0', '0', NULL, '0', '0', '1', '1', 'EQ', 'input', '', 10, 'admin', '2023-05-30 21:37:20', '', '2023-05-31 07:23:23');
+INSERT INTO `gen_table_column` VALUES (153, '20', 'net_pay', '实发工资', 'float', 'Long', 'netPay', '0', '0', NULL, '0', '0', '1', '1', 'EQ', 'input', '', 11, 'admin', '2023-05-30 21:37:20', '', '2023-05-31 07:23:23');
+INSERT INTO `gen_table_column` VALUES (154, '21', 'faculty_id', '教职工编号', 'bigint', 'Long', 'facultyId', '1', '0', NULL, '0', NULL, '1', '1', 'EQ', 'input', '', 1, 'admin', '2023-05-31 07:23:29', '', '2023-05-31 07:33:25');
+INSERT INTO `gen_table_column` VALUES (155, '21', 'name', '姓名', 'varchar(30)', 'String', 'name', '0', '0', '0', '0', '0', '1', '1', 'LIKE', 'input', '', 2, 'admin', '2023-05-31 07:23:29', '', '2023-05-31 07:33:25');
+INSERT INTO `gen_table_column` VALUES (156, '21', 'month', '月份', 'int', 'Long', 'month', '1', '0', NULL, '0', NULL, '1', '1', 'EQ', 'input', '', 3, 'admin', '2023-05-31 07:23:29', '', '2023-05-31 07:33:25');
+INSERT INTO `gen_table_column` VALUES (157, '21', 'net_pay', '实发工资', 'float', 'Long', 'netPay', '0', '0', NULL, '0', '0', '1', '1', 'EQ', 'input', '', 4, 'admin', '2023-05-31 07:23:29', '', '2023-05-31 07:33:25');
+INSERT INTO `gen_table_column` VALUES (158, '22', 'faculty_id', '教职工编号', 'bigint', 'Long', 'facultyId', '1', '0', NULL, '0', NULL, '1', '1', 'EQ', 'input', '', 1, 'admin', '2023-05-31 07:23:29', '', '2023-05-31 07:54:25');
+INSERT INTO `gen_table_column` VALUES (159, '22', 'name', '姓名', 'varchar(30)', 'String', 'name', '0', '0', '0', '0', '0', '1', '1', 'LIKE', 'input', '', 2, 'admin', '2023-05-31 07:23:29', '', '2023-05-31 07:54:25');
+INSERT INTO `gen_table_column` VALUES (160, '22', 'month', '月份', 'int', 'Long', 'month', '1', '0', NULL, '0', NULL, '1', '1', 'EQ', 'input', '', 3, 'admin', '2023-05-31 07:23:29', '', '2023-05-31 07:54:25');
+INSERT INTO `gen_table_column` VALUES (161, '22', 'basic_pay', '基本工资', 'float', 'Long', 'basicPay', '0', '0', NULL, '0', '0', '1', '1', 'EQ', 'input', '', 4, 'admin', '2023-05-31 07:23:29', '', '2023-05-31 07:54:25');
+INSERT INTO `gen_table_column` VALUES (162, '22', 'job', '职务', 'int', 'Long', 'job', '0', '0', NULL, '0', '0', '1', '1', 'EQ', 'select', 'faculty_job', 5, 'admin', '2023-05-31 07:23:29', '', '2023-05-31 07:54:25');
+INSERT INTO `gen_table_column` VALUES (163, '22', 'title', '职称', 'int', 'Long', 'title', '0', '0', NULL, '0', '0', '1', '1', 'EQ', 'select', 'faculty_title', 6, 'admin', '2023-05-31 07:23:29', '', '2023-05-31 07:54:25');
+INSERT INTO `gen_table_column` VALUES (164, '22', 'living_subsidy', '生活补贴', 'float', 'Long', 'livingSubsidy', '0', '0', NULL, '0', '0', '1', '1', 'EQ', 'input', '', 7, 'admin', '2023-05-31 07:23:29', '', '2023-05-31 07:54:25');
+INSERT INTO `gen_table_column` VALUES (165, '22', 'reading_subsidy', '书报费', 'float', 'Long', 'readingSubsidy', '0', '0', NULL, '0', '0', '1', '1', 'EQ', 'input', '', 8, 'admin', '2023-05-31 07:23:29', '', '2023-05-31 07:54:25');
+INSERT INTO `gen_table_column` VALUES (166, '22', 'transportation_subsidy', '交通费', 'float', 'Long', 'transportationSubsidy', '0', '0', NULL, '0', '0', '1', '1', 'EQ', 'input', '', 9, 'admin', '2023-05-31 07:23:29', '', '2023-05-31 07:54:25');
+INSERT INTO `gen_table_column` VALUES (167, '22', 'washing_subsidy', '洗理费', 'float', 'Long', 'washingSubsidy', '0', '0', NULL, '0', '0', '1', '1', 'EQ', 'input', '', 10, 'admin', '2023-05-31 07:23:29', '', '2023-05-31 07:54:25');
+INSERT INTO `gen_table_column` VALUES (168, '22', 'teacher_pay', '课时费', 'float', 'Long', 'teacherPay', '0', '0', NULL, '0', '0', '1', '1', 'EQ', 'input', '', 11, 'admin', '2023-05-31 07:23:29', '', '2023-05-31 07:54:25');
+INSERT INTO `gen_table_column` VALUES (169, '22', 'staff_pay', '岗位津贴', 'float', 'Long', 'staffPay', '0', '0', NULL, '0', '0', '1', '1', 'EQ', 'input', '', 12, 'admin', '2023-05-31 07:23:29', '', '2023-05-31 07:54:25');
+INSERT INTO `gen_table_column` VALUES (170, '22', 'extra_teacher_pay', '超额课时费', 'float', 'Long', 'extraTeacherPay', '0', '0', NULL, '0', '0', '1', '1', 'EQ', 'input', '', 13, 'admin', '2023-05-31 07:23:29', '', '2023-05-31 07:54:25');
+INSERT INTO `gen_table_column` VALUES (171, '22', 'total_pay', '工资总额', 'float', 'Long', 'totalPay', '0', '0', NULL, '0', '0', '1', '1', 'EQ', 'input', '', 14, 'admin', '2023-05-31 07:23:29', '', '2023-05-31 07:54:25');
+INSERT INTO `gen_table_column` VALUES (172, '22', 'tax', '个人所得税', 'float', 'Long', 'tax', '0', '0', NULL, '0', '0', '1', '1', 'EQ', 'input', '', 15, 'admin', '2023-05-31 07:23:29', '', '2023-05-31 07:54:25');
+INSERT INTO `gen_table_column` VALUES (173, '22', 'housing', '住房公积金', 'float', 'Long', 'housing', '0', '0', NULL, '0', '0', '1', '1', 'EQ', 'input', '', 16, 'admin', '2023-05-31 07:23:29', '', '2023-05-31 07:54:25');
+INSERT INTO `gen_table_column` VALUES (174, '22', 'insurance', '保险费', 'float', 'Long', 'insurance', '0', '0', NULL, '0', '0', '1', '1', 'EQ', 'input', '', 17, 'admin', '2023-05-31 07:23:29', '', '2023-05-31 07:54:25');
+INSERT INTO `gen_table_column` VALUES (175, '22', 'net_pay', '实发工资', 'float', 'Long', 'netPay', '0', '0', NULL, '0', '0', '1', '1', 'EQ', 'input', '', 18, 'admin', '2023-05-31 07:23:29', '', '2023-05-31 07:54:25');
+INSERT INTO `gen_table_column` VALUES (176, '23', 'faculty_id', '教职工编号', 'bigint', 'Long', 'facultyId', '1', '0', NULL, '0', NULL, '1', '1', 'EQ', 'input', '', 1, 'admin', '2023-05-31 07:48:43', '', '2023-05-31 07:54:17');
+INSERT INTO `gen_table_column` VALUES (177, '23', 'name', '姓名', 'varchar(30)', 'String', 'name', '0', '0', '0', '0', '0', '1', '1', 'LIKE', 'input', '', 2, 'admin', '2023-05-31 07:48:43', '', '2023-05-31 07:54:17');
+INSERT INTO `gen_table_column` VALUES (178, '23', 'month', '月份', 'int', 'Long', 'month', '1', '0', NULL, '0', NULL, '1', '1', 'EQ', 'input', '', 3, 'admin', '2023-05-31 07:48:43', '', '2023-05-31 07:54:17');
+INSERT INTO `gen_table_column` VALUES (179, '23', 'basic_pay', '基本工资', 'float', 'Long', 'basicPay', '0', '0', NULL, '0', '0', '1', '1', 'EQ', 'input', '', 4, 'admin', '2023-05-31 07:48:43', '', '2023-05-31 07:54:17');
+INSERT INTO `gen_table_column` VALUES (180, '23', 'job', '职务', 'int', 'Long', 'job', '0', '0', NULL, '0', '0', '1', '1', 'EQ', 'select', 'faculty_job', 5, 'admin', '2023-05-31 07:48:43', '', '2023-05-31 07:54:17');
+INSERT INTO `gen_table_column` VALUES (181, '23', 'title', '职称', 'int', 'Long', 'title', '0', '0', NULL, '0', '0', '1', '1', 'EQ', 'select', 'faculty_title', 6, 'admin', '2023-05-31 07:48:43', '', '2023-05-31 07:54:17');
+INSERT INTO `gen_table_column` VALUES (182, '23', 'living_subsidy', '生活补贴', 'float', 'Long', 'livingSubsidy', '0', '0', NULL, '0', '0', '1', '1', 'EQ', 'input', '', 7, 'admin', '2023-05-31 07:48:43', '', '2023-05-31 07:54:17');
+INSERT INTO `gen_table_column` VALUES (183, '23', 'reading_subsidy', '书报费', 'float', 'Long', 'readingSubsidy', '0', '0', NULL, '0', '0', '1', '1', 'EQ', 'input', '', 8, 'admin', '2023-05-31 07:48:43', '', '2023-05-31 07:54:17');
+INSERT INTO `gen_table_column` VALUES (184, '23', 'transportation_subsidy', '交通费', 'float', 'Long', 'transportationSubsidy', '0', '0', NULL, '0', '0', '1', '1', 'EQ', 'input', '', 9, 'admin', '2023-05-31 07:48:43', '', '2023-05-31 07:54:17');
+INSERT INTO `gen_table_column` VALUES (185, '23', 'washing_subsidy', '洗理费', 'float', 'Long', 'washingSubsidy', '0', '0', NULL, '0', '0', '1', '1', 'EQ', 'input', '', 10, 'admin', '2023-05-31 07:48:43', '', '2023-05-31 07:54:17');
+INSERT INTO `gen_table_column` VALUES (186, '23', 'teacher_pay', '课时费', 'float', 'Long', 'teacherPay', '0', '0', NULL, '0', '0', '1', '1', 'EQ', 'input', '', 11, 'admin', '2023-05-31 07:48:43', '', '2023-05-31 07:54:17');
+INSERT INTO `gen_table_column` VALUES (187, '23', 'staff_pay', '岗位津贴', 'float', 'Long', 'staffPay', '0', '0', NULL, '0', '0', '1', '1', 'EQ', 'input', '', 12, 'admin', '2023-05-31 07:48:43', '', '2023-05-31 07:54:17');
+INSERT INTO `gen_table_column` VALUES (188, '23', 'extra_teacher_pay', '超额课时费', 'float', 'Long', 'extraTeacherPay', '0', '0', NULL, '0', '0', '1', '1', 'EQ', 'input', '', 13, 'admin', '2023-05-31 07:48:43', '', '2023-05-31 07:54:17');
+INSERT INTO `gen_table_column` VALUES (189, '23', 'total_pay', '工资总额', 'float', 'Long', 'totalPay', '0', '0', NULL, '0', '0', '1', '1', 'EQ', 'input', '', 14, 'admin', '2023-05-31 07:48:43', '', '2023-05-31 07:54:17');
+INSERT INTO `gen_table_column` VALUES (190, '23', 'tax', '个人所得税', 'float', 'Long', 'tax', '0', '0', NULL, '0', '0', '1', '1', 'EQ', 'input', '', 15, 'admin', '2023-05-31 07:48:43', '', '2023-05-31 07:54:17');
+INSERT INTO `gen_table_column` VALUES (191, '23', 'housing', '住房公积金', 'float', 'Long', 'housing', '0', '0', NULL, '0', '0', '1', '1', 'EQ', 'input', '', 16, 'admin', '2023-05-31 07:48:43', '', '2023-05-31 07:54:17');
+INSERT INTO `gen_table_column` VALUES (192, '23', 'insurance', '保险费', 'float', 'Long', 'insurance', '0', '0', NULL, '0', '0', '1', '1', 'EQ', 'input', '', 17, 'admin', '2023-05-31 07:48:43', '', '2023-05-31 07:54:17');
+INSERT INTO `gen_table_column` VALUES (193, '23', 'net_pay', '实发工资', 'float', 'Long', 'netPay', '0', '0', NULL, '0', '0', '1', '1', 'EQ', 'input', '', 18, 'admin', '2023-05-31 07:48:43', '', '2023-05-31 07:54:17');
 
 -- ----------------------------
 -- Table structure for job
@@ -922,6 +1021,16 @@ INSERT INTO `sys_logininfor` VALUES (174, 'admin', '127.0.0.1', '内网IP', 'Chr
 INSERT INTO `sys_logininfor` VALUES (175, 'admin', '127.0.0.1', '内网IP', 'Chrome 11', 'Windows 10', '1', '用户不存在/密码错误', '2023-05-30 21:07:32');
 INSERT INTO `sys_logininfor` VALUES (176, 'admin', '127.0.0.1', '内网IP', 'Chrome 11', 'Windows 10', '1', '验证码错误', '2023-05-30 21:07:37');
 INSERT INTO `sys_logininfor` VALUES (177, 'admin', '127.0.0.1', '内网IP', 'Chrome 11', 'Windows 10', '0', '登录成功', '2023-05-30 21:07:41');
+INSERT INTO `sys_logininfor` VALUES (178, 'admin', '127.0.0.1', '内网IP', 'Chrome 11', 'Windows 10', '0', '登录成功', '2023-05-31 06:35:56');
+INSERT INTO `sys_logininfor` VALUES (179, 'admin', '127.0.0.1', '内网IP', 'Chrome 11', 'Windows 10', '0', '登录成功', '2023-05-31 07:08:50');
+INSERT INTO `sys_logininfor` VALUES (180, '管理员', '127.0.0.1', '内网IP', 'Chrome 11', 'Windows 10', '0', '登录成功', '2023-05-31 08:07:06');
+INSERT INTO `sys_logininfor` VALUES (181, '教职工', '127.0.0.1', '内网IP', 'Chrome 11', 'Windows 10', '0', '登录成功', '2023-05-31 08:07:37');
+INSERT INTO `sys_logininfor` VALUES (182, '管理员', '127.0.0.1', '内网IP', 'Chrome 11', 'Windows 10', '0', '登录成功', '2023-05-31 08:08:18');
+INSERT INTO `sys_logininfor` VALUES (183, '会计', '127.0.0.1', '内网IP', 'Chrome 11', 'Windows 10', '0', '登录成功', '2023-05-31 08:08:35');
+INSERT INTO `sys_logininfor` VALUES (184, '银行', '127.0.0.1', '内网IP', 'Chrome 11', 'Windows 10', '0', '登录成功', '2023-05-31 08:09:11');
+INSERT INTO `sys_logininfor` VALUES (185, '人事', '127.0.0.1', '内网IP', 'Chrome 11', 'Windows 10', '0', '登录成功', '2023-05-31 08:09:28');
+INSERT INTO `sys_logininfor` VALUES (186, '管理员', '127.0.0.1', '内网IP', 'Chrome 11', 'Windows 10', '0', '登录成功', '2023-05-31 08:09:52');
+INSERT INTO `sys_logininfor` VALUES (187, '张三', '127.0.0.1', '内网IP', 'Chrome 11', 'Windows 10', '0', '登录成功', '2023-05-31 08:10:12');
 
 -- ----------------------------
 -- Table structure for sys_menu
@@ -1088,9 +1197,9 @@ INSERT INTO `sys_menu` VALUES (2189, '事务删除', 2185, 4, '#', '', NULL, 1, 
 INSERT INTO `sys_menu` VALUES (2190, '事务导出', 2185, 5, '#', '', NULL, 1, 0, 'F', '0', '0', 'financial:affairs:export', '#', 'admin', '2023-05-30 23:21:00', '', NULL, '');
 INSERT INTO `sys_menu` VALUES (2191, '全部工资明细表', 0, 2, 'payDetails', 'financial/payDetails/index', NULL, 1, 0, 'C', '0', '0', 'financial:payDetails:list', 'money', 'admin', '2023-05-30 23:36:39', 'admin', '2023-05-30 23:39:16', '全部工资明细表菜单');
 INSERT INTO `sys_menu` VALUES (2192, '全部工资明细表查询', 2191, 1, '#', '', NULL, 1, 0, 'F', '0', '0', 'financial:payDetails:query', '#', 'admin', '2023-05-30 23:36:39', '', NULL, '');
-INSERT INTO `sys_menu` VALUES (2193, '全部工资明细表新增', 2191, 2, '#', '', NULL, 1, 0, 'F', '0', '0', 'financial:payDetails:add', '#', 'admin', '2023-05-30 23:36:39', '', NULL, '');
-INSERT INTO `sys_menu` VALUES (2194, '全部工资明细表修改', 2191, 3, '#', '', NULL, 1, 0, 'F', '0', '0', 'financial:payDetails:edit', '#', 'admin', '2023-05-30 23:36:39', '', NULL, '');
-INSERT INTO `sys_menu` VALUES (2195, '全部工资明细表删除', 2191, 4, '#', '', NULL, 1, 0, 'F', '0', '0', 'financial:payDetails:remove', '#', 'admin', '2023-05-30 23:36:39', '', NULL, '');
+INSERT INTO `sys_menu` VALUES (2193, '全部工资明细表新增', 2191, 2, '#', '', NULL, 1, 0, 'C', '1', '1', 'financial:payDetails:add', '#', 'admin', '2023-05-30 23:36:39', 'admin', '2023-05-31 08:01:49', '');
+INSERT INTO `sys_menu` VALUES (2194, '全部工资明细表修改', 2191, 3, '#', '', NULL, 1, 0, 'C', '1', '1', 'financial:payDetails:edit', '#', 'admin', '2023-05-30 23:36:39', 'admin', '2023-05-31 08:01:58', '');
+INSERT INTO `sys_menu` VALUES (2195, '全部工资明细表删除', 2191, 4, '#', '', NULL, 1, 0, 'C', '1', '1', 'financial:payDetails:remove', '#', 'admin', '2023-05-30 23:36:39', 'admin', '2023-05-31 08:02:05', '');
 INSERT INTO `sys_menu` VALUES (2196, '全部工资明细表导出', 2191, 5, '#', '', NULL, 1, 0, 'F', '0', '0', 'financial:payDetails:export', '#', 'admin', '2023-05-30 23:36:39', '', NULL, '');
 
 -- ----------------------------
@@ -1322,6 +1431,34 @@ INSERT INTO `sys_oper_log` VALUES (322, '代码生成', 2, 'com.ruoyi.generator.
 INSERT INTO `sys_oper_log` VALUES (323, '代码生成', 8, 'com.ruoyi.generator.controller.GenController.batchGenCode()', 'GET', 1, 'admin', NULL, '/tool/gen/batchGenCode', '127.0.0.1', '内网IP', '{\"tables\":\"faculty_monthly\"}', NULL, 0, NULL, '2023-05-30 23:36:01', 32);
 INSERT INTO `sys_oper_log` VALUES (324, '代码生成', 8, 'com.ruoyi.generator.controller.GenController.batchGenCode()', 'GET', 1, 'admin', NULL, '/tool/gen/batchGenCode', '127.0.0.1', '内网IP', '{\"tables\":\"faculty_monthly\"}', NULL, 0, NULL, '2023-05-30 23:36:01', 26);
 INSERT INTO `sys_oper_log` VALUES (325, '菜单管理', 2, 'com.ruoyi.web.controller.system.SysMenuController.edit()', 'PUT', 1, 'admin', NULL, '/system/menu', '127.0.0.1', '内网IP', '{\"children\":[],\"component\":\"financial/payDetails/index\",\"createTime\":\"2023-05-30 23:36:39\",\"icon\":\"money\",\"isCache\":\"0\",\"isFrame\":\"1\",\"menuId\":2191,\"menuName\":\"全部工资明细表\",\"menuType\":\"C\",\"orderNum\":2,\"params\":{},\"parentId\":0,\"path\":\"payDetails\",\"perms\":\"financial:payDetails:list\",\"status\":\"0\",\"updateBy\":\"admin\",\"visible\":\"0\"}', '{\"msg\":\"操作成功\",\"code\":200}', 0, NULL, '2023-05-30 23:39:16', 30);
+INSERT INTO `sys_oper_log` VALUES (326, '代码生成', 2, 'com.ruoyi.generator.controller.GenController.editSave()', 'PUT', 1, 'admin', NULL, '/tool/gen', '127.0.0.1', '内网IP', '{\"businessName\":\"payDetails\",\"className\":\"PayDetails\",\"columns\":[{\"capJavaField\":\"FacultyId\",\"columnComment\":\"教职工编号\",\"columnId\":143,\"columnName\":\"faculty_id\",\"columnType\":\"bigint\",\"createBy\":\"admin\",\"createTime\":\"2023-05-30 21:37:20\",\"dictType\":\"\",\"edit\":false,\"htmlType\":\"input\",\"increment\":false,\"insert\":false,\"isIncrement\":\"0\",\"isInsert\":\"0\",\"isList\":\"1\",\"isPk\":\"1\",\"isQuery\":\"1\",\"javaField\":\"facultyId\",\"javaType\":\"Long\",\"list\":true,\"params\":{},\"pk\":true,\"query\":true,\"queryType\":\"EQ\",\"required\":false,\"sort\":1,\"superColumn\":false,\"tableId\":20,\"updateBy\":\"\",\"updateTime\":\"2023-05-30 23:35:55\",\"usableColumn\":false},{\"capJavaField\":\"Name\",\"columnComment\":\"姓名\",\"columnId\":144,\"columnName\":\"name\",\"columnType\":\"varchar(30)\",\"createBy\":\"admin\",\"createTime\":\"2023-05-30 21:37:20\",\"dictType\":\"\",\"edit\":false,\"htmlType\":\"input\",\"increment\":false,\"insert\":false,\"isEdit\":\"0\",\"isIncrement\":\"0\",\"isInsert\":\"0\",\"isList\":\"1\",\"isPk\":\"0\",\"isQuery\":\"1\",\"isRequired\":\"0\",\"javaField\":\"name\",\"javaType\":\"String\",\"list\":true,\"params\":{},\"pk\":false,\"query\":true,\"queryType\":\"LIKE\",\"required\":false,\"sort\":2,\"superColumn\":false,\"tableId\":20,\"updateBy\":\"\",\"updateTime\":\"2023-05-30 23:35:55\",\"usableColumn\":false},{\"capJavaField\":\"Month\",\"columnComment\":\"月份\",\"columnId\":145,\"columnName\":\"month\",\"columnType\":\"int\",\"createBy\":\"admin\",\"createTime\":\"2023-05-30 21:37:20\",\"dictType\":\"\",\"edit\":false,\"htmlType\":\"input\",\"increment\":false,\"insert\":false,\"isIncrement\":\"0\",\"isInsert\":\"0\",\"isList\":\"1\",\"isPk\":\"1\",\"isQuery\":\"1\",\"javaField\":\"month\",\"javaType\":\"Long\",\"list\":true,\"params\":{},\"pk\":true,\"query\":true,\"queryType\":\"EQ\",\"required\":false,\"sort\":3,\"superColumn\":false,\"tableId\":20,\"updateBy\":\"\",\"updateTime\":\"2023-05-30 23:35:55\",\"usableColumn\":false},{\"capJavaField\":\"TeacherPay\",\"columnComment\":\"课时费\",\"columnId\":146,\"columnName\":\"teacher_pay\",\"columnType\":\"float\",\"createBy\":\"admin\",\"createTime\":\"2023-05-30 21:37:20\",\"dictType\":\"\",\"edit\":false,\"htmlType\":\"input\",\"increment\":false,\"insert\":false,\"isEdit\":\"0\",\"isIncre', '{\"msg\":\"操作成功\",\"code\":200}', 0, NULL, '2023-05-31 07:23:23', 66);
+INSERT INTO `sys_oper_log` VALUES (327, '代码生成', 6, 'com.ruoyi.generator.controller.GenController.importTableSave()', 'POST', 1, 'admin', NULL, '/tool/gen/importTable', '127.0.0.1', '内网IP', '{\"tables\":\"faculty_monthly_pay,faculty_monthly_paydetail\"}', '{\"msg\":\"操作成功\",\"code\":200}', 0, NULL, '2023-05-31 07:23:29', 94);
+INSERT INTO `sys_oper_log` VALUES (328, '代码生成', 2, 'com.ruoyi.generator.controller.GenController.editSave()', 'PUT', 1, 'admin', NULL, '/tool/gen', '127.0.0.1', '内网IP', '{\"businessName\":\"pay\",\"className\":\"Pay\",\"columns\":[{\"capJavaField\":\"FacultyId\",\"columnComment\":\"教职工编号\",\"columnId\":154,\"columnName\":\"faculty_id\",\"columnType\":\"bigint\",\"createBy\":\"admin\",\"createTime\":\"2023-05-31 07:23:29\",\"dictType\":\"\",\"edit\":false,\"htmlType\":\"input\",\"increment\":false,\"insert\":false,\"isIncrement\":\"0\",\"isInsert\":\"0\",\"isList\":\"1\",\"isPk\":\"1\",\"isQuery\":\"1\",\"javaField\":\"facultyId\",\"javaType\":\"Long\",\"list\":true,\"params\":{},\"pk\":true,\"query\":true,\"queryType\":\"EQ\",\"required\":false,\"sort\":1,\"superColumn\":false,\"tableId\":21,\"updateBy\":\"\",\"usableColumn\":false},{\"capJavaField\":\"Name\",\"columnComment\":\"姓名\",\"columnId\":155,\"columnName\":\"name\",\"columnType\":\"varchar(30)\",\"createBy\":\"admin\",\"createTime\":\"2023-05-31 07:23:29\",\"dictType\":\"\",\"edit\":false,\"htmlType\":\"input\",\"increment\":false,\"insert\":false,\"isEdit\":\"0\",\"isIncrement\":\"0\",\"isInsert\":\"0\",\"isList\":\"1\",\"isPk\":\"0\",\"isQuery\":\"1\",\"isRequired\":\"0\",\"javaField\":\"name\",\"javaType\":\"String\",\"list\":true,\"params\":{},\"pk\":false,\"query\":true,\"queryType\":\"LIKE\",\"required\":false,\"sort\":2,\"superColumn\":false,\"tableId\":21,\"updateBy\":\"\",\"usableColumn\":false},{\"capJavaField\":\"Month\",\"columnComment\":\"月份\",\"columnId\":156,\"columnName\":\"month\",\"columnType\":\"int\",\"createBy\":\"admin\",\"createTime\":\"2023-05-31 07:23:29\",\"dictType\":\"\",\"edit\":false,\"htmlType\":\"input\",\"increment\":false,\"insert\":false,\"isIncrement\":\"0\",\"isInsert\":\"0\",\"isList\":\"1\",\"isPk\":\"1\",\"isQuery\":\"1\",\"javaField\":\"month\",\"javaType\":\"Long\",\"list\":true,\"params\":{},\"pk\":true,\"query\":true,\"queryType\":\"EQ\",\"required\":false,\"sort\":3,\"superColumn\":false,\"tableId\":21,\"updateBy\":\"\",\"usableColumn\":false},{\"capJavaField\":\"NetPay\",\"columnComment\":\"实发工资\",\"columnId\":157,\"columnName\":\"net_pay\",\"columnType\":\"float\",\"createBy\":\"admin\",\"createTime\":\"2023-05-31 07:23:29\",\"dictType\":\"\",\"edit\":false,\"htmlType\":\"input\",\"increment\":false,\"insert\":false,\"isEdit\":\"0\",\"isIncrement\":\"0\",\"isInsert\":\"0\",\"isList\":\"1\",\"isPk\":\"0\",\"isQuery\":\"1\",\"javaField\":\"netPay\",\"javaType\":\"Long\",\"list\":true,\"params\":{},', '{\"msg\":\"操作成功\",\"code\":200}', 0, NULL, '2023-05-31 07:27:11', 16);
+INSERT INTO `sys_oper_log` VALUES (329, '代码生成', 8, 'com.ruoyi.generator.controller.GenController.batchGenCode()', 'GET', 1, 'admin', NULL, '/tool/gen/batchGenCode', '127.0.0.1', '内网IP', '{\"tables\":\"faculty_monthly\"}', NULL, 0, NULL, '2023-05-31 07:27:34', 224);
+INSERT INTO `sys_oper_log` VALUES (330, '代码生成', 8, 'com.ruoyi.generator.controller.GenController.batchGenCode()', 'GET', 1, 'admin', NULL, '/tool/gen/batchGenCode', '127.0.0.1', '内网IP', '{\"tables\":\"faculty_monthly\"}', NULL, 0, NULL, '2023-05-31 07:27:35', 71);
+INSERT INTO `sys_oper_log` VALUES (331, '代码生成', 2, 'com.ruoyi.generator.controller.GenController.editSave()', 'PUT', 1, 'admin', NULL, '/tool/gen', '127.0.0.1', '内网IP', '{\"businessName\":\"pay\",\"className\":\"Pay\",\"columns\":[{\"capJavaField\":\"FacultyId\",\"columnComment\":\"教职工编号\",\"columnId\":154,\"columnName\":\"faculty_id\",\"columnType\":\"bigint\",\"createBy\":\"admin\",\"createTime\":\"2023-05-31 07:23:29\",\"dictType\":\"\",\"edit\":false,\"htmlType\":\"input\",\"increment\":false,\"insert\":false,\"isIncrement\":\"0\",\"isInsert\":\"0\",\"isList\":\"1\",\"isPk\":\"1\",\"isQuery\":\"1\",\"javaField\":\"facultyId\",\"javaType\":\"Long\",\"list\":true,\"params\":{},\"pk\":true,\"query\":true,\"queryType\":\"EQ\",\"required\":false,\"sort\":1,\"superColumn\":false,\"tableId\":21,\"updateBy\":\"\",\"updateTime\":\"2023-05-31 07:27:11\",\"usableColumn\":false},{\"capJavaField\":\"Name\",\"columnComment\":\"姓名\",\"columnId\":155,\"columnName\":\"name\",\"columnType\":\"varchar(30)\",\"createBy\":\"admin\",\"createTime\":\"2023-05-31 07:23:29\",\"dictType\":\"\",\"edit\":false,\"htmlType\":\"input\",\"increment\":false,\"insert\":false,\"isEdit\":\"0\",\"isIncrement\":\"0\",\"isInsert\":\"0\",\"isList\":\"1\",\"isPk\":\"0\",\"isQuery\":\"1\",\"isRequired\":\"0\",\"javaField\":\"name\",\"javaType\":\"String\",\"list\":true,\"params\":{},\"pk\":false,\"query\":true,\"queryType\":\"LIKE\",\"required\":false,\"sort\":2,\"superColumn\":false,\"tableId\":21,\"updateBy\":\"\",\"updateTime\":\"2023-05-31 07:27:11\",\"usableColumn\":false},{\"capJavaField\":\"Month\",\"columnComment\":\"月份\",\"columnId\":156,\"columnName\":\"month\",\"columnType\":\"int\",\"createBy\":\"admin\",\"createTime\":\"2023-05-31 07:23:29\",\"dictType\":\"\",\"edit\":false,\"htmlType\":\"input\",\"increment\":false,\"insert\":false,\"isIncrement\":\"0\",\"isInsert\":\"0\",\"isList\":\"1\",\"isPk\":\"1\",\"isQuery\":\"1\",\"javaField\":\"month\",\"javaType\":\"Long\",\"list\":true,\"params\":{},\"pk\":true,\"query\":true,\"queryType\":\"EQ\",\"required\":false,\"sort\":3,\"superColumn\":false,\"tableId\":21,\"updateBy\":\"\",\"updateTime\":\"2023-05-31 07:27:11\",\"usableColumn\":false},{\"capJavaField\":\"NetPay\",\"columnComment\":\"实发工资\",\"columnId\":157,\"columnName\":\"net_pay\",\"columnType\":\"float\",\"createBy\":\"admin\",\"createTime\":\"2023-05-31 07:23:29\",\"dictType\":\"\",\"edit\":false,\"htmlType\":\"input\",\"increment\":false,\"insert\":false,\"isEdit\":\"0\",\"isIncrement\":\"0\",\"isInsert\":', '{\"msg\":\"操作成功\",\"code\":200}', 0, NULL, '2023-05-31 07:33:25', 15);
+INSERT INTO `sys_oper_log` VALUES (332, '代码生成', 2, 'com.ruoyi.generator.controller.GenController.editSave()', 'PUT', 1, 'admin', NULL, '/tool/gen', '127.0.0.1', '内网IP', '{\"businessName\":\"paydetail\",\"className\":\"Paydetail\",\"columns\":[{\"capJavaField\":\"FacultyId\",\"columnComment\":\"教职工编号\",\"columnId\":158,\"columnName\":\"faculty_id\",\"columnType\":\"bigint\",\"createBy\":\"admin\",\"createTime\":\"2023-05-31 07:23:29\",\"dictType\":\"\",\"edit\":false,\"htmlType\":\"input\",\"increment\":false,\"insert\":false,\"isIncrement\":\"0\",\"isInsert\":\"0\",\"isList\":\"1\",\"isPk\":\"1\",\"isQuery\":\"1\",\"javaField\":\"facultyId\",\"javaType\":\"Long\",\"list\":true,\"params\":{},\"pk\":true,\"query\":true,\"queryType\":\"EQ\",\"required\":false,\"sort\":1,\"superColumn\":false,\"tableId\":22,\"updateBy\":\"\",\"usableColumn\":false},{\"capJavaField\":\"Name\",\"columnComment\":\"姓名\",\"columnId\":159,\"columnName\":\"name\",\"columnType\":\"varchar(30)\",\"createBy\":\"admin\",\"createTime\":\"2023-05-31 07:23:29\",\"dictType\":\"\",\"edit\":false,\"htmlType\":\"input\",\"increment\":false,\"insert\":false,\"isEdit\":\"0\",\"isIncrement\":\"0\",\"isInsert\":\"0\",\"isList\":\"1\",\"isPk\":\"0\",\"isQuery\":\"1\",\"isRequired\":\"0\",\"javaField\":\"name\",\"javaType\":\"String\",\"list\":true,\"params\":{},\"pk\":false,\"query\":true,\"queryType\":\"LIKE\",\"required\":false,\"sort\":2,\"superColumn\":false,\"tableId\":22,\"updateBy\":\"\",\"usableColumn\":false},{\"capJavaField\":\"Month\",\"columnComment\":\"月份\",\"columnId\":160,\"columnName\":\"month\",\"columnType\":\"int\",\"createBy\":\"admin\",\"createTime\":\"2023-05-31 07:23:29\",\"dictType\":\"\",\"edit\":false,\"htmlType\":\"input\",\"increment\":false,\"insert\":false,\"isIncrement\":\"0\",\"isInsert\":\"0\",\"isList\":\"1\",\"isPk\":\"1\",\"isQuery\":\"1\",\"javaField\":\"month\",\"javaType\":\"Long\",\"list\":true,\"params\":{},\"pk\":true,\"query\":true,\"queryType\":\"EQ\",\"required\":false,\"sort\":3,\"superColumn\":false,\"tableId\":22,\"updateBy\":\"\",\"usableColumn\":false},{\"capJavaField\":\"BasicPay\",\"columnComment\":\"基本工资\",\"columnId\":161,\"columnName\":\"basic_pay\",\"columnType\":\"float\",\"createBy\":\"admin\",\"createTime\":\"2023-05-31 07:23:29\",\"dictType\":\"\",\"edit\":false,\"htmlType\":\"input\",\"increment\":false,\"insert\":false,\"isEdit\":\"0\",\"isIncrement\":\"0\",\"isInsert\":\"0\",\"isList\":\"1\",\"isPk\":\"0\",\"isQuery\":\"1\",\"javaField\":\"basicPay\",\"javaType\":\"Long\",\"list\"', '{\"msg\":\"操作成功\",\"code\":200}', 0, NULL, '2023-05-31 07:37:11', 28);
+INSERT INTO `sys_oper_log` VALUES (333, '代码生成', 2, 'com.ruoyi.generator.controller.GenController.editSave()', 'PUT', 1, 'admin', NULL, '/tool/gen', '127.0.0.1', '内网IP', '{\"businessName\":\"payDetail\",\"className\":\"PayDetail\",\"columns\":[{\"capJavaField\":\"FacultyId\",\"columnComment\":\"教职工编号\",\"columnId\":158,\"columnName\":\"faculty_id\",\"columnType\":\"bigint\",\"createBy\":\"admin\",\"createTime\":\"2023-05-31 07:23:29\",\"dictType\":\"\",\"edit\":false,\"htmlType\":\"input\",\"increment\":false,\"insert\":false,\"isIncrement\":\"0\",\"isInsert\":\"0\",\"isList\":\"1\",\"isPk\":\"1\",\"isQuery\":\"1\",\"javaField\":\"facultyId\",\"javaType\":\"Long\",\"list\":true,\"params\":{},\"pk\":true,\"query\":true,\"queryType\":\"EQ\",\"required\":false,\"sort\":1,\"superColumn\":false,\"tableId\":22,\"updateBy\":\"\",\"updateTime\":\"2023-05-31 07:37:11\",\"usableColumn\":false},{\"capJavaField\":\"Name\",\"columnComment\":\"姓名\",\"columnId\":159,\"columnName\":\"name\",\"columnType\":\"varchar(30)\",\"createBy\":\"admin\",\"createTime\":\"2023-05-31 07:23:29\",\"dictType\":\"\",\"edit\":false,\"htmlType\":\"input\",\"increment\":false,\"insert\":false,\"isEdit\":\"0\",\"isIncrement\":\"0\",\"isInsert\":\"0\",\"isList\":\"1\",\"isPk\":\"0\",\"isQuery\":\"1\",\"isRequired\":\"0\",\"javaField\":\"name\",\"javaType\":\"String\",\"list\":true,\"params\":{},\"pk\":false,\"query\":true,\"queryType\":\"LIKE\",\"required\":false,\"sort\":2,\"superColumn\":false,\"tableId\":22,\"updateBy\":\"\",\"updateTime\":\"2023-05-31 07:37:11\",\"usableColumn\":false},{\"capJavaField\":\"Month\",\"columnComment\":\"月份\",\"columnId\":160,\"columnName\":\"month\",\"columnType\":\"int\",\"createBy\":\"admin\",\"createTime\":\"2023-05-31 07:23:29\",\"dictType\":\"\",\"edit\":false,\"htmlType\":\"input\",\"increment\":false,\"insert\":false,\"isIncrement\":\"0\",\"isInsert\":\"0\",\"isList\":\"1\",\"isPk\":\"1\",\"isQuery\":\"1\",\"javaField\":\"month\",\"javaType\":\"Long\",\"list\":true,\"params\":{},\"pk\":true,\"query\":true,\"queryType\":\"EQ\",\"required\":false,\"sort\":3,\"superColumn\":false,\"tableId\":22,\"updateBy\":\"\",\"updateTime\":\"2023-05-31 07:37:11\",\"usableColumn\":false},{\"capJavaField\":\"BasicPay\",\"columnComment\":\"基本工资\",\"columnId\":161,\"columnName\":\"basic_pay\",\"columnType\":\"float\",\"createBy\":\"admin\",\"createTime\":\"2023-05-31 07:23:29\",\"dictType\":\"\",\"edit\":false,\"htmlType\":\"input\",\"increment\":false,\"insert\":false,\"isEdit\":\"0\",\"isIncrement\"', '{\"msg\":\"操作成功\",\"code\":200}', 0, NULL, '2023-05-31 07:38:14', 28);
+INSERT INTO `sys_oper_log` VALUES (334, '代码生成', 8, 'com.ruoyi.generator.controller.GenController.batchGenCode()', 'GET', 1, 'admin', NULL, '/tool/gen/batchGenCode', '127.0.0.1', '内网IP', '{\"tables\":\"faculty_monthly\"}', NULL, 0, NULL, '2023-05-31 07:38:18', 91);
+INSERT INTO `sys_oper_log` VALUES (335, '代码生成', 8, 'com.ruoyi.generator.controller.GenController.batchGenCode()', 'GET', 1, 'admin', NULL, '/tool/gen/batchGenCode', '127.0.0.1', '内网IP', '{\"tables\":\"faculty_monthly\"}', NULL, 0, NULL, '2023-05-31 07:38:18', 92);
+INSERT INTO `sys_oper_log` VALUES (336, '代码生成', 2, 'com.ruoyi.generator.controller.GenController.editSave()', 'PUT', 1, 'admin', NULL, '/tool/gen', '127.0.0.1', '内网IP', '{\"businessName\":\"payDetail\",\"className\":\"PayDetail\",\"columns\":[{\"capJavaField\":\"FacultyId\",\"columnComment\":\"教职工编号\",\"columnId\":158,\"columnName\":\"faculty_id\",\"columnType\":\"bigint\",\"createBy\":\"admin\",\"createTime\":\"2023-05-31 07:23:29\",\"dictType\":\"\",\"edit\":false,\"htmlType\":\"input\",\"increment\":false,\"insert\":false,\"isIncrement\":\"0\",\"isInsert\":\"0\",\"isList\":\"1\",\"isPk\":\"1\",\"isQuery\":\"1\",\"javaField\":\"facultyId\",\"javaType\":\"Long\",\"list\":true,\"params\":{},\"pk\":true,\"query\":true,\"queryType\":\"EQ\",\"required\":false,\"sort\":1,\"superColumn\":false,\"tableId\":22,\"updateBy\":\"\",\"updateTime\":\"2023-05-31 07:38:14\",\"usableColumn\":false},{\"capJavaField\":\"Name\",\"columnComment\":\"姓名\",\"columnId\":159,\"columnName\":\"name\",\"columnType\":\"varchar(30)\",\"createBy\":\"admin\",\"createTime\":\"2023-05-31 07:23:29\",\"dictType\":\"\",\"edit\":false,\"htmlType\":\"input\",\"increment\":false,\"insert\":false,\"isEdit\":\"0\",\"isIncrement\":\"0\",\"isInsert\":\"0\",\"isList\":\"1\",\"isPk\":\"0\",\"isQuery\":\"1\",\"isRequired\":\"0\",\"javaField\":\"name\",\"javaType\":\"String\",\"list\":true,\"params\":{},\"pk\":false,\"query\":true,\"queryType\":\"LIKE\",\"required\":false,\"sort\":2,\"superColumn\":false,\"tableId\":22,\"updateBy\":\"\",\"updateTime\":\"2023-05-31 07:38:14\",\"usableColumn\":false},{\"capJavaField\":\"Month\",\"columnComment\":\"月份\",\"columnId\":160,\"columnName\":\"month\",\"columnType\":\"int\",\"createBy\":\"admin\",\"createTime\":\"2023-05-31 07:23:29\",\"dictType\":\"\",\"edit\":false,\"htmlType\":\"input\",\"increment\":false,\"insert\":false,\"isIncrement\":\"0\",\"isInsert\":\"0\",\"isList\":\"1\",\"isPk\":\"1\",\"isQuery\":\"1\",\"javaField\":\"month\",\"javaType\":\"Long\",\"list\":true,\"params\":{},\"pk\":true,\"query\":true,\"queryType\":\"EQ\",\"required\":false,\"sort\":3,\"superColumn\":false,\"tableId\":22,\"updateBy\":\"\",\"updateTime\":\"2023-05-31 07:38:14\",\"usableColumn\":false},{\"capJavaField\":\"BasicPay\",\"columnComment\":\"基本工资\",\"columnId\":161,\"columnName\":\"basic_pay\",\"columnType\":\"float\",\"createBy\":\"admin\",\"createTime\":\"2023-05-31 07:23:29\",\"dictType\":\"\",\"edit\":false,\"htmlType\":\"input\",\"increment\":false,\"insert\":false,\"isEdit\":\"0\",\"isIncrement\"', '{\"msg\":\"操作成功\",\"code\":200}', 0, NULL, '2023-05-31 07:47:18', 27);
+INSERT INTO `sys_oper_log` VALUES (337, '代码生成', 2, 'com.ruoyi.generator.controller.GenController.editSave()', 'PUT', 1, 'admin', NULL, '/tool/gen', '127.0.0.1', '内网IP', '{\"businessName\":\"payDetail\",\"className\":\"PayDetail\",\"columns\":[{\"capJavaField\":\"FacultyId\",\"columnComment\":\"教职工编号\",\"columnId\":158,\"columnName\":\"faculty_id\",\"columnType\":\"bigint\",\"createBy\":\"admin\",\"createTime\":\"2023-05-31 07:23:29\",\"dictType\":\"\",\"edit\":false,\"htmlType\":\"input\",\"increment\":false,\"insert\":false,\"isIncrement\":\"0\",\"isInsert\":\"0\",\"isList\":\"1\",\"isPk\":\"1\",\"isQuery\":\"1\",\"javaField\":\"facultyId\",\"javaType\":\"Long\",\"list\":true,\"params\":{},\"pk\":true,\"query\":true,\"queryType\":\"EQ\",\"required\":false,\"sort\":1,\"superColumn\":false,\"tableId\":22,\"updateBy\":\"\",\"updateTime\":\"2023-05-31 07:47:18\",\"usableColumn\":false},{\"capJavaField\":\"Name\",\"columnComment\":\"姓名\",\"columnId\":159,\"columnName\":\"name\",\"columnType\":\"varchar(30)\",\"createBy\":\"admin\",\"createTime\":\"2023-05-31 07:23:29\",\"dictType\":\"\",\"edit\":false,\"htmlType\":\"input\",\"increment\":false,\"insert\":false,\"isEdit\":\"0\",\"isIncrement\":\"0\",\"isInsert\":\"0\",\"isList\":\"1\",\"isPk\":\"0\",\"isQuery\":\"1\",\"isRequired\":\"0\",\"javaField\":\"name\",\"javaType\":\"String\",\"list\":true,\"params\":{},\"pk\":false,\"query\":true,\"queryType\":\"LIKE\",\"required\":false,\"sort\":2,\"superColumn\":false,\"tableId\":22,\"updateBy\":\"\",\"updateTime\":\"2023-05-31 07:47:18\",\"usableColumn\":false},{\"capJavaField\":\"Month\",\"columnComment\":\"月份\",\"columnId\":160,\"columnName\":\"month\",\"columnType\":\"int\",\"createBy\":\"admin\",\"createTime\":\"2023-05-31 07:23:29\",\"dictType\":\"\",\"edit\":false,\"htmlType\":\"input\",\"increment\":false,\"insert\":false,\"isIncrement\":\"0\",\"isInsert\":\"0\",\"isList\":\"1\",\"isPk\":\"1\",\"isQuery\":\"1\",\"javaField\":\"month\",\"javaType\":\"Long\",\"list\":true,\"params\":{},\"pk\":true,\"query\":true,\"queryType\":\"EQ\",\"required\":false,\"sort\":3,\"superColumn\":false,\"tableId\":22,\"updateBy\":\"\",\"updateTime\":\"2023-05-31 07:47:18\",\"usableColumn\":false},{\"capJavaField\":\"BasicPay\",\"columnComment\":\"基本工资\",\"columnId\":161,\"columnName\":\"basic_pay\",\"columnType\":\"float\",\"createBy\":\"admin\",\"createTime\":\"2023-05-31 07:23:29\",\"dictType\":\"\",\"edit\":false,\"htmlType\":\"input\",\"increment\":false,\"insert\":false,\"isEdit\":\"0\",\"isIncrement\"', '{\"msg\":\"操作成功\",\"code\":200}', 0, NULL, '2023-05-31 07:48:33', 24);
+INSERT INTO `sys_oper_log` VALUES (338, '代码生成', 6, 'com.ruoyi.generator.controller.GenController.importTableSave()', 'POST', 1, 'admin', NULL, '/tool/gen/importTable', '127.0.0.1', '内网IP', '{\"tables\":\"faculty_monthly_pay_detail\"}', '{\"msg\":\"操作成功\",\"code\":200}', 0, NULL, '2023-05-31 07:48:43', 36);
+INSERT INTO `sys_oper_log` VALUES (339, '代码生成', 2, 'com.ruoyi.generator.controller.GenController.editSave()', 'PUT', 1, 'admin', NULL, '/tool/gen', '127.0.0.1', '内网IP', '{\"businessName\":\"payDetails\",\"className\":\"PayDetails\",\"columns\":[{\"capJavaField\":\"FacultyId\",\"columnComment\":\"教职工编号\",\"columnId\":176,\"columnName\":\"faculty_id\",\"columnType\":\"bigint\",\"createBy\":\"admin\",\"createTime\":\"2023-05-31 07:48:43\",\"dictType\":\"\",\"edit\":false,\"htmlType\":\"input\",\"increment\":false,\"insert\":true,\"isIncrement\":\"0\",\"isInsert\":\"1\",\"isPk\":\"1\",\"javaField\":\"facultyId\",\"javaType\":\"Long\",\"list\":false,\"params\":{},\"pk\":true,\"query\":false,\"queryType\":\"EQ\",\"required\":false,\"sort\":1,\"superColumn\":false,\"tableId\":23,\"updateBy\":\"\",\"usableColumn\":false},{\"capJavaField\":\"Name\",\"columnComment\":\"姓名\",\"columnId\":177,\"columnName\":\"name\",\"columnType\":\"varchar(30)\",\"createBy\":\"admin\",\"createTime\":\"2023-05-31 07:48:43\",\"dictType\":\"\",\"edit\":true,\"htmlType\":\"input\",\"increment\":false,\"insert\":true,\"isEdit\":\"1\",\"isIncrement\":\"0\",\"isInsert\":\"1\",\"isList\":\"1\",\"isPk\":\"0\",\"isQuery\":\"1\",\"isRequired\":\"1\",\"javaField\":\"name\",\"javaType\":\"String\",\"list\":true,\"params\":{},\"pk\":false,\"query\":true,\"queryType\":\"LIKE\",\"required\":true,\"sort\":2,\"superColumn\":false,\"tableId\":23,\"updateBy\":\"\",\"usableColumn\":false},{\"capJavaField\":\"Month\",\"columnComment\":\"月份\",\"columnId\":178,\"columnName\":\"month\",\"columnType\":\"int\",\"createBy\":\"admin\",\"createTime\":\"2023-05-31 07:48:43\",\"dictType\":\"\",\"edit\":false,\"htmlType\":\"input\",\"increment\":false,\"insert\":true,\"isIncrement\":\"0\",\"isInsert\":\"1\",\"isPk\":\"1\",\"javaField\":\"month\",\"javaType\":\"Long\",\"list\":false,\"params\":{},\"pk\":true,\"query\":false,\"queryType\":\"EQ\",\"required\":false,\"sort\":3,\"superColumn\":false,\"tableId\":23,\"updateBy\":\"\",\"usableColumn\":false},{\"capJavaField\":\"BasicPay\",\"columnComment\":\"基本工资\",\"columnId\":179,\"columnName\":\"basic_pay\",\"columnType\":\"float\",\"createBy\":\"admin\",\"createTime\":\"2023-05-31 07:48:43\",\"dictType\":\"\",\"edit\":true,\"htmlType\":\"input\",\"increment\":false,\"insert\":true,\"isEdit\":\"1\",\"isIncrement\":\"0\",\"isInsert\":\"1\",\"isList\":\"1\",\"isPk\":\"0\",\"isQuery\":\"1\",\"javaField\":\"basicPay\",\"javaType\":\"Long\",\"list\":true,\"params\":{},\"pk\":false,\"query\":true,\"queryType\":\"', '{\"msg\":\"操作成功\",\"code\":200}', 0, NULL, '2023-05-31 07:49:38', 23);
+INSERT INTO `sys_oper_log` VALUES (340, '代码生成', 8, 'com.ruoyi.generator.controller.GenController.batchGenCode()', 'GET', 1, 'admin', NULL, '/tool/gen/batchGenCode', '127.0.0.1', '内网IP', '{\"tables\":\"faculty_monthly\"}', NULL, 0, NULL, '2023-05-31 07:52:02', 101);
+INSERT INTO `sys_oper_log` VALUES (341, '代码生成', 8, 'com.ruoyi.generator.controller.GenController.batchGenCode()', 'GET', 1, 'admin', NULL, '/tool/gen/batchGenCode', '127.0.0.1', '内网IP', '{\"tables\":\"faculty_monthly\"}', NULL, 0, NULL, '2023-05-31 07:52:02', 92);
+INSERT INTO `sys_oper_log` VALUES (342, '代码生成', 2, 'com.ruoyi.generator.controller.GenController.editSave()', 'PUT', 1, 'admin', NULL, '/tool/gen', '127.0.0.1', '内网IP', '{\"businessName\":\"payDetails\",\"className\":\"PayDetails\",\"columns\":[{\"capJavaField\":\"FacultyId\",\"columnComment\":\"教职工编号\",\"columnId\":176,\"columnName\":\"faculty_id\",\"columnType\":\"bigint\",\"createBy\":\"admin\",\"createTime\":\"2023-05-31 07:48:43\",\"dictType\":\"\",\"edit\":false,\"htmlType\":\"input\",\"increment\":false,\"insert\":false,\"isIncrement\":\"0\",\"isInsert\":\"0\",\"isList\":\"1\",\"isPk\":\"1\",\"isQuery\":\"1\",\"javaField\":\"facultyId\",\"javaType\":\"Long\",\"list\":true,\"params\":{},\"pk\":true,\"query\":true,\"queryType\":\"EQ\",\"required\":false,\"sort\":1,\"superColumn\":false,\"tableId\":23,\"updateBy\":\"\",\"updateTime\":\"2023-05-31 07:49:38\",\"usableColumn\":false},{\"capJavaField\":\"Name\",\"columnComment\":\"姓名\",\"columnId\":177,\"columnName\":\"name\",\"columnType\":\"varchar(30)\",\"createBy\":\"admin\",\"createTime\":\"2023-05-31 07:48:43\",\"dictType\":\"\",\"edit\":false,\"htmlType\":\"input\",\"increment\":false,\"insert\":false,\"isEdit\":\"0\",\"isIncrement\":\"0\",\"isInsert\":\"0\",\"isList\":\"1\",\"isPk\":\"0\",\"isQuery\":\"1\",\"isRequired\":\"0\",\"javaField\":\"name\",\"javaType\":\"String\",\"list\":true,\"params\":{},\"pk\":false,\"query\":true,\"queryType\":\"LIKE\",\"required\":false,\"sort\":2,\"superColumn\":false,\"tableId\":23,\"updateBy\":\"\",\"updateTime\":\"2023-05-31 07:49:38\",\"usableColumn\":false},{\"capJavaField\":\"Month\",\"columnComment\":\"月份\",\"columnId\":178,\"columnName\":\"month\",\"columnType\":\"int\",\"createBy\":\"admin\",\"createTime\":\"2023-05-31 07:48:43\",\"dictType\":\"\",\"edit\":false,\"htmlType\":\"input\",\"increment\":false,\"insert\":false,\"isIncrement\":\"0\",\"isInsert\":\"0\",\"isList\":\"1\",\"isPk\":\"1\",\"isQuery\":\"1\",\"javaField\":\"month\",\"javaType\":\"Long\",\"list\":true,\"params\":{},\"pk\":true,\"query\":true,\"queryType\":\"EQ\",\"required\":false,\"sort\":3,\"superColumn\":false,\"tableId\":23,\"updateBy\":\"\",\"updateTime\":\"2023-05-31 07:49:38\",\"usableColumn\":false},{\"capJavaField\":\"BasicPay\",\"columnComment\":\"基本工资\",\"columnId\":179,\"columnName\":\"basic_pay\",\"columnType\":\"float\",\"createBy\":\"admin\",\"createTime\":\"2023-05-31 07:48:43\",\"dictType\":\"\",\"edit\":false,\"htmlType\":\"input\",\"increment\":false,\"insert\":false,\"isEdit\":\"0\",\"isIncremen', '{\"msg\":\"操作成功\",\"code\":200}', 0, NULL, '2023-05-31 07:54:17', 28);
+INSERT INTO `sys_oper_log` VALUES (343, '代码生成', 2, 'com.ruoyi.generator.controller.GenController.editSave()', 'PUT', 1, 'admin', NULL, '/tool/gen', '127.0.0.1', '内网IP', '{\"businessName\":\"payDetail\",\"className\":\"PayDetail\",\"columns\":[{\"capJavaField\":\"FacultyId\",\"columnComment\":\"教职工编号\",\"columnId\":158,\"columnName\":\"faculty_id\",\"columnType\":\"bigint\",\"createBy\":\"admin\",\"createTime\":\"2023-05-31 07:23:29\",\"dictType\":\"\",\"edit\":false,\"htmlType\":\"input\",\"increment\":false,\"insert\":false,\"isIncrement\":\"0\",\"isInsert\":\"0\",\"isList\":\"1\",\"isPk\":\"1\",\"isQuery\":\"1\",\"javaField\":\"facultyId\",\"javaType\":\"Long\",\"list\":true,\"params\":{},\"pk\":true,\"query\":true,\"queryType\":\"EQ\",\"required\":false,\"sort\":1,\"superColumn\":false,\"tableId\":22,\"updateBy\":\"\",\"updateTime\":\"2023-05-31 07:48:33\",\"usableColumn\":false},{\"capJavaField\":\"Name\",\"columnComment\":\"姓名\",\"columnId\":159,\"columnName\":\"name\",\"columnType\":\"varchar(30)\",\"createBy\":\"admin\",\"createTime\":\"2023-05-31 07:23:29\",\"dictType\":\"\",\"edit\":false,\"htmlType\":\"input\",\"increment\":false,\"insert\":false,\"isEdit\":\"0\",\"isIncrement\":\"0\",\"isInsert\":\"0\",\"isList\":\"1\",\"isPk\":\"0\",\"isQuery\":\"1\",\"isRequired\":\"0\",\"javaField\":\"name\",\"javaType\":\"String\",\"list\":true,\"params\":{},\"pk\":false,\"query\":true,\"queryType\":\"LIKE\",\"required\":false,\"sort\":2,\"superColumn\":false,\"tableId\":22,\"updateBy\":\"\",\"updateTime\":\"2023-05-31 07:48:33\",\"usableColumn\":false},{\"capJavaField\":\"Month\",\"columnComment\":\"月份\",\"columnId\":160,\"columnName\":\"month\",\"columnType\":\"int\",\"createBy\":\"admin\",\"createTime\":\"2023-05-31 07:23:29\",\"dictType\":\"\",\"edit\":false,\"htmlType\":\"input\",\"increment\":false,\"insert\":false,\"isIncrement\":\"0\",\"isInsert\":\"0\",\"isList\":\"1\",\"isPk\":\"1\",\"isQuery\":\"1\",\"javaField\":\"month\",\"javaType\":\"Long\",\"list\":true,\"params\":{},\"pk\":true,\"query\":true,\"queryType\":\"EQ\",\"required\":false,\"sort\":3,\"superColumn\":false,\"tableId\":22,\"updateBy\":\"\",\"updateTime\":\"2023-05-31 07:48:33\",\"usableColumn\":false},{\"capJavaField\":\"BasicPay\",\"columnComment\":\"基本工资\",\"columnId\":161,\"columnName\":\"basic_pay\",\"columnType\":\"float\",\"createBy\":\"admin\",\"createTime\":\"2023-05-31 07:23:29\",\"dictType\":\"\",\"edit\":false,\"htmlType\":\"input\",\"increment\":false,\"insert\":false,\"isEdit\":\"0\",\"isIncrement\"', '{\"msg\":\"操作成功\",\"code\":200}', 0, NULL, '2023-05-31 07:54:25', 21);
+INSERT INTO `sys_oper_log` VALUES (344, '角色管理', 1, 'com.ruoyi.web.controller.system.SysRoleController.add()', 'POST', 1, 'admin', NULL, '/system/role', '127.0.0.1', '内网IP', '{\"admin\":false,\"createBy\":\"admin\",\"deptCheckStrictly\":true,\"deptIds\":[],\"flag\":false,\"menuCheckStrictly\":true,\"menuIds\":[2052,2131,2132,2133,2134,2135,2136,2137,2138,2139,2140,2141,2142,2143,2144,2145,2146,2147,2148,2185,2186,2187,2188,2189,2190],\"params\":{},\"roleId\":104,\"roleKey\":\"personnel\",\"roleName\":\"人事\",\"roleSort\":7,\"status\":\"0\"}', '{\"msg\":\"操作成功\",\"code\":200}', 0, NULL, '2023-05-31 08:01:12', 17);
+INSERT INTO `sys_oper_log` VALUES (345, '菜单管理', 2, 'com.ruoyi.web.controller.system.SysMenuController.edit()', 'PUT', 1, 'admin', NULL, '/system/menu', '127.0.0.1', '内网IP', '{\"children\":[],\"component\":\"\",\"createTime\":\"2023-05-30 23:36:39\",\"icon\":\"#\",\"isCache\":\"0\",\"isFrame\":\"1\",\"menuId\":2193,\"menuName\":\"全部工资明细表新增\",\"menuType\":\"C\",\"orderNum\":2,\"params\":{},\"parentId\":2191,\"path\":\"#\",\"perms\":\"financial:payDetails:add\",\"status\":\"1\",\"updateBy\":\"admin\",\"visible\":\"1\"}', '{\"msg\":\"操作成功\",\"code\":200}', 0, NULL, '2023-05-31 08:01:49', 10);
+INSERT INTO `sys_oper_log` VALUES (346, '菜单管理', 2, 'com.ruoyi.web.controller.system.SysMenuController.edit()', 'PUT', 1, 'admin', NULL, '/system/menu', '127.0.0.1', '内网IP', '{\"children\":[],\"component\":\"\",\"createTime\":\"2023-05-30 23:36:39\",\"icon\":\"#\",\"isCache\":\"0\",\"isFrame\":\"1\",\"menuId\":2194,\"menuName\":\"全部工资明细表修改\",\"menuType\":\"C\",\"orderNum\":3,\"params\":{},\"parentId\":2191,\"path\":\"#\",\"perms\":\"financial:payDetails:edit\",\"status\":\"1\",\"updateBy\":\"admin\",\"visible\":\"1\"}', '{\"msg\":\"操作成功\",\"code\":200}', 0, NULL, '2023-05-31 08:01:58', 8);
+INSERT INTO `sys_oper_log` VALUES (347, '菜单管理', 2, 'com.ruoyi.web.controller.system.SysMenuController.edit()', 'PUT', 1, 'admin', NULL, '/system/menu', '127.0.0.1', '内网IP', '{\"children\":[],\"component\":\"\",\"createTime\":\"2023-05-30 23:36:39\",\"icon\":\"#\",\"isCache\":\"0\",\"isFrame\":\"1\",\"menuId\":2195,\"menuName\":\"全部工资明细表删除\",\"menuType\":\"C\",\"orderNum\":4,\"params\":{},\"parentId\":2191,\"path\":\"#\",\"perms\":\"financial:payDetails:remove\",\"status\":\"1\",\"updateBy\":\"admin\",\"visible\":\"1\"}', '{\"msg\":\"操作成功\",\"code\":200}', 0, NULL, '2023-05-31 08:02:05', 4);
+INSERT INTO `sys_oper_log` VALUES (348, '角色管理', 2, 'com.ruoyi.web.controller.system.SysRoleController.edit()', 'PUT', 1, 'admin', NULL, '/system/role', '127.0.0.1', '内网IP', '{\"admin\":false,\"createTime\":\"2023-05-27 19:12:01\",\"dataScope\":\"1\",\"delFlag\":\"0\",\"deptCheckStrictly\":true,\"flag\":false,\"menuCheckStrictly\":true,\"menuIds\":[2161,2162,2163,2164,2165,2166],\"params\":{},\"roleId\":103,\"roleKey\":\"bank\",\"roleName\":\"银行\",\"roleSort\":6,\"status\":\"0\",\"updateBy\":\"admin\"}', '{\"msg\":\"操作成功\",\"code\":200}', 0, NULL, '2023-05-31 08:02:31', 19);
+INSERT INTO `sys_oper_log` VALUES (349, '角色管理', 2, 'com.ruoyi.web.controller.system.SysRoleController.edit()', 'PUT', 1, 'admin', NULL, '/system/role', '127.0.0.1', '内网IP', '{\"admin\":false,\"createTime\":\"2023-05-27 19:11:17\",\"dataScope\":\"1\",\"delFlag\":\"0\",\"deptCheckStrictly\":true,\"flag\":false,\"menuCheckStrictly\":true,\"menuIds\":[2161,2162,2163,2164,2165,2166,2191,2192,2193,2194,2195,2196,2052,2131,2132,2133,2134,2135,2136,2137,2138,2139,2140,2141,2142,2143,2144,2145,2146,2147,2148,2185,2186,2187,2188,2189,2190,2149,2150,2151,2152,2153,2154],\"params\":{},\"roleId\":102,\"roleKey\":\"root\",\"roleName\":\"管理员\",\"roleSort\":5,\"status\":\"0\",\"updateBy\":\"admin\"}', '{\"msg\":\"操作成功\",\"code\":200}', 0, NULL, '2023-05-31 08:03:42', 11);
+INSERT INTO `sys_oper_log` VALUES (350, '角色管理', 2, 'com.ruoyi.web.controller.system.SysRoleController.edit()', 'PUT', 1, 'admin', NULL, '/system/role', '127.0.0.1', '内网IP', '{\"admin\":false,\"createTime\":\"2023-05-27 15:14:16\",\"dataScope\":\"1\",\"delFlag\":\"0\",\"deptCheckStrictly\":true,\"flag\":false,\"menuCheckStrictly\":true,\"menuIds\":[2161,2162,2163,2164,2165,2166],\"params\":{},\"roleId\":100,\"roleKey\":\"finance\",\"roleName\":\"会计\",\"roleSort\":3,\"status\":\"0\",\"updateBy\":\"admin\"}', '{\"msg\":\"操作成功\",\"code\":200}', 0, NULL, '2023-05-31 08:04:01', 13);
+INSERT INTO `sys_oper_log` VALUES (351, '角色管理', 2, 'com.ruoyi.web.controller.system.SysRoleController.edit()', 'PUT', 1, 'admin', NULL, '/system/role', '127.0.0.1', '内网IP', '{\"admin\":false,\"createTime\":\"2023-05-27 15:15:11\",\"dataScope\":\"1\",\"delFlag\":\"0\",\"deptCheckStrictly\":true,\"flag\":false,\"menuCheckStrictly\":true,\"menuIds\":[2155,2156,2157,2158,2159,2160,2173,2174,2175,2176,2177,2178],\"params\":{},\"roleId\":101,\"roleKey\":\"faculty\",\"roleName\":\"教职工\",\"roleSort\":4,\"status\":\"0\",\"updateBy\":\"admin\"}', '{\"msg\":\"操作成功\",\"code\":200}', 0, NULL, '2023-05-31 08:04:12', 9);
+INSERT INTO `sys_oper_log` VALUES (352, '用户管理', 1, 'com.ruoyi.web.controller.system.SysUserController.add()', 'POST', 1, 'admin', NULL, '/system/user', '127.0.0.1', '内网IP', '{\"admin\":false,\"createBy\":\"admin\",\"nickName\":\"人事\",\"params\":{},\"postIds\":[],\"roleIds\":[104],\"status\":\"0\",\"userId\":106,\"userName\":\"人事\"}', '{\"msg\":\"操作成功\",\"code\":200}', 0, NULL, '2023-05-31 08:05:25', 70);
+INSERT INTO `sys_oper_log` VALUES (353, '用户管理', 1, 'com.ruoyi.web.controller.system.SysUserController.add()', 'POST', 1, 'admin', NULL, '/system/user', '127.0.0.1', '内网IP', '{\"admin\":false,\"createBy\":\"admin\",\"nickName\":\"教职工\",\"params\":{},\"postIds\":[],\"roleIds\":[101],\"status\":\"0\",\"userId\":107,\"userName\":\"教职工\"}', '{\"msg\":\"操作成功\",\"code\":200}', 0, NULL, '2023-05-31 08:06:08', 68);
 
 -- ----------------------------
 -- Table structure for sys_post
@@ -1376,10 +1513,11 @@ CREATE TABLE `sys_role`  (
 -- ----------------------------
 INSERT INTO `sys_role` VALUES (1, '超级管理员', 'admin', 1, '1', 1, 1, '0', '0', 'admin', '2023-05-28 07:54:27', '', NULL, '超级管理员');
 INSERT INTO `sys_role` VALUES (2, '普通角色', 'common', 2, '2', 1, 1, '0', '0', 'admin', '2023-05-28 07:54:27', 'admin', '2023-05-28 12:01:26', '普通角色');
-INSERT INTO `sys_role` VALUES (100, '会计', 'finance', 3, '1', 1, 1, '0', '0', 'admin', '2023-05-27 15:14:16', 'admin', '2023-05-30 17:55:45', NULL);
-INSERT INTO `sys_role` VALUES (101, '教职工', 'faculty', 4, '1', 0, 1, '0', '0', 'admin', '2023-05-27 15:15:11', 'admin', '2023-05-30 17:55:51', NULL);
-INSERT INTO `sys_role` VALUES (102, '管理员', 'root', 5, '1', 0, 1, '0', '0', 'admin', '2023-05-27 19:11:17', 'admin', '2023-05-30 17:55:58', NULL);
-INSERT INTO `sys_role` VALUES (103, '银行', 'bank', 6, '1', 0, 1, '0', '0', 'admin', '2023-05-27 19:12:01', 'admin', '2023-05-30 17:56:02', NULL);
+INSERT INTO `sys_role` VALUES (100, '会计', 'finance', 3, '1', 1, 1, '0', '0', 'admin', '2023-05-27 15:14:16', 'admin', '2023-05-31 08:04:01', NULL);
+INSERT INTO `sys_role` VALUES (101, '教职工', 'faculty', 4, '1', 1, 1, '0', '0', 'admin', '2023-05-27 15:15:11', 'admin', '2023-05-31 08:04:12', NULL);
+INSERT INTO `sys_role` VALUES (102, '管理员', 'root', 5, '1', 1, 1, '0', '0', 'admin', '2023-05-27 19:11:17', 'admin', '2023-05-31 08:03:42', NULL);
+INSERT INTO `sys_role` VALUES (103, '银行', 'bank', 6, '1', 1, 1, '0', '0', 'admin', '2023-05-27 19:12:01', 'admin', '2023-05-31 08:02:31', NULL);
+INSERT INTO `sys_role` VALUES (104, '人事', 'personnel', 7, '1', 1, 1, '0', '0', 'admin', '2023-05-31 08:01:12', '', NULL, NULL);
 
 -- ----------------------------
 -- Table structure for sys_role_dept
@@ -1495,6 +1633,98 @@ INSERT INTO `sys_role_menu` VALUES (2, 1057);
 INSERT INTO `sys_role_menu` VALUES (2, 1058);
 INSERT INTO `sys_role_menu` VALUES (2, 1059);
 INSERT INTO `sys_role_menu` VALUES (2, 1060);
+INSERT INTO `sys_role_menu` VALUES (100, 2161);
+INSERT INTO `sys_role_menu` VALUES (100, 2162);
+INSERT INTO `sys_role_menu` VALUES (100, 2163);
+INSERT INTO `sys_role_menu` VALUES (100, 2164);
+INSERT INTO `sys_role_menu` VALUES (100, 2165);
+INSERT INTO `sys_role_menu` VALUES (100, 2166);
+INSERT INTO `sys_role_menu` VALUES (101, 2155);
+INSERT INTO `sys_role_menu` VALUES (101, 2156);
+INSERT INTO `sys_role_menu` VALUES (101, 2157);
+INSERT INTO `sys_role_menu` VALUES (101, 2158);
+INSERT INTO `sys_role_menu` VALUES (101, 2159);
+INSERT INTO `sys_role_menu` VALUES (101, 2160);
+INSERT INTO `sys_role_menu` VALUES (101, 2173);
+INSERT INTO `sys_role_menu` VALUES (101, 2174);
+INSERT INTO `sys_role_menu` VALUES (101, 2175);
+INSERT INTO `sys_role_menu` VALUES (101, 2176);
+INSERT INTO `sys_role_menu` VALUES (101, 2177);
+INSERT INTO `sys_role_menu` VALUES (101, 2178);
+INSERT INTO `sys_role_menu` VALUES (102, 2052);
+INSERT INTO `sys_role_menu` VALUES (102, 2131);
+INSERT INTO `sys_role_menu` VALUES (102, 2132);
+INSERT INTO `sys_role_menu` VALUES (102, 2133);
+INSERT INTO `sys_role_menu` VALUES (102, 2134);
+INSERT INTO `sys_role_menu` VALUES (102, 2135);
+INSERT INTO `sys_role_menu` VALUES (102, 2136);
+INSERT INTO `sys_role_menu` VALUES (102, 2137);
+INSERT INTO `sys_role_menu` VALUES (102, 2138);
+INSERT INTO `sys_role_menu` VALUES (102, 2139);
+INSERT INTO `sys_role_menu` VALUES (102, 2140);
+INSERT INTO `sys_role_menu` VALUES (102, 2141);
+INSERT INTO `sys_role_menu` VALUES (102, 2142);
+INSERT INTO `sys_role_menu` VALUES (102, 2143);
+INSERT INTO `sys_role_menu` VALUES (102, 2144);
+INSERT INTO `sys_role_menu` VALUES (102, 2145);
+INSERT INTO `sys_role_menu` VALUES (102, 2146);
+INSERT INTO `sys_role_menu` VALUES (102, 2147);
+INSERT INTO `sys_role_menu` VALUES (102, 2148);
+INSERT INTO `sys_role_menu` VALUES (102, 2149);
+INSERT INTO `sys_role_menu` VALUES (102, 2150);
+INSERT INTO `sys_role_menu` VALUES (102, 2151);
+INSERT INTO `sys_role_menu` VALUES (102, 2152);
+INSERT INTO `sys_role_menu` VALUES (102, 2153);
+INSERT INTO `sys_role_menu` VALUES (102, 2154);
+INSERT INTO `sys_role_menu` VALUES (102, 2161);
+INSERT INTO `sys_role_menu` VALUES (102, 2162);
+INSERT INTO `sys_role_menu` VALUES (102, 2163);
+INSERT INTO `sys_role_menu` VALUES (102, 2164);
+INSERT INTO `sys_role_menu` VALUES (102, 2165);
+INSERT INTO `sys_role_menu` VALUES (102, 2166);
+INSERT INTO `sys_role_menu` VALUES (102, 2185);
+INSERT INTO `sys_role_menu` VALUES (102, 2186);
+INSERT INTO `sys_role_menu` VALUES (102, 2187);
+INSERT INTO `sys_role_menu` VALUES (102, 2188);
+INSERT INTO `sys_role_menu` VALUES (102, 2189);
+INSERT INTO `sys_role_menu` VALUES (102, 2190);
+INSERT INTO `sys_role_menu` VALUES (102, 2191);
+INSERT INTO `sys_role_menu` VALUES (102, 2192);
+INSERT INTO `sys_role_menu` VALUES (102, 2193);
+INSERT INTO `sys_role_menu` VALUES (102, 2194);
+INSERT INTO `sys_role_menu` VALUES (102, 2195);
+INSERT INTO `sys_role_menu` VALUES (102, 2196);
+INSERT INTO `sys_role_menu` VALUES (103, 2161);
+INSERT INTO `sys_role_menu` VALUES (103, 2162);
+INSERT INTO `sys_role_menu` VALUES (103, 2163);
+INSERT INTO `sys_role_menu` VALUES (103, 2164);
+INSERT INTO `sys_role_menu` VALUES (103, 2165);
+INSERT INTO `sys_role_menu` VALUES (103, 2166);
+INSERT INTO `sys_role_menu` VALUES (104, 2052);
+INSERT INTO `sys_role_menu` VALUES (104, 2131);
+INSERT INTO `sys_role_menu` VALUES (104, 2132);
+INSERT INTO `sys_role_menu` VALUES (104, 2133);
+INSERT INTO `sys_role_menu` VALUES (104, 2134);
+INSERT INTO `sys_role_menu` VALUES (104, 2135);
+INSERT INTO `sys_role_menu` VALUES (104, 2136);
+INSERT INTO `sys_role_menu` VALUES (104, 2137);
+INSERT INTO `sys_role_menu` VALUES (104, 2138);
+INSERT INTO `sys_role_menu` VALUES (104, 2139);
+INSERT INTO `sys_role_menu` VALUES (104, 2140);
+INSERT INTO `sys_role_menu` VALUES (104, 2141);
+INSERT INTO `sys_role_menu` VALUES (104, 2142);
+INSERT INTO `sys_role_menu` VALUES (104, 2143);
+INSERT INTO `sys_role_menu` VALUES (104, 2144);
+INSERT INTO `sys_role_menu` VALUES (104, 2145);
+INSERT INTO `sys_role_menu` VALUES (104, 2146);
+INSERT INTO `sys_role_menu` VALUES (104, 2147);
+INSERT INTO `sys_role_menu` VALUES (104, 2148);
+INSERT INTO `sys_role_menu` VALUES (104, 2185);
+INSERT INTO `sys_role_menu` VALUES (104, 2186);
+INSERT INTO `sys_role_menu` VALUES (104, 2187);
+INSERT INTO `sys_role_menu` VALUES (104, 2188);
+INSERT INTO `sys_role_menu` VALUES (104, 2189);
+INSERT INTO `sys_role_menu` VALUES (104, 2190);
 
 -- ----------------------------
 -- Table structure for sys_user
@@ -1527,14 +1757,16 @@ CREATE TABLE `sys_user`  (
 -- ----------------------------
 -- Records of sys_user
 -- ----------------------------
-INSERT INTO `sys_user` VALUES (1, 103, 'admin', '若依', '00', 'ry@163.com', '15888888888', '1', '', '$2a$10$7JB720yubVSZvUI0rEqK/.VqGOZTH.ulu33dHOiBE8ByOhJIrdAu2', '0', '0', '127.0.0.1', '2023-05-30 21:07:41', 'admin', '2023-05-28 07:54:27', '', '2023-05-30 21:07:41', '管理员', NULL);
+INSERT INTO `sys_user` VALUES (1, 103, 'admin', '若依', '00', 'ry@163.com', '15888888888', '1', '', '$2a$10$7JB720yubVSZvUI0rEqK/.VqGOZTH.ulu33dHOiBE8ByOhJIrdAu2', '0', '0', '127.0.0.1', '2023-05-31 07:08:51', 'admin', '2023-05-28 07:54:27', '', '2023-05-31 07:08:50', '管理员', NULL);
 INSERT INTO `sys_user` VALUES (2, 105, 'ry', '若依', '00', 'ry@qq.com', '15666666666', '1', '', '$2a$10$7JB720yubVSZvUI0rEqK/.VqGOZTH.ulu33dHOiBE8ByOhJIrdAu2', '0', '0', '127.0.0.1', '2023-05-28 07:54:27', 'admin', '2023-05-28 07:54:27', '', NULL, '测试员', NULL);
-INSERT INTO `sys_user` VALUES (100, NULL, '会计', '会计', '00', '', '', '0', '', '$2a$10$GIAJySInsBxv1mmg9FwDeOzmn.oVTnCGvngbwy0Uye2MJYj2hJsuK', '0', '0', '', NULL, 'admin', '2023-05-27 15:16:18', '', NULL, NULL, 2);
-INSERT INTO `sys_user` VALUES (101, NULL, '张三', '张三', '00', '', '', '0', '', '$2a$10$IDvnC7OcqO2h/cIiuyBvwe0iu8VoLH.sL.1htCChn9zdQ3NGhweJe', '0', '0', '127.0.0.1', '2023-05-29 18:47:14', 'admin', '2023-05-27 15:16:43', '', '2023-05-29 18:47:13', NULL, 1);
-INSERT INTO `sys_user` VALUES (102, NULL, '管理员', '管理员', '00', '', '', '0', '', '$2a$10$3qU6MrBmHx1DOD2vGym.cOpsKkuoom/giTLbAenY4BmmE0a2Izc1y', '0', '0', '127.0.0.1', '2023-05-29 21:44:38', 'admin', '2023-05-27 19:22:32', '', '2023-05-29 21:44:37', NULL, NULL);
-INSERT INTO `sys_user` VALUES (103, NULL, '银行', '银行', '00', '', '', '0', '', '$2a$10$2.kU9IFrlDDZvxf63yUQEuPTZGeZcsrn99oR0Kf97IzoTS2MloovG', '0', '0', '', NULL, 'admin', '2023-05-27 19:23:11', '', NULL, NULL, NULL);
+INSERT INTO `sys_user` VALUES (100, NULL, '会计', '会计', '00', '', '', '0', '', '$2a$10$GIAJySInsBxv1mmg9FwDeOzmn.oVTnCGvngbwy0Uye2MJYj2hJsuK', '0', '0', '127.0.0.1', '2023-05-31 08:08:36', 'admin', '2023-05-27 15:16:18', '', '2023-05-31 08:08:35', NULL, 2);
+INSERT INTO `sys_user` VALUES (101, NULL, '张三', '张三', '00', '', '', '0', '', '$2a$10$IDvnC7OcqO2h/cIiuyBvwe0iu8VoLH.sL.1htCChn9zdQ3NGhweJe', '0', '0', '127.0.0.1', '2023-05-31 08:10:12', 'admin', '2023-05-27 15:16:43', '', '2023-05-31 08:10:12', NULL, 1);
+INSERT INTO `sys_user` VALUES (102, NULL, '管理员', '管理员', '00', '', '', '0', '', '$2a$10$3qU6MrBmHx1DOD2vGym.cOpsKkuoom/giTLbAenY4BmmE0a2Izc1y', '0', '0', '127.0.0.1', '2023-05-31 08:09:52', 'admin', '2023-05-27 19:22:32', '', '2023-05-31 08:09:52', NULL, NULL);
+INSERT INTO `sys_user` VALUES (103, NULL, '银行', '银行', '00', '', '', '0', '', '$2a$10$2.kU9IFrlDDZvxf63yUQEuPTZGeZcsrn99oR0Kf97IzoTS2MloovG', '0', '0', '127.0.0.1', '2023-05-31 08:09:11', 'admin', '2023-05-27 19:23:11', '', '2023-05-31 08:09:11', NULL, NULL);
 INSERT INTO `sys_user` VALUES (104, NULL, '李四', '李四', '00', '', '', '0', '', '$2a$10$sznQVulcqjy97edpdmzpDuwUfY1aWSHBnv/HI8Hg7L1dY5uVi1w2u', '0', '0', '127.0.0.1', '2023-05-29 13:09:01', 'admin', '2023-05-28 15:15:59', '', '2023-05-29 13:09:01', NULL, NULL);
 INSERT INTO `sys_user` VALUES (105, NULL, '王五', '王五', '00', '', '', '0', '', '$2a$10$dp312W9GwZDhNFqdmvTkY.gkOtzoo0/sI9eTZ6h5hNNLKqPFaTNa.', '0', '0', '127.0.0.1', '2023-05-29 08:44:08', 'admin', '2023-05-28 15:27:55', '', '2023-05-29 08:44:08', NULL, 5);
+INSERT INTO `sys_user` VALUES (106, NULL, '人事', '人事', '00', '', '', '0', '', '$2a$10$qwhdew0GztrMG.BAtRWgD.6SjXDUGVtaEY0oiFKD6Kz..3iM2Ipce', '0', '0', '127.0.0.1', '2023-05-31 08:09:28', 'admin', '2023-05-31 08:05:25', '', '2023-05-31 08:09:28', NULL, NULL);
+INSERT INTO `sys_user` VALUES (107, NULL, '教职工', '教职工', '00', '', '', '0', '', '$2a$10$Nzn9UX7S2GZv2HL7ssJ1AulU4xYTv7vUoNd5/sFm3ZBlo6VfNWwlm', '0', '0', '127.0.0.1', '2023-05-31 08:07:37', 'admin', '2023-05-31 08:06:08', '', '2023-05-31 08:07:37', NULL, 1);
 
 -- ----------------------------
 -- Table structure for sys_user_post
@@ -1573,6 +1805,8 @@ INSERT INTO `sys_user_role` VALUES (102, 102);
 INSERT INTO `sys_user_role` VALUES (103, 103);
 INSERT INTO `sys_user_role` VALUES (104, 101);
 INSERT INTO `sys_user_role` VALUES (105, 101);
+INSERT INTO `sys_user_role` VALUES (106, 104);
+INSERT INTO `sys_user_role` VALUES (107, 101);
 
 -- ----------------------------
 -- Table structure for title
