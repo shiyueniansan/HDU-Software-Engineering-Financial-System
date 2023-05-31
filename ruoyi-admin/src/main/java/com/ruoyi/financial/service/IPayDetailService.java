@@ -62,6 +62,13 @@ public interface IPayDetailService
     public int deletePayDetailByFacultyId(Long facultyId);
 
     /**
+     * 填充工资明细表
+     *
+     * @param list 工资明细表集合
+     */
+    void fillPayDetail(List<PayDetail> list);
+
+    /**
      * 计算工资明细表
      *
      * @param list 工资明细表集合

@@ -2,6 +2,7 @@ package com.ruoyi.financial.service.impl;
 
 import java.util.List;
 
+import com.ruoyi.common.annotation.Excel;
 import com.ruoyi.financial.constant.FinancialConstants;
 import com.ruoyi.financial.domain.Affair;
 import com.ruoyi.financial.domain.Faculty;
@@ -108,6 +109,31 @@ public class PayDetailServiceImpl implements IPayDetailService
     }
 
     /**
+     * 装填工资明细表
+     *
+     * @param list 工资明细表
+     * @return 结果
+     */
+    @Override
+    public void fillPayDetail(List<PayDetail> list) {
+        for (PayDetail payDetail : list) {
+            Faculty faculty = facultyService.selectFacultyById(payDetail.getFacultyId());
+//            payDetail.setFaculty(faculty);
+            payDetail.setName(faculty.getName());//非必需
+            payDetail.setFacultyId(faculty.getId());
+            payDetail.setBasicPay(faculty.getBasicPay());
+            payDetail.setType(faculty.getType());
+            payDetail.setJob(faculty.getJob());
+            payDetail.setTitle(faculty.getTitle());
+            payDetail.setLivingSubsidy(faculty.getLivingSubsidy());
+            payDetail.setReadingSubsidy(faculty.getReadingSubsidy());
+            payDetail.setTransportationSubsidy(faculty.getTransportationSubsidy());
+            payDetail.setWashingSubsidy(faculty.getWashingSubsidy());
+            payDetail.setQuotaHours(faculty.getQuotaHour());//TODO:Hour to Hours
+        }
+    }
+
+    /**
      * 计算工资明细表
      *
      * @param list 工资明细表
@@ -115,37 +141,37 @@ public class PayDetailServiceImpl implements IPayDetailService
      */
     @Override
     public void calculatePayDetail(List<PayDetail> list) {
+        fillPayDetail(list);
         for (PayDetail payDetail : list) {
-            Faculty faculty = facultyService.selectFacultyById(payDetail.getFacultyId());
-//            if()
-            List<Affair> affairList = affairService.selectAffairList(new Affair(faculty.getId()));
+            List<Affair> affairList = affairService.selectAffairList(new Affair(payDetail.getFacultyId(),payDetail.getMonth()));
             Float hours = 0F;
             for (Affair affair : affairList) {
                 hours += affair.getHour();
             }
-            if(faculty.getType()==0)//教师
+            if(payDetail.getType()==0)//教师
             {
                 payDetail.setTeacherPay(
                         hours * FinancialConstants.TEACHER_PAY_PER_HOUR *
-                                titleService.selectTitleById(faculty.getTitle()).getFactor());
+                                titleService.selectTitleById(payDetail.getTitle()).getFactor());
                 if (payDetail.getMonth() == 12) {
                     payDetail.setExtraTeacherPay(
-                            (hours - faculty.getQuotaHour()) * FinancialConstants.TEACHER_PAY_PER_HOUR *
-                                    titleService.selectTitleById(faculty.getTitle()).getFactor()
+                            (hours - payDetail.getQuotaHours()) * FinancialConstants.TEACHER_PAY_PER_HOUR *
+                                    titleService.selectTitleById(payDetail.getTitle()).getFactor()
                                     * FinancialConstants.TEACHER_EXTRA_PAY_FACTOR
                     );
                 }
                 payDetail.setStaffPay(0F);
             }
-            else if(faculty.getType()==1)//职工
+            else if(payDetail.getType()==1)//职工
             {
                 payDetail.setStaffPay(
                         hours* FinancialConstants.STAFF_PAY_PER_HOUR *
-                                jobService.selectJobById(faculty.getJob()).getFactor()
+                                jobService.selectJobById(payDetail.getJob()).getFactor()
                 );
                 payDetail.setTeacherPay(0F);
                 payDetail.setExtraTeacherPay(0F);
             }
+            updatePayDetail(payDetail);
         }
     }
 }

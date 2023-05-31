@@ -66,7 +66,7 @@ public interface AffairMapper
      * @param facultyIds 需要删除的个人事务的facultyIds集合
      * @return 结果
      */
-    int deleteAffairByFacultyIds(Long[] facultyIds);
+    public int deleteAffairByFacultyIds(Long[] facultyIds);
 
     /**
      * 根据facultyId更新个人事务的姓名
@@ -75,7 +75,7 @@ public interface AffairMapper
      * @param name 教职工姓名
      * @return 结果
      */
-    int updateAffairNameByFacultyId(@Param("facultyId") Long facultyId, @Param("name") String name);
+    public int updateAffairNameByFacultyId(@Param("facultyId") Long facultyId, @Param("name") String name);
 
 //    List<Affair> selectAffairListByFacultyId(Long facultyId);
 }

@@ -3,7 +3,7 @@
 PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.ruoyi.financial.mapper.PayDetailMapper">
-    
+
     <resultMap type="PayDetail" id="PayDetailResult">
         <result property="facultyId"    column="faculty_id"    />
         <result property="name"    column="name"    />
@@ -24,7 +24,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
     <select id="selectPayDetailList" parameterType="PayDetail" resultMap="PayDetailResult">
         <include refid="selectPayDetailVo"/>
-        <where>  
+        <where>
             <if test="facultyId != null "> and faculty_id = #{facultyId}</if>
             <if test="name != null  and name != ''"> and name like concat('%', #{name}, '%')</if>
             <if test="month != null "> and month = #{month}</if>
@@ -38,12 +38,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             <if test="netPay != null "> and net_pay = #{netPay}</if>
         </where>
     </select>
-    
+
     <select id="selectPayDetailByFacultyId" parameterType="Long" resultMap="PayDetailResult">
         <include refid="selectPayDetailVo"/>
         where faculty_id = #{facultyId}
     </select>
-        
+
     <insert id="insertPayDetail" parameterType="PayDetail">
         insert into faculty_monthly
         <trim prefix="(" suffix=")" suffixOverrides=",">
@@ -78,7 +78,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         update faculty_monthly
         <trim prefix="SET" suffixOverrides=",">
             <if test="name != null">name = #{name},</if>
-            <if test="month != null">month = #{month},</if>
+--             <if test="month != null">month = #{month},</if>
             <if test="teacherPay != null">teacher_pay = #{teacherPay},</if>
             <if test="staffPay != null">staff_pay = #{staffPay},</if>
             <if test="extraTeacherPay != null">extra_teacher_pay = #{extraTeacherPay},</if>
@@ -88,7 +88,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             <if test="insurance != null">insurance = #{insurance},</if>
             <if test="netPay != null">net_pay = #{netPay},</if>
         </trim>
-        where faculty_id = #{facultyId}
+--         where faculty_id = #{facultyId}
+        where faculty_id = #{facultyId} and month = #{month}
     </update>
 
     <delete id="deletePayDetailByFacultyId" parameterType="Long">
@@ -96,7 +97,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     </delete>
 
     <delete id="deletePayDetailByFacultyIds" parameterType="String">
-        delete from faculty_monthly where faculty_id in 
+        delete from faculty_monthly where faculty_id in
         <foreach item="facultyId" collection="array" open="(" separator="," close=")">
             #{facultyId}
         </foreach>

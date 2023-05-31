@@ -27,9 +27,15 @@ public class PayDetail extends BaseEntity
     @Excel(name = "月份")
     private Long month;
 
+//    /** 教职工 */
+//    private Faculty faculty;
+
     /** 基本工资 */
     @Excel(name = "基本工资")
     private Float basicPay;
+
+    /** 教师/职工 */
+    private Long type;
 
     /** 职务 */
     @Excel(name = "职务")
@@ -55,8 +61,8 @@ public class PayDetail extends BaseEntity
     @Excel(name = "洗理费")
     private Float washingSubsidy;
 
-//    /** 课时数 */
-//    private Float Hour;
+    /** 课时/工时数 */
+    private Float Hours;
 
     /** 课时费 */
     @Excel(name = "课时费")
@@ -66,7 +72,10 @@ public class PayDetail extends BaseEntity
     @Excel(name = "岗位津贴")
     private Float staffPay;
 
-    /** 超额课时费 */
+    /** 额定课时数 */
+    private Float quotaHours;
+
+    /** 超额课时费（12月） */
     @Excel(name = "超额课时费")
     private Float extraTeacherPay;
 
@@ -106,26 +115,17 @@ public class PayDetail extends BaseEntity
         this.facultyId = faculty.getId();
         this.name = faculty.getName();
         this.month = month;
-        this.basicPay = faculty.getBasicPay();
-        this.job = faculty.getJob();
-        this.title = faculty.getTitle();
-        this.livingSubsidy = faculty.getLivingSubsidy();
-        this.readingSubsidy = faculty.getReadingSubsidy();
-        this.transportationSubsidy = faculty.getTransportationSubsidy();
-        this.washingSubsidy = faculty.getWashingSubsidy();
+//        if(faculty.getBasicPay() == null)
+//            this.basicPay = 0f;
+//        else
+//            this.basicPay = faculty.getBasicPay();
     }
 
     //constuctor with faculty
     public PayDetail(Faculty faculty) {
         this.facultyId = faculty.getId();
         this.name = faculty.getName();
-        this.basicPay = faculty.getBasicPay();
-        this.job = faculty.getJob();
-        this.title = faculty.getTitle();
-        this.livingSubsidy = faculty.getLivingSubsidy();
-        this.readingSubsidy = faculty.getReadingSubsidy();
-        this.transportationSubsidy = faculty.getTransportationSubsidy();
-        this.washingSubsidy = faculty.getWashingSubsidy();
+//        this.basicPay = faculty.getBasicPay();
     }
 
     public void setFacultyId(Long facultyId)
@@ -155,6 +155,15 @@ public class PayDetail extends BaseEntity
     {
         return month;
     }
+
+//    public void setFaculty(Faculty faculty)
+//    {
+//        this.faculty = faculty;
+//    }
+//    public Faculty getFaculty()
+//    {
+//        return faculty;
+//    }
     public void setBasicPay(Float basicPay)
     {
         this.basicPay = basicPay;
@@ -163,6 +172,14 @@ public class PayDetail extends BaseEntity
     public Float getBasicPay()
     {
         return basicPay;
+    }
+    public void setType(Long type)
+    {
+        this.type = type;
+    }
+    public Long getType()
+    {
+        return type;
     }
     public void setJob(Long job)
     {
@@ -218,6 +235,14 @@ public class PayDetail extends BaseEntity
     {
         return washingSubsidy;
     }
+    public void setHours(Float Hours)
+    {
+        this.Hours = Hours;
+    }
+    public Float getHours()
+    {
+        return Hours;
+    }
     public void setTeacherPay(Float teacherPay)
     {
         this.teacherPay = teacherPay;
@@ -235,6 +260,14 @@ public class PayDetail extends BaseEntity
     public Float getStaffPay()
     {
         return staffPay;
+    }
+    public void setQuotaHours(Float quotaHours)
+    {
+        this.quotaHours = quotaHours;
+    }
+    public Float getQuotaHours()
+    {
+        return quotaHours;
     }
     public void setExtraTeacherPay(Float extraTeacherPay)
     {
