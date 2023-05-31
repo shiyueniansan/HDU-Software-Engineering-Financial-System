@@ -7,16 +7,18 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     <resultMap type="Job" id="JobResult">
         <result property="id"    column="id"    />
         <result property="des"    column="des"    />
+        <result property="factor"    column="factor"    />
     </resultMap>
 
     <sql id="selectJobVo">
-        select id, des from job
+        select id, des, factor from job
     </sql>
 
     <select id="selectJobList" parameterType="Job" resultMap="JobResult">
         <include refid="selectJobVo"/>
         <where>  
             <if test="des != null  and des != ''"> and des = #{des}</if>
+            <if test="factor != null "> and factor = #{factor}</if>
         </where>
     </select>
     
@@ -29,9 +31,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         insert into job
         <trim prefix="(" suffix=")" suffixOverrides=",">
             <if test="des != null and des != ''">des,</if>
+            <if test="factor != null">factor,</if>
          </trim>
         <trim prefix="values (" suffix=")" suffixOverrides=",">
             <if test="des != null and des != ''">#{des},</if>
+            <if test="factor != null">#{factor},</if>
          </trim>
     </insert>
 
@@ -39,6 +43,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         update job
         <trim prefix="SET" suffixOverrides=",">
             <if test="des != null and des != ''">des = #{des},</if>
+            <if test="factor != null">factor = #{factor},</if>
         </trim>
         where id = #{id}
     </update>

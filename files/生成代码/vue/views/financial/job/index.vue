@@ -9,6 +9,14 @@
           @keyup.enter.native="handleQuery"
         />
       </el-form-item>
+      <el-form-item label="职务系数" prop="factor">
+        <el-input
+          v-model="queryParams.factor"
+          placeholder="请输入职务系数"
+          clearable
+          @keyup.enter.native="handleQuery"
+        />
+      </el-form-item>
       <el-form-item>
         <el-button type="primary" icon="el-icon-search" size="mini" @click="handleQuery">搜索</el-button>
         <el-button icon="el-icon-refresh" size="mini" @click="resetQuery">重置</el-button>
@@ -65,6 +73,7 @@
       <el-table-column type="selection" width="55" align="center" />
       <el-table-column label="编号" align="center" prop="id" />
       <el-table-column label="职务" align="center" prop="des" />
+      <el-table-column label="职务系数" align="center" prop="factor" />
       <el-table-column label="操作" align="center" class-name="small-padding fixed-width">
         <template slot-scope="scope">
           <el-button
@@ -98,6 +107,9 @@
       <el-form ref="form" :model="form" :rules="rules" label-width="80px">
         <el-form-item label="职务" prop="des">
           <el-input v-model="form.des" placeholder="请输入职务" />
+        </el-form-item>
+        <el-form-item label="职务系数" prop="factor">
+          <el-input v-model="form.factor" placeholder="请输入职务系数" />
         </el-form-item>
       </el-form>
       <div slot="footer" class="dialog-footer">
@@ -137,7 +149,8 @@ export default {
       queryParams: {
         pageNum: 1,
         pageSize: 10,
-        des: null
+        des: null,
+        factor: null
       },
       // 表单参数
       form: {},
@@ -145,6 +158,9 @@ export default {
       rules: {
         des: [
           { required: true, message: "职务不能为空", trigger: "blur" }
+        ],
+        factor: [
+          { required: true, message: "职务系数不能为空", trigger: "blur" }
         ]
       }
     };
@@ -171,7 +187,8 @@ export default {
     reset() {
       this.form = {
         id: null,
-        des: null
+        des: null,
+        factor: null
       };
       this.resetForm("form");
     },

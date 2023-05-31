@@ -7,7 +7,7 @@ import com.ruoyi.financial.domain.Job;
  * 职务Service接口
  * 
  * @author Keven
- * @date 2023-05-30
+ * @date 2023-05-31
  */
 public interface IJobService 
 {
