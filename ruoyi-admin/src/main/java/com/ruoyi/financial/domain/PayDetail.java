@@ -97,7 +97,7 @@ public class PayDetail extends BaseEntity
 //    //constructor with no parameter
 //    public PayDetail() {
 //    }
-//
+
     //constructor with faculty and month
     public PayDetail(Faculty faculty, Long month) {
         this.facultyId = faculty.getId();
@@ -112,18 +112,18 @@ public class PayDetail extends BaseEntity
         this.washingSubsidy = faculty.getWashingSubsidy();
     }
 
-//    //constuctor with faculty
-//    public PayDetail(Faculty faculty) {
-//        this.facultyId = faculty.getId();
-//        this.name = faculty.getName();
-//        this.basicPay = faculty.getBasicPay();
-//        this.job = faculty.getJob();
-//        this.title = faculty.getTitle();
-//        this.livingSubsidy = faculty.getLivingSubsidy();
-//        this.readingSubsidy = faculty.getReadingSubsidy();
-//        this.transportationSubsidy = faculty.getTransportationSubsidy();
-//        this.washingSubsidy = faculty.getWashingSubsidy();
-//    }
+    //constuctor with faculty
+    public PayDetail(Faculty faculty) {
+        this.facultyId = faculty.getId();
+        this.name = faculty.getName();
+        this.basicPay = faculty.getBasicPay();
+        this.job = faculty.getJob();
+        this.title = faculty.getTitle();
+        this.livingSubsidy = faculty.getLivingSubsidy();
+        this.readingSubsidy = faculty.getReadingSubsidy();
+        this.transportationSubsidy = faculty.getTransportationSubsidy();
+        this.washingSubsidy = faculty.getWashingSubsidy();
+    }
 
     public void setFacultyId(Long facultyId)
     {

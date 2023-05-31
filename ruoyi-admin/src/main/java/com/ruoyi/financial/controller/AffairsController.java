@@ -36,18 +36,18 @@ public class AffairsController extends BaseController
     @Autowired
     private IAffairService affairService;
 
-    @Autowired
-    private IFacultyService facultyService;
-
-    /**
-     * 同步事务
-     */
-    public void syncAffair(List<Affair> affairList) {
-        for (Affair affair : affairList) {
-            affair.setName(facultyService.selectFacultyById(affair.getFacultyId()).getName());
-            affairService.updateAffair(affair);
-        }
-    }
+//    @Autowired
+//    private IFacultyService facultyService;
+//
+//    /**
+//     * 同步事务
+//     */
+//    public void syncAffair(List<Affair> affairList) {
+//        for (Affair affair : affairList) {
+//            affair.setName(facultyService.selectFacultyById(affair.getFacultyId()).getName());
+//            affairService.updateAffair(affair);
+//        }
+//    }
 
     /**
      * 查询事务列表
@@ -58,7 +58,7 @@ public class AffairsController extends BaseController
     {
         startPage();
         List<Affair> list = affairService.selectAffairList(affair);
-        syncAffair(list);
+//        syncAffair(list);
         return getDataTable(list);
     }
 
@@ -71,7 +71,7 @@ public class AffairsController extends BaseController
     public void export(HttpServletResponse response, Affair affair)
     {
         List<Affair> list = affairService.selectAffairList(affair);
-        syncAffair(list);
+//        syncAffair(list);
         ExcelUtil<Affair> util = new ExcelUtil<Affair>(Affair.class);
         util.exportExcel(response, list, "事务数据");
     }

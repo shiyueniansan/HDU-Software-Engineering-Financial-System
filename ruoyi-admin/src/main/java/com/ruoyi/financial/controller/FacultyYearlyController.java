@@ -34,6 +34,10 @@ public class FacultyYearlyController extends BaseController
     @Autowired
     private IFacultyYearlyService facultyYearlyService;
 
+//    /**
+//     * 同步教职工年度
+//     */
+
     /**
      * 查询教职工年度列表
      */

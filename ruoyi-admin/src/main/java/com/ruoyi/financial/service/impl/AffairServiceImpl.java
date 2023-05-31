@@ -102,15 +102,15 @@ public class AffairServiceImpl implements IAffairService
         return affairMapper.deleteAffairByFacultyIds(facultyIds);
     }
 
-//    /**
-//     * 根据facultyId更新个人事务的姓名
-//     *
-//     * @param facultyId 教职工编号
-//     * @param name 教职工姓名
-//     * @return 结果
-//     */
-//    @Override
-//    public int updateAffairNameByFacultyId(Long facultyId, String name) {
-//        return affairMapper.updateAffairNameByFacultyId(facultyId, name);
-//    }
+    /**
+     * 根据facultyId更新个人事务的姓名
+     *
+     * @param facultyId 教职工编号
+     * @param name 教职工姓名
+     * @return 结果
+     */
+    @Override
+    public int updateAffairNameByFacultyId(Long facultyId, String name) {
+        return affairMapper.updateAffairNameByFacultyId(facultyId, name);
+    }
 }

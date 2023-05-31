@@ -39,11 +39,11 @@ public class FacultyYearly extends BaseEntity
     @Excel(name = "本年度累计实发工资")
     private Long netPay;
 
-//    //constructor with facultyId and name
-//    public FacultyYearly(Long facultyId, String name) {
-//        this.facultyId = facultyId;
-//        this.name = name;
-//    }
+    //constructor with facultyId and name
+    public FacultyYearly(Long facultyId, String name) {
+        this.facultyId = facultyId;
+        this.name = name;
+    }
 
     //constructor with faculty
     public FacultyYearly(Faculty faculty) {
