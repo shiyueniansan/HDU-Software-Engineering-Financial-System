@@ -7,7 +7,7 @@ import com.ruoyi.financial.domain.Affair;
  * 个人事务Mapper接口
  * 
  * @author Keven
- * @date 2023-05-30
+ * @date 2023-05-31
  */
 public interface AffairMapper 
 {

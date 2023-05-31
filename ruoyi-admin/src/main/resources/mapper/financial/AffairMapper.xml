@@ -20,8 +20,6 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     <select id="selectAffairList" parameterType="Affair" resultMap="AffairResult">
         <include refid="selectAffairVo"/>
         <where>  
-            <if test="facultyId != null "> and faculty_id = #{facultyId}</if>
-            <if test="name != null  and name != ''"> and name like concat('%', #{name}, '%')</if>
             <if test="month != null "> and month = #{month}</if>
             <if test="des != null  and des != ''"> and des = #{des}</if>
             <if test="hour != null "> and hour = #{hour}</if>
@@ -37,14 +35,14 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         insert into affair
         <trim prefix="(" suffix=")" suffixOverrides=",">
             <if test="facultyId != null">faculty_id,</if>
-            <if test="name != null and name != ''">name,</if>
+            <if test="name != null">name,</if>
             <if test="month != null">month,</if>
             <if test="des != null and des != ''">des,</if>
             <if test="hour != null">hour,</if>
          </trim>
         <trim prefix="values (" suffix=")" suffixOverrides=",">
             <if test="facultyId != null">#{facultyId},</if>
-            <if test="name != null and name != ''">#{name},</if>
+            <if test="name != null">#{name},</if>
             <if test="month != null">#{month},</if>
             <if test="des != null and des != ''">#{des},</if>
             <if test="hour != null">#{hour},</if>
@@ -55,7 +53,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         update affair
         <trim prefix="SET" suffixOverrides=",">
             <if test="facultyId != null">faculty_id = #{facultyId},</if>
-            <if test="name != null and name != ''">name = #{name},</if>
+            <if test="name != null">name = #{name},</if>
             <if test="month != null">month = #{month},</if>
             <if test="des != null and des != ''">des = #{des},</if>
             <if test="hour != null">hour = #{hour},</if>
