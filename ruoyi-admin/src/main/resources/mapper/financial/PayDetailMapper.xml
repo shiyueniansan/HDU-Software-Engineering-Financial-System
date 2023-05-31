@@ -78,7 +78,6 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         update faculty_monthly
         <trim prefix="SET" suffixOverrides=",">
             <if test="name != null">name = #{name},</if>
---             <if test="month != null">month = #{month},</if>
             <if test="teacherPay != null">teacher_pay = #{teacherPay},</if>
             <if test="staffPay != null">staff_pay = #{staffPay},</if>
             <if test="extraTeacherPay != null">extra_teacher_pay = #{extraTeacherPay},</if>
@@ -88,7 +87,6 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             <if test="insurance != null">insurance = #{insurance},</if>
             <if test="netPay != null">net_pay = #{netPay},</if>
         </trim>
---         where faculty_id = #{facultyId}
         where faculty_id = #{facultyId} and month = #{month}
     </update>
 

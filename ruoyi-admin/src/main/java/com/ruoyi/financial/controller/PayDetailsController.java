@@ -59,6 +59,7 @@ public class PayDetailsController extends BaseController
     {
         List<PayDetail> list = payDetailService.selectPayDetailList(payDetail);
 //        syncPayDetail(list);
+        payDetailService.calculatePayDetail(list);
         ExcelUtil<PayDetail> util = new ExcelUtil<PayDetail>(PayDetail.class);
         util.exportExcel(response, list, "工资明细表数据");
     }

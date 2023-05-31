@@ -2,7 +2,6 @@ package com.ruoyi.financial.service.impl;
 
 import java.util.List;
 
-import com.ruoyi.common.annotation.Excel;
 import com.ruoyi.financial.constant.FinancialConstants;
 import com.ruoyi.financial.domain.Affair;
 import com.ruoyi.financial.domain.Faculty;
@@ -153,12 +152,15 @@ public class PayDetailServiceImpl implements IPayDetailService
                 payDetail.setTeacherPay(
                         hours * FinancialConstants.TEACHER_PAY_PER_HOUR *
                                 titleService.selectTitleById(payDetail.getTitle()).getFactor());
-                if (payDetail.getMonth() == 12) {
+                if (payDetail.getMonth() == 12&&hours>payDetail.getQuotaHours()) {
                     payDetail.setExtraTeacherPay(
                             (hours - payDetail.getQuotaHours()) * FinancialConstants.TEACHER_PAY_PER_HOUR *
                                     titleService.selectTitleById(payDetail.getTitle()).getFactor()
-                                    * FinancialConstants.TEACHER_EXTRA_PAY_FACTOR
+                                    * FinancialConstants.EXTRA_TEACHER_PAY_FACTOR
                     );
+                }
+                else {
+                    payDetail.setExtraTeacherPay(0F);
                 }
                 payDetail.setStaffPay(0F);
             }

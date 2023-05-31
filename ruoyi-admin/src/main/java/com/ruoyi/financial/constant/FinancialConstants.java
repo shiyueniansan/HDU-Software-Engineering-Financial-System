@@ -1,7 +1,5 @@
 package com.ruoyi.financial.constant;
 
-import io.jsonwebtoken.Claims;
-
 /**
  * 财务系统常量信息
  *
@@ -32,7 +30,7 @@ public class FinancialConstants
     /**
      * 超额课时费系数
      */
-    public static final Float TEACHER_EXTRA_PAY_FACTOR = 1.2F;
+    public static final Float EXTRA_TEACHER_PAY_FACTOR = 1.2F;
 
     /**
      * 职工每工时工时费
