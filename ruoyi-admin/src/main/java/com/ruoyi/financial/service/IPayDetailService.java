@@ -60,4 +60,11 @@ public interface IPayDetailService
      * @return 结果
      */
     public int deletePayDetailByFacultyId(Long facultyId);
+
+    /**
+     * 计算工资明细表
+     *
+     * @param list 工资明细表集合
+     */
+    public void calculatePayDetail(List<PayDetail> list);
 }

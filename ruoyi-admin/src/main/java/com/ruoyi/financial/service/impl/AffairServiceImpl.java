@@ -113,4 +113,9 @@ public class AffairServiceImpl implements IAffairService
     public int updateAffairNameByFacultyId(Long facultyId, String name) {
         return affairMapper.updateAffairNameByFacultyId(facultyId, name);
     }
+
+//    @Override
+//    public List<Affair> selectAffairListByFacultyId(Long facultyId) {
+//        return affairMapper.selectAffairListByFacultyId(facultyId);
+//    }
 }

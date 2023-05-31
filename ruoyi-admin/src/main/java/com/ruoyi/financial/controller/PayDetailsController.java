@@ -3,8 +3,6 @@ package com.ruoyi.financial.controller;
 import java.util.List;
 import javax.servlet.http.HttpServletResponse;
 
-import com.ruoyi.financial.domain.Faculty;
-import com.ruoyi.financial.service.IFacultyService;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -37,31 +35,6 @@ public class PayDetailsController extends BaseController
     @Autowired
     private IPayDetailService payDetailService;
 
-//    @Autowired
-//    private IFacultyService facultyService;
-//
-//    /**
-//     * 同步工资明细表
-//     */
-//    public void syncPayDetail(List<PayDetail> payDetailList) {
-//        for (PayDetail payDetail : payDetailList) {
-//            Faculty faculty= facultyService.selectFacultyById(payDetail.getFacultyId());
-////            if(faculty==null){
-////                //lazy delete
-////            }
-//            payDetail.setFacultyId(faculty.getId());
-//            payDetail.setName(faculty.getName());
-//            payDetail.setBasicPay(faculty.getBasicPay());
-//            payDetail.setJob(faculty.getJob());
-//            payDetail.setTitle(faculty.getTitle());
-//            payDetail.setLivingSubsidy(faculty.getLivingSubsidy());
-//            payDetail.setReadingSubsidy(faculty.getReadingSubsidy());
-//            payDetail.setTransportationSubsidy(faculty.getTransportationSubsidy());
-//            payDetail.setWashingSubsidy(faculty.getWashingSubsidy());
-//            payDetailService.updatePayDetail(payDetail);
-//        }
-//    }
-
     /**
      * 查询工资明细表列表
      */
@@ -72,6 +45,7 @@ public class PayDetailsController extends BaseController
         startPage();
         List<PayDetail> list = payDetailService.selectPayDetailList(payDetail);
 //        syncPayDetail(list);
+        payDetailService.calculatePayDetail(list);
         return getDataTable(list);
     }
 

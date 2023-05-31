@@ -46,6 +46,11 @@ public class Affair extends BaseEntity
 //    public Affair() {
 //    }
 
+    //constructor with facultyId
+    public Affair(Long facultyId) {
+        this.facultyId = facultyId;
+    }
+
     public void setId(Long id)
     {
         this.id = id;

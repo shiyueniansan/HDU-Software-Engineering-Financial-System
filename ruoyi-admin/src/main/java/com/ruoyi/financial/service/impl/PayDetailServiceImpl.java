@@ -3,7 +3,11 @@ package com.ruoyi.financial.service.impl;
 import java.util.List;
 
 import com.ruoyi.financial.constant.FinancialConstants;
+import com.ruoyi.financial.domain.Affair;
 import com.ruoyi.financial.domain.Faculty;
+import com.ruoyi.financial.service.IAffairService;
+import com.ruoyi.financial.service.IFacultyService;
+import com.ruoyi.financial.service.ITitleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.ruoyi.financial.mapper.PayDetailMapper;
@@ -22,16 +26,14 @@ public class PayDetailServiceImpl implements IPayDetailService
     @Autowired
     private PayDetailMapper payDetailMapper;
 
-//    /**
-//     * 计算工资明细表
-//     */
-//    @Override
-//    public void calculatePayDetail() {
-//        List<PayDetail> payDetailList = payDetailMapper.selectPayDetailList(new PayDetail());
-//        for (PayDetail payDetail : payDetailList) {
-////            payDetail.setTeacherPay(FinancialConstants.Teacher_Pay_Per_Hour* payDetail.getTeacherClassHour());
-//        }
-//    }
+    @Autowired
+    private IFacultyService facultyService;
+
+    @Autowired
+    private IAffairService affairService;
+
+    @Autowired
+    private ITitleService titleService;
 
     /**
      * 查询工资明细表
@@ -103,5 +105,32 @@ public class PayDetailServiceImpl implements IPayDetailService
     public int deletePayDetailByFacultyId(Long facultyId)
     {
         return payDetailMapper.deletePayDetailByFacultyId(facultyId);
+    }
+
+    @Override
+    public void calculatePayDetail(List<PayDetail> list) {
+        for (PayDetail payDetail : list) {
+            Faculty faculty = facultyService.selectFacultyById(payDetail.getFacultyId());
+            List<Affair> affairList = affairService.selectAffairList(new Affair(faculty.getId()));
+            Long hours = 0L;
+            for (Affair affair : affairList) {
+                hours += affair.getHour();
+            }
+            if(faculty.getType()==0)//教师
+            {
+                payDetail.setTeacherPay(
+                        hours* FinancialConstants.TEACHER_PAY_PER_HOUR *
+                                titleService.selectTitleById(faculty.getTitle()).getFactor());
+                if(payDetail.getMonth()==12)
+                {
+                    payDetail.setExtraTeacherPay(
+                            (hours-faculty.getQuotaHour())* FinancialConstants.TEACHER_PAY_PER_HOUR *
+                                    titleService.selectTitleById(faculty.getTitle()).getFactor()
+//                                    *FinancialConstants.TEACHER_EXTRA_PAY_FACTOR
+                    );
+                }
+                payDetail.setStaffPay(0L);
+            }
+        }
     }
 }

@@ -27,5 +27,6 @@ public class FinancialConstants
     /**
      * 每课时课时费
      */
-    public static final Long Teacher_Pay_Per_Hour = 50L;
+    public static final Long TEACHER_PAY_PER_HOUR = 50L;
+    public static final Float TEACHER_EXTRA_PAY_FACTOR = ;
 }

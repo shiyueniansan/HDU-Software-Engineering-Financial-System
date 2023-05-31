@@ -55,6 +55,9 @@ public class PayDetail extends BaseEntity
     @Excel(name = "洗理费")
     private Long washingSubsidy;
 
+//    /** 课时数 */
+//    private Long Hour;
+
     /** 课时费 */
     @Excel(name = "课时费")
     private Long teacherPay;

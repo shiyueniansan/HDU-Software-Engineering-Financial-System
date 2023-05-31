@@ -76,4 +76,12 @@ public interface IAffairService
      * @return 结果
      */
     public int updateAffairNameByFacultyId(Long facultyId, String name);
+
+//    /**
+//     * 根据facultyId更新个人事务的学院
+//     *
+//     * @param facultyId 教职工编号
+//     * @return 结果
+//     */
+//    public List<Affair> selectAffairListByFacultyId(Long facultyId);
 }

@@ -76,4 +76,6 @@ public interface AffairMapper
      * @return 结果
      */
     int updateAffairNameByFacultyId(@Param("facultyId") Long facultyId, @Param("name") String name);
+
+//    List<Affair> selectAffairListByFacultyId(Long facultyId);
 }
