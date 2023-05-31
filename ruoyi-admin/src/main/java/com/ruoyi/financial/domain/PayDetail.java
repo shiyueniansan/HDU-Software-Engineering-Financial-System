@@ -87,11 +87,38 @@ public class PayDetail extends BaseEntity
     @Excel(name = "实发工资")
     private Long netPay;
 
-    //constructor with facultyId and name
-    public PayDetail(Long facultyId, String name, Long month) {
-        this.facultyId = facultyId;
-        this.name = name;
+//    //constructor with facultyId and name
+//    public PayDetail(Long facultyId, String name, Long month) {
+//        this.facultyId = facultyId;
+//        this.name = name;
+//        this.month = month;
+//    }
+
+    //constructor with faculty and month
+    public PayDetail(Faculty faculty, Long month) {
+        this.facultyId = faculty.getId();
+        this.name = faculty.getName();
         this.month = month;
+        this.basicPay = faculty.getBasicPay();
+        this.job = faculty.getJob();
+        this.title = faculty.getTitle();
+        this.livingSubsidy = faculty.getLivingSubsidy();
+        this.readingSubsidy = faculty.getReadingSubsidy();
+        this.transportationSubsidy = faculty.getTransportationSubsidy();
+        this.washingSubsidy = faculty.getWashingSubsidy();
+    }
+
+    //constuctor with faculty
+    public PayDetail(Faculty faculty) {
+        this.facultyId = faculty.getId();
+        this.name = faculty.getName();
+        this.basicPay = faculty.getBasicPay();
+        this.job = faculty.getJob();
+        this.title = faculty.getTitle();
+        this.livingSubsidy = faculty.getLivingSubsidy();
+        this.readingSubsidy = faculty.getReadingSubsidy();
+        this.transportationSubsidy = faculty.getTransportationSubsidy();
+        this.washingSubsidy = faculty.getWashingSubsidy();
     }
 
     public void setFacultyId(Long facultyId)

@@ -2,6 +2,7 @@ package com.ruoyi.financial.service;
 
 import java.util.List;
 import com.ruoyi.financial.domain.Affair;
+import com.ruoyi.financial.domain.FacultyYearly;
 
 /**
  * 个人事务Service接口
@@ -66,4 +67,13 @@ public interface IAffairService
      * @return 结果
      */
     public int deleteAffairByFacultyIds(Long[] facultyIds);
+
+    /**
+     * 根据facultyId更新个人事务的姓名
+     *
+     * @param facultyId 教职工编号
+     * @param name 教职工姓名
+     * @return 结果
+     */
+    public int updateAffairNameByFacultyId(Long facultyId, String name);
 }

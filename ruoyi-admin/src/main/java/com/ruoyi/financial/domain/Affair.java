@@ -7,7 +7,7 @@ import com.ruoyi.common.core.domain.BaseEntity;
 
 /**
  * 个人事务对象 affair
- * 
+ *
  * @author Keven
  * @date 2023-05-31
  */
@@ -36,57 +36,63 @@ public class Affair extends BaseEntity
     @Excel(name = "时长")
     private Long hour;
 
-    public void setId(Long id) 
+//    //constructor with facultyId, name
+//    public Affair(Long facultyId, String name) {
+//        this.facultyId = facultyId;
+//        this.name = name;
+//    }
+
+    public void setId(Long id)
     {
         this.id = id;
     }
 
-    public Long getId() 
+    public Long getId()
     {
         return id;
     }
-    public void setFacultyId(Long facultyId) 
+    public void setFacultyId(Long facultyId)
     {
         this.facultyId = facultyId;
     }
 
-    public Long getFacultyId() 
+    public Long getFacultyId()
     {
         return facultyId;
     }
-    public void setName(String name) 
+    public void setName(String name)
     {
         this.name = name;
     }
 
-    public String getName() 
+    public String getName()
     {
         return name;
     }
-    public void setMonth(Long month) 
+    public void setMonth(Long month)
     {
         this.month = month;
     }
 
-    public Long getMonth() 
+    public Long getMonth()
     {
         return month;
     }
-    public void setDes(String des) 
+    public void setDes(String des)
     {
         this.des = des;
     }
 
-    public String getDes() 
+    public String getDes()
     {
         return des;
     }
-    public void setHour(Long hour) 
+    public void setHour(Long hour)
     {
         this.hour = hour;
     }
 
-    public Long getHour() 
+    public Long getHour()
     {
         return hour;
     }

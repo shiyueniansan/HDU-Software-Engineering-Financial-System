@@ -3,6 +3,7 @@ package com.ruoyi.financial.controller;
 import java.util.List;
 import javax.servlet.http.HttpServletResponse;
 
+import com.ruoyi.financial.domain.Affair;
 import com.ruoyi.financial.domain.FacultyYearly;
 import com.ruoyi.financial.domain.PayDetail;
 import com.ruoyi.financial.service.IAffairService;
@@ -95,9 +96,9 @@ public class FacultyController extends BaseController
 //        return toAjax(facultyService.insertFaculty(faculty));
         Integer result = facultyService.insertFaculty(faculty);
         if(result > 0){
-            facultyYearlyService.insertFacultyYearly(new FacultyYearly(faculty.getId(), faculty.getName()));
+            facultyYearlyService.insertFacultyYearly(new FacultyYearly(faculty));
             for(long i = 1; i <= 12; i++){
-                payDetailService.insertPayDetail(new PayDetail(faculty.getId(),faculty.getName(),i));
+                payDetailService.insertPayDetail(new PayDetail(faculty, i));
             }
         }
         return toAjax(result);
@@ -111,7 +112,14 @@ public class FacultyController extends BaseController
     @PutMapping
     public AjaxResult edit(@RequestBody Faculty faculty)
     {
-        return toAjax(facultyService.updateFaculty(faculty));
+//        return toAjax(facultyService.updateFaculty(faculty));
+        Integer result = facultyService.updateFaculty(faculty);
+        if(result > 0){
+            facultyYearlyService.updateFacultyYearly(new FacultyYearly(faculty));
+            affairService.updateAffairNameByFacultyId(faculty.getId(), faculty.getName());
+            payDetailService.updatePayDetail(new PayDetail(faculty));
+        }
+        return toAjax(result);
     }
 
     /**

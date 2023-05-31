@@ -2,6 +2,7 @@ package com.ruoyi.financial.mapper;
 
 import java.util.List;
 import com.ruoyi.financial.domain.Affair;
+import org.apache.ibatis.annotations.Param;
 
 /**
  * 个人事务Mapper接口
@@ -66,4 +67,13 @@ public interface AffairMapper
      * @return 结果
      */
     int deleteAffairByFacultyIds(Long[] facultyIds);
+
+    /**
+     * 根据facultyId更新个人事务的姓名
+     *
+     * @param facultyId 教职工编号
+     * @param name 教职工姓名
+     * @return 结果
+     */
+    int updateAffairNameByFacultyId(@Param("facultyId") Long facultyId, @Param("name") String name);
 }

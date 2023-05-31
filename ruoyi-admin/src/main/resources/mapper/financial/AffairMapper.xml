@@ -61,9 +61,13 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         where id = #{id}
     </update>
 
-    <delete id="deleteAffairById" parameterType="Long">
-        delete from affair where id = #{id}
-    </delete>
+    <update id="updateAffairNameByFacultyId" parameterType="Affair">
+        update affair
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="name != null">name = #{name},</if>
+        </trim>
+        where faculty_id = #{facultyId}
+    </update>
 
     <delete id="deleteAffairByIds" parameterType="String">
         delete from affair where id in

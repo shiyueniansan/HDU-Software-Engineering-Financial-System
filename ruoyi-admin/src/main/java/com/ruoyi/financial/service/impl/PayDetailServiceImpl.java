@@ -1,6 +1,8 @@
 package com.ruoyi.financial.service.impl;
 
 import java.util.List;
+
+import com.ruoyi.financial.domain.Faculty;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.ruoyi.financial.mapper.PayDetailMapper;
@@ -9,19 +11,19 @@ import com.ruoyi.financial.service.IPayDetailService;
 
 /**
  * 工资明细表Service业务层处理
- * 
+ *
  * @author Keven
  * @date 2023-05-31
  */
 @Service
-public class PayDetailServiceImpl implements IPayDetailService 
+public class PayDetailServiceImpl implements IPayDetailService
 {
     @Autowired
     private PayDetailMapper payDetailMapper;
 
     /**
      * 查询工资明细表
-     * 
+     *
      * @param facultyId 工资明细表主键
      * @return 工资明细表
      */
@@ -33,7 +35,7 @@ public class PayDetailServiceImpl implements IPayDetailService
 
     /**
      * 查询工资明细表列表
-     * 
+     *
      * @param payDetail 工资明细表
      * @return 工资明细表
      */
@@ -45,7 +47,7 @@ public class PayDetailServiceImpl implements IPayDetailService
 
     /**
      * 新增工资明细表
-     * 
+     *
      * @param payDetail 工资明细表
      * @return 结果
      */
@@ -57,7 +59,7 @@ public class PayDetailServiceImpl implements IPayDetailService
 
     /**
      * 修改工资明细表
-     * 
+     *
      * @param payDetail 工资明细表
      * @return 结果
      */
@@ -69,7 +71,7 @@ public class PayDetailServiceImpl implements IPayDetailService
 
     /**
      * 批量删除工资明细表
-     * 
+     *
      * @param facultyIds 需要删除的工资明细表主键
      * @return 结果
      */
@@ -81,7 +83,7 @@ public class PayDetailServiceImpl implements IPayDetailService
 
     /**
      * 删除工资明细表信息
-     * 
+     *
      * @param facultyId 工资明细表主键
      * @return 结果
      */
