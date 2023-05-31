@@ -16,14 +16,14 @@ import com.ruoyi.common.annotation.Log;
 import com.ruoyi.common.core.controller.BaseController;
 import com.ruoyi.common.core.domain.AjaxResult;
 import com.ruoyi.common.enums.BusinessType;
-import com.ruoyi.financial.domain.PayDetails;
-import com.ruoyi.financial.service.IPayDetailsService;
+import com.ruoyi.financial.domain.PayDetail;
+import com.ruoyi.financial.service.IPayDetailService;
 import com.ruoyi.common.utils.poi.ExcelUtil;
 import com.ruoyi.common.core.page.TableDataInfo;
 
 /**
  * 全部工资明细表Controller
- * 
+ *
  * @author Keven
  * @date 2023-05-31
  */
@@ -32,17 +32,17 @@ import com.ruoyi.common.core.page.TableDataInfo;
 public class PayDetailsController extends BaseController
 {
     @Autowired
-    private IPayDetailsService payDetailsService;
+    private IPayDetailService payDetailService;
 
     /**
      * 查询全部工资明细表列表
      */
     @PreAuthorize("@ss.hasPermi('financial:payDetails:list')")
     @GetMapping("/list")
-    public TableDataInfo list(PayDetails payDetails)
+    public TableDataInfo list(PayDetail payDetail)
     {
         startPage();
-        List<PayDetails> list = payDetailsService.selectPayDetailsList(payDetails);
+        List<PayDetail> list = payDetailService.selectPayDetailList(payDetail);
         return getDataTable(list);
     }
 
@@ -52,10 +52,10 @@ public class PayDetailsController extends BaseController
     @PreAuthorize("@ss.hasPermi('financial:payDetails:export')")
     @Log(title = "全部工资明细表", businessType = BusinessType.EXPORT)
     @PostMapping("/export")
-    public void export(HttpServletResponse response, PayDetails payDetails)
+    public void export(HttpServletResponse response, PayDetail payDetail)
     {
-        List<PayDetails> list = payDetailsService.selectPayDetailsList(payDetails);
-        ExcelUtil<PayDetails> util = new ExcelUtil<PayDetails>(PayDetails.class);
+        List<PayDetail> list = payDetailService.selectPayDetailList(payDetail);
+        ExcelUtil<PayDetail> util = new ExcelUtil<PayDetail>(PayDetail.class);
         util.exportExcel(response, list, "全部工资明细表数据");
     }
 
@@ -66,7 +66,7 @@ public class PayDetailsController extends BaseController
     @GetMapping(value = "/{facultyId}")
     public AjaxResult getInfo(@PathVariable("facultyId") Long facultyId)
     {
-        return success(payDetailsService.selectPayDetailsByFacultyId(facultyId));
+        return success(payDetailService.selectPayDetailByFacultyId(facultyId));
     }
 
     /**
@@ -75,9 +75,9 @@ public class PayDetailsController extends BaseController
     @PreAuthorize("@ss.hasPermi('financial:payDetails:add')")
     @Log(title = "全部工资明细表", businessType = BusinessType.INSERT)
     @PostMapping
-    public AjaxResult add(@RequestBody PayDetails payDetails)
+    public AjaxResult add(@RequestBody PayDetail payDetail)
     {
-        return toAjax(payDetailsService.insertPayDetails(payDetails));
+        return toAjax(payDetailService.insertPayDetail(payDetail));
     }
 
     /**
@@ -86,9 +86,9 @@ public class PayDetailsController extends BaseController
     @PreAuthorize("@ss.hasPermi('financial:payDetails:edit')")
     @Log(title = "全部工资明细表", businessType = BusinessType.UPDATE)
     @PutMapping
-    public AjaxResult edit(@RequestBody PayDetails payDetails)
+    public AjaxResult edit(@RequestBody PayDetail payDetail)
     {
-        return toAjax(payDetailsService.updatePayDetails(payDetails));
+        return toAjax(payDetailService.updatePayDetail(payDetail));
     }
 
     /**
@@ -99,6 +99,6 @@ public class PayDetailsController extends BaseController
 	@DeleteMapping("/{facultyIds}")
     public AjaxResult remove(@PathVariable Long[] facultyIds)
     {
-        return toAjax(payDetailsService.deletePayDetailsByFacultyIds(facultyIds));
+        return toAjax(payDetailService.deletePayDetailByFacultyIds(facultyIds));
     }
 }
