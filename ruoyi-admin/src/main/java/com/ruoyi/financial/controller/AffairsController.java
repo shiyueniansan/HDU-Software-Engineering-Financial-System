@@ -16,14 +16,14 @@ import com.ruoyi.common.annotation.Log;
 import com.ruoyi.common.core.controller.BaseController;
 import com.ruoyi.common.core.domain.AjaxResult;
 import com.ruoyi.common.enums.BusinessType;
-import com.ruoyi.financial.domain.Affairs;
-import com.ruoyi.financial.service.IAffairsService;
+import com.ruoyi.financial.domain.Affair;
+import com.ruoyi.financial.service.IAffairService;
 import com.ruoyi.common.utils.poi.ExcelUtil;
 import com.ruoyi.common.core.page.TableDataInfo;
 
 /**
  * 事务Controller
- * 
+ *
  * @author Keven
  * @date 2023-05-30
  */
@@ -32,17 +32,17 @@ import com.ruoyi.common.core.page.TableDataInfo;
 public class AffairsController extends BaseController
 {
     @Autowired
-    private IAffairsService affairsService;
+    private IAffairService affairService;
 
     /**
      * 查询事务列表
      */
     @PreAuthorize("@ss.hasPermi('financial:affairs:list')")
     @GetMapping("/list")
-    public TableDataInfo list(Affairs affairs)
+    public TableDataInfo list(Affair affair)
     {
         startPage();
-        List<Affairs> list = affairsService.selectAffairsList(affairs);
+        List<Affair> list = affairService.selectAffairList(affair);
         return getDataTable(list);
     }
 
@@ -52,10 +52,10 @@ public class AffairsController extends BaseController
     @PreAuthorize("@ss.hasPermi('financial:affairs:export')")
     @Log(title = "事务", businessType = BusinessType.EXPORT)
     @PostMapping("/export")
-    public void export(HttpServletResponse response, Affairs affairs)
+    public void export(HttpServletResponse response, Affair affair)
     {
-        List<Affairs> list = affairsService.selectAffairsList(affairs);
-        ExcelUtil<Affairs> util = new ExcelUtil<Affairs>(Affairs.class);
+        List<Affair> list = affairService.selectAffairList(affair);
+        ExcelUtil<Affair> util = new ExcelUtil<Affair>(Affair.class);
         util.exportExcel(response, list, "事务数据");
     }
 
@@ -66,7 +66,7 @@ public class AffairsController extends BaseController
     @GetMapping(value = "/{id}")
     public AjaxResult getInfo(@PathVariable("id") Long id)
     {
-        return success(affairsService.selectAffairsById(id));
+        return success(affairService.selectAffairById(id));
     }
 
     /**
@@ -75,9 +75,9 @@ public class AffairsController extends BaseController
     @PreAuthorize("@ss.hasPermi('financial:affairs:add')")
     @Log(title = "事务", businessType = BusinessType.INSERT)
     @PostMapping
-    public AjaxResult add(@RequestBody Affairs affairs)
+    public AjaxResult add(@RequestBody Affair affair)
     {
-        return toAjax(affairsService.insertAffairs(affairs));
+        return toAjax(affairService.insertAffair(affair));
     }
 
     /**
@@ -86,9 +86,9 @@ public class AffairsController extends BaseController
     @PreAuthorize("@ss.hasPermi('financial:affairs:edit')")
     @Log(title = "事务", businessType = BusinessType.UPDATE)
     @PutMapping
-    public AjaxResult edit(@RequestBody Affairs affairs)
+    public AjaxResult edit(@RequestBody Affair affair)
     {
-        return toAjax(affairsService.updateAffairs(affairs));
+        return toAjax(affairService.updateAffair(affair));
     }
 
     /**
@@ -99,6 +99,6 @@ public class AffairsController extends BaseController
 	@DeleteMapping("/{ids}")
     public AjaxResult remove(@PathVariable Long[] ids)
     {
-        return toAjax(affairsService.deleteAffairsByIds(ids));
+        return toAjax(affairService.deleteAffairByIds(ids));
     }
 }
