@@ -9,66 +9,6 @@
           @keyup.enter.native="handleQuery"
         />
       </el-form-item>
-      <el-form-item label="基本工资" prop="basicPay">
-        <el-input
-          v-model="queryParams.basicPay"
-          placeholder="请输入基本工资"
-          clearable
-          @keyup.enter.native="handleQuery"
-        />
-      </el-form-item>
-      <el-form-item label="职务" prop="job">
-        <el-select v-model="queryParams.job" placeholder="请选择职务" clearable>
-          <el-option
-            v-for="dict in dict.type.faculty_job"
-            :key="dict.value"
-            :label="dict.label"
-            :value="dict.value"
-          />
-        </el-select>
-      </el-form-item>
-      <el-form-item label="职称" prop="title">
-        <el-select v-model="queryParams.title" placeholder="请选择职称" clearable>
-          <el-option
-            v-for="dict in dict.type.faculty_title"
-            :key="dict.value"
-            :label="dict.label"
-            :value="dict.value"
-          />
-        </el-select>
-      </el-form-item>
-      <el-form-item label="生活补贴" prop="livingSubsidy">
-        <el-input
-          v-model="queryParams.livingSubsidy"
-          placeholder="请输入生活补贴"
-          clearable
-          @keyup.enter.native="handleQuery"
-        />
-      </el-form-item>
-      <el-form-item label="书报费" prop="readingSubsidy">
-        <el-input
-          v-model="queryParams.readingSubsidy"
-          placeholder="请输入书报费"
-          clearable
-          @keyup.enter.native="handleQuery"
-        />
-      </el-form-item>
-      <el-form-item label="交通费" prop="transportationSubsidy">
-        <el-input
-          v-model="queryParams.transportationSubsidy"
-          placeholder="请输入交通费"
-          clearable
-          @keyup.enter.native="handleQuery"
-        />
-      </el-form-item>
-      <el-form-item label="洗理费" prop="washingSubsidy">
-        <el-input
-          v-model="queryParams.washingSubsidy"
-          placeholder="请输入洗理费"
-          clearable
-          @keyup.enter.native="handleQuery"
-        />
-      </el-form-item>
       <el-form-item label="课时费" prop="teacherPay">
         <el-input
           v-model="queryParams.teacherPay"
@@ -105,22 +45,6 @@
         <el-input
           v-model="queryParams.tax"
           placeholder="请输入个人所得税"
-          clearable
-          @keyup.enter.native="handleQuery"
-        />
-      </el-form-item>
-      <el-form-item label="住房公积金" prop="housing">
-        <el-input
-          v-model="queryParams.housing"
-          placeholder="请输入住房公积金"
-          clearable
-          @keyup.enter.native="handleQuery"
-        />
-      </el-form-item>
-      <el-form-item label="保险费" prop="insurance">
-        <el-input
-          v-model="queryParams.insurance"
-          placeholder="请输入保险费"
           clearable
           @keyup.enter.native="handleQuery"
         />
@@ -284,20 +208,11 @@ export default {
         pageNum: 1,
         pageSize: 10,
         month: null,
-        basicPay: null,
-        job: null,
-        title: null,
-        livingSubsidy: null,
-        readingSubsidy: null,
-        transportationSubsidy: null,
-        washingSubsidy: null,
         teacherPay: null,
         staffPay: null,
         extraTeacherPay: null,
         totalPay: null,
         tax: null,
-        housing: null,
-        insurance: null,
         netPay: null
       },
       // 表单参数

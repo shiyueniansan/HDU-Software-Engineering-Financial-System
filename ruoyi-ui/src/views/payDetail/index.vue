@@ -49,6 +49,22 @@
           @keyup.enter.native="handleQuery"
         />
       </el-form-item>
+      <el-form-item label="住房公积金" prop="housing">
+        <el-input
+          v-model="queryParams.housing"
+          placeholder="请输入住房公积金"
+          clearable
+          @keyup.enter.native="handleQuery"
+        />
+      </el-form-item>
+      <el-form-item label="保险费" prop="insurance">
+        <el-input
+          v-model="queryParams.insurance"
+          placeholder="请输入保险费"
+          clearable
+          @keyup.enter.native="handleQuery"
+        />
+      </el-form-item>
       <el-form-item label="实发工资" prop="netPay">
         <el-input
           v-model="queryParams.netPay"
@@ -213,6 +229,8 @@ export default {
         extraTeacherPay: null,
         totalPay: null,
         tax: null,
+        housing: null,
+        insurance: null,
         netPay: null
       },
       // 表单参数
