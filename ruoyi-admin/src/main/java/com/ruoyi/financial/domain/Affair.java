@@ -42,6 +42,10 @@ public class Affair extends BaseEntity
 //        this.name = name;
 //    }
 
+//    //constructor with no parameters
+//    public Affair() {
+//    }
+
     public void setId(Long id)
     {
         this.id = id;

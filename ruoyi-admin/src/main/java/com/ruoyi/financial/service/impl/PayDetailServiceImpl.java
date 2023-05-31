@@ -22,16 +22,16 @@ public class PayDetailServiceImpl implements IPayDetailService
     @Autowired
     private PayDetailMapper payDetailMapper;
 
-    /**
-     * 计算工资明细表
-     */
-    @Override
-    public void calculatePayDetail() {
-        List<PayDetail> payDetailList = payDetailMapper.selectPayDetailList(new PayDetail());
-        for (PayDetail payDetail : payDetailList) {
-//            payDetail.setTeacherPay(FinancialConstants.Teacher_Pay_Per_Hour* payDetail.getTeacherClassHour());
-        }
-    }
+//    /**
+//     * 计算工资明细表
+//     */
+//    @Override
+//    public void calculatePayDetail() {
+//        List<PayDetail> payDetailList = payDetailMapper.selectPayDetailList(new PayDetail());
+//        for (PayDetail payDetail : payDetailList) {
+////            payDetail.setTeacherPay(FinancialConstants.Teacher_Pay_Per_Hour* payDetail.getTeacherClassHour());
+//        }
+//    }
 
     /**
      * 查询工资明细表
