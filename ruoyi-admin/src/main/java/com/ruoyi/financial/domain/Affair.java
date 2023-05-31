@@ -34,7 +34,7 @@ public class Affair extends BaseEntity
 
     /** 时长 */
     @Excel(name = "时长")
-    private Long hour;
+    private Float hour;
 
 //    //constructor with facultyId, name
 //    public Affair(Long facultyId, String name) {
@@ -96,12 +96,12 @@ public class Affair extends BaseEntity
     {
         return des;
     }
-    public void setHour(Long hour)
+    public void setHour(Float hour)
     {
         this.hour = hour;
     }
 
-    public Long getHour()
+    public Float getHour()
     {
         return hour;
     }

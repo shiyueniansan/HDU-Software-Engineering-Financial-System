@@ -29,7 +29,7 @@ public class PayDetail extends BaseEntity
 
     /** 基本工资 */
     @Excel(name = "基本工资")
-    private Long basicPay;
+    private Float basicPay;
 
     /** 职务 */
     @Excel(name = "职务")
@@ -41,54 +41,54 @@ public class PayDetail extends BaseEntity
 
     /** 生活补贴 */
     @Excel(name = "生活补贴")
-    private Long livingSubsidy;
+    private Float livingSubsidy;
 
     /** 书报费 */
     @Excel(name = "书报费")
-    private Long readingSubsidy;
+    private Float readingSubsidy;
 
     /** 交通费 */
     @Excel(name = "交通费")
-    private Long transportationSubsidy;
+    private Float transportationSubsidy;
 
     /** 洗理费 */
     @Excel(name = "洗理费")
-    private Long washingSubsidy;
+    private Float washingSubsidy;
 
 //    /** 课时数 */
-//    private Long Hour;
+//    private Float Hour;
 
     /** 课时费 */
     @Excel(name = "课时费")
-    private Long teacherPay;
+    private Float teacherPay;
 
     /** 岗位津贴 */
     @Excel(name = "岗位津贴")
-    private Long staffPay;
+    private Float staffPay;
 
     /** 超额课时费 */
     @Excel(name = "超额课时费")
-    private Long extraTeacherPay;
+    private Float extraTeacherPay;
 
     /** 工资总额 */
     @Excel(name = "工资总额")
-    private Long totalPay;
+    private Float totalPay;
 
     /** 个人所得税 */
     @Excel(name = "个人所得税")
-    private Long tax;
+    private Float tax;
 
     /** 住房公积金 */
     @Excel(name = "住房公积金")
-    private Long housing;
+    private Float housing;
 
     /** 保险费 */
     @Excel(name = "保险费")
-    private Long insurance;
+    private Float insurance;
 
     /** 实发工资 */
     @Excel(name = "实发工资")
-    private Long netPay;
+    private Float netPay;
 
 //    //constructor with facultyId and name
 //    public PayDetail(Long facultyId, String name, Long month) {
@@ -155,12 +155,12 @@ public class PayDetail extends BaseEntity
     {
         return month;
     }
-    public void setBasicPay(Long basicPay)
+    public void setBasicPay(Float basicPay)
     {
         this.basicPay = basicPay;
     }
 
-    public Long getBasicPay()
+    public Float getBasicPay()
     {
         return basicPay;
     }
@@ -182,111 +182,111 @@ public class PayDetail extends BaseEntity
     {
         return title;
     }
-    public void setLivingSubsidy(Long livingSubsidy)
+    public void setLivingSubsidy(Float livingSubsidy)
     {
         this.livingSubsidy = livingSubsidy;
     }
 
-    public Long getLivingSubsidy()
+    public Float getLivingSubsidy()
     {
         return livingSubsidy;
     }
-    public void setReadingSubsidy(Long readingSubsidy)
+    public void setReadingSubsidy(Float readingSubsidy)
     {
         this.readingSubsidy = readingSubsidy;
     }
 
-    public Long getReadingSubsidy()
+    public Float getReadingSubsidy()
     {
         return readingSubsidy;
     }
-    public void setTransportationSubsidy(Long transportationSubsidy)
+    public void setTransportationSubsidy(Float transportationSubsidy)
     {
         this.transportationSubsidy = transportationSubsidy;
     }
 
-    public Long getTransportationSubsidy()
+    public Float getTransportationSubsidy()
     {
         return transportationSubsidy;
     }
-    public void setWashingSubsidy(Long washingSubsidy)
+    public void setWashingSubsidy(Float washingSubsidy)
     {
         this.washingSubsidy = washingSubsidy;
     }
 
-    public Long getWashingSubsidy()
+    public Float getWashingSubsidy()
     {
         return washingSubsidy;
     }
-    public void setTeacherPay(Long teacherPay)
+    public void setTeacherPay(Float teacherPay)
     {
         this.teacherPay = teacherPay;
     }
 
-    public Long getTeacherPay()
+    public Float getTeacherPay()
     {
         return teacherPay;
     }
-    public void setStaffPay(Long staffPay)
+    public void setStaffPay(Float staffPay)
     {
         this.staffPay = staffPay;
     }
 
-    public Long getStaffPay()
+    public Float getStaffPay()
     {
         return staffPay;
     }
-    public void setExtraTeacherPay(Long extraTeacherPay)
+    public void setExtraTeacherPay(Float extraTeacherPay)
     {
         this.extraTeacherPay = extraTeacherPay;
     }
 
-    public Long getExtraTeacherPay()
+    public Float getExtraTeacherPay()
     {
         return extraTeacherPay;
     }
-    public void setTotalPay(Long totalPay)
+    public void setTotalPay(Float totalPay)
     {
         this.totalPay = totalPay;
     }
 
-    public Long getTotalPay()
+    public Float getTotalPay()
     {
         return totalPay;
     }
-    public void setTax(Long tax)
+    public void setTax(Float tax)
     {
         this.tax = tax;
     }
 
-    public Long getTax()
+    public Float getTax()
     {
         return tax;
     }
-    public void setHousing(Long housing)
+    public void setHousing(Float housing)
     {
         this.housing = housing;
     }
 
-    public Long getHousing()
+    public Float getHousing()
     {
         return housing;
     }
-    public void setInsurance(Long insurance)
+    public void setInsurance(Float insurance)
     {
         this.insurance = insurance;
     }
 
-    public Long getInsurance()
+    public Float getInsurance()
     {
         return insurance;
     }
-    public void setNetPay(Long netPay)
+    public void setNetPay(Float netPay)
     {
         this.netPay = netPay;
     }
 
-    public Long getNetPay()
+    public Float getNetPay()
     {
         return netPay;
     }

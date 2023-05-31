@@ -7,7 +7,7 @@ import com.ruoyi.common.core.domain.BaseEntity;
 
 /**
  * 工资表对象 faculty_monthly
- * 
+ *
  * @author Keven
  * @date 2023-05-31
  */
@@ -29,41 +29,41 @@ public class Pay extends BaseEntity
 
     /** 实发工资 */
     @Excel(name = "实发工资")
-    private Long netPay;
+    private Float netPay;
 
-    public void setFacultyId(Long facultyId) 
+    public void setFacultyId(Long facultyId)
     {
         this.facultyId = facultyId;
     }
 
-    public Long getFacultyId() 
+    public Long getFacultyId()
     {
         return facultyId;
     }
-    public void setName(String name) 
+    public void setName(String name)
     {
         this.name = name;
     }
 
-    public String getName() 
+    public String getName()
     {
         return name;
     }
-    public void setMonth(Long month) 
+    public void setMonth(Long month)
     {
         this.month = month;
     }
 
-    public Long getMonth() 
+    public Long getMonth()
     {
         return month;
     }
-    public void setNetPay(Long netPay) 
+    public void setNetPay(Float netPay)
     {
         this.netPay = netPay;
     }
 
-    public Long getNetPay() 
+    public Float getNetPay()
     {
         return netPay;
     }

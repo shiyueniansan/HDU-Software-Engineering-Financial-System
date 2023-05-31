@@ -25,19 +25,19 @@ public class FacultyYearly extends BaseEntity
 
     /** 本年度累计工资总额 */
     @Excel(name = "本年度累计工资总额")
-    private Long totalPay;
+    private Float totalPay;
 
     /** 本年度累计授课时数 */
     @Excel(name = "本年度累计授课时数")
-    private Long hour;
+    private Float hour;
 
     /** 上年度月平均工资 */
     @Excel(name = "上年度月平均工资")
-    private Long avgPay;
+    private Float avgPay;
 
     /** 本年度累计实发工资 */
     @Excel(name = "本年度累计实发工资")
-    private Long netPay;
+    private Float netPay;
 
     //constructor with facultyId and name
     public FacultyYearly(Long facultyId, String name) {
@@ -69,39 +69,39 @@ public class FacultyYearly extends BaseEntity
     {
         return name;
     }
-    public void setTotalPay(Long totalPay)
+    public void setTotalPay(Float totalPay)
     {
         this.totalPay = totalPay;
     }
 
-    public Long getTotalPay()
+    public Float getTotalPay()
     {
         return totalPay;
     }
-    public void setHour(Long hour)
+    public void setHour(Float hour)
     {
         this.hour = hour;
     }
 
-    public Long getHour()
+    public Float getHour()
     {
         return hour;
     }
-    public void setAvgPay(Long avgPay)
+    public void setAvgPay(Float avgPay)
     {
         this.avgPay = avgPay;
     }
 
-    public Long getAvgPay()
+    public Float getAvgPay()
     {
         return avgPay;
     }
-    public void setNetPay(Long netPay)
+    public void setNetPay(Float netPay)
     {
         this.netPay = netPay;
     }
 
-    public Long getNetPay()
+    public Float getNetPay()
     {
         return netPay;
     }

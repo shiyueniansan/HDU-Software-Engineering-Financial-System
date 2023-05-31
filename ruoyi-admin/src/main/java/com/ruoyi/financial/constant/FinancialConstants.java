@@ -25,8 +25,17 @@ public class FinancialConstants
 //    public static final String[] JOB_WHITELIST_STR = { "com.ruoyi" };
 
     /**
-     * 每课时课时费
+     * 教师每课时课时费
      */
     public static final Long TEACHER_PAY_PER_HOUR = 50L;
-    public static final Float TEACHER_EXTRA_PAY_FACTOR = ;
+
+    /**
+     * 超额课时费系数
+     */
+    public static final Float TEACHER_EXTRA_PAY_FACTOR = 1.2F;
+
+    /**
+     * 职工每工时工时费
+     */
+    public static final Float STAFF_PAY_PER_HOUR = 30F;
 }

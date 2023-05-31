@@ -7,7 +7,7 @@ import com.ruoyi.common.core.domain.BaseEntity;
 
 /**
  * 职称对象 title
- * 
+ *
  * @author Keven
  * @date 2023-05-30
  */
@@ -24,32 +24,32 @@ public class Title extends BaseEntity
 
     /** 职称系数 */
     @Excel(name = "职称系数")
-    private Long factor;
+    private Float factor;
 
-    public void setId(Long id) 
+    public void setId(Long id)
     {
         this.id = id;
     }
 
-    public Long getId() 
+    public Long getId()
     {
         return id;
     }
-    public void setDes(String des) 
+    public void setDes(String des)
     {
         this.des = des;
     }
 
-    public String getDes() 
+    public String getDes()
     {
         return des;
     }
-    public void setFactor(Long factor) 
+    public void setFactor(Float factor)
     {
         this.factor = factor;
     }
 
-    public Long getFactor() 
+    public Float getFactor()
     {
         return factor;
     }

@@ -36,27 +36,27 @@ public class Faculty extends BaseEntity
 
     /** 基本工资 */
     @Excel(name = "基本工资")
-    private Long basicPay;
+    private Float basicPay;
 
     /** 生活补贴 */
     @Excel(name = "生活补贴")
-    private Long livingSubsidy;
+    private Float livingSubsidy;
 
     /** 书报费 */
     @Excel(name = "书报费")
-    private Long readingSubsidy;
+    private Float readingSubsidy;
 
     /** 交通费 */
     @Excel(name = "交通费")
-    private Long transportationSubsidy;
+    private Float transportationSubsidy;
 
     /** 洗理费 */
     @Excel(name = "洗理费")
-    private Long washingSubsidy;
+    private Float washingSubsidy;
 
     /** 定额课时 */
     @Excel(name = "定额课时")
-    private Long quotaHour;
+    private Float quotaHour;
 
     public void setId(Long id)
     {
@@ -103,57 +103,57 @@ public class Faculty extends BaseEntity
     {
         return job;
     }
-    public void setBasicPay(Long basicPay)
+    public void setBasicPay(Float basicPay)
     {
         this.basicPay = basicPay;
     }
 
-    public Long getBasicPay()
+    public Float getBasicPay()
     {
         return basicPay;
     }
-    public void setLivingSubsidy(Long livingSubsidy)
+    public void setLivingSubsidy(Float livingSubsidy)
     {
         this.livingSubsidy = livingSubsidy;
     }
 
-    public Long getLivingSubsidy()
+    public Float getLivingSubsidy()
     {
         return livingSubsidy;
     }
-    public void setReadingSubsidy(Long readingSubsidy)
+    public void setReadingSubsidy(Float readingSubsidy)
     {
         this.readingSubsidy = readingSubsidy;
     }
 
-    public Long getReadingSubsidy()
+    public Float getReadingSubsidy()
     {
         return readingSubsidy;
     }
-    public void setTransportationSubsidy(Long transportationSubsidy)
+    public void setTransportationSubsidy(Float transportationSubsidy)
     {
         this.transportationSubsidy = transportationSubsidy;
     }
 
-    public Long getTransportationSubsidy()
+    public Float getTransportationSubsidy()
     {
         return transportationSubsidy;
     }
-    public void setWashingSubsidy(Long washingSubsidy)
+    public void setWashingSubsidy(Float washingSubsidy)
     {
         this.washingSubsidy = washingSubsidy;
     }
 
-    public Long getWashingSubsidy()
+    public Float getWashingSubsidy()
     {
         return washingSubsidy;
     }
-    public void setQuotaHour(Long quotaHour)
+    public void setQuotaHour(Float quotaHour)
     {
         this.quotaHour = quotaHour;
     }
 
-    public Long getQuotaHour()
+    public Float getQuotaHour()
     {
         return quotaHour;
     }

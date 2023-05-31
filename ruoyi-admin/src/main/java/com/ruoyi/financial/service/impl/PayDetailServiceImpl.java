@@ -112,7 +112,7 @@ public class PayDetailServiceImpl implements IPayDetailService
         for (PayDetail payDetail : list) {
             Faculty faculty = facultyService.selectFacultyById(payDetail.getFacultyId());
             List<Affair> affairList = affairService.selectAffairList(new Affair(faculty.getId()));
-            Long hours = 0L;
+            Float hours = 0F;
             for (Affair affair : affairList) {
                 hours += affair.getHour();
             }
@@ -126,10 +126,18 @@ public class PayDetailServiceImpl implements IPayDetailService
                     payDetail.setExtraTeacherPay(
                             (hours-faculty.getQuotaHour())* FinancialConstants.TEACHER_PAY_PER_HOUR *
                                     titleService.selectTitleById(faculty.getTitle()).getFactor()
-//                                    *FinancialConstants.TEACHER_EXTRA_PAY_FACTOR
+                                    *FinancialConstants.TEACHER_EXTRA_PAY_FACTOR
                     );
                 }
-                payDetail.setStaffPay(0L);
+                payDetail.setStaffPay(0F);
+            }
+            else if(faculty.getType()==1)//职工
+            {
+                payDetail.setStaffPay(
+                        hours* FinancialConstants.STAFF_PAY_PER_HOUR *
+                                titleService.selectTitleById(faculty.getTitle()).getFactor());
+                payDetail.setTeacherPay(0F);
+                payDetail.setExtraTeacherPay(0F);
             }
         }
     }
