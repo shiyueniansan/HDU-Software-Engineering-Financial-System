@@ -11,7 +11,7 @@
  Target Server Version : 80031
  File Encoding         : 65001
 
- Date: 01/06/2023 13:36:25
+ Date: 01/06/2023 14:11:13
 */
 
 SET NAMES utf8mb4;
@@ -34,18 +34,35 @@ CREATE TABLE `affair`  (
 -- ----------------------------
 -- Records of affair
 -- ----------------------------
-INSERT INTO `affair` VALUES (1, 1, 'Keven', 1, '大学物理', 12);
-INSERT INTO `affair` VALUES (2, 1, 'Keven', 2, '大学物理', 15);
-INSERT INTO `affair` VALUES (3, 1, 'Keven', 3, '大学物理', 15);
-INSERT INTO `affair` VALUES (4, 1, 'Keven', 4, '大学物理', 12);
-INSERT INTO `affair` VALUES (5, 1, 'Keven', 5, '大学物理', 18);
-INSERT INTO `affair` VALUES (6, 1, 'Keven', 6, '大学物理', 15);
-INSERT INTO `affair` VALUES (7, 1, 'Keven', 7, '大学物理', 0);
-INSERT INTO `affair` VALUES (8, 1, 'Keven', 8, '大学物理', 0);
-INSERT INTO `affair` VALUES (9, 1, 'Keven', 9, '大学物理', 12);
-INSERT INTO `affair` VALUES (10, 1, 'Keven', 10, '大学物理', 12);
-INSERT INTO `affair` VALUES (11, 1, 'Keven', 11, '大学物理', 15);
-INSERT INTO `affair` VALUES (12, 1, 'Keven', 12, '大学物理', 0);
+INSERT INTO `affair` VALUES (1, 1, '甲', 1, '大学物理', 12);
+INSERT INTO `affair` VALUES (2, 1, '甲', 2, '大学物理', 15);
+INSERT INTO `affair` VALUES (3, 1, '甲', 3, '大学物理', 15);
+INSERT INTO `affair` VALUES (4, 1, '甲', 4, '大学物理', 12);
+INSERT INTO `affair` VALUES (5, 1, '甲', 5, '大学物理', 18);
+INSERT INTO `affair` VALUES (6, 1, '甲', 6, '大学物理', 15);
+INSERT INTO `affair` VALUES (7, 1, '甲', 7, '大学物理', 2);
+INSERT INTO `affair` VALUES (8, 1, '甲', 8, '大学物理', 2);
+INSERT INTO `affair` VALUES (9, 1, '甲', 9, '大学物理', 12);
+INSERT INTO `affair` VALUES (10, 1, '甲', 10, '大学物理', 12);
+INSERT INTO `affair` VALUES (11, 1, '甲', 11, '大学物理', 15);
+INSERT INTO `affair` VALUES (12, 1, '甲', 12, '大学物理', 2);
+INSERT INTO `affair` VALUES (13, 3, '张三', 1, '高等数学', 12);
+INSERT INTO `affair` VALUES (14, 3, '张三', 2, '高等数学', 12);
+INSERT INTO `affair` VALUES (15, 3, '张三', 3, '高等数学', 12);
+INSERT INTO `affair` VALUES (16, 3, '张三', 4, '高等数学', 12);
+INSERT INTO `affair` VALUES (17, 3, '张三', 5, '高等数学', 12);
+INSERT INTO `affair` VALUES (18, 3, '张三', 6, '高等数学', 12);
+INSERT INTO `affair` VALUES (19, 3, '张三', 7, '高等数学', 2);
+INSERT INTO `affair` VALUES (20, 3, '张三', 8, '高等数学', 2);
+INSERT INTO `affair` VALUES (21, 3, '张三', 9, '高等数学', 12);
+INSERT INTO `affair` VALUES (22, 3, '张三', 10, '高等数学', 12);
+INSERT INTO `affair` VALUES (23, 3, '张三', 11, '高等数学', 12);
+INSERT INTO `affair` VALUES (24, 3, '张三', 12, '高等数学', 2);
+INSERT INTO `affair` VALUES (25, 2, '乙', 1, '主持工作', 20);
+INSERT INTO `affair` VALUES (26, 2, '乙', 2, '主持工作', 20);
+INSERT INTO `affair` VALUES (27, 2, '乙', 3, '主持工作', 16);
+INSERT INTO `affair` VALUES (28, 2, '乙', 4, '管理工作', 10);
+INSERT INTO `affair` VALUES (29, 2, '乙', 4, '主持工作', 12);
 
 -- ----------------------------
 -- Table structure for faculty
@@ -71,8 +88,11 @@ CREATE TABLE `faculty`  (
 -- ----------------------------
 -- Records of faculty
 -- ----------------------------
-INSERT INTO `faculty` VALUES (1, 'Keven', 0, 0, 1, 8000, 200, 100, 200, 50, 60);
-INSERT INTO `faculty` VALUES (2, '小马', 1, 5, 0, 7500, 180, 50, 50, 30, 0);
+INSERT INTO `faculty` VALUES (1, '甲', 0, 0, 3, 7000, 200, 100, 150, 80, 60);
+INSERT INTO `faculty` VALUES (2, '乙', 1, 3, 0, 6000, 200, 100, 150, 100, 0);
+INSERT INTO `faculty` VALUES (3, '张三', 0, 0, 1, 8000, 200, 150, 150, 100, 50);
+INSERT INTO `faculty` VALUES (4, '李四', 1, 5, 0, 5000, 150, 50, 200, 80, 0);
+INSERT INTO `faculty` VALUES (5, '王五', 1, 8, 0, 3000, 100, 50, 120, 80, 0);
 
 -- ----------------------------
 -- Table structure for faculty_monthly
@@ -96,30 +116,66 @@ CREATE TABLE `faculty_monthly`  (
 -- ----------------------------
 -- Records of faculty_monthly
 -- ----------------------------
-INSERT INTO `faculty_monthly` VALUES (1, 'Keven', 1, 1200, 0, 0, 9750, 265, 250, 250, 8985);
-INSERT INTO `faculty_monthly` VALUES (1, 'Keven', 2, 1500, 0, 0, 10050, 295, 250, 250, 9255);
-INSERT INTO `faculty_monthly` VALUES (1, 'Keven', 3, 1500, 0, 0, 10050, 295, 250, 250, 9255);
-INSERT INTO `faculty_monthly` VALUES (1, 'Keven', 4, 1200, 0, 0, 9750, 265, 250, 250, 8985);
-INSERT INTO `faculty_monthly` VALUES (1, 'Keven', 5, 1800, 0, 0, 10350, 325, 250, 250, 9525);
-INSERT INTO `faculty_monthly` VALUES (1, 'Keven', 6, 1500, 0, 0, 10050, 295, 250, 250, 9255);
-INSERT INTO `faculty_monthly` VALUES (1, 'Keven', 7, 0, 0, 0, 8550, 145, 250, 250, 7905);
-INSERT INTO `faculty_monthly` VALUES (1, 'Keven', 8, 0, 0, 0, 8550, 145, 250, 250, 7905);
-INSERT INTO `faculty_monthly` VALUES (1, 'Keven', 9, 1200, 0, 0, 9750, 265, 250, 250, 8985);
-INSERT INTO `faculty_monthly` VALUES (1, 'Keven', 10, 1200, 0, 0, 9750, 265, 250, 250, 8985);
-INSERT INTO `faculty_monthly` VALUES (1, 'Keven', 11, 1500, 0, 0, 10050, 295, 250, 250, 9255);
-INSERT INTO `faculty_monthly` VALUES (1, 'Keven', 12, 0, 0, 7920, 16470, 937, 250, 250, 15033);
-INSERT INTO `faculty_monthly` VALUES (2, '小马', 1, 0, 0, 0, 0, 0, 0, 0, 0);
-INSERT INTO `faculty_monthly` VALUES (2, '小马', 2, 0, 0, 0, 0, 0, 0, 0, 0);
-INSERT INTO `faculty_monthly` VALUES (2, '小马', 3, 0, 0, 0, 0, 0, 0, 0, 0);
-INSERT INTO `faculty_monthly` VALUES (2, '小马', 4, 0, 0, 0, 0, 0, 0, 0, 0);
-INSERT INTO `faculty_monthly` VALUES (2, '小马', 5, 0, 0, 0, 0, 0, 0, 0, 0);
-INSERT INTO `faculty_monthly` VALUES (2, '小马', 6, 0, 0, 0, 0, 0, 0, 0, 0);
-INSERT INTO `faculty_monthly` VALUES (2, '小马', 7, 0, 0, 0, 0, 0, 0, 0, 0);
-INSERT INTO `faculty_monthly` VALUES (2, '小马', 8, 0, 0, 0, 0, 0, 0, 0, 0);
-INSERT INTO `faculty_monthly` VALUES (2, '小马', 9, 0, 0, 0, 0, 0, 0, 0, 0);
-INSERT INTO `faculty_monthly` VALUES (2, '小马', 10, 0, 0, 0, 0, 0, 0, 0, 0);
-INSERT INTO `faculty_monthly` VALUES (2, '小马', 11, 0, 0, 0, 0, 0, 0, 0, 0);
-INSERT INTO `faculty_monthly` VALUES (2, '小马', 12, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `faculty_monthly` VALUES (1, '甲', 1, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `faculty_monthly` VALUES (1, '甲', 2, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `faculty_monthly` VALUES (1, '甲', 3, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `faculty_monthly` VALUES (1, '甲', 4, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `faculty_monthly` VALUES (1, '甲', 5, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `faculty_monthly` VALUES (1, '甲', 6, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `faculty_monthly` VALUES (1, '甲', 7, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `faculty_monthly` VALUES (1, '甲', 8, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `faculty_monthly` VALUES (1, '甲', 9, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `faculty_monthly` VALUES (1, '甲', 10, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `faculty_monthly` VALUES (1, '甲', 11, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `faculty_monthly` VALUES (1, '甲', 12, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `faculty_monthly` VALUES (2, '乙', 1, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `faculty_monthly` VALUES (2, '乙', 2, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `faculty_monthly` VALUES (2, '乙', 3, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `faculty_monthly` VALUES (2, '乙', 4, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `faculty_monthly` VALUES (2, '乙', 5, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `faculty_monthly` VALUES (2, '乙', 6, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `faculty_monthly` VALUES (2, '乙', 7, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `faculty_monthly` VALUES (2, '乙', 8, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `faculty_monthly` VALUES (2, '乙', 9, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `faculty_monthly` VALUES (2, '乙', 10, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `faculty_monthly` VALUES (2, '乙', 11, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `faculty_monthly` VALUES (2, '乙', 12, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `faculty_monthly` VALUES (3, '张三', 1, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `faculty_monthly` VALUES (3, '张三', 2, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `faculty_monthly` VALUES (3, '张三', 3, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `faculty_monthly` VALUES (3, '张三', 4, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `faculty_monthly` VALUES (3, '张三', 5, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `faculty_monthly` VALUES (3, '张三', 6, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `faculty_monthly` VALUES (3, '张三', 7, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `faculty_monthly` VALUES (3, '张三', 8, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `faculty_monthly` VALUES (3, '张三', 9, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `faculty_monthly` VALUES (3, '张三', 10, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `faculty_monthly` VALUES (3, '张三', 11, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `faculty_monthly` VALUES (3, '张三', 12, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `faculty_monthly` VALUES (4, '李四', 1, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `faculty_monthly` VALUES (4, '李四', 2, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `faculty_monthly` VALUES (4, '李四', 3, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `faculty_monthly` VALUES (4, '李四', 4, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `faculty_monthly` VALUES (4, '李四', 5, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `faculty_monthly` VALUES (4, '李四', 6, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `faculty_monthly` VALUES (4, '李四', 7, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `faculty_monthly` VALUES (4, '李四', 8, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `faculty_monthly` VALUES (4, '李四', 9, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `faculty_monthly` VALUES (4, '李四', 10, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `faculty_monthly` VALUES (4, '李四', 11, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `faculty_monthly` VALUES (4, '李四', 12, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `faculty_monthly` VALUES (5, '王五', 1, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `faculty_monthly` VALUES (5, '王五', 2, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `faculty_monthly` VALUES (5, '王五', 3, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `faculty_monthly` VALUES (5, '王五', 4, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `faculty_monthly` VALUES (5, '王五', 5, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `faculty_monthly` VALUES (5, '王五', 6, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `faculty_monthly` VALUES (5, '王五', 7, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `faculty_monthly` VALUES (5, '王五', 8, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `faculty_monthly` VALUES (5, '王五', 9, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `faculty_monthly` VALUES (5, '王五', 10, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `faculty_monthly` VALUES (5, '王五', 11, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `faculty_monthly` VALUES (5, '王五', 12, 0, 0, 0, 0, 0, 0, 0, 0);
 
 -- ----------------------------
 -- Table structure for faculty_monthly_pay
@@ -229,8 +285,11 @@ CREATE TABLE `faculty_yearly`  (
 -- ----------------------------
 -- Records of faculty_yearly
 -- ----------------------------
-INSERT INTO `faculty_yearly` VALUES (1, 'Keven', 102600, 126, 5000, 94860);
-INSERT INTO `faculty_yearly` VALUES (2, '小马', 0, 0, 5000, 0);
+INSERT INTO `faculty_yearly` VALUES (1, '甲', 0, 0, 5000, 0);
+INSERT INTO `faculty_yearly` VALUES (2, '乙', 0, 0, 5000, 0);
+INSERT INTO `faculty_yearly` VALUES (3, '张三', 0, 0, 5000, 0);
+INSERT INTO `faculty_yearly` VALUES (4, '李四', 0, 0, 5000, 0);
+INSERT INTO `faculty_yearly` VALUES (5, '王五', 0, 0, 5000, 0);
 
 -- ----------------------------
 -- Table structure for gen_table
@@ -267,7 +326,7 @@ INSERT INTO `gen_table` VALUES (6, 'faculty', '教职工表', NULL, NULL, 'Facul
 INSERT INTO `gen_table` VALUES (10, 'title', '职称表', NULL, NULL, 'Title', 'crud', 'com.ruoyi.financial', 'financial', 'title', '职称', 'Keven', '0', '/', '{\"parentMenuId\":\"2052\"}', 'admin', '2023-05-30 17:42:08', '', '2023-05-30 21:08:30', NULL);
 INSERT INTO `gen_table` VALUES (13, 'faculty_yearly', '教职工年度表', NULL, NULL, 'FacultyYearly', 'crud', 'com.ruoyi.financial', 'financial', 'yearly', '教职工年度', 'Keven', '0', '/', '{}', 'admin', '2023-05-30 17:48:44', '', '2023-05-31 12:49:41', NULL);
 INSERT INTO `gen_table` VALUES (14, 'job', '职务表', NULL, NULL, 'Job', 'crud', 'com.ruoyi.financial', 'financial', 'job', '职务', 'Keven', '0', '/', '{\"parentMenuId\":\"2052\"}', 'admin', '2023-05-30 17:48:44', '', '2023-05-31 19:12:11', NULL);
-INSERT INTO `gen_table` VALUES (15, 'affair', '事务（课时任务）表', NULL, NULL, 'Affair', 'crud', 'com.ruoyi.financial', 'financial', 'affair', '事务', 'Keven', '0', '/', '{}', 'admin', '2023-05-30 18:07:22', '', '2023-05-31 20:32:37', NULL);
+INSERT INTO `gen_table` VALUES (15, 'affair', '事务表', NULL, NULL, 'Affairs', 'crud', 'com.ruoyi.financial', 'financial', 'affairs', '事务', 'Keven', '0', '/', '{}', 'admin', '2023-05-30 18:07:22', '', '2023-06-01 13:47:18', NULL);
 INSERT INTO `gen_table` VALUES (17, 'faculty_monthly1', '教职工月度表', NULL, NULL, 'Pay', 'crud', 'com.ruoyi.financial', 'financial', 'pay', '工资表', 'Keven', '0', '/', '{}', 'admin', '2023-05-30 21:35:48', '', '2023-05-30 21:49:34', NULL);
 INSERT INTO `gen_table` VALUES (18, 'faculty_monthly2', '教职工月度表', NULL, NULL, 'PayDetail', 'crud', 'com.ruoyi.financial', 'financial', 'payDetail', '工资明细表', 'Keven', '0', '/', '{}', 'admin', '2023-05-30 21:37:20', '', '2023-05-30 23:32:28', NULL);
 INSERT INTO `gen_table` VALUES (19, 'affair1', '事务（课时任务）表', NULL, NULL, 'Affair', 'crud', 'com.ruoyi.financial', 'financial', 'affair', '个人事务', 'Keven', '0', '/', '{}', 'admin', '2023-05-30 22:57:18', '', '2023-05-31 20:29:24', NULL);
@@ -332,12 +391,12 @@ INSERT INTO `gen_table_column` VALUES (93, '13', 'avg_pay', '上年度月平均�
 INSERT INTO `gen_table_column` VALUES (94, '13', 'net_pay', '本年度累计实发工资', 'float', 'Long', 'netPay', '0', '0', NULL, '0', '0', '1', '1', 'EQ', 'input', '', 6, 'admin', '2023-05-30 17:48:44', '', '2023-05-31 12:49:41');
 INSERT INTO `gen_table_column` VALUES (95, '14', 'id', '编号', 'bigint', 'Long', 'id', '1', '1', NULL, '1', NULL, NULL, NULL, 'EQ', 'input', '', 1, 'admin', '2023-05-30 17:48:44', '', '2023-05-31 19:12:11');
 INSERT INTO `gen_table_column` VALUES (96, '14', 'des', '职务', 'varchar(60)', 'String', 'des', '0', '0', '1', '1', '1', '1', '1', 'EQ', 'input', '', 2, 'admin', '2023-05-30 17:48:44', '', '2023-05-31 19:12:11');
-INSERT INTO `gen_table_column` VALUES (97, '15', 'id', '编号', 'bigint', 'Long', 'id', '1', '1', NULL, '1', NULL, NULL, NULL, 'EQ', 'input', '', 1, 'admin', '2023-05-30 18:07:22', '', '2023-05-31 20:32:37');
-INSERT INTO `gen_table_column` VALUES (98, '15', 'faculty_id', '教职工编号', 'bigint', 'Long', 'facultyId', '0', '0', '1', '1', '1', '1', '1', 'EQ', 'input', '', 2, 'admin', '2023-05-30 18:07:22', '', '2023-05-31 20:32:37');
-INSERT INTO `gen_table_column` VALUES (99, '15', 'name', '姓名', 'varchar(30)', 'String', 'name', '0', '0', '1', '1', '1', '1', '1', 'LIKE', 'input', '', 3, 'admin', '2023-05-30 18:07:22', '', '2023-05-31 20:32:37');
-INSERT INTO `gen_table_column` VALUES (100, '15', 'month', '月份', 'int', 'Long', 'month', '0', '0', '1', '1', '1', '1', '1', 'EQ', 'input', '', 4, 'admin', '2023-05-30 18:07:22', '', '2023-05-31 20:32:37');
-INSERT INTO `gen_table_column` VALUES (101, '15', 'des', '描述', 'varchar(90)', 'String', 'des', '0', '0', '1', '1', '1', '1', '1', 'EQ', 'input', '', 5, 'admin', '2023-05-30 18:07:22', '', '2023-05-31 20:32:37');
-INSERT INTO `gen_table_column` VALUES (102, '15', 'hour', '时长', 'float', 'Long', 'hour', '0', '0', '1', '1', '1', '1', '1', 'EQ', 'input', '', 6, 'admin', '2023-05-30 18:07:22', '', '2023-05-31 20:32:37');
+INSERT INTO `gen_table_column` VALUES (97, '15', 'id', '编号', 'bigint', 'Long', 'id', '1', '1', NULL, '1', NULL, NULL, NULL, 'EQ', 'input', '', 1, 'admin', '2023-05-30 18:07:22', '', '2023-06-01 13:47:18');
+INSERT INTO `gen_table_column` VALUES (98, '15', 'faculty_id', '教职工编号', 'bigint', 'Long', 'facultyId', '0', '0', '1', '1', '1', '1', '1', 'EQ', 'input', '', 2, 'admin', '2023-05-30 18:07:22', '', '2023-06-01 13:47:18');
+INSERT INTO `gen_table_column` VALUES (99, '15', 'name', '姓名', 'varchar(30)', 'String', 'name', '0', '0', '0', '0', '0', '1', '1', 'LIKE', 'input', '', 3, 'admin', '2023-05-30 18:07:22', '', '2023-06-01 13:47:18');
+INSERT INTO `gen_table_column` VALUES (100, '15', 'month', '月份', 'int', 'Long', 'month', '0', '0', '1', '1', '1', '1', '1', 'EQ', 'input', '', 4, 'admin', '2023-05-30 18:07:22', '', '2023-06-01 13:47:18');
+INSERT INTO `gen_table_column` VALUES (101, '15', 'des', '描述', 'varchar(90)', 'String', 'des', '0', '0', '1', '1', '1', '1', '1', 'EQ', 'input', '', 5, 'admin', '2023-05-30 18:07:22', '', '2023-06-01 13:47:18');
+INSERT INTO `gen_table_column` VALUES (102, '15', 'hour', '时长', 'float', 'Long', 'hour', '0', '0', '1', '1', '1', '1', '1', 'EQ', 'input', '', 6, 'admin', '2023-05-30 18:07:22', '', '2023-06-01 13:47:18');
 INSERT INTO `gen_table_column` VALUES (115, '17', 'faculty_id', '教职工编号', 'bigint', 'Long', 'facultyId', '1', '0', NULL, '0', NULL, '1', '1', 'EQ', 'input', '', 1, 'admin', '2023-05-30 21:35:48', '', '2023-05-30 21:49:34');
 INSERT INTO `gen_table_column` VALUES (116, '17', 'name', '姓名', 'varchar(30)', 'String', 'name', '0', '0', '0', '0', '0', '1', '1', 'LIKE', 'input', '', 2, 'admin', '2023-05-30 21:35:48', '', '2023-05-30 21:49:34');
 INSERT INTO `gen_table_column` VALUES (117, '17', 'month', '月份', 'int', 'Long', 'month', '1', '0', NULL, '0', NULL, '1', '1', 'EQ', 'input', '', 3, 'admin', '2023-05-30 21:35:48', '', '2023-05-30 21:49:34');
@@ -701,18 +760,6 @@ CREATE TABLE `sys_logininfor`  (
 -- ----------------------------
 -- Records of sys_logininfor
 -- ----------------------------
-INSERT INTO `sys_logininfor` VALUES (219, '管理员', '127.0.0.1', '内网IP', 'Chrome 11', 'Windows 10', '0', '登录成功', '2023-06-01 11:53:28');
-INSERT INTO `sys_logininfor` VALUES (220, 'admin', '127.0.0.1', '内网IP', 'Chrome 11', 'Windows 10', '0', '登录成功', '2023-06-01 12:16:05');
-INSERT INTO `sys_logininfor` VALUES (221, 'Keven', '127.0.0.1', '内网IP', 'Chrome 11', 'Windows 10', '0', '登录成功', '2023-06-01 12:19:11');
-INSERT INTO `sys_logininfor` VALUES (222, 'Keven', '127.0.0.1', '内网IP', 'Chrome 11', 'Windows 10', '0', '登录成功', '2023-06-01 13:04:27');
-INSERT INTO `sys_logininfor` VALUES (223, 'Keven', '127.0.0.1', '内网IP', 'Chrome 11', 'Windows 10', '0', '退出成功', '2023-06-01 13:04:40');
-INSERT INTO `sys_logininfor` VALUES (224, '张三', '127.0.0.1', '内网IP', 'Chrome 11', 'Windows 10', '0', '登录成功', '2023-06-01 13:04:50');
-INSERT INTO `sys_logininfor` VALUES (225, 'admin', '127.0.0.1', '内网IP', 'Chrome 11', 'Windows 10', '1', '密码输入错误1次', '2023-06-01 13:12:04');
-INSERT INTO `sys_logininfor` VALUES (226, 'admin', '127.0.0.1', '内网IP', 'Chrome 11', 'Windows 10', '1', '用户不存在/密码错误', '2023-06-01 13:12:04');
-INSERT INTO `sys_logininfor` VALUES (227, 'admin', '127.0.0.1', '内网IP', 'Chrome 11', 'Windows 10', '1', '验证码错误', '2023-06-01 13:12:09');
-INSERT INTO `sys_logininfor` VALUES (228, 'admin', '127.0.0.1', '内网IP', 'Chrome 11', 'Windows 10', '0', '登录成功', '2023-06-01 13:12:12');
-INSERT INTO `sys_logininfor` VALUES (229, '张三', '127.0.0.1', '内网IP', 'Chrome 11', 'Windows 10', '0', '退出成功', '2023-06-01 13:16:07');
-INSERT INTO `sys_logininfor` VALUES (230, '张三', '127.0.0.1', '内网IP', 'Chrome 11', 'Windows 10', '0', '登录成功', '2023-06-01 13:16:15');
 
 -- ----------------------------
 -- Table structure for sys_menu
@@ -939,20 +986,6 @@ CREATE TABLE `sys_oper_log`  (
 -- ----------------------------
 -- Records of sys_oper_log
 -- ----------------------------
-INSERT INTO `sys_oper_log` VALUES (461, '事务', 1, 'com.ruoyi.financial.controller.AffairsController.add()', 'POST', 1, '管理员', NULL, '/financial/affairs', '127.0.0.1', '内网IP', '{\"des\":\"7\",\"facultyId\":117,\"hour\":70.0,\"id\":1230,\"month\":5,\"name\":\"Keven\",\"params\":{}}', '{\"msg\":\"操作成功\",\"code\":200}', 0, NULL, '2023-06-01 12:14:13', 70);
-INSERT INTO `sys_oper_log` VALUES (462, '用户管理', 1, 'com.ruoyi.web.controller.system.SysUserController.add()', 'POST', 1, 'admin', NULL, '/system/user', '127.0.0.1', '内网IP', '{\"admin\":false,\"createBy\":\"admin\",\"nickName\":\"Keven\",\"params\":{},\"postIds\":[],\"roleIds\":[101],\"status\":\"0\",\"userId\":108,\"userName\":\"Keven\"}', '{\"msg\":\"操作成功\",\"code\":200}', 0, NULL, '2023-06-01 12:18:47', 173);
-INSERT INTO `sys_oper_log` VALUES (463, '个人事务', 1, 'com.ruoyi.financial.controller.AffairController.add()', 'POST', 1, '张三', NULL, '/financial/affair', '127.0.0.1', '内网IP', '{\"des\":\"5\",\"facultyId\":1,\"hour\":5.0,\"month\":1,\"params\":{}}', NULL, 1, 'Cannot invoke \"com.ruoyi.financial.domain.Faculty.getName()\" because the return value of \"com.ruoyi.financial.service.IFacultyService.selectFacultyById(java.lang.Long)\" is null', '2023-06-01 13:08:18', 29);
-INSERT INTO `sys_oper_log` VALUES (464, '个人事务', 1, 'com.ruoyi.financial.controller.AffairController.add()', 'POST', 1, '张三', NULL, '/financial/affair', '127.0.0.1', '内网IP', '{\"des\":\"5\",\"facultyId\":1,\"hour\":5.0,\"month\":5,\"params\":{}}', NULL, 1, 'Cannot invoke \"com.ruoyi.financial.domain.Faculty.getName()\" because the return value of \"com.ruoyi.financial.service.IFacultyService.selectFacultyById(java.lang.Long)\" is null', '2023-06-01 13:11:13', 6);
-INSERT INTO `sys_oper_log` VALUES (465, '个人事务', 1, 'com.ruoyi.financial.controller.AffairController.add()', 'POST', 1, '张三', NULL, '/financial/affair', '127.0.0.1', '内网IP', '{\"des\":\"5\",\"facultyId\":1,\"hour\":5.0,\"month\":5,\"params\":{}}', NULL, 1, 'Cannot invoke \"com.ruoyi.financial.domain.Faculty.getName()\" because the return value of \"com.ruoyi.financial.service.IFacultyService.selectFacultyById(java.lang.Long)\" is null', '2023-06-01 13:11:16', 6);
-INSERT INTO `sys_oper_log` VALUES (466, '个人事务', 1, 'com.ruoyi.financial.controller.AffairController.add()', 'POST', 1, '张三', NULL, '/financial/affair', '127.0.0.1', '内网IP', '{\"des\":\"5\",\"facultyId\":1,\"hour\":5.0,\"month\":5,\"params\":{}}', NULL, 1, 'Cannot invoke \"com.ruoyi.financial.domain.Faculty.getName()\" because the return value of \"com.ruoyi.financial.service.IFacultyService.selectFacultyById(java.lang.Long)\" is null', '2023-06-01 13:11:30', 9);
-INSERT INTO `sys_oper_log` VALUES (467, '个人事务', 1, 'com.ruoyi.financial.controller.AffairController.add()', 'POST', 1, '张三', NULL, '/financial/affair', '127.0.0.1', '内网IP', '{\"des\":\"5\",\"facultyId\":1,\"hour\":5.0,\"id\":1231,\"month\":5,\"name\":\"Keven\",\"params\":{}}', '{\"msg\":\"操作成功\",\"code\":200}', 0, NULL, '2023-06-01 13:13:11', 23);
-INSERT INTO `sys_oper_log` VALUES (468, '教职工', 1, 'com.ruoyi.financial.controller.FacultyController.add()', 'POST', 1, 'admin', NULL, '/financial/faculty', '127.0.0.1', '内网IP', '{\"id\":118,\"name\":\"张三\",\"params\":{},\"type\":1}', '{\"msg\":\"操作成功\",\"code\":200}', 0, NULL, '2023-06-01 13:14:29', 100);
-INSERT INTO `sys_oper_log` VALUES (469, '教职工', 1, 'com.ruoyi.financial.controller.FacultyController.add()', 'POST', 1, 'admin', NULL, '/financial/faculty', '127.0.0.1', '内网IP', '{\"basicPay\":8000.0,\"id\":1,\"livingSubsidy\":200.0,\"name\":\"Keven\",\"params\":{},\"quotaHour\":60.0,\"readingSubsidy\":100.0,\"title\":1,\"transportationSubsidy\":200.0,\"type\":0,\"washingSubsidy\":50.0}', '{\"msg\":\"操作成功\",\"code\":200}', 0, NULL, '2023-06-01 13:23:24', 124);
-INSERT INTO `sys_oper_log` VALUES (470, '事务', 1, 'com.ruoyi.financial.controller.AffairsController.add()', 'POST', 1, 'admin', NULL, '/financial/affairs', '127.0.0.1', '内网IP', '{\"des\":\"大学物理\",\"facultyId\":1,\"hour\":12.0,\"id\":1,\"month\":1,\"name\":\"Keven\",\"params\":{}}', '{\"msg\":\"操作成功\",\"code\":200}', 0, NULL, '2023-06-01 13:24:37', 12);
-INSERT INTO `sys_oper_log` VALUES (471, '事务', 1, 'com.ruoyi.financial.controller.AffairsController.add()', 'POST', 1, 'admin', NULL, '/financial/affairs', '127.0.0.1', '内网IP', '{\"des\":\"大学物理\",\"facultyId\":1,\"hour\":15.0,\"id\":2,\"month\":2,\"name\":\"Keven\",\"params\":{}}', '{\"msg\":\"操作成功\",\"code\":200}', 0, NULL, '2023-06-01 13:24:54', 5);
-INSERT INTO `sys_oper_log` VALUES (472, '用户管理', 1, 'com.ruoyi.web.controller.system.SysUserController.add()', 'POST', 1, 'admin', NULL, '/system/user', '127.0.0.1', '内网IP', '{\"admin\":false,\"createBy\":\"admin\",\"nickName\":\"小马\",\"params\":{},\"postIds\":[],\"roleIds\":[],\"status\":\"0\",\"userId\":109,\"userName\":\"小马\"}', '{\"msg\":\"操作成功\",\"code\":200}', 0, NULL, '2023-06-01 13:33:29', 180);
-INSERT INTO `sys_oper_log` VALUES (473, '用户管理', 2, 'com.ruoyi.web.controller.system.SysUserController.edit()', 'PUT', 1, 'admin', NULL, '/system/user', '127.0.0.1', '内网IP', '{\"admin\":false,\"avatar\":\"\",\"createBy\":\"admin\",\"createTime\":\"2023-06-01 13:33:29\",\"delFlag\":\"0\",\"email\":\"\",\"loginIp\":\"\",\"nickName\":\"小马\",\"params\":{},\"phonenumber\":\"\",\"postIds\":[],\"roleIds\":[101],\"roles\":[],\"sex\":\"0\",\"status\":\"0\",\"updateBy\":\"admin\",\"userId\":109,\"userName\":\"小马\"}', '{\"msg\":\"操作成功\",\"code\":200}', 0, NULL, '2023-06-01 13:33:39', 28);
-INSERT INTO `sys_oper_log` VALUES (474, '教职工', 1, 'com.ruoyi.financial.controller.FacultyController.add()', 'POST', 1, 'admin', NULL, '/financial/faculty', '127.0.0.1', '内网IP', '{\"basicPay\":7500.0,\"id\":2,\"job\":5,\"livingSubsidy\":180.0,\"name\":\"小马\",\"params\":{},\"quotaHour\":0.0,\"readingSubsidy\":50.0,\"transportationSubsidy\":50.0,\"type\":1,\"washingSubsidy\":30.0}', '{\"msg\":\"操作成功\",\"code\":200}', 0, NULL, '2023-06-01 13:35:47', 48);
 
 -- ----------------------------
 -- Table structure for sys_post
@@ -1260,9 +1293,8 @@ INSERT INTO `sys_user` VALUES (103, NULL, NULL, '银行', '银行', '00', '', ''
 INSERT INTO `sys_user` VALUES (104, 4, NULL, '李四', '李四', '00', '', '', '0', '', '$2a$10$sznQVulcqjy97edpdmzpDuwUfY1aWSHBnv/HI8Hg7L1dY5uVi1w2u', '0', '0', '127.0.0.1', '2023-05-29 13:09:01', 'admin', '2023-05-28 15:15:59', '', '2023-05-29 13:09:01', NULL);
 INSERT INTO `sys_user` VALUES (105, 5, NULL, '王五', '王五', '00', '', '', '0', '', '$2a$10$dp312W9GwZDhNFqdmvTkY.gkOtzoo0/sI9eTZ6h5hNNLKqPFaTNa.', '0', '0', '127.0.0.1', '2023-05-29 08:44:08', 'admin', '2023-05-28 15:27:55', '', '2023-05-29 08:44:08', NULL);
 INSERT INTO `sys_user` VALUES (106, NULL, NULL, '人事', '人事', '00', '', '', '0', '', '$2a$10$qwhdew0GztrMG.BAtRWgD.6SjXDUGVtaEY0oiFKD6Kz..3iM2Ipce', '0', '0', '127.0.0.1', '2023-05-31 08:09:28', 'admin', '2023-05-31 08:05:25', '', '2023-05-31 08:09:28', NULL);
-INSERT INTO `sys_user` VALUES (107, 0, NULL, '教职工', '教职工', '00', '', '', '0', '', '$2a$10$Nzn9UX7S2GZv2HL7ssJ1AulU4xYTv7vUoNd5/sFm3ZBlo6VfNWwlm', '0', '0', '127.0.0.1', '2023-05-31 08:45:48', 'admin', '2023-05-31 08:06:08', '', '2023-05-31 08:45:47', NULL);
-INSERT INTO `sys_user` VALUES (108, 1, NULL, 'Keven', 'Keven', '00', '', '', '0', '', '$2a$10$RNjfG3FgrWwLi4opoF8NDuzhPh/dFizBzUWa5QiOIApBbftclQJ1.', '0', '0', '127.0.0.1', '2023-06-01 13:04:27', 'admin', '2023-06-01 12:18:47', '', '2023-06-01 13:04:26', NULL);
-INSERT INTO `sys_user` VALUES (109, 2, NULL, '小马', '小马', '00', '', '', '0', '', '$2a$10$RL2InKEr7uUFRayCug0Z.u/eUBftagUEU6d02wFcipPzKiH9EnNXW', '0', '0', '', NULL, 'admin', '2023-06-01 13:33:29', 'admin', '2023-06-01 13:33:39', NULL);
+INSERT INTO `sys_user` VALUES (108, 1, NULL, '甲', '甲', '00', '', '', '0', '', '$2a$10$RNjfG3FgrWwLi4opoF8NDuzhPh/dFizBzUWa5QiOIApBbftclQJ1.', '0', '0', '127.0.0.1', '2023-06-01 13:04:27', 'admin', '2023-06-01 12:18:47', '', '2023-06-01 13:04:26', NULL);
+INSERT INTO `sys_user` VALUES (109, 2, NULL, '乙', '乙', '00', '', '', '0', '', '$2a$10$RL2InKEr7uUFRayCug0Z.u/eUBftagUEU6d02wFcipPzKiH9EnNXW', '0', '0', '', NULL, 'admin', '2023-06-01 13:33:29', 'admin', '2023-06-01 13:33:39', NULL);
 
 -- ----------------------------
 -- Table structure for sys_user_post
