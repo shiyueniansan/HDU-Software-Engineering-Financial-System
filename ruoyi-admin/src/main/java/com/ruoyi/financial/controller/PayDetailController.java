@@ -44,6 +44,7 @@ public class PayDetailController extends BaseController
         startPage();
         payDetail.setFacultyId(getLoginUser().getUser().getFacultyId());
         List<PayDetail> list = payDetailService.selectPayDetailList(payDetail);
+        payDetailService.calculatePayDetail(list);
         return getDataTable(list);
     }
 
@@ -57,6 +58,7 @@ public class PayDetailController extends BaseController
     {
         payDetail.setFacultyId(getLoginUser().getUser().getFacultyId());
         List<PayDetail> list = payDetailService.selectPayDetailList(payDetail);
+        payDetailService.calculatePayDetail(list);
         ExcelUtil<PayDetail> util = new ExcelUtil<PayDetail>(PayDetail.class);
         util.exportExcel(response, list, "个人工资明细表数据");
     }
