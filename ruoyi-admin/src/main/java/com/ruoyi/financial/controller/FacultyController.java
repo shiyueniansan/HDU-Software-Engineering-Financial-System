@@ -98,8 +98,8 @@ public class FacultyController extends BaseController
         Integer result = facultyService.insertFaculty(faculty);
         if(result > 0){
             facultyYearlyService.insertFacultyYearly(new FacultyYearly(faculty));
-            for(long i = 1; i <= 12; i++){
-                payDetailService.insertPayDetail(new PayDetail(faculty, i));
+            for(long month = 1; month <= 12; month++){
+                payDetailService.insertPayDetail(new PayDetail(faculty, month));
             }
         }
         return toAjax(result);

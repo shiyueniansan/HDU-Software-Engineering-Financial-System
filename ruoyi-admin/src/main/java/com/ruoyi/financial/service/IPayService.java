@@ -5,15 +5,15 @@ import com.ruoyi.financial.domain.Pay;
 
 /**
  * 工资表Service接口
- * 
+ *
  * @author Keven
  * @date 2023-05-31
  */
-public interface IPayService 
+public interface IPayService
 {
     /**
      * 查询工资表
-     * 
+     *
      * @param facultyId 工资表主键
      * @return 工资表
      */
@@ -21,7 +21,7 @@ public interface IPayService
 
     /**
      * 查询工资表列表
-     * 
+     *
      * @param pay 工资表
      * @return 工资表集合
      */
@@ -29,7 +29,7 @@ public interface IPayService
 
     /**
      * 新增工资表
-     * 
+     *
      * @param pay 工资表
      * @return 结果
      */
@@ -37,7 +37,7 @@ public interface IPayService
 
     /**
      * 修改工资表
-     * 
+     *
      * @param pay 工资表
      * @return 结果
      */
@@ -45,7 +45,7 @@ public interface IPayService
 
     /**
      * 批量删除工资表
-     * 
+     *
      * @param facultyIds 需要删除的工资表主键集合
      * @return 结果
      */
@@ -53,9 +53,21 @@ public interface IPayService
 
     /**
      * 删除工资表信息
-     * 
+     *
      * @param facultyId 工资表主键
      * @return 结果
      */
     public int deletePayByFacultyId(Long facultyId);
+
+    /**
+     * 计算工资表
+     * @param pay
+     */
+    public void calculatePay(Pay pay);
+    /**
+     * 计算工资表
+     *
+     * @param list
+     */
+    public void calculatePay(List<Pay> list);
 }

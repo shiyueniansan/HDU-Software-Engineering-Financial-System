@@ -36,4 +36,14 @@ public class FinancialConstants
      * 职工每工时工时费
      */
     public static final Float STAFF_PAY_PER_HOUR = 30F;
+
+    /**
+     * 住房公积金缴存比例
+     */
+    public static final Float HOUSING_FACTOR = 0.05F;
+
+    /**
+     * 保险费缴存比例
+     */
+    public static final Float INSURANCE_FACTOR = 0.05F;
 }

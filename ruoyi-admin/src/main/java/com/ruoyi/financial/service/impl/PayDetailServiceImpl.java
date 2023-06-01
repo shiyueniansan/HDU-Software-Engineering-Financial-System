@@ -5,6 +5,7 @@ import java.util.List;
 import com.ruoyi.financial.constant.FinancialConstants;
 import com.ruoyi.financial.domain.Affair;
 import com.ruoyi.financial.domain.Faculty;
+import com.ruoyi.financial.domain.FacultyYearly;
 import com.ruoyi.financial.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -34,6 +35,9 @@ public class PayDetailServiceImpl implements IPayDetailService
 
     @Autowired
     private IJobService jobService;
+
+    @Autowired
+    private IFacultyYearlyService facultyYearlyService;
 
     /**
      * 查询工资明细表
@@ -110,26 +114,58 @@ public class PayDetailServiceImpl implements IPayDetailService
     /**
      * 装填工资明细表
      *
-     * @param list 工资明细表
+     * @param payDetail 工资明细表
      * @return 结果
      */
     @Override
-    public void fillPayDetail(List<PayDetail> list) {
-        for (PayDetail payDetail : list) {
-            Faculty faculty = facultyService.selectFacultyById(payDetail.getFacultyId());
+    public void fillPayDetail(PayDetail payDetail) {
+        Faculty faculty = facultyService.selectFacultyById(payDetail.getFacultyId());
 //            payDetail.setFaculty(faculty);
-            payDetail.setName(faculty.getName());//非必需
-            payDetail.setFacultyId(faculty.getId());
-            payDetail.setBasicPay(faculty.getBasicPay());
-            payDetail.setType(faculty.getType());
-            payDetail.setJob(faculty.getJob());
-            payDetail.setTitle(faculty.getTitle());
-            payDetail.setLivingSubsidy(faculty.getLivingSubsidy());
-            payDetail.setReadingSubsidy(faculty.getReadingSubsidy());
-            payDetail.setTransportationSubsidy(faculty.getTransportationSubsidy());
-            payDetail.setWashingSubsidy(faculty.getWashingSubsidy());
-            payDetail.setQuotaHours(faculty.getQuotaHour());//TODO:Hour to Hours
-        }
+        payDetail.setName(faculty.getName());//非必需
+        payDetail.setFacultyId(faculty.getId());
+        payDetail.setBasicPay(faculty.getBasicPay());
+        payDetail.setType(faculty.getType());
+        payDetail.setJob(faculty.getJob());
+        payDetail.setTitle(faculty.getTitle());
+        payDetail.setLivingSubsidy(faculty.getLivingSubsidy());
+        payDetail.setReadingSubsidy(faculty.getReadingSubsidy());
+        payDetail.setTransportationSubsidy(faculty.getTransportationSubsidy());
+        payDetail.setWashingSubsidy(faculty.getWashingSubsidy());
+        payDetail.setQuotaHours(faculty.getQuotaHour());
+        //装填课时/工时数
+        payDetail.setHours(affairService.countHoursByFacultyIdAndMonth(payDetail.getFacultyId(), payDetail.getMonth()));
+        //装填本年度累计授课时数
+        facultyYearlyService.updateHours(
+                facultyYearlyService.selectFacultyYearlyByFacultyId(payDetail.getFacultyId()));
+        payDetail.setTotalHours(facultyYearlyService.selectFacultyYearlyByFacultyId(payDetail.getFacultyId()).getHour());
+        //装填上年度月平均工资
+        payDetail.setAvgPay(facultyYearlyService.selectFacultyYearlyByFacultyId(payDetail.getFacultyId()).getAvgPay());
+    }
+
+    /**
+     * 计算工资明细表
+     *
+     * @param payDetail 工资明细表
+     */
+    @Override
+    public void calculatePayDetail(PayDetail payDetail) {
+        fillPayDetail(payDetail);
+//        //计算课时/工时
+//        calculateHours(payDetail);
+        //计算（超额）课时费/岗位津贴
+        calculateAffairPay(payDetail);
+        //计算工资总额
+        calculateTotalPay(payDetail);
+        //计算个人所得税
+        calculateTax(payDetail);
+        //计算住房公积金
+        calculateHousing(payDetail);
+        //计算保险费
+        calculateInsurance(payDetail);
+        //计算实发工资
+        calculateNetPay(payDetail);
+        //更新工资明细表
+        updatePayDetail(payDetail);
     }
 
     /**
@@ -139,50 +175,25 @@ public class PayDetailServiceImpl implements IPayDetailService
      */
     @Override
     public void calculatePayDetail(List<PayDetail> list) {
-        fillPayDetail(list);
         for (PayDetail payDetail : list) {
-            //计算课时/工时
-            calculateHours(payDetail);
-            //计算总课时/工时
-            calculateTotalHours(payDetail);
-            //计算（超额）课时费/岗位津贴
-            calculateAffairPay(payDetail);
-            //计算工资总额
-            calculateTotalPay(payDetail);
-            //计算个人所得税
-            calculateTax(payDetail);
-            //计算住房公积金
-            calculateHousing(payDetail);
-            //计算保险费
-            calculateInsurance(payDetail);
-            //计算实发工资
-            calculateNetPay(payDetail);
-            //更新工资明细表
-            updatePayDetail(payDetail);
+            calculatePayDetail(payDetail);
         }
     }
 
-    /**
-     * 计算教职工课时/工时
-     *
-     * @param payDetail 工资明细表
-     */
-    @Override
-    public void calculateHours(PayDetail payDetail) {
-        List<Affair> affairList = affairService.selectAffairList(new Affair(payDetail.getFacultyId(),payDetail.getMonth()));
-        Float hours = 0F;
-        for (Affair affair : affairList) {
-            hours += affair.getHour();
-        }
-    }
-
-    /**
-     * 计算教职工总课时/工时
-     *
-     * @param payDetail 工资明细表
-     */
-    private void calculateTotalHours(PayDetail payDetail) {
-    }
+//    /**
+//     * 计算教职工课时/工时
+//     *
+//     * @param payDetail 工资明细表
+//     */
+//    @Override
+//    public void calculateHours(PayDetail payDetail) {
+//        List<Affair> affairList = affairService.selectAffairList(new Affair(payDetail.getFacultyId(),payDetail.getMonth()));
+//        Float hours = 0F;
+//        for (Affair affair : affairList) {
+//            hours += affair.getHour();
+//        }
+//        payDetail.setHours(hours);
+//    }
 
     /**
      * 计算教职工课时费及超额课时费及岗位津贴
@@ -199,9 +210,9 @@ public class PayDetailServiceImpl implements IPayDetailService
                     payDetail.getHours() * FinancialConstants.TEACHER_PAY_PER_HOUR *
                             titleService.selectTitleById(payDetail.getTitle()).getFactor());
             //计算教师超额课时费
-            if (payDetail.getMonth() == 12&& payDetail.getHours()>payDetail.getQuotaHours()) {
+            if (payDetail.getMonth() == 12&& payDetail.getTotalHours()>payDetail.getQuotaHours()) {
                 payDetail.setExtraTeacherPay(
-                        (payDetail.getHours() - payDetail.getQuotaHours()) * FinancialConstants.TEACHER_PAY_PER_HOUR *
+                        (payDetail.getTotalHours() - payDetail.getQuotaHours()) * FinancialConstants.TEACHER_PAY_PER_HOUR *
                                 titleService.selectTitleById(payDetail.getTitle()).getFactor()
                                 * FinancialConstants.EXTRA_TEACHER_PAY_FACTOR
                 );
@@ -224,7 +235,6 @@ public class PayDetailServiceImpl implements IPayDetailService
             payDetail.setTeacherPay(0F);
             payDetail.setExtraTeacherPay(0F);
         }
-
     }
 
     /**
@@ -252,6 +262,7 @@ public class PayDetailServiceImpl implements IPayDetailService
      *
      * @param payDetail 工资明细表
      */
+    @Override
     public void calculateTax(PayDetail payDetail) {
         //TODO:use Constants
         /*1、工资范围在1-5000元之间的，包括5000元，适用个人所得税税率为0%；
@@ -300,10 +311,13 @@ public class PayDetailServiceImpl implements IPayDetailService
      *
      * @param payDetail 工资明细表
      */
+    @Override
     public void calculateHousing(PayDetail payDetail) {
         /*职工住房公积金的月缴存额为职工本人上一年度月平均工资乘以职工住房公积金缴存比例。
         职工和单位住房公积金的缴存比例均不得低于职工上一年度月平均工资的5%。*/
-
+        payDetail.setHousing(
+                payDetail.getAvgPay() * FinancialConstants.HOUSING_FACTOR
+        );
     }
 
     /**
@@ -311,11 +325,11 @@ public class PayDetailServiceImpl implements IPayDetailService
      *
      * @param payDetail 工资明细表
      */
+    @Override
     public void calculateInsurance(PayDetail payDetail) {
-        //计算保险费
+        //计算保险费，暂同住房公积金//TODO:保险费计算
         payDetail.setInsurance(
-                payDetail.getTotalPay() *
-                        FinancialConstants.INSURANCE_FACTOR
+                payDetail.getAvgPay() * FinancialConstants.INSURANCE_FACTOR
         );
     }
 
@@ -325,7 +339,8 @@ public class PayDetailServiceImpl implements IPayDetailService
      *
      * @param payDetail 工资明细表
      */
-    private void calculateNetPay(PayDetail payDetail) {
+    @Override
+    public void calculateNetPay(PayDetail payDetail) {
         //实发工资：工资总额扣除个人所得税、住房公积金和保险费
         payDetail.setNetPay(
                 payDetail.getTotalPay()-

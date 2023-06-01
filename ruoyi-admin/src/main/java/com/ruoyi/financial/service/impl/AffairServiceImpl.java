@@ -1,6 +1,7 @@
 package com.ruoyi.financial.service.impl;
 
 import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.ruoyi.financial.mapper.AffairMapper;
@@ -112,6 +113,22 @@ public class AffairServiceImpl implements IAffairService
     @Override
     public int updateAffairNameByFacultyId(Long facultyId, String name) {
         return affairMapper.updateAffairNameByFacultyId(facultyId, name);
+    }
+
+    /**
+     * 根据facultyId和month计算课时/工时
+     *
+     * @param facultyId 教职工编号
+     * @return 结果
+     */
+    @Override
+    public Float countHoursByFacultyIdAndMonth(Long facultyId, Long month) {
+        Float hours = 0F;
+        List<Affair> affairList = selectAffairList(new Affair(facultyId,month));
+        for (Affair affair : affairList) {
+            hours += affair.getHour();
+        }
+        return hours;
     }
 
 //    @Override

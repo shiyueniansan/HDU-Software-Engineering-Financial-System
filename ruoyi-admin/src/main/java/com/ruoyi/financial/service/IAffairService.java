@@ -77,6 +77,14 @@ public interface IAffairService
      */
     public int updateAffairNameByFacultyId(Long facultyId, String name);
 
+    /**
+      * 根据facultyId和month计算课时/工时
+      *
+      * @param facultyId 教职工编号
+      * @return 结果
+      */
+    Float countHoursByFacultyIdAndMonth(Long facultyId, Long month);
+
 //    /**
 //     * 根据facultyId查找个人事务
 //     *

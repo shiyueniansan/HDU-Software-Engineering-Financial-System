@@ -2,7 +2,6 @@ package com.ruoyi.financial.service;
 
 import java.util.List;
 
-import com.ruoyi.financial.domain.Faculty;
 import com.ruoyi.financial.domain.PayDetail;
 
 /**
@@ -64,9 +63,16 @@ public interface IPayDetailService
     /**
      * 填充工资明细表
      *
-     * @param list 工资明细表集合
+     * @param payDetail 工资明细表
      */
-    void fillPayDetail(List<PayDetail> list);
+    public void fillPayDetail(PayDetail payDetail);
+
+    /**
+     * 计算工资明细表
+     *
+     * @param payDetail 工资明细表
+     */
+    public void calculatePayDetail(PayDetail payDetail);
 
     /**
      * 计算工资明细表
@@ -75,12 +81,12 @@ public interface IPayDetailService
      */
     public void calculatePayDetail(List<PayDetail> list);
 
-    /**
-     * 计算教职工课时/工时
-     *
-     * @param payDetail 工资明细表
-     */
-    void calculateHours(PayDetail payDetail);
+//    /**
+//     * 计算教职工课时/工时
+//     *
+//     * @param payDetail 工资明细表
+//     */
+//    void calculateHours(PayDetail payDetail);
 
     /**
      * 计算教职工工资
@@ -95,4 +101,32 @@ public interface IPayDetailService
      * @param payDetail 工资明细表
      */
     void calculateTotalPay(PayDetail payDetail);
+
+    /**
+     * 计算教职工个人所得税
+     *
+     * @param payDetail 工资明细表
+     */
+    void calculateTax(PayDetail payDetail);
+
+    /**
+     * 计算教职工住房公积金
+     *
+     * @param payDetail 工资明细表
+     */
+    void calculateHousing(PayDetail payDetail);
+
+    /**
+     * 计算教职工保险费
+     *
+     * @param payDetail 工资明细表
+     */
+    void calculateInsurance(PayDetail payDetail);
+
+    /**
+     * 计算教职工实发工资
+     *
+     * @param payDetail 工资明细表
+     */
+    void calculateNetPay(PayDetail payDetail);
 }

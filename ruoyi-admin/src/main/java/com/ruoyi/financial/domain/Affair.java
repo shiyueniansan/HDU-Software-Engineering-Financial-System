@@ -34,7 +34,7 @@ public class Affair extends BaseEntity
 
     /** 时长 */
     @Excel(name = "时长")
-    private Float hour;
+    private Float hour;//TODO:Hours
 
 //    //constructor with facultyId, name
 //    public Affair(Long facultyId, String name) {

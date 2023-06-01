@@ -43,6 +43,7 @@ public class PayController extends BaseController
     {
         startPage();
         List<Pay> list = payService.selectPayList(pay);
+        payService.calculatePay(list);
         return getDataTable(list);
     }
 
@@ -55,6 +56,7 @@ public class PayController extends BaseController
     public void export(HttpServletResponse response, Pay pay)
     {
         List<Pay> list = payService.selectPayList(pay);
+        payService.calculatePay(list);
         ExcelUtil<Pay> util = new ExcelUtil<Pay>(Pay.class);
         util.exportExcel(response, list, "工资表数据");
     }

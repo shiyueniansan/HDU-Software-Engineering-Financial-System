@@ -75,7 +75,7 @@ public class PayDetail extends BaseEntity
     /** 额定课时数 */
     private Float quotaHours;
 
-    /** 总课时数 */
+    /** 本年度累计授课时数 */
     private Float totalHours;
 
     /** 超额课时费（12月） */
@@ -95,7 +95,7 @@ public class PayDetail extends BaseEntity
 
     /** 住房公积金 */
     @Excel(name = "住房公积金")
-    private Float housing;
+    private Float housing;//TODO: housingFund
 
     /** 保险费 */
     @Excel(name = "保险费")

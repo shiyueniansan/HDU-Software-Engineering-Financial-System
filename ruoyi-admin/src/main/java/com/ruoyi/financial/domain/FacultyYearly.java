@@ -29,7 +29,7 @@ public class FacultyYearly extends BaseEntity
 
     /** 本年度累计授课时数 */
     @Excel(name = "本年度累计授课时数")
-    private Float hour;
+    private Float hour;//TODO:Hours
 
     /** 上年度月平均工资 */
     @Excel(name = "上年度月平均工资")

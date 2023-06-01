@@ -1,6 +1,9 @@
 package com.ruoyi.financial.service.impl;
 
 import java.util.List;
+
+import com.ruoyi.financial.domain.Affair;
+import com.ruoyi.financial.service.IAffairService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.ruoyi.financial.mapper.FacultyYearlyMapper;
@@ -9,19 +12,22 @@ import com.ruoyi.financial.service.IFacultyYearlyService;
 
 /**
  * 教职工年度Service业务层处理
- * 
+ *
  * @author Keven
  * @date 2023-05-31
  */
 @Service
-public class FacultyYearlyServiceImpl implements IFacultyYearlyService 
+public class FacultyYearlyServiceImpl implements IFacultyYearlyService
 {
     @Autowired
     private FacultyYearlyMapper facultyYearlyMapper;
 
+    @Autowired
+    private IAffairService affairService;
+
     /**
      * 查询教职工年度
-     * 
+     *
      * @param facultyId 教职工年度主键
      * @return 教职工年度
      */
@@ -33,7 +39,7 @@ public class FacultyYearlyServiceImpl implements IFacultyYearlyService
 
     /**
      * 查询教职工年度列表
-     * 
+     *
      * @param facultyYearly 教职工年度
      * @return 教职工年度
      */
@@ -45,7 +51,7 @@ public class FacultyYearlyServiceImpl implements IFacultyYearlyService
 
     /**
      * 新增教职工年度
-     * 
+     *
      * @param facultyYearly 教职工年度
      * @return 结果
      */
@@ -57,7 +63,7 @@ public class FacultyYearlyServiceImpl implements IFacultyYearlyService
 
     /**
      * 修改教职工年度
-     * 
+     *
      * @param facultyYearly 教职工年度
      * @return 结果
      */
@@ -69,7 +75,7 @@ public class FacultyYearlyServiceImpl implements IFacultyYearlyService
 
     /**
      * 批量删除教职工年度
-     * 
+     *
      * @param facultyIds 需要删除的教职工年度主键
      * @return 结果
      */
@@ -81,7 +87,7 @@ public class FacultyYearlyServiceImpl implements IFacultyYearlyService
 
     /**
      * 删除教职工年度信息
-     * 
+     *
      * @param facultyId 教职工年度主键
      * @return 结果
      */
@@ -89,5 +95,46 @@ public class FacultyYearlyServiceImpl implements IFacultyYearlyService
     public int deleteFacultyYearlyByFacultyId(Long facultyId)
     {
         return facultyYearlyMapper.deleteFacultyYearlyByFacultyId(facultyId);
+    }
+
+    /**
+     * 计算教职工教职工本年度累计授课时数
+     *
+     * @param facultyYearly 教职工年度
+     */
+    @Override
+    public void updateHours(FacultyYearly facultyYearly) {
+        Float hours = 0F;
+        for(long month = 1; month <= 12; month++){
+            hours+=affairService.countHoursByFacultyIdAndMonth(facultyYearly.getFacultyId(), month);
+        }
+        facultyYearly.setHour(hours);
+        updateFacultyYearly(facultyYearly);
+    }
+
+    /**
+     * 计算教职工教职工本年度累计授课时数
+     *
+     * @param list 教职工年度集合
+     */
+    @Override
+    public void updateHours(List<FacultyYearly> list) {
+        for (FacultyYearly facultyYearly : list) {
+            updateHours(facultyYearly);
+        }
+
+    }
+
+    /**
+     * 计算教职工本年度累计工资总额及实发工资
+     *
+     * @param list 教职工年度集合
+     */
+    @Override
+    public void updatePay(List<FacultyYearly> list) {
+        for (FacultyYearly facultyYearly : list) {
+//            facultyYearly.setFacultyYearlySalary(facultyYearly.getFacultyYearlyBasicSalary() + facultyYearly.getFacultyYearlyBonus() + facultyYearly.getFacultyYearlySubsidy() + facultyYearly.getFacultyYearlyAllowance() + facultyYearly.getFacultyYearlyOther());
+            updateFacultyYearly(facultyYearly);
+        }
     }
 }

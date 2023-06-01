@@ -47,6 +47,10 @@ public class FacultyYearlyController extends BaseController
     {
         startPage();
         List<FacultyYearly> list = facultyYearlyService.selectFacultyYearlyList(facultyYearly);
+        //计算本年度累计授课时数
+        facultyYearlyService.updateHours(list);
+        //计算本年度累计工资总额及实发工资
+        facultyYearlyService.updatePay(list);
         return getDataTable(list);
     }
 
@@ -59,6 +63,8 @@ public class FacultyYearlyController extends BaseController
     public void export(HttpServletResponse response, FacultyYearly facultyYearly)
     {
         List<FacultyYearly> list = facultyYearlyService.selectFacultyYearlyList(facultyYearly);
+        facultyYearlyService.updateHours(list);
+        facultyYearlyService.updatePay(list);
         ExcelUtil<FacultyYearly> util = new ExcelUtil<FacultyYearly>(FacultyYearly.class);
         util.exportExcel(response, list, "教职工年度数据");
     }

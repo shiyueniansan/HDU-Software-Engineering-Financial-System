@@ -56,7 +56,7 @@ public class Faculty extends BaseEntity
 
     /** 定额课时 */
     @Excel(name = "定额课时")
-    private Float quotaHour;
+    private Float quotaHour;//TODO:Hours
 
     public void setId(Long id)
     {
