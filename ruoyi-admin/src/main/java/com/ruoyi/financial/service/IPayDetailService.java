@@ -61,6 +61,14 @@ public interface IPayDetailService
     public int deletePayDetailByFacultyId(Long facultyId);
 
     /**
+     * 根据教师id和月份查询工资表
+     * @param facultyId
+     * @param month
+     * @return 工资明细表
+     */
+    public PayDetail selectPayDetailByFacultyIdAndMonth(Long facultyId, Long month);
+
+    /**
      * 填充工资明细表
      *
      * @param payDetail 工资明细表

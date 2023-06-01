@@ -112,6 +112,17 @@ public class PayDetailServiceImpl implements IPayDetailService
     }
 
     /**
+     * 根据教师id和月份查询工资表
+     * @param facultyId
+     * @param month
+     * @return 工资明细表
+     */
+    @Override
+    public PayDetail selectPayDetailByFacultyIdAndMonth(Long facultyId, Long month) {
+        return payDetailMapper.selectPayDetailByFacultyIdAndMonth(facultyId, month);
+    }
+
+    /**
      * 装填工资明细表
      *
      * @param payDetail 工资明细表

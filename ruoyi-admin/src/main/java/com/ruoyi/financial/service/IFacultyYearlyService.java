@@ -76,6 +76,13 @@ public interface IFacultyYearlyService
     /**
      * 计算教职工本年度累计工资总额及实发工资
      *
+     * @param facultyYearly 教职工年度
+     */
+    public void updatePay(FacultyYearly facultyYearly);
+
+    /**
+     * 计算教职工本年度累计工资总额及实发工资
+     *
      * @param list 教职工年度集合
      */
     public void updatePay(List<FacultyYearly> list);

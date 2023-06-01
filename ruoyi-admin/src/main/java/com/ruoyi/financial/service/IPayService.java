@@ -2,6 +2,7 @@ package com.ruoyi.financial.service;
 
 import java.util.List;
 import com.ruoyi.financial.domain.Pay;
+import com.ruoyi.financial.domain.PayDetail;
 
 /**
  * 工资表Service接口

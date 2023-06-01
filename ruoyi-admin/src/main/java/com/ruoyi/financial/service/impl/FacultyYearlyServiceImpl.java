@@ -3,7 +3,9 @@ package com.ruoyi.financial.service.impl;
 import java.util.List;
 
 import com.ruoyi.financial.domain.Affair;
+import com.ruoyi.financial.domain.PayDetail;
 import com.ruoyi.financial.service.IAffairService;
+import com.ruoyi.financial.service.IPayDetailService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.ruoyi.financial.mapper.FacultyYearlyMapper;
@@ -24,6 +26,9 @@ public class FacultyYearlyServiceImpl implements IFacultyYearlyService
 
     @Autowired
     private IAffairService affairService;
+
+    @Autowired
+    private IPayDetailService payDetailService;
 
     /**
      * 查询教职工年度
@@ -122,7 +127,26 @@ public class FacultyYearlyServiceImpl implements IFacultyYearlyService
         for (FacultyYearly facultyYearly : list) {
             updateHours(facultyYearly);
         }
+    }
 
+    /**
+     * 计算教职工本年度累计工资总额及实发工资
+     *
+     * @param facultyYearly 教职工年度
+     */
+    @Override
+    public void updatePay(FacultyYearly facultyYearly) {
+        Float totalPay = 0F;
+        Float netPay = 0F;
+        for(long month = 1; month <= 12; month++){
+            PayDetail payDetail = payDetailService.selectPayDetailByFacultyIdAndMonth(facultyYearly.getFacultyId(), month);
+            payDetailService.calculatePayDetail(payDetail);
+            totalPay += payDetail.getTotalPay();
+            netPay += payDetail.getNetPay();
+        }
+        facultyYearly.setTotalPay(totalPay);
+        facultyYearly.setNetPay(netPay);
+        updateFacultyYearly(facultyYearly);
     }
 
     /**
@@ -133,8 +157,7 @@ public class FacultyYearlyServiceImpl implements IFacultyYearlyService
     @Override
     public void updatePay(List<FacultyYearly> list) {
         for (FacultyYearly facultyYearly : list) {
-//            facultyYearly.setFacultyYearlySalary(facultyYearly.getFacultyYearlyBasicSalary() + facultyYearly.getFacultyYearlyBonus() + facultyYearly.getFacultyYearlySubsidy() + facultyYearly.getFacultyYearlyAllowance() + facultyYearly.getFacultyYearlyOther());
-            updateFacultyYearly(facultyYearly);
+            updatePay(facultyYearly);
         }
     }
 }

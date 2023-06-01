@@ -44,6 +44,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         where faculty_id = #{facultyId}
     </select>
 
+    <select id="selectPayDetailByFacultyIdAndMonth" parameterType="PayDetail" resultMap="PayDetailResult">
+        <include refid="selectPayDetailVo"/>
+        where faculty_id = #{facultyId} and month = #{month}
+    </select>
+
     <insert id="insertPayDetail" parameterType="PayDetail">
         insert into faculty_monthly
         <trim prefix="(" suffix=")" suffixOverrides=",">
