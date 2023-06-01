@@ -136,44 +136,202 @@ public class PayDetailServiceImpl implements IPayDetailService
      * 计算工资明细表
      *
      * @param list 工资明细表
-     * @return 结果
      */
     @Override
     public void calculatePayDetail(List<PayDetail> list) {
         fillPayDetail(list);
         for (PayDetail payDetail : list) {
-            List<Affair> affairList = affairService.selectAffairList(new Affair(payDetail.getFacultyId(),payDetail.getMonth()));
-            Float hours = 0F;
-            for (Affair affair : affairList) {
-                hours += affair.getHour();
-            }
-            if(payDetail.getType()==0)//教师
-            {
-                payDetail.setTeacherPay(
-                        hours * FinancialConstants.TEACHER_PAY_PER_HOUR *
-                                titleService.selectTitleById(payDetail.getTitle()).getFactor());
-                if (payDetail.getMonth() == 12&&hours>payDetail.getQuotaHours()) {
-                    payDetail.setExtraTeacherPay(
-                            (hours - payDetail.getQuotaHours()) * FinancialConstants.TEACHER_PAY_PER_HOUR *
-                                    titleService.selectTitleById(payDetail.getTitle()).getFactor()
-                                    * FinancialConstants.EXTRA_TEACHER_PAY_FACTOR
-                    );
-                }
-                else {
-                    payDetail.setExtraTeacherPay(0F);
-                }
-                payDetail.setStaffPay(0F);
-            }
-            else if(payDetail.getType()==1)//职工
-            {
-                payDetail.setStaffPay(
-                        hours* FinancialConstants.STAFF_PAY_PER_HOUR *
-                                jobService.selectJobById(payDetail.getJob()).getFactor()
-                );
-                payDetail.setTeacherPay(0F);
-                payDetail.setExtraTeacherPay(0F);
-            }
+            //计算课时/工时
+            calculateHours(payDetail);
+            //计算总课时/工时
+            calculateTotalHours(payDetail);
+            //计算（超额）课时费/岗位津贴
+            calculateAffairPay(payDetail);
+            //计算工资总额
+            calculateTotalPay(payDetail);
+            //计算个人所得税
+            calculateTax(payDetail);
+            //计算住房公积金
+            calculateHousing(payDetail);
+            //计算保险费
+            calculateInsurance(payDetail);
+            //计算实发工资
+            calculateNetPay(payDetail);
+            //更新工资明细表
             updatePayDetail(payDetail);
         }
+    }
+
+    /**
+     * 计算教职工课时/工时
+     *
+     * @param payDetail 工资明细表
+     */
+    @Override
+    public void calculateHours(PayDetail payDetail) {
+        List<Affair> affairList = affairService.selectAffairList(new Affair(payDetail.getFacultyId(),payDetail.getMonth()));
+        Float hours = 0F;
+        for (Affair affair : affairList) {
+            hours += affair.getHour();
+        }
+    }
+
+    /**
+     * 计算教职工总课时/工时
+     *
+     * @param payDetail 工资明细表
+     */
+    private void calculateTotalHours(PayDetail payDetail) {
+    }
+
+    /**
+     * 计算教职工课时费及超额课时费及岗位津贴
+     *
+     * @param payDetail 工资明细表
+     */
+    @Override
+    public void calculateAffairPay(PayDetail payDetail) {
+        //计算教师课时费及超额课时费及岗位津贴
+        if(payDetail.getType()==0)
+        {
+            //计算教师课时费
+            payDetail.setTeacherPay(
+                    payDetail.getHours() * FinancialConstants.TEACHER_PAY_PER_HOUR *
+                            titleService.selectTitleById(payDetail.getTitle()).getFactor());
+            //计算教师超额课时费
+            if (payDetail.getMonth() == 12&& payDetail.getHours()>payDetail.getQuotaHours()) {
+                payDetail.setExtraTeacherPay(
+                        (payDetail.getHours() - payDetail.getQuotaHours()) * FinancialConstants.TEACHER_PAY_PER_HOUR *
+                                titleService.selectTitleById(payDetail.getTitle()).getFactor()
+                                * FinancialConstants.EXTRA_TEACHER_PAY_FACTOR
+                );
+            }
+            else {
+                payDetail.setExtraTeacherPay(0F);
+            }
+            //教师岗位津贴为0
+            payDetail.setStaffPay(0F);
+        }
+        //计算职工岗位津贴及课时费及超额课时费
+        else if(payDetail.getType()==1)
+        {
+            //计算职工岗位津贴
+            payDetail.setStaffPay(
+                    payDetail.getHours()* FinancialConstants.STAFF_PAY_PER_HOUR *
+                            jobService.selectJobById(payDetail.getJob()).getFactor()
+            );
+            //职工课时费及超额课时费为0
+            payDetail.setTeacherPay(0F);
+            payDetail.setExtraTeacherPay(0F);
+        }
+
+    }
+
+    /**
+     * 计算教职工工资总额
+     *
+     * @param payDetail 工资明细表
+     */
+    @Override
+    public void calculateTotalPay(PayDetail payDetail) {
+        //工资总额：（基本工资、生活补贴、书报费、交通费、洗理费、课时费或岗位津贴）+超额课时费（12月）
+        payDetail.setTotalPay(
+                payDetail.getBasicPay()+
+                        payDetail.getLivingSubsidy()+
+                        payDetail.getReadingSubsidy()+
+                        payDetail.getTransportationSubsidy()+
+                        payDetail.getWashingSubsidy()+
+                        payDetail.getTeacherPay()+
+                        payDetail.getExtraTeacherPay()+
+                        payDetail.getStaffPay()
+        );
+    }
+
+    /**
+     * 计算教职工个人所得税
+     *
+     * @param payDetail 工资明细表
+     */
+    public void calculateTax(PayDetail payDetail) {
+        //TODO:use Constants
+        /*1、工资范围在1-5000元之间的，包括5000元，适用个人所得税税率为0%；
+        2、工资范围在5000-8000元之间的，包括8000元，适用个人所得税税率为3%；
+        3、工资范围在8000-17000元之间的，包括17000元，适用个人所得税税率为10%；
+        4、工资范围在17000-30000元之间的，包括30000元，适用个人所得税税率为20%；
+        5、工资范围在30000-40000元之间的，包括40000元，适用个人所得税税率为25%；
+        6、工资范围在40000-60000元之间的，包括60000元，适用个人所得税税率为30%；
+        7、工资范围在60000-85000元之间的，包括85000元，适用个人所得税税率为35%；
+        8、工资范围在85000元以上的，适用个人所得税税率为45%。*/
+        if (payDetail.getTotalPay() <= 5000) {
+            payDetail.setTax(0F);
+        } else if (payDetail.getTotalPay() > 5000 && payDetail.getTotalPay() <= 8000) {
+            payDetail.setTax(
+                    (payDetail.getTotalPay() - 5000) * 0.03F
+            );
+        } else if (payDetail.getTotalPay() > 8000 && payDetail.getTotalPay() <= 17000) {
+            payDetail.setTax(
+                    (payDetail.getTotalPay() - 8000) * 0.1F + 90F
+            );
+        } else if (payDetail.getTotalPay() > 17000 && payDetail.getTotalPay() <= 30000) {
+            payDetail.setTax
+                    ((payDetail.getTotalPay() - 17000) * 0.2F + 990F
+                    );
+        } else if (payDetail.getTotalPay() > 30000 && payDetail.getTotalPay() <= 40000) {
+            payDetail.setTax(
+                    (payDetail.getTotalPay() - 30000) * 0.25F + 3590F
+            );
+        } else if (payDetail.getTotalPay() > 40000 && payDetail.getTotalPay() <= 60000) {
+            payDetail.setTax(
+                    (payDetail.getTotalPay() - 40000) * 0.3F + 6090F
+            );
+        } else if (payDetail.getTotalPay() > 60000 && payDetail.getTotalPay() <= 85000) {
+            payDetail.setTax(
+                    (payDetail.getTotalPay() - 60000) * 0.35F + 12090F
+            );
+        } else if (payDetail.getTotalPay() > 85000) {
+            payDetail.setTax(
+                    (payDetail.getTotalPay() - 85000) * 0.45F + 20840F
+            );
+        }
+    }
+
+    /**
+     * 计算教职工住房公积金
+     *
+     * @param payDetail 工资明细表
+     */
+    public void calculateHousing(PayDetail payDetail) {
+        /*职工住房公积金的月缴存额为职工本人上一年度月平均工资乘以职工住房公积金缴存比例。
+        职工和单位住房公积金的缴存比例均不得低于职工上一年度月平均工资的5%。*/
+
+    }
+
+    /**
+     * 计算教职工保险费
+     *
+     * @param payDetail 工资明细表
+     */
+    public void calculateInsurance(PayDetail payDetail) {
+        //计算保险费
+        payDetail.setInsurance(
+                payDetail.getTotalPay() *
+                        FinancialConstants.INSURANCE_FACTOR
+        );
+    }
+
+
+    /**
+     * 计算教职工实发工资
+     *
+     * @param payDetail 工资明细表
+     */
+    private void calculateNetPay(PayDetail payDetail) {
+        //实发工资：工资总额扣除个人所得税、住房公积金和保险费
+        payDetail.setNetPay(
+                payDetail.getTotalPay()-
+                        payDetail.getTax()-
+                        payDetail.getHousing()-
+                        payDetail.getInsurance()
+        );
     }
 }

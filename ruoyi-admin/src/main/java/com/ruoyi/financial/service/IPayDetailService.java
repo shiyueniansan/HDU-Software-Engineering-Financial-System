@@ -74,4 +74,25 @@ public interface IPayDetailService
      * @param list 工资明细表集合
      */
     public void calculatePayDetail(List<PayDetail> list);
+
+    /**
+     * 计算教职工课时/工时
+     *
+     * @param payDetail 工资明细表
+     */
+    void calculateHours(PayDetail payDetail);
+
+    /**
+     * 计算教职工工资
+     *
+     * @param payDetail 工资明细表
+     */
+    void calculateAffairPay(PayDetail payDetail);
+
+    /**
+     * 计算教职工工资总额
+     *
+     * @param payDetail 工资明细表
+     */
+    void calculateTotalPay(PayDetail payDetail);
 }

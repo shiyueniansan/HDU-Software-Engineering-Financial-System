@@ -75,6 +75,9 @@ public class PayDetail extends BaseEntity
     /** 额定课时数 */
     private Float quotaHours;
 
+    /** 总课时数 */
+    private Float totalHours;
+
     /** 超额课时费（12月） */
     @Excel(name = "超额课时费")
     private Float extraTeacherPay;
@@ -86,6 +89,9 @@ public class PayDetail extends BaseEntity
     /** 个人所得税 */
     @Excel(name = "个人所得税")
     private Float tax;
+
+    /** 上一年度月平均工资 */
+    private Float AvgPay;
 
     /** 住房公积金 */
     @Excel(name = "住房公积金")
@@ -269,6 +275,14 @@ public class PayDetail extends BaseEntity
     {
         return quotaHours;
     }
+    public void setTotalHours(Float totalHours)
+    {
+        this.totalHours = totalHours;
+    }
+    public Float getTotalHours()
+    {
+        return totalHours;
+    }
     public void setExtraTeacherPay(Float extraTeacherPay)
     {
         this.extraTeacherPay = extraTeacherPay;
@@ -296,6 +310,15 @@ public class PayDetail extends BaseEntity
     {
         return tax;
     }
+    public void setAvgPay(Float AvgPay)
+    {
+        this.AvgPay = AvgPay;
+    }
+    public Float getAvgPay()
+    {
+        return AvgPay;
+    }
+
     public void setHousing(Float housing)
     {
         this.housing = housing;
