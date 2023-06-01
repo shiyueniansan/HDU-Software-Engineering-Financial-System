@@ -109,7 +109,7 @@
       <el-table-column label="本年度累计授课时数" align="center" prop="hour" />
       <el-table-column label="上年度月平均工资" align="center" prop="avgPay" />
       <el-table-column label="本年度累计实发工资" align="center" prop="netPay" />
-      <el-table-column label="操作" align="center" class-name="small-padding fixed-width">
+<!--      <el-table-column label="操作" align="center" class-name="small-padding fixed-width">
         <template slot-scope="scope">
           <el-button
             size="mini"
@@ -126,9 +126,9 @@
             v-hasPermi="['financial:yearly:remove']"
           >删除</el-button>
         </template>
-      </el-table-column>
+      </el-table-column>-->
     </el-table>
-    
+
     <pagination
       v-show="total>0"
       :total="total"
@@ -137,7 +137,7 @@
       @pagination="getList"
     />
 
-    <!-- 添加或修改教职工年度对话框 -->
+<!--    &lt;!&ndash; 添加或修改教职工年度对话框 &ndash;&gt;
     <el-dialog :title="title" :visible.sync="open" width="500px" append-to-body>
       <el-form ref="form" :model="form" :rules="rules" label-width="80px">
       </el-form>
@@ -145,7 +145,7 @@
         <el-button type="primary" @click="submitForm">确 定</el-button>
         <el-button @click="cancel">取 消</el-button>
       </div>
-    </el-dialog>
+    </el-dialog>-->
   </div>
 </template>
 
