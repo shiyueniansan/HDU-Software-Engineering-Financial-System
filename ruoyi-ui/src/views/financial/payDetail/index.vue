@@ -51,7 +51,7 @@
 
     <el-table v-loading="loading" :data="payDetailList" @selection-change="handleSelectionChange">
       <el-table-column type="selection" width="55" align="center" />
-      <el-table-column label="教职工编号" align="center" prop="facultyId" />
+      <el-table-column label="教职工编号" width="85" align="center" prop="facultyId" />
       <el-table-column label="姓名" align="center" prop="name" />
       <el-table-column label="月份" align="center" prop="month" />
       <el-table-column label="基本工资" align="center" prop="basicPay" />
@@ -71,10 +71,10 @@
       <el-table-column label="洗理费" align="center" prop="washingSubsidy" />
       <el-table-column label="课时费" align="center" prop="teacherPay" />
       <el-table-column label="岗位津贴" align="center" prop="staffPay" />
-      <el-table-column label="超额课时费" align="center" prop="extraTeacherPay" />
+      <el-table-column label="超额课时费" width="85" align="center" prop="extraTeacherPay" />
       <el-table-column label="工资总额" align="center" prop="totalPay" />
-      <el-table-column label="个人所得税" align="center" prop="tax" />
-      <el-table-column label="住房公积金" align="center" prop="housing" />
+      <el-table-column label="个人所得税" width="85" align="center" prop="tax" />
+      <el-table-column label="住房公积金" width="85" align="center" prop="housing" />
       <el-table-column label="保险费" align="center" prop="insurance" />
       <el-table-column label="实发工资" align="center" prop="netPay" />
       <!--      <el-table-column label="操作" align="center" class-name="small-padding fixed-width">
