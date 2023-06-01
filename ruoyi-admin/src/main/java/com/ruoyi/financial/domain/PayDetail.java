@@ -116,6 +116,12 @@ public class PayDetail extends BaseEntity
     public PayDetail() {
     }
 
+    //constructor with facultyId and month
+    public PayDetail(Long facultyId, Long month) {
+        this.facultyId = facultyId;
+        this.month = month;
+    }
+
     //constructor with faculty and month
     public PayDetail(Faculty faculty, Long month) {
         this.facultyId = faculty.getId();

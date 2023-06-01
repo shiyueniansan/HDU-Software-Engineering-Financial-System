@@ -104,8 +104,8 @@ public class PayServiceImpl implements IPayService
      */
     @Override
     public void calculatePay(Pay pay) {
-
-        updatePay(pay);
+        payDetailService.calculatePayDetail(
+                payDetailService.selectPayDetailByFacultyIdAndMonth(pay.getFacultyId(), pay.getMonth()));
     }
 
     /**
