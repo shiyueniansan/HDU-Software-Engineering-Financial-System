@@ -131,6 +131,12 @@ public class AffairServiceImpl implements IAffairService
         return hours;
     }
 
+//    /**
+//     * 根据facultyId查找个人事务
+//     *
+//     * @param facultyId 教职工编号
+//     * @return 结果
+//     */
 //    @Override
 //    public List<Affair> selectAffairListByFacultyId(Long facultyId) {
 //        return affairMapper.selectAffairListByFacultyId(facultyId);

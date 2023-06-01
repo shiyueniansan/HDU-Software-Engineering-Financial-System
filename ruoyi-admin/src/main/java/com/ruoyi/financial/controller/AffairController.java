@@ -2,6 +2,8 @@ package com.ruoyi.financial.controller;
 
 import java.util.List;
 import javax.servlet.http.HttpServletResponse;
+
+import com.ruoyi.financial.service.IFacultyService;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -23,7 +25,7 @@ import com.ruoyi.common.core.page.TableDataInfo;
 
 /**
  * 个人事务Controller
- * 
+ *
  * @author Keven
  * @date 2023-05-31
  */
@@ -34,6 +36,9 @@ public class AffairController extends BaseController
     @Autowired
     private IAffairService affairService;
 
+    @Autowired
+    private IFacultyService facultyService;
+
     /**
      * 查询个人事务列表
      */
@@ -42,6 +47,7 @@ public class AffairController extends BaseController
     public TableDataInfo list(Affair affair)
     {
         startPage();
+        affair.setFacultyId(getLoginUser().getUser().getFacultyId());
         List<Affair> list = affairService.selectAffairList(affair);
         return getDataTable(list);
     }
@@ -54,6 +60,7 @@ public class AffairController extends BaseController
     @PostMapping("/export")
     public void export(HttpServletResponse response, Affair affair)
     {
+        affair.setFacultyId(getLoginUser().getUser().getFacultyId());
         List<Affair> list = affairService.selectAffairList(affair);
         ExcelUtil<Affair> util = new ExcelUtil<Affair>(Affair.class);
         util.exportExcel(response, list, "个人事务数据");
@@ -66,7 +73,12 @@ public class AffairController extends BaseController
     @GetMapping(value = "/{id}")
     public AjaxResult getInfo(@PathVariable("id") Long id)
     {
-        return success(affairService.selectAffairById(id));
+        Affair affair=affairService.selectAffairById(id);
+        if( affair.getFacultyId() != getLoginUser().getUser().getFacultyId() )
+        {
+            affair = null;
+        }
+        return success(affair);
     }
 
     /**
@@ -77,6 +89,8 @@ public class AffairController extends BaseController
     @PostMapping
     public AjaxResult add(@RequestBody Affair affair)
     {
+        affair.setFacultyId(getLoginUser().getUser().getFacultyId());
+        affair.setName(facultyService.selectFacultyById(affair.getFacultyId()).getName());
         return toAjax(affairService.insertAffair(affair));
     }
 
@@ -88,6 +102,8 @@ public class AffairController extends BaseController
     @PutMapping
     public AjaxResult edit(@RequestBody Affair affair)
     {
+        affair.setFacultyId(getLoginUser().getUser().getFacultyId());
+        affair.setName(facultyService.selectFacultyById(affair.getFacultyId()).getName());
         return toAjax(affairService.updateAffair(affair));
     }
 
@@ -99,6 +115,14 @@ public class AffairController extends BaseController
 	@DeleteMapping("/{ids}")
     public AjaxResult remove(@PathVariable Long[] ids)
     {
+        for( Long id : ids )
+        {
+            Affair affair = affairService.selectAffairById(id);
+            if( affair.getFacultyId() != getLoginUser().getUser().getFacultyId() )
+            {
+                return error("无权限删除");
+            }
+        }
         return toAjax(affairService.deleteAffairByIds(ids));
     }
 }

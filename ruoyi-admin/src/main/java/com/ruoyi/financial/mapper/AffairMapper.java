@@ -77,5 +77,11 @@ public interface AffairMapper
      */
     public int updateAffairNameByFacultyId(@Param("facultyId") Long facultyId, @Param("name") String name);
 
-//    List<Affair> selectAffairListByFacultyId(Long facultyId);
+//    /**
+//     * 根据facultyId查找个人事务
+//     *
+//     * @param facultyId 教职工编号
+//     * @return 结果
+//     */
+//    public List<Affair> selectAffairListByFacultyId(Long facultyId);
 }
