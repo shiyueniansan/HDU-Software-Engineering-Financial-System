@@ -19,9 +19,11 @@ public class Affair extends BaseEntity
     private Long id;
 
     /** 教职工编号 */
+    @Excel(name = "教职工编号")
     private Long facultyId;
 
     /** 姓名 */
+    @Excel(name = "姓名")
     private String name;
 
     /** 月份 */

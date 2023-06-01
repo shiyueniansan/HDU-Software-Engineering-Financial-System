@@ -135,9 +135,6 @@
         <el-form-item label="教职工编号" prop="facultyId">
           <el-input v-model="form.facultyId" placeholder="请输入教职工编号" />
         </el-form-item>
-        <el-form-item label="姓名" prop="name">
-          <el-input v-model="form.name" placeholder="请输入姓名" />
-        </el-form-item>
         <el-form-item label="月份" prop="month">
           <el-input v-model="form.month" placeholder="请输入月份" />
         </el-form-item>
@@ -197,9 +194,6 @@ export default {
       rules: {
         facultyId: [
           { required: true, message: "教职工编号不能为空", trigger: "blur" }
-        ],
-        name: [
-          { required: true, message: "姓名不能为空", trigger: "blur" }
         ],
         month: [
           { required: true, message: "月份不能为空", trigger: "blur" }

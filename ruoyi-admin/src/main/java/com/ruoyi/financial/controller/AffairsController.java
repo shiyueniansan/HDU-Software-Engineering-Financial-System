@@ -36,6 +36,9 @@ public class AffairsController extends BaseController
     @Autowired
     private IAffairService affairService;
 
+    @Autowired
+    private IFacultyService facultyService;
+
 //    @Autowired
 //    private IFacultyService facultyService;
 //
@@ -94,6 +97,7 @@ public class AffairsController extends BaseController
     @PostMapping
     public AjaxResult add(@RequestBody Affair affair)
     {
+        affair.setName(facultyService.selectFacultyById(affair.getFacultyId()).getName());
         return toAjax(affairService.insertAffair(affair));
     }
 
@@ -105,6 +109,7 @@ public class AffairsController extends BaseController
     @PutMapping
     public AjaxResult edit(@RequestBody Affair affair)
     {
+        affair.setName(facultyService.selectFacultyById(affair.getFacultyId()).getName());
         return toAjax(affairService.updateAffair(affair));
     }
 
