@@ -1,53 +1,23 @@
 <template>
   <div class="app-container">
-    <el-form :model="queryParams" ref="queryForm" size="small" :inline="true" v-show="showSearch" label-width="68px">
+    <el-form :model="queryParams" ref="queryForm" size="small" :inline="true" v-show="showSearch" label-width="140px">
       <el-form-item label="教职工编号" prop="facultyId">
-        <el-input
-          v-model="queryParams.facultyId"
-          placeholder="请输入教职工编号"
-          clearable
-          @keyup.enter.native="handleQuery"
-        />
+        <el-input v-model="queryParams.facultyId" placeholder="请输入教职工编号" clearable @keyup.enter.native="handleQuery" />
       </el-form-item>
       <el-form-item label="姓名" prop="name">
-        <el-input
-          v-model="queryParams.name"
-          placeholder="请输入姓名"
-          clearable
-          @keyup.enter.native="handleQuery"
-        />
+        <el-input v-model="queryParams.name" placeholder="请输入姓名" clearable @keyup.enter.native="handleQuery" />
       </el-form-item>
       <el-form-item label="本年度累计工资总额" prop="totalPay">
-        <el-input
-          v-model="queryParams.totalPay"
-          placeholder="请输入本年度累计工资总额"
-          clearable
-          @keyup.enter.native="handleQuery"
-        />
+        <el-input v-model="queryParams.totalPay" placeholder="请输入本年度累计工资总额" clearable @keyup.enter.native="handleQuery" />
       </el-form-item>
       <el-form-item label="本年度累计授课时数" prop="hour">
-        <el-input
-          v-model="queryParams.hour"
-          placeholder="请输入本年度累计授课时数"
-          clearable
-          @keyup.enter.native="handleQuery"
-        />
+        <el-input v-model="queryParams.hour" placeholder="请输入本年度累计授课时数" clearable @keyup.enter.native="handleQuery" />
       </el-form-item>
       <el-form-item label="上年度月平均工资" prop="avgPay">
-        <el-input
-          v-model="queryParams.avgPay"
-          placeholder="请输入上年度月平均工资"
-          clearable
-          @keyup.enter.native="handleQuery"
-        />
+        <el-input v-model="queryParams.avgPay" placeholder="请输入上年度月平均工资" clearable @keyup.enter.native="handleQuery" />
       </el-form-item>
       <el-form-item label="本年度累计实发工资" prop="netPay">
-        <el-input
-          v-model="queryParams.netPay"
-          placeholder="请输入本年度累计实发工资"
-          clearable
-          @keyup.enter.native="handleQuery"
-        />
+        <el-input v-model="queryParams.netPay" placeholder="请输入本年度累计实发工资" clearable @keyup.enter.native="handleQuery" />
       </el-form-item>
       <el-form-item>
         <el-button type="primary" icon="el-icon-search" size="mini" @click="handleQuery">搜索</el-button>
@@ -57,46 +27,20 @@
 
     <el-row :gutter="10" class="mb8">
       <el-col :span="1.5">
-        <el-button
-          type="primary"
-          plain
-          icon="el-icon-plus"
-          size="mini"
-          @click="handleAdd"
-          v-hasPermi="['financial:yearly:add']"
-        >新增</el-button>
+        <el-button type="primary" plain icon="el-icon-plus" size="mini" @click="handleAdd"
+          v-hasPermi="['financial:yearly:add']">新增</el-button>
       </el-col>
       <el-col :span="1.5">
-        <el-button
-          type="success"
-          plain
-          icon="el-icon-edit"
-          size="mini"
-          :disabled="single"
-          @click="handleUpdate"
-          v-hasPermi="['financial:yearly:edit']"
-        >修改</el-button>
+        <el-button type="success" plain icon="el-icon-edit" size="mini" :disabled="single" @click="handleUpdate"
+          v-hasPermi="['financial:yearly:edit']">修改</el-button>
       </el-col>
       <el-col :span="1.5">
-        <el-button
-          type="danger"
-          plain
-          icon="el-icon-delete"
-          size="mini"
-          :disabled="multiple"
-          @click="handleDelete"
-          v-hasPermi="['financial:yearly:remove']"
-        >删除</el-button>
+        <el-button type="danger" plain icon="el-icon-delete" size="mini" :disabled="multiple" @click="handleDelete"
+          v-hasPermi="['financial:yearly:remove']">删除</el-button>
       </el-col>
       <el-col :span="1.5">
-        <el-button
-          type="warning"
-          plain
-          icon="el-icon-download"
-          size="mini"
-          @click="handleExport"
-          v-hasPermi="['financial:yearly:export']"
-        >导出</el-button>
+        <el-button type="warning" plain icon="el-icon-download" size="mini" @click="handleExport"
+          v-hasPermi="['financial:yearly:export']">导出</el-button>
       </el-col>
       <right-toolbar :showSearch.sync="showSearch" @queryTable="getList"></right-toolbar>
     </el-row>
@@ -109,7 +53,7 @@
       <el-table-column label="本年度累计授课时数" align="center" prop="hour" />
       <el-table-column label="上年度月平均工资" align="center" prop="avgPay" />
       <el-table-column label="本年度累计实发工资" align="center" prop="netPay" />
-<!--      <el-table-column label="操作" align="center" class-name="small-padding fixed-width">
+      <!--      <el-table-column label="操作" align="center" class-name="small-padding fixed-width">
         <template slot-scope="scope">
           <el-button
             size="mini"
@@ -129,15 +73,10 @@
       </el-table-column>-->
     </el-table>
 
-    <pagination
-      v-show="total>0"
-      :total="total"
-      :page.sync="queryParams.pageNum"
-      :limit.sync="queryParams.pageSize"
-      @pagination="getList"
-    />
+    <pagination v-show="total > 0" :total="total" :page.sync="queryParams.pageNum" :limit.sync="queryParams.pageSize"
+      @pagination="getList" />
 
-<!--    &lt;!&ndash; 添加或修改教职工年度对话框 &ndash;&gt;
+    <!--    &lt;!&ndash; 添加或修改教职工年度对话框 &ndash;&gt;
     <el-dialog :title="title" :visible.sync="open" width="500px" append-to-body>
       <el-form ref="form" :model="form" :rules="rules" label-width="80px">
       </el-form>
@@ -235,7 +174,7 @@ export default {
     // 多选框选中数据
     handleSelectionChange(selection) {
       this.ids = selection.map(item => item.facultyId)
-      this.single = selection.length!==1
+      this.single = selection.length !== 1
       this.multiple = !selection.length
     },
     /** 新增按钮操作 */
@@ -277,12 +216,12 @@ export default {
     /** 删除按钮操作 */
     handleDelete(row) {
       const facultyIds = row.facultyId || this.ids;
-      this.$modal.confirm('是否确认删除教职工年度编号为"' + facultyIds + '"的数据项？').then(function() {
+      this.$modal.confirm('是否确认删除教职工年度编号为"' + facultyIds + '"的数据项？').then(function () {
         return delYearly(facultyIds);
       }).then(() => {
         this.getList();
         this.$modal.msgSuccess("删除成功");
-      }).catch(() => {});
+      }).catch(() => { });
     },
     /** 导出按钮操作 */
     handleExport() {

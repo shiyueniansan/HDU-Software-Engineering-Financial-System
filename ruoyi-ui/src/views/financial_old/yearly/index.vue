@@ -1,17 +1,53 @@
 <template>
   <div class="app-container">
-    <el-form :model="queryParams" ref="queryForm" size="small" :inline="true" v-show="showSearch" label-width="85px">
+    <el-form :model="queryParams" ref="queryForm" size="small" :inline="true" v-show="showSearch" label-width="68px">
       <el-form-item label="教职工编号" prop="facultyId">
-        <el-input v-model="queryParams.facultyId" placeholder="请输入教职工编号" clearable @keyup.enter.native="handleQuery" />
+        <el-input
+          v-model="queryParams.facultyId"
+          placeholder="请输入教职工编号"
+          clearable
+          @keyup.enter.native="handleQuery"
+        />
       </el-form-item>
       <el-form-item label="姓名" prop="name">
-        <el-input v-model="queryParams.name" placeholder="请输入姓名" clearable @keyup.enter.native="handleQuery" />
+        <el-input
+          v-model="queryParams.name"
+          placeholder="请输入姓名"
+          clearable
+          @keyup.enter.native="handleQuery"
+        />
       </el-form-item>
-      <el-form-item label="月份" prop="month">
-        <el-input v-model="queryParams.month" placeholder="请输入月份" clearable @keyup.enter.native="handleQuery" />
+      <el-form-item label="本年度累计工资总额" prop="totalPay">
+        <el-input
+          v-model="queryParams.totalPay"
+          placeholder="请输入本年度累计工资总额"
+          clearable
+          @keyup.enter.native="handleQuery"
+        />
       </el-form-item>
-      <el-form-item label="实发工资" prop="netPay">
-        <el-input v-model="queryParams.netPay" placeholder="请输入实发工资" clearable @keyup.enter.native="handleQuery" />
+      <el-form-item label="本年度累计授课时数" prop="hour">
+        <el-input
+          v-model="queryParams.hour"
+          placeholder="请输入本年度累计授课时数"
+          clearable
+          @keyup.enter.native="handleQuery"
+        />
+      </el-form-item>
+      <el-form-item label="上年度月平均工资" prop="avgPay">
+        <el-input
+          v-model="queryParams.avgPay"
+          placeholder="请输入上年度月平均工资"
+          clearable
+          @keyup.enter.native="handleQuery"
+        />
+      </el-form-item>
+      <el-form-item label="本年度累计实发工资" prop="netPay">
+        <el-input
+          v-model="queryParams.netPay"
+          placeholder="请输入本年度累计实发工资"
+          clearable
+          @keyup.enter.native="handleQuery"
+        />
       </el-form-item>
       <el-form-item>
         <el-button type="primary" icon="el-icon-search" size="mini" @click="handleQuery">搜索</el-button>
@@ -21,54 +57,87 @@
 
     <el-row :gutter="10" class="mb8">
       <el-col :span="1.5">
-        <el-button type="primary" plain icon="el-icon-plus" size="mini" @click="handleAdd"
-          v-hasPermi="['financial:pay:add']">新增</el-button>
+        <el-button
+          type="primary"
+          plain
+          icon="el-icon-plus"
+          size="mini"
+          @click="handleAdd"
+          v-hasPermi="['financial:yearly:add']"
+        >新增</el-button>
       </el-col>
       <el-col :span="1.5">
-        <el-button type="success" plain icon="el-icon-edit" size="mini" :disabled="single" @click="handleUpdate"
-          v-hasPermi="['financial:pay:edit']">修改</el-button>
+        <el-button
+          type="success"
+          plain
+          icon="el-icon-edit"
+          size="mini"
+          :disabled="single"
+          @click="handleUpdate"
+          v-hasPermi="['financial:yearly:edit']"
+        >修改</el-button>
       </el-col>
       <el-col :span="1.5">
-        <el-button type="danger" plain icon="el-icon-delete" size="mini" :disabled="multiple" @click="handleDelete"
-          v-hasPermi="['financial:pay:remove']">删除</el-button>
+        <el-button
+          type="danger"
+          plain
+          icon="el-icon-delete"
+          size="mini"
+          :disabled="multiple"
+          @click="handleDelete"
+          v-hasPermi="['financial:yearly:remove']"
+        >删除</el-button>
       </el-col>
       <el-col :span="1.5">
-        <el-button type="warning" plain icon="el-icon-download" size="mini" @click="handleExport"
-          v-hasPermi="['financial:pay:export']">导出</el-button>
+        <el-button
+          type="warning"
+          plain
+          icon="el-icon-download"
+          size="mini"
+          @click="handleExport"
+          v-hasPermi="['financial:yearly:export']"
+        >导出</el-button>
       </el-col>
       <right-toolbar :showSearch.sync="showSearch" @queryTable="getList"></right-toolbar>
     </el-row>
 
-    <el-table v-loading="loading" :data="payList" @selection-change="handleSelectionChange">
+    <el-table v-loading="loading" :data="yearlyList" @selection-change="handleSelectionChange">
       <el-table-column type="selection" width="55" align="center" />
       <el-table-column label="教职工编号" align="center" prop="facultyId" />
       <el-table-column label="姓名" align="center" prop="name" />
-      <el-table-column label="月份" align="center" prop="month" />
-      <el-table-column label="实发工资" align="center" prop="netPay" />
-      <!--      <el-table-column label="操作" align="center" class-name="small-padding fixed-width">
+      <el-table-column label="本年度累计工资总额" align="center" prop="totalPay" />
+      <el-table-column label="本年度累计授课时数" align="center" prop="hour" />
+      <el-table-column label="上年度月平均工资" align="center" prop="avgPay" />
+      <el-table-column label="本年度累计实发工资" align="center" prop="netPay" />
+<!--      <el-table-column label="操作" align="center" class-name="small-padding fixed-width">
         <template slot-scope="scope">
           <el-button
             size="mini"
             type="text"
             icon="el-icon-edit"
             @click="handleUpdate(scope.row)"
-            v-hasPermi="['financial:pay:edit']"
+            v-hasPermi="['financial:yearly:edit']"
           >修改</el-button>
           <el-button
             size="mini"
             type="text"
             icon="el-icon-delete"
             @click="handleDelete(scope.row)"
-            v-hasPermi="['financial:pay:remove']"
+            v-hasPermi="['financial:yearly:remove']"
           >删除</el-button>
         </template>
       </el-table-column>-->
     </el-table>
 
-    <pagination v-show="total > 0" :total="total" :page.sync="queryParams.pageNum" :limit.sync="queryParams.pageSize"
-      @pagination="getList" />
+    <pagination
+      v-show="total>0"
+      :total="total"
+      :page.sync="queryParams.pageNum"
+      :limit.sync="queryParams.pageSize"
+      @pagination="getList"
+    />
 
-    <!--    &lt;!&ndash; 添加或修改工资表对话框 &ndash;&gt;
+<!--    &lt;!&ndash; 添加或修改教职工年度对话框 &ndash;&gt;
     <el-dialog :title="title" :visible.sync="open" width="500px" append-to-body>
       <el-form ref="form" :model="form" :rules="rules" label-width="80px">
       </el-form>
@@ -81,10 +150,10 @@
 </template>
 
 <script>
-import { listPay, getPay, delPay, addPay, updatePay } from "@/api/financial/pay";
+import { listYearly, getYearly, delYearly, addYearly, updateYearly } from "@/api/financial/yearly";
 
 export default {
-  name: "Pay",
+  name: "Yearly",
   data() {
     return {
       // 遮罩层
@@ -99,8 +168,8 @@ export default {
       showSearch: true,
       // 总条数
       total: 0,
-      // 工资表表格数据
-      payList: [],
+      // 教职工年度表格数据
+      yearlyList: [],
       // 弹出层标题
       title: "",
       // 是否显示弹出层
@@ -111,7 +180,9 @@ export default {
         pageSize: 10,
         facultyId: null,
         name: null,
-        month: null,
+        totalPay: null,
+        hour: null,
+        avgPay: null,
         netPay: null
       },
       // 表单参数
@@ -125,11 +196,11 @@ export default {
     this.getList();
   },
   methods: {
-    /** 查询工资表列表 */
+    /** 查询教职工年度列表 */
     getList() {
       this.loading = true;
-      listPay(this.queryParams).then(response => {
-        this.payList = response.rows;
+      listYearly(this.queryParams).then(response => {
+        this.yearlyList = response.rows;
         this.total = response.total;
         this.loading = false;
       });
@@ -144,7 +215,9 @@ export default {
       this.form = {
         facultyId: null,
         name: null,
-        month: null,
+        totalPay: null,
+        hour: null,
+        avgPay: null,
         netPay: null
       };
       this.resetForm("form");
@@ -162,23 +235,23 @@ export default {
     // 多选框选中数据
     handleSelectionChange(selection) {
       this.ids = selection.map(item => item.facultyId)
-      this.single = selection.length !== 1
+      this.single = selection.length!==1
       this.multiple = !selection.length
     },
     /** 新增按钮操作 */
     handleAdd() {
       this.reset();
       this.open = true;
-      this.title = "添加工资表";
+      this.title = "添加教职工年度";
     },
     /** 修改按钮操作 */
     handleUpdate(row) {
       this.reset();
       const facultyId = row.facultyId || this.ids
-      getPay(facultyId).then(response => {
+      getYearly(facultyId).then(response => {
         this.form = response.data;
         this.open = true;
-        this.title = "修改工资表";
+        this.title = "修改教职工年度";
       });
     },
     /** 提交按钮 */
@@ -186,13 +259,13 @@ export default {
       this.$refs["form"].validate(valid => {
         if (valid) {
           if (this.form.facultyId != null) {
-            updatePay(this.form).then(response => {
+            updateYearly(this.form).then(response => {
               this.$modal.msgSuccess("修改成功");
               this.open = false;
               this.getList();
             });
           } else {
-            addPay(this.form).then(response => {
+            addYearly(this.form).then(response => {
               this.$modal.msgSuccess("新增成功");
               this.open = false;
               this.getList();
@@ -204,18 +277,18 @@ export default {
     /** 删除按钮操作 */
     handleDelete(row) {
       const facultyIds = row.facultyId || this.ids;
-      this.$modal.confirm('是否确认删除工资表编号为"' + facultyIds + '"的数据项？').then(function () {
-        return delPay(facultyIds);
+      this.$modal.confirm('是否确认删除教职工年度编号为"' + facultyIds + '"的数据项？').then(function() {
+        return delYearly(facultyIds);
       }).then(() => {
         this.getList();
         this.$modal.msgSuccess("删除成功");
-      }).catch(() => { });
+      }).catch(() => {});
     },
     /** 导出按钮操作 */
     handleExport() {
-      this.download('financial/pay/export', {
+      this.download('financial/yearly/export', {
         ...this.queryParams
-      }, `pay_${new Date().getTime()}.xlsx`)
+      }, `yearly_${new Date().getTime()}.xlsx`)
     }
   }
 };
