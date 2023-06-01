@@ -63,7 +63,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         where id = #{id}
     </update>
 
-    <update id="updateAffairNameByFacultyId">
+    <update id="updateAffairNameByFacultyId" parameterType="Affair">
         update affair
         <trim prefix="SET" suffixOverrides=",">
             <if test="name != null and name != ''">name = #{name},
