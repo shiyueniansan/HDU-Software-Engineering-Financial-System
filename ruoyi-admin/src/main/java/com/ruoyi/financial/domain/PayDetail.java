@@ -27,9 +27,6 @@ public class PayDetail extends BaseEntity
     @Excel(name = "月份")
     private Long month;
 
-//    /** 教职工 */
-//    private Faculty faculty;
-
     /** 基本工资 */
     @Excel(name = "基本工资")
     private Float basicPay;
@@ -105,13 +102,6 @@ public class PayDetail extends BaseEntity
     @Excel(name = "实发工资")
     private Float netPay;
 
-//    //constructor with facultyId and name
-//    public PayDetail(Long facultyId, String name, Long month) {
-//        this.facultyId = facultyId;
-//        this.name = name;
-//        this.month = month;
-//    }
-
     //constructor with no parameter
     public PayDetail() {
     }
@@ -127,17 +117,12 @@ public class PayDetail extends BaseEntity
         this.facultyId = faculty.getId();
         this.name = faculty.getName();
         this.month = month;
-//        if(faculty.getBasicPay() == null)
-//            this.basicPay = 0f;
-//        else
-//            this.basicPay = faculty.getBasicPay();
     }
 
     //constuctor with faculty
     public PayDetail(Faculty faculty) {
         this.facultyId = faculty.getId();
         this.name = faculty.getName();
-//        this.basicPay = faculty.getBasicPay();
     }
 
     public void setFacultyId(Long facultyId)
@@ -168,14 +153,6 @@ public class PayDetail extends BaseEntity
         return month;
     }
 
-//    public void setFaculty(Faculty faculty)
-//    {
-//        this.faculty = faculty;
-//    }
-//    public Faculty getFaculty()
-//    {
-//        return faculty;
-//    }
     public void setBasicPay(Float basicPay)
     {
         this.basicPay = basicPay;

@@ -34,10 +34,6 @@ public class FacultyYearlyController extends BaseController
     @Autowired
     private IFacultyYearlyService facultyYearlyService;
 
-//    /**
-//     * 同步教职工年度
-//     */
-
     /**
      * 查询教职工年度列表
      */
@@ -68,47 +64,4 @@ public class FacultyYearlyController extends BaseController
         ExcelUtil<FacultyYearly> util = new ExcelUtil<FacultyYearly>(FacultyYearly.class);
         util.exportExcel(response, list, "教职工年度数据");
     }
-
-//    /**
-//     * 获取教职工年度详细信息
-//     */
-//    @PreAuthorize("@ss.hasPermi('financial:yearly:query')")
-//    @GetMapping(value = "/{facultyId}")
-//    public AjaxResult getInfo(@PathVariable("facultyId") Long facultyId)
-//    {
-//        return success(facultyYearlyService.selectFacultyYearlyByFacultyId(facultyId));
-//    }
-//
-//    /**
-//     * 新增教职工年度
-//     */
-//    @PreAuthorize("@ss.hasPermi('financial:yearly:add')")
-//    @Log(title = "教职工年度", businessType = BusinessType.INSERT)
-//    @PostMapping
-//    public AjaxResult add(@RequestBody FacultyYearly facultyYearly)
-//    {
-//        return toAjax(facultyYearlyService.insertFacultyYearly(facultyYearly));
-//    }
-//
-//    /**
-//     * 修改教职工年度
-//     */
-//    @PreAuthorize("@ss.hasPermi('financial:yearly:edit')")
-//    @Log(title = "教职工年度", businessType = BusinessType.UPDATE)
-//    @PutMapping
-//    public AjaxResult edit(@RequestBody FacultyYearly facultyYearly)
-//    {
-//        return toAjax(facultyYearlyService.updateFacultyYearly(facultyYearly));
-//    }
-//
-//    /**
-//     * 删除教职工年度
-//     */
-//    @PreAuthorize("@ss.hasPermi('financial:yearly:remove')")
-//    @Log(title = "教职工年度", businessType = BusinessType.DELETE)
-//	@DeleteMapping("/{facultyIds}")
-//    public AjaxResult remove(@PathVariable Long[] facultyIds)
-//    {
-//        return toAjax(facultyYearlyService.deleteFacultyYearlyByFacultyIds(facultyIds));
-//    }
 }

@@ -3,9 +3,7 @@ package com.ruoyi.financial.service.impl;
 import java.util.List;
 
 import com.ruoyi.financial.constant.FinancialConstants;
-import com.ruoyi.financial.domain.Affair;
 import com.ruoyi.financial.domain.Faculty;
-import com.ruoyi.financial.domain.FacultyYearly;
 import com.ruoyi.financial.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -131,8 +129,7 @@ public class PayDetailServiceImpl implements IPayDetailService
     @Override
     public void fillPayDetail(PayDetail payDetail) {
         Faculty faculty = facultyService.selectFacultyById(payDetail.getFacultyId());
-//            payDetail.setFaculty(faculty);
-        payDetail.setName(faculty.getName());//非必需
+        payDetail.setName(faculty.getName());
         payDetail.setFacultyId(faculty.getId());
         payDetail.setBasicPay(faculty.getBasicPay());
         payDetail.setType(faculty.getType());
@@ -160,9 +157,8 @@ public class PayDetailServiceImpl implements IPayDetailService
      */
     @Override
     public void calculatePayDetail(PayDetail payDetail) {
+        //装填工资明细表
         fillPayDetail(payDetail);
-//        //计算课时/工时
-//        calculateHours(payDetail);
         //计算（超额）课时费/岗位津贴
         calculateAffairPay(payDetail);
         //计算工资总额
@@ -190,21 +186,6 @@ public class PayDetailServiceImpl implements IPayDetailService
             calculatePayDetail(payDetail);
         }
     }
-
-//    /**
-//     * 计算教职工课时/工时
-//     *
-//     * @param payDetail 工资明细表
-//     */
-//    @Override
-//    public void calculateHours(PayDetail payDetail) {
-//        List<Affair> affairList = affairService.selectAffairList(new Affair(payDetail.getFacultyId(),payDetail.getMonth()));
-//        Float hours = 0F;
-//        for (Affair affair : affairList) {
-//            hours += affair.getHour();
-//        }
-//        payDetail.setHours(hours);
-//    }
 
     /**
      * 计算教职工课时费及超额课时费及岗位津贴
@@ -338,7 +319,7 @@ public class PayDetailServiceImpl implements IPayDetailService
      */
     @Override
     public void calculateInsurance(PayDetail payDetail) {
-        //计算保险费，暂同住房公积金//TODO:保险费计算
+        //计算保险费，暂同住房公积金
         payDetail.setInsurance(
                 payDetail.getAvgPay() * FinancialConstants.INSURANCE_FACTOR
         );

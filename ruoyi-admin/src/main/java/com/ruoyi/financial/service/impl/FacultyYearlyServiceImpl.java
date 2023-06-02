@@ -2,7 +2,6 @@ package com.ruoyi.financial.service.impl;
 
 import java.util.List;
 
-import com.ruoyi.financial.domain.Affair;
 import com.ruoyi.financial.domain.PayDetail;
 import com.ruoyi.financial.service.IAffairService;
 import com.ruoyi.financial.service.IPayDetailService;

@@ -39,7 +39,6 @@ public class PayDetailsController extends BaseController
     {
         startPage();
         List<PayDetail> list = payDetailService.selectPayDetailList(payDetail);
-//        syncPayDetail(list);
         payDetailService.calculatePayDetail(list);
         return getDataTable(list);
     }
@@ -53,52 +52,8 @@ public class PayDetailsController extends BaseController
     public void export(HttpServletResponse response, PayDetail payDetail)
     {
         List<PayDetail> list = payDetailService.selectPayDetailList(payDetail);
-//        syncPayDetail(list);
         payDetailService.calculatePayDetail(list);
         ExcelUtil<PayDetail> util = new ExcelUtil<PayDetail>(PayDetail.class);
         util.exportExcel(response, list, "工资明细表数据");
     }
-
-//    /**
-//     * 获取工资明细表详细信息
-//     */
-//    @PreAuthorize("@ss.hasPermi('financial:payDetails:query')")
-//    @GetMapping(value = "/{facultyId}")
-//    public AjaxResult getInfo(@PathVariable("facultyId") Long facultyId)
-//    {
-//        return success(payDetailService.selectPayDetailByFacultyId(facultyId));
-//    }
-//
-//    /**
-//     * 新增工资明细表
-//     */
-//    @PreAuthorize("@ss.hasPermi('financial:payDetails:add')")
-//    @Log(title = "工资明细表", businessType = BusinessType.INSERT)
-//    @PostMapping
-//    public AjaxResult add(@RequestBody PayDetail payDetail)
-//    {
-//        return toAjax(payDetailService.insertPayDetail(payDetail));
-//    }
-//
-//    /**
-//     * 修改工资明细表
-//     */
-//    @PreAuthorize("@ss.hasPermi('financial:payDetails:edit')")
-//    @Log(title = "工资明细表", businessType = BusinessType.UPDATE)
-//    @PutMapping
-//    public AjaxResult edit(@RequestBody PayDetail payDetail)
-//    {
-//        return toAjax(payDetailService.updatePayDetail(payDetail));
-//    }
-//
-//    /**
-//     * 删除工资明细表
-//     */
-//    @PreAuthorize("@ss.hasPermi('financial:payDetails:remove')")
-//    @Log(title = "工资明细表", businessType = BusinessType.DELETE)
-//	@DeleteMapping("/{facultyIds}")
-//    public AjaxResult remove(@PathVariable Long[] facultyIds)
-//    {
-//        return toAjax(payDetailService.deletePayDetailByFacultyIds(facultyIds));
-//    }
 }

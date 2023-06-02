@@ -38,20 +38,9 @@ public class Affair extends BaseEntity
     @Excel(name = "时长")
     private Float hour;//TODO:Hours
 
-//    //constructor with facultyId, name
-//    public Affair(Long facultyId, String name) {
-//        this.facultyId = facultyId;
-//        this.name = name;
-//    }
-
     //constructor with no parameters
     public Affair() {
     }
-
-//    //constructor with facultyId
-//    public Affair(Long facultyId) {
-//        this.facultyId = facultyId;
-//    }
 
     //constructor with facultyId, month
     public Affair(Long facultyId, Long month) {

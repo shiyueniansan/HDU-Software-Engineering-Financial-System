@@ -93,8 +93,6 @@ public class FacultyController extends BaseController
     @PostMapping
     public AjaxResult add(@RequestBody Faculty faculty)
     {
-//        return toAjax(facultyService.insertFaculty(faculty));
-        //hungry add
         Integer result = facultyService.insertFaculty(faculty);
         if(result > 0){
             facultyYearlyService.insertFacultyYearly(new FacultyYearly(faculty));
@@ -113,9 +111,7 @@ public class FacultyController extends BaseController
     @PutMapping
     public AjaxResult edit(@RequestBody Faculty faculty)
     {
-//        return toAjax(facultyService.updateFaculty(faculty));
         Integer result = facultyService.updateFaculty(faculty);
-        //hungry
         if(result > 0){
             facultyYearlyService.updateFacultyYearly(new FacultyYearly(faculty));
             affairService.updateAffairNameByFacultyId(faculty.getId(), faculty.getName());
@@ -132,8 +128,6 @@ public class FacultyController extends BaseController
 	@DeleteMapping("/{ids}")
     public AjaxResult remove(@PathVariable Long[] ids)
     {
-//        return toAjax(facultyService.deleteFacultyByIds(ids));
-        //hungry
         Integer result = facultyService.deleteFacultyByIds(ids);
         if(result > 0){
             facultyYearlyService.deleteFacultyYearlyByFacultyIds(ids);

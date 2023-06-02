@@ -2,7 +2,6 @@ package com.ruoyi.financial.service.impl;
 
 import java.util.List;
 
-import com.ruoyi.financial.domain.PayDetail;
 import com.ruoyi.financial.service.IPayDetailService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
