@@ -7,9 +7,9 @@ import com.ruoyi.common.core.domain.BaseEntity;
 
 /**
  * 职称对象 title
- * 
+ *
  * @author Keven
- * @date 2023-05-27
+ * @date 2023-05-30
  */
 public class Title extends BaseEntity
 {
@@ -22,36 +22,36 @@ public class Title extends BaseEntity
     @Excel(name = "职称")
     private String des;
 
-    /** 基本工资 */
-    @Excel(name = "基本工资")
-    private Long wage;
+    /** 职称系数 */
+    @Excel(name = "职称系数")
+    private Float factor;
 
-    public void setId(Long id) 
+    public void setId(Long id)
     {
         this.id = id;
     }
 
-    public Long getId() 
+    public Long getId()
     {
         return id;
     }
-    public void setDes(String des) 
+    public void setDes(String des)
     {
         this.des = des;
     }
 
-    public String getDes() 
+    public String getDes()
     {
         return des;
     }
-    public void setWage(Long wage) 
+    public void setFactor(Float factor)
     {
-        this.wage = wage;
+        this.factor = factor;
     }
 
-    public Long getWage() 
+    public Float getFactor()
     {
-        return wage;
+        return factor;
     }
 
     @Override
@@ -59,7 +59,7 @@ public class Title extends BaseEntity
         return new ToStringBuilder(this,ToStringStyle.MULTI_LINE_STYLE)
             .append("id", getId())
             .append("des", getDes())
-            .append("wage", getWage())
+            .append("factor", getFactor())
             .toString();
     }
 }

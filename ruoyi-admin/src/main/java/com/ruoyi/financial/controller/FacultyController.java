@@ -3,9 +3,12 @@ package com.ruoyi.financial.controller;
 import java.util.List;
 import javax.servlet.http.HttpServletResponse;
 
-import com.ruoyi.common.core.domain.model.LoginUser;
-import com.ruoyi.framework.web.service.PermissionService;
-import com.ruoyi.system.service.ISysUserService;
+import com.ruoyi.financial.domain.Affair;
+import com.ruoyi.financial.domain.FacultyYearly;
+import com.ruoyi.financial.domain.PayDetail;
+import com.ruoyi.financial.service.IAffairService;
+import com.ruoyi.financial.service.IFacultyYearlyService;
+import com.ruoyi.financial.service.IPayDetailService;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -29,7 +32,7 @@ import com.ruoyi.common.core.page.TableDataInfo;
  * 教职工Controller
  *
  * @author Keven
- * @date 2023-05-27
+ * @date 2023-05-30
  */
 @RestController
 @RequestMapping("/financial/faculty")
@@ -39,49 +42,35 @@ public class FacultyController extends BaseController
     private IFacultyService facultyService;
 
     @Autowired
-    private PermissionService permissionService;
+    private IFacultyYearlyService facultyYearlyService;
 
+    @Autowired
+    private IAffairService affairService;
+
+    @Autowired
+    private IPayDetailService payDetailService;
 
     /**
-      * 查询教职工列表及个人
-      */
-//    @PreAuthorize("@ss.hasPermi('financial:faculty:list')")
-    @PreAuthorize("@ss.hasAnyPermi('financial:faculty:list,financial:faculty:self')")
+     * 查询教职工列表
+     */
+    @PreAuthorize("@ss.hasPermi('financial:faculty:list')")
     @GetMapping("/list")
     public TableDataInfo list(Faculty faculty)
     {
         startPage();
-        List<Faculty> list = null;
-        if( permissionService.hasPermi("financial:faculty:list") )
-        {
-            list = facultyService.selectFacultyList(faculty);
-        }
-        else if( permissionService.hasPermi("financial:faculty:self") )
-        {
-            list = facultyService.selectFacultyList(facultyService.selectFacultyById(getLoginUser().getUser().getFacultyId()));
-        }
+        List<Faculty> list = facultyService.selectFacultyList(faculty);
         return getDataTable(list);
     }
 
-
     /**
-     * 导出教职工列表及个人
+     * 导出教职工列表
      */
-//    @PreAuthorize("@ss.hasPermi('financial:faculty:export')")
-    @PreAuthorize("@ss.hasAnyPermi('financial:faculty:export,financial:faculty:exportself')")
+    @PreAuthorize("@ss.hasPermi('financial:faculty:export')")
     @Log(title = "教职工", businessType = BusinessType.EXPORT)
     @PostMapping("/export")
     public void export(HttpServletResponse response, Faculty faculty)
     {
-        List<Faculty> list = null;
-        if( permissionService.hasPermi("financial:faculty:export") )
-        {
-            list = facultyService.selectFacultyList(faculty);
-        }
-        else if( permissionService.hasPermi("financial:faculty:exportself") )
-        {
-            list = facultyService.selectFacultyList(facultyService.selectFacultyById(getLoginUser().getUser().getFacultyId()));
-        }
+        List<Faculty> list = facultyService.selectFacultyList(faculty);
         ExcelUtil<Faculty> util = new ExcelUtil<Faculty>(Faculty.class);
         util.exportExcel(response, list, "教职工数据");
     }
@@ -104,7 +93,14 @@ public class FacultyController extends BaseController
     @PostMapping
     public AjaxResult add(@RequestBody Faculty faculty)
     {
-        return toAjax(facultyService.insertFaculty(faculty));
+        Integer result = facultyService.insertFaculty(faculty);
+        if(result > 0){
+            facultyYearlyService.insertFacultyYearly(new FacultyYearly(faculty));
+            for(long month = 1; month <= 12; month++){
+                payDetailService.insertPayDetail(new PayDetail(faculty, month));
+            }
+        }
+        return toAjax(result);
     }
 
     /**
@@ -115,7 +111,13 @@ public class FacultyController extends BaseController
     @PutMapping
     public AjaxResult edit(@RequestBody Faculty faculty)
     {
-        return toAjax(facultyService.updateFaculty(faculty));
+        Integer result = facultyService.updateFaculty(faculty);
+        if(result > 0){
+            facultyYearlyService.updateFacultyYearly(new FacultyYearly(faculty));
+            affairService.updateAffairNameByFacultyId(faculty.getId(), faculty.getName());
+            payDetailService.updatePayDetail(new PayDetail(faculty));
+        }
+        return toAjax(result);
     }
 
     /**
@@ -126,7 +128,12 @@ public class FacultyController extends BaseController
 	@DeleteMapping("/{ids}")
     public AjaxResult remove(@PathVariable Long[] ids)
     {
-        return toAjax(facultyService.deleteFacultyByIds(ids));
+        Integer result = facultyService.deleteFacultyByIds(ids);
+        if(result > 0){
+            facultyYearlyService.deleteFacultyYearlyByFacultyIds(ids);
+            affairService.deleteAffairByFacultyIds(ids);
+            payDetailService.deletePayDetailByFacultyIds(ids);
+        }
+        return toAjax(result);
     }
-
 }

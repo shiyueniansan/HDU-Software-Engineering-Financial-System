@@ -7,18 +7,18 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     <resultMap type="Title" id="TitleResult">
         <result property="id"    column="id"    />
         <result property="des"    column="des"    />
-        <result property="wage"    column="wage"    />
+        <result property="factor"    column="factor"    />
     </resultMap>
 
     <sql id="selectTitleVo">
-        select id, des, wage from title
+        select id, des, factor from title
     </sql>
 
     <select id="selectTitleList" parameterType="Title" resultMap="TitleResult">
         <include refid="selectTitleVo"/>
         <where>  
             <if test="des != null  and des != ''"> and des = #{des}</if>
-            <if test="wage != null "> and wage = #{wage}</if>
+            <if test="factor != null "> and factor = #{factor}</if>
         </where>
     </select>
     
@@ -31,11 +31,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         insert into title
         <trim prefix="(" suffix=")" suffixOverrides=",">
             <if test="des != null and des != ''">des,</if>
-            <if test="wage != null">wage,</if>
+            <if test="factor != null">factor,</if>
          </trim>
         <trim prefix="values (" suffix=")" suffixOverrides=",">
             <if test="des != null and des != ''">#{des},</if>
-            <if test="wage != null">#{wage},</if>
+            <if test="factor != null">#{factor},</if>
          </trim>
     </insert>
 
@@ -43,7 +43,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         update title
         <trim prefix="SET" suffixOverrides=",">
             <if test="des != null and des != ''">des = #{des},</if>
-            <if test="wage != null">wage = #{wage},</if>
+            <if test="factor != null">factor = #{factor},</if>
         </trim>
         where id = #{id}
     </update>

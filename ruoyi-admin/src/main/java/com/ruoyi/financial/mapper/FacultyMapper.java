@@ -5,15 +5,15 @@ import com.ruoyi.financial.domain.Faculty;
 
 /**
  * 教职工Mapper接口
- *
+ * 
  * @author Keven
- * @date 2023-05-27
+ * @date 2023-05-30
  */
-public interface FacultyMapper
+public interface FacultyMapper 
 {
     /**
      * 查询教职工
-     *
+     * 
      * @param id 教职工主键
      * @return 教职工
      */
@@ -21,7 +21,7 @@ public interface FacultyMapper
 
     /**
      * 查询教职工列表
-     *
+     * 
      * @param faculty 教职工
      * @return 教职工集合
      */
@@ -29,7 +29,7 @@ public interface FacultyMapper
 
     /**
      * 新增教职工
-     *
+     * 
      * @param faculty 教职工
      * @return 结果
      */
@@ -37,7 +37,7 @@ public interface FacultyMapper
 
     /**
      * 修改教职工
-     *
+     * 
      * @param faculty 教职工
      * @return 结果
      */
@@ -45,7 +45,7 @@ public interface FacultyMapper
 
     /**
      * 删除教职工
-     *
+     * 
      * @param id 教职工主键
      * @return 结果
      */
@@ -53,7 +53,7 @@ public interface FacultyMapper
 
     /**
      * 批量删除教职工
-     *
+     * 
      * @param ids 需要删除的数据主键集合
      * @return 结果
      */
