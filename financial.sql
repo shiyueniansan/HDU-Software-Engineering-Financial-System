@@ -11,7 +11,7 @@
  Target Server Version : 80031
  File Encoding         : 65001
 
- Date: 01/06/2023 15:56:24
+ Date: 15/06/2023 22:52:06
 */
 
 SET NAMES utf8mb4;
@@ -29,7 +29,7 @@ CREATE TABLE `affair`  (
   `des` varchar(90) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '' COMMENT '描述',
   `hour` float NOT NULL DEFAULT 0 COMMENT '时长',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1227 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci COMMENT = '事务（课时任务）表' ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 29 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci COMMENT = '事务（课时任务）表' ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of affair
@@ -83,7 +83,7 @@ CREATE TABLE `faculty`  (
   PRIMARY KEY (`id`) USING BTREE,
   INDEX `staff_position`(`job` ASC) USING BTREE,
   INDEX `professional_title`(`title` ASC) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 110 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci COMMENT = '教职工表' ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 6 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci COMMENT = '教职工表' ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of faculty
@@ -93,6 +93,7 @@ INSERT INTO `faculty` VALUES (2, '小王', 1, 3, 0, 6000, 200, 100, 150, 100, 0)
 INSERT INTO `faculty` VALUES (3, '张三', 0, 0, 1, 8000, 200, 150, 150, 100, 50);
 INSERT INTO `faculty` VALUES (4, '李四', 1, 5, 0, 5000, 150, 50, 200, 80, 0);
 INSERT INTO `faculty` VALUES (5, '王五', 1, 8, 0, 3000, 100, 50, 120, 80, 0);
+INSERT INTO `faculty` VALUES (6, '小李', 0, 0, 0, 0, 0, 0, 0, 0, 0);
 
 -- ----------------------------
 -- Table structure for faculty_monthly
@@ -176,6 +177,18 @@ INSERT INTO `faculty_monthly` VALUES (5, '王五', 9, 0, 0, 0, 0, 0, 0, 0, 0);
 INSERT INTO `faculty_monthly` VALUES (5, '王五', 10, 0, 0, 0, 0, 0, 0, 0, 0);
 INSERT INTO `faculty_monthly` VALUES (5, '王五', 11, 0, 0, 0, 0, 0, 0, 0, 0);
 INSERT INTO `faculty_monthly` VALUES (5, '王五', 12, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `faculty_monthly` VALUES (6, '小李', 1, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `faculty_monthly` VALUES (6, '小李', 2, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `faculty_monthly` VALUES (6, '小李', 3, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `faculty_monthly` VALUES (6, '小李', 4, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `faculty_monthly` VALUES (6, '小李', 5, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `faculty_monthly` VALUES (6, '小李', 6, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `faculty_monthly` VALUES (6, '小李', 7, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `faculty_monthly` VALUES (6, '小李', 8, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `faculty_monthly` VALUES (6, '小李', 9, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `faculty_monthly` VALUES (6, '小李', 10, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `faculty_monthly` VALUES (6, '小李', 11, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `faculty_monthly` VALUES (6, '小李', 12, 0, 0, 0, 0, 0, 0, 0, 0);
 
 -- ----------------------------
 -- Table structure for faculty_monthly_pay
@@ -290,6 +303,7 @@ INSERT INTO `faculty_yearly` VALUES (2, '小王', 0, 78, 5000, 0);
 INSERT INTO `faculty_yearly` VALUES (3, '张三', 0, 114, 5000, 0);
 INSERT INTO `faculty_yearly` VALUES (4, '李四', 0, 0, 5000, 0);
 INSERT INTO `faculty_yearly` VALUES (5, '王五', 0, 0, 5000, 0);
+INSERT INTO `faculty_yearly` VALUES (6, '小李', 0, 0, 5000, 0);
 
 -- ----------------------------
 -- Table structure for gen_table
@@ -322,19 +336,6 @@ CREATE TABLE `gen_table`  (
 -- ----------------------------
 -- Records of gen_table
 -- ----------------------------
-INSERT INTO `gen_table` VALUES (6, 'faculty', '教职工表', NULL, NULL, 'Faculty', 'crud', 'com.ruoyi.financial', 'financial', 'faculty', '教职工', 'Keven', '0', '/', '{\"parentMenuId\":\"2052\"}', 'admin', '2023-05-30 17:42:08', '', '2023-05-30 22:06:15', NULL);
-INSERT INTO `gen_table` VALUES (10, 'title', '职称表', NULL, NULL, 'Title', 'crud', 'com.ruoyi.financial', 'financial', 'title', '职称', 'Keven', '0', '/', '{\"parentMenuId\":\"2052\"}', 'admin', '2023-05-30 17:42:08', '', '2023-05-30 21:08:30', NULL);
-INSERT INTO `gen_table` VALUES (13, 'faculty_yearly', '教职工年度表', NULL, NULL, 'FacultyYearly', 'crud', 'com.ruoyi.financial', 'financial', 'yearly', '教职工年度', 'Keven', '0', '/', '{}', 'admin', '2023-05-30 17:48:44', '', '2023-05-31 12:49:41', NULL);
-INSERT INTO `gen_table` VALUES (14, 'job', '职务表', NULL, NULL, 'Job', 'crud', 'com.ruoyi.financial', 'financial', 'job', '职务', 'Keven', '0', '/', '{\"parentMenuId\":\"2052\"}', 'admin', '2023-05-30 17:48:44', '', '2023-05-31 19:12:11', NULL);
-INSERT INTO `gen_table` VALUES (15, 'affair', '事务表', NULL, NULL, 'Affairs', 'crud', 'com.ruoyi.financial', 'financial', 'affairs', '事务', 'Keven', '0', '/', '{}', 'admin', '2023-05-30 18:07:22', '', '2023-06-01 13:47:18', NULL);
-INSERT INTO `gen_table` VALUES (17, 'faculty_monthly1', '教职工月度表', NULL, NULL, 'Pay', 'crud', 'com.ruoyi.financial', 'financial', 'pay', '工资表', 'Keven', '0', '/', '{}', 'admin', '2023-05-30 21:35:48', '', '2023-05-30 21:49:34', NULL);
-INSERT INTO `gen_table` VALUES (18, 'faculty_monthly2', '教职工月度表', NULL, NULL, 'PayDetail', 'crud', 'com.ruoyi.financial', 'financial', 'payDetail', '工资明细表', 'Keven', '0', '/', '{}', 'admin', '2023-05-30 21:37:20', '', '2023-05-30 23:32:28', NULL);
-INSERT INTO `gen_table` VALUES (19, 'affair1', '事务（课时任务）表', NULL, NULL, 'Affair', 'crud', 'com.ruoyi.financial', 'financial', 'affair', '个人事务', 'Keven', '0', '/', '{}', 'admin', '2023-05-30 22:57:18', '', '2023-05-31 20:29:24', NULL);
-INSERT INTO `gen_table` VALUES (20, 'faculty_monthly3', '教职工月度表', NULL, NULL, 'PayDetails', 'crud', 'com.ruoyi.financial', 'financial', 'payDetails', '全部工资明细表', 'Keven', '0', '/', '{}', 'admin', '2023-05-30 23:32:35', '', '2023-05-31 07:23:23', NULL);
-INSERT INTO `gen_table` VALUES (21, 'faculty_monthly_pay', '教职工月度表', NULL, NULL, 'Pay', 'crud', 'com.ruoyi.financial', 'financial', 'pay', '工资表', 'Keven', '0', '/', '{}', 'admin', '2023-05-31 07:23:29', '', '2023-05-31 07:33:25', NULL);
-INSERT INTO `gen_table` VALUES (22, 'faculty_monthly_pay_detail', '教职工月度表', NULL, NULL, 'PayDetail', 'crud', 'com.ruoyi.financial', 'financial', 'payDetail', '工资明细表', 'Keven', '0', '/', '{}', 'admin', '2023-05-31 07:23:29', '', '2023-05-31 09:00:24', NULL);
-INSERT INTO `gen_table` VALUES (23, 'faculty_monthly_pay_details', '教职工月度表', NULL, NULL, 'PayDetails', 'crud', 'com.ruoyi.financial', 'financial', 'payDetails', '全部工资明细表', 'Keven', '0', '/', '{}', 'admin', '2023-05-31 07:48:43', '', '2023-05-31 07:54:17', NULL);
-INSERT INTO `gen_table` VALUES (24, 'faculty_monthly_pay_detail_test', '教职工月度表', NULL, NULL, 'FacultyMonthlyPayDetailTest', 'crud', 'com.ruoyi.system', 'system', 'test', '教职工月度', 'ruoyi', '0', '/', NULL, 'admin', '2023-05-31 23:01:03', '', NULL, NULL);
 
 -- ----------------------------
 -- Table structure for gen_table_column
@@ -364,137 +365,11 @@ CREATE TABLE `gen_table_column`  (
   `update_by` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT '' COMMENT '更新者',
   `update_time` datetime NULL DEFAULT NULL COMMENT '更新时间',
   PRIMARY KEY (`column_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 195 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci COMMENT = '代码生成业务表字段' ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 212 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci COMMENT = '代码生成业务表字段' ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of gen_table_column
 -- ----------------------------
-INSERT INTO `gen_table_column` VALUES (35, '6', 'id', '编号', 'bigint', 'Long', 'id', '1', '1', NULL, '1', NULL, NULL, NULL, 'EQ', 'input', '', 1, 'admin', '2023-05-30 17:42:08', '', '2023-05-30 22:06:15');
-INSERT INTO `gen_table_column` VALUES (36, '6', 'name', '姓名', 'varchar(30)', 'String', 'name', '0', '0', '1', '1', '1', '1', '1', 'LIKE', 'input', '', 2, 'admin', '2023-05-30 17:42:08', '', '2023-05-30 22:06:15');
-INSERT INTO `gen_table_column` VALUES (37, '6', 'type', '教师/职工', 'int', 'Long', 'type', '0', '0', '1', '1', '1', '1', '1', 'EQ', 'select', 'faculty_type', 3, 'admin', '2023-05-30 17:42:08', '', '2023-05-30 22:06:15');
-INSERT INTO `gen_table_column` VALUES (38, '6', 'title', '职称', 'int', 'Long', 'title', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'select', 'faculty_title', 4, 'admin', '2023-05-30 17:42:08', '', '2023-05-30 22:06:15');
-INSERT INTO `gen_table_column` VALUES (39, '6', 'job', '职务', 'int', 'Long', 'job', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'select', 'faculty_job', 5, 'admin', '2023-05-30 17:42:08', '', '2023-05-30 22:06:15');
-INSERT INTO `gen_table_column` VALUES (40, '6', 'basic_pay', '基本工资', 'float', 'Long', 'basicPay', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'input', '', 6, 'admin', '2023-05-30 17:42:08', '', '2023-05-30 22:06:15');
-INSERT INTO `gen_table_column` VALUES (41, '6', 'living_subsidy', '生活补贴', 'float', 'Long', 'livingSubsidy', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'input', '', 7, 'admin', '2023-05-30 17:42:08', '', '2023-05-30 22:06:15');
-INSERT INTO `gen_table_column` VALUES (42, '6', 'reading_subsidy', '书报费', 'float', 'Long', 'readingSubsidy', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'input', '', 8, 'admin', '2023-05-30 17:42:08', '', '2023-05-30 22:06:15');
-INSERT INTO `gen_table_column` VALUES (43, '6', 'transportation_subsidy', '交通费', 'float', 'Long', 'transportationSubsidy', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'input', '', 9, 'admin', '2023-05-30 17:42:08', '', '2023-05-30 22:06:15');
-INSERT INTO `gen_table_column` VALUES (44, '6', 'washing_subsidy', '洗理费', 'float', 'Long', 'washingSubsidy', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'input', '', 10, 'admin', '2023-05-30 17:42:08', '', '2023-05-30 22:06:15');
-INSERT INTO `gen_table_column` VALUES (45, '6', 'quota_hour', '定额课时', 'float', 'Long', 'quotaHour', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'input', '', 11, 'admin', '2023-05-30 17:42:08', '', '2023-05-30 22:06:15');
-INSERT INTO `gen_table_column` VALUES (67, '10', 'id', '编号', 'bigint', 'Long', 'id', '1', '1', NULL, '1', NULL, NULL, NULL, 'EQ', 'input', '', 1, 'admin', '2023-05-30 17:42:08', '', '2023-05-30 21:08:30');
-INSERT INTO `gen_table_column` VALUES (68, '10', 'des', '职称', 'varchar(60)', 'String', 'des', '0', '0', '1', '1', '1', '1', '1', 'EQ', 'input', '', 2, 'admin', '2023-05-30 17:42:08', '', '2023-05-30 21:08:30');
-INSERT INTO `gen_table_column` VALUES (69, '10', 'factor', '职称系数', 'float', 'Long', 'factor', '0', '0', '1', '1', '1', '1', '1', 'EQ', 'input', '', 3, 'admin', '2023-05-30 17:42:08', '', '2023-05-30 21:08:30');
-INSERT INTO `gen_table_column` VALUES (89, '13', 'faculty_id', '教职工编号', 'bigint', 'Long', 'facultyId', '0', '0', '0', '0', '0', '1', '1', 'EQ', 'input', '', 1, 'admin', '2023-05-30 17:48:44', '', '2023-05-31 12:49:41');
-INSERT INTO `gen_table_column` VALUES (90, '13', 'name', '姓名', 'varchar(30)', 'String', 'name', '0', '0', '0', '0', '0', '1', '1', 'LIKE', 'input', '', 2, 'admin', '2023-05-30 17:48:44', '', '2023-05-31 12:49:41');
-INSERT INTO `gen_table_column` VALUES (91, '13', 'total_pay', '本年度累计工资总额', 'float', 'Long', 'totalPay', '0', '0', NULL, '0', '0', '1', '1', 'EQ', 'input', '', 3, 'admin', '2023-05-30 17:48:44', '', '2023-05-31 12:49:41');
-INSERT INTO `gen_table_column` VALUES (92, '13', 'hour', '本年度累计授课时数', 'float', 'Long', 'hour', '0', '0', NULL, '0', '0', '1', '1', 'EQ', 'input', '', 4, 'admin', '2023-05-30 17:48:44', '', '2023-05-31 12:49:41');
-INSERT INTO `gen_table_column` VALUES (93, '13', 'avg_pay', '上年度月平均工资', 'float', 'Long', 'avgPay', '0', '0', NULL, '0', '0', '1', '1', 'EQ', 'input', '', 5, 'admin', '2023-05-30 17:48:44', '', '2023-05-31 12:49:41');
-INSERT INTO `gen_table_column` VALUES (94, '13', 'net_pay', '本年度累计实发工资', 'float', 'Long', 'netPay', '0', '0', NULL, '0', '0', '1', '1', 'EQ', 'input', '', 6, 'admin', '2023-05-30 17:48:44', '', '2023-05-31 12:49:41');
-INSERT INTO `gen_table_column` VALUES (95, '14', 'id', '编号', 'bigint', 'Long', 'id', '1', '1', NULL, '1', NULL, NULL, NULL, 'EQ', 'input', '', 1, 'admin', '2023-05-30 17:48:44', '', '2023-05-31 19:12:11');
-INSERT INTO `gen_table_column` VALUES (96, '14', 'des', '职务', 'varchar(60)', 'String', 'des', '0', '0', '1', '1', '1', '1', '1', 'EQ', 'input', '', 2, 'admin', '2023-05-30 17:48:44', '', '2023-05-31 19:12:11');
-INSERT INTO `gen_table_column` VALUES (97, '15', 'id', '编号', 'bigint', 'Long', 'id', '1', '1', NULL, '1', NULL, NULL, NULL, 'EQ', 'input', '', 1, 'admin', '2023-05-30 18:07:22', '', '2023-06-01 13:47:18');
-INSERT INTO `gen_table_column` VALUES (98, '15', 'faculty_id', '教职工编号', 'bigint', 'Long', 'facultyId', '0', '0', '1', '1', '1', '1', '1', 'EQ', 'input', '', 2, 'admin', '2023-05-30 18:07:22', '', '2023-06-01 13:47:18');
-INSERT INTO `gen_table_column` VALUES (99, '15', 'name', '姓名', 'varchar(30)', 'String', 'name', '0', '0', '0', '0', '0', '1', '1', 'LIKE', 'input', '', 3, 'admin', '2023-05-30 18:07:22', '', '2023-06-01 13:47:18');
-INSERT INTO `gen_table_column` VALUES (100, '15', 'month', '月份', 'int', 'Long', 'month', '0', '0', '1', '1', '1', '1', '1', 'EQ', 'input', '', 4, 'admin', '2023-05-30 18:07:22', '', '2023-06-01 13:47:18');
-INSERT INTO `gen_table_column` VALUES (101, '15', 'des', '描述', 'varchar(90)', 'String', 'des', '0', '0', '1', '1', '1', '1', '1', 'EQ', 'input', '', 5, 'admin', '2023-05-30 18:07:22', '', '2023-06-01 13:47:18');
-INSERT INTO `gen_table_column` VALUES (102, '15', 'hour', '时长', 'float', 'Long', 'hour', '0', '0', '1', '1', '1', '1', '1', 'EQ', 'input', '', 6, 'admin', '2023-05-30 18:07:22', '', '2023-06-01 13:47:18');
-INSERT INTO `gen_table_column` VALUES (115, '17', 'faculty_id', '教职工编号', 'bigint', 'Long', 'facultyId', '1', '0', NULL, '0', NULL, '1', '1', 'EQ', 'input', '', 1, 'admin', '2023-05-30 21:35:48', '', '2023-05-30 21:49:34');
-INSERT INTO `gen_table_column` VALUES (116, '17', 'name', '姓名', 'varchar(30)', 'String', 'name', '0', '0', '0', '0', '0', '1', '1', 'LIKE', 'input', '', 2, 'admin', '2023-05-30 21:35:48', '', '2023-05-30 21:49:34');
-INSERT INTO `gen_table_column` VALUES (117, '17', 'month', '月份', 'int', 'Long', 'month', '1', '0', NULL, '0', NULL, '1', '1', 'EQ', 'input', '', 3, 'admin', '2023-05-30 21:35:48', '', '2023-05-30 21:49:34');
-INSERT INTO `gen_table_column` VALUES (118, '17', 'teacher_pay', '课时费', 'float', 'Long', 'teacherPay', '0', '0', NULL, '0', '0', '0', '0', 'EQ', 'input', '', 4, 'admin', '2023-05-30 21:35:48', '', '2023-05-30 21:49:34');
-INSERT INTO `gen_table_column` VALUES (119, '17', 'staff_pay', '岗位津贴', 'float', 'Long', 'staffPay', '0', '0', NULL, '0', '0', '0', '0', 'EQ', 'input', '', 5, 'admin', '2023-05-30 21:35:48', '', '2023-05-30 21:49:34');
-INSERT INTO `gen_table_column` VALUES (120, '17', 'extra_teacher_pay', '超额课时费', 'float', 'Long', 'extraTeacherPay', '0', '0', NULL, '0', '0', '0', '0', 'EQ', 'input', '', 6, 'admin', '2023-05-30 21:35:48', '', '2023-05-30 21:49:34');
-INSERT INTO `gen_table_column` VALUES (121, '17', 'total_pay', '工资总额', 'float', 'Long', 'totalPay', '0', '0', NULL, '0', '0', '0', '0', 'EQ', 'input', '', 7, 'admin', '2023-05-30 21:35:48', '', '2023-05-30 21:49:34');
-INSERT INTO `gen_table_column` VALUES (122, '17', 'tax', '个人所得税', 'float', 'Long', 'tax', '0', '0', NULL, '0', '0', '0', '0', 'EQ', 'input', '', 8, 'admin', '2023-05-30 21:35:48', '', '2023-05-30 21:49:34');
-INSERT INTO `gen_table_column` VALUES (123, '17', 'housing', '住房公积金', 'float', 'Long', 'housing', '0', '0', NULL, '0', '0', '0', '0', 'EQ', 'input', '', 9, 'admin', '2023-05-30 21:35:48', '', '2023-05-30 21:49:34');
-INSERT INTO `gen_table_column` VALUES (124, '17', 'insurance', '保险费', 'float', 'Long', 'insurance', '0', '0', NULL, '0', '0', '0', '0', 'EQ', 'input', '', 10, 'admin', '2023-05-30 21:35:48', '', '2023-05-30 21:49:34');
-INSERT INTO `gen_table_column` VALUES (125, '17', 'net_pay', '实发工资', 'float', 'Long', 'netPay', '0', '0', NULL, '0', '0', '1', '1', 'EQ', 'input', '', 11, 'admin', '2023-05-30 21:35:48', '', '2023-05-30 21:49:34');
-INSERT INTO `gen_table_column` VALUES (126, '18', 'faculty_id', '教职工编号', 'bigint', 'Long', 'facultyId', '1', '0', NULL, '0', NULL, '1', '1', 'EQ', 'input', '', 1, 'admin', '2023-05-30 21:37:20', '', '2023-05-30 23:32:28');
-INSERT INTO `gen_table_column` VALUES (127, '18', 'name', '姓名', 'varchar(30)', 'String', 'name', '0', '0', '0', '0', '0', '1', '1', 'LIKE', 'input', '', 2, 'admin', '2023-05-30 21:37:20', '', '2023-05-30 23:32:28');
-INSERT INTO `gen_table_column` VALUES (128, '18', 'month', '月份', 'int', 'Long', 'month', '1', '0', NULL, '0', NULL, '1', '1', 'EQ', 'input', '', 3, 'admin', '2023-05-30 21:37:20', '', '2023-05-30 23:32:28');
-INSERT INTO `gen_table_column` VALUES (129, '18', 'teacher_pay', '课时费', 'float', 'Long', 'teacherPay', '0', '0', NULL, '0', '0', '1', '1', 'EQ', 'input', '', 4, 'admin', '2023-05-30 21:37:20', '', '2023-05-30 23:32:28');
-INSERT INTO `gen_table_column` VALUES (130, '18', 'staff_pay', '岗位津贴', 'float', 'Long', 'staffPay', '0', '0', NULL, '0', '0', '1', '1', 'EQ', 'input', '', 5, 'admin', '2023-05-30 21:37:20', '', '2023-05-30 23:32:28');
-INSERT INTO `gen_table_column` VALUES (131, '18', 'extra_teacher_pay', '超额课时费', 'float', 'Long', 'extraTeacherPay', '0', '0', NULL, '0', '0', '1', '1', 'EQ', 'input', '', 6, 'admin', '2023-05-30 21:37:20', '', '2023-05-30 23:32:28');
-INSERT INTO `gen_table_column` VALUES (132, '18', 'total_pay', '工资总额', 'float', 'Long', 'totalPay', '0', '0', NULL, '0', '0', '1', '1', 'EQ', 'input', '', 7, 'admin', '2023-05-30 21:37:20', '', '2023-05-30 23:32:28');
-INSERT INTO `gen_table_column` VALUES (133, '18', 'tax', '个人所得税', 'float', 'Long', 'tax', '0', '0', NULL, '0', '0', '1', '1', 'EQ', 'input', '', 8, 'admin', '2023-05-30 21:37:20', '', '2023-05-30 23:32:28');
-INSERT INTO `gen_table_column` VALUES (134, '18', 'housing', '住房公积金', 'float', 'Long', 'housing', '0', '0', NULL, '0', '0', '1', '1', 'EQ', 'input', '', 9, 'admin', '2023-05-30 21:37:20', '', '2023-05-30 23:32:28');
-INSERT INTO `gen_table_column` VALUES (135, '18', 'insurance', '保险费', 'float', 'Long', 'insurance', '0', '0', NULL, '0', '0', '1', '1', 'EQ', 'input', '', 10, 'admin', '2023-05-30 21:37:20', '', '2023-05-30 23:32:28');
-INSERT INTO `gen_table_column` VALUES (136, '18', 'net_pay', '实发工资', 'float', 'Long', 'netPay', '0', '0', NULL, '0', '0', '1', '1', 'EQ', 'input', '', 11, 'admin', '2023-05-30 21:37:20', '', '2023-05-30 23:32:28');
-INSERT INTO `gen_table_column` VALUES (137, '19', 'id', '编号', 'bigint', 'Long', 'id', '1', '1', NULL, '1', NULL, NULL, NULL, 'EQ', 'input', '', 1, 'admin', '2023-05-30 22:57:18', '', '2023-05-31 20:29:24');
-INSERT INTO `gen_table_column` VALUES (138, '19', 'faculty_id', '教职工编号', 'bigint', 'Long', 'facultyId', '0', '0', '0', '0', '0', '0', '0', 'EQ', 'input', '', 2, 'admin', '2023-05-30 22:57:18', '', '2023-05-31 20:29:24');
-INSERT INTO `gen_table_column` VALUES (139, '19', 'name', '姓名', 'varchar(30)', 'String', 'name', '0', '0', '0', '0', '0', '0', '0', 'LIKE', 'input', '', 3, 'admin', '2023-05-30 22:57:18', '', '2023-05-31 20:29:24');
-INSERT INTO `gen_table_column` VALUES (140, '19', 'month', '月份', 'int', 'Long', 'month', '0', '0', '1', '1', '1', '1', '1', 'EQ', 'input', '', 4, 'admin', '2023-05-30 22:57:18', '', '2023-05-31 20:29:24');
-INSERT INTO `gen_table_column` VALUES (141, '19', 'des', '描述', 'varchar(90)', 'String', 'des', '0', '0', '1', '1', '1', '1', '1', 'EQ', 'input', '', 5, 'admin', '2023-05-30 22:57:18', '', '2023-05-31 20:29:24');
-INSERT INTO `gen_table_column` VALUES (142, '19', 'hour', '时长', 'float', 'Long', 'hour', '0', '0', '1', '1', '1', '1', '1', 'EQ', 'input', '', 6, 'admin', '2023-05-30 22:57:18', '', '2023-05-31 20:29:24');
-INSERT INTO `gen_table_column` VALUES (143, '20', 'faculty_id', '教职工编号', 'bigint', 'Long', 'facultyId', '1', '0', NULL, '0', NULL, '1', '1', 'EQ', 'input', '', 1, 'admin', '2023-05-30 21:37:20', '', '2023-05-31 07:23:23');
-INSERT INTO `gen_table_column` VALUES (144, '20', 'name', '姓名', 'varchar(30)', 'String', 'name', '0', '0', '0', '0', '0', '1', '1', 'LIKE', 'input', '', 2, 'admin', '2023-05-30 21:37:20', '', '2023-05-31 07:23:23');
-INSERT INTO `gen_table_column` VALUES (145, '20', 'month', '月份', 'int', 'Long', 'month', '1', '0', NULL, '0', NULL, '1', '1', 'EQ', 'input', '', 3, 'admin', '2023-05-30 21:37:20', '', '2023-05-31 07:23:23');
-INSERT INTO `gen_table_column` VALUES (146, '20', 'teacher_pay', '课时费', 'float', 'Long', 'teacherPay', '0', '0', NULL, '0', '0', '1', '1', 'EQ', 'input', '', 4, 'admin', '2023-05-30 21:37:20', '', '2023-05-31 07:23:23');
-INSERT INTO `gen_table_column` VALUES (147, '20', 'staff_pay', '岗位津贴', 'float', 'Long', 'staffPay', '0', '0', NULL, '0', '0', '1', '1', 'EQ', 'input', '', 5, 'admin', '2023-05-30 21:37:20', '', '2023-05-31 07:23:23');
-INSERT INTO `gen_table_column` VALUES (148, '20', 'extra_teacher_pay', '超额课时费', 'float', 'Long', 'extraTeacherPay', '0', '0', NULL, '0', '0', '1', '1', 'EQ', 'input', '', 6, 'admin', '2023-05-30 21:37:20', '', '2023-05-31 07:23:23');
-INSERT INTO `gen_table_column` VALUES (149, '20', 'total_pay', '工资总额', 'float', 'Long', 'totalPay', '0', '0', NULL, '0', '0', '1', '1', 'EQ', 'input', '', 7, 'admin', '2023-05-30 21:37:20', '', '2023-05-31 07:23:23');
-INSERT INTO `gen_table_column` VALUES (150, '20', 'tax', '个人所得税', 'float', 'Long', 'tax', '0', '0', NULL, '0', '0', '1', '1', 'EQ', 'input', '', 8, 'admin', '2023-05-30 21:37:20', '', '2023-05-31 07:23:23');
-INSERT INTO `gen_table_column` VALUES (151, '20', 'housing', '住房公积金', 'float', 'Long', 'housing', '0', '0', NULL, '0', '0', '1', '1', 'EQ', 'input', '', 9, 'admin', '2023-05-30 21:37:20', '', '2023-05-31 07:23:23');
-INSERT INTO `gen_table_column` VALUES (152, '20', 'insurance', '保险费', 'float', 'Long', 'insurance', '0', '0', NULL, '0', '0', '1', '1', 'EQ', 'input', '', 10, 'admin', '2023-05-30 21:37:20', '', '2023-05-31 07:23:23');
-INSERT INTO `gen_table_column` VALUES (153, '20', 'net_pay', '实发工资', 'float', 'Long', 'netPay', '0', '0', NULL, '0', '0', '1', '1', 'EQ', 'input', '', 11, 'admin', '2023-05-30 21:37:20', '', '2023-05-31 07:23:23');
-INSERT INTO `gen_table_column` VALUES (154, '21', 'faculty_id', '教职工编号', 'bigint', 'Long', 'facultyId', '1', '0', NULL, '0', NULL, '1', '1', 'EQ', 'input', '', 1, 'admin', '2023-05-31 07:23:29', '', '2023-05-31 07:33:25');
-INSERT INTO `gen_table_column` VALUES (155, '21', 'name', '姓名', 'varchar(30)', 'String', 'name', '0', '0', '0', '0', '0', '1', '1', 'LIKE', 'input', '', 2, 'admin', '2023-05-31 07:23:29', '', '2023-05-31 07:33:25');
-INSERT INTO `gen_table_column` VALUES (156, '21', 'month', '月份', 'int', 'Long', 'month', '1', '0', NULL, '0', NULL, '1', '1', 'EQ', 'input', '', 3, 'admin', '2023-05-31 07:23:29', '', '2023-05-31 07:33:25');
-INSERT INTO `gen_table_column` VALUES (157, '21', 'net_pay', '实发工资', 'float', 'Long', 'netPay', '0', '0', NULL, '0', '0', '1', '1', 'EQ', 'input', '', 4, 'admin', '2023-05-31 07:23:29', '', '2023-05-31 07:33:25');
-INSERT INTO `gen_table_column` VALUES (158, '22', 'faculty_id', '教职工编号', 'bigint', 'Long', 'facultyId', '1', '0', NULL, '0', NULL, '1', '0', 'EQ', 'input', '', 1, 'admin', '2023-05-31 07:23:29', '', '2023-05-31 09:00:24');
-INSERT INTO `gen_table_column` VALUES (159, '22', 'name', '姓名', 'varchar(30)', 'String', 'name', '0', '0', '0', '0', '0', '1', '0', 'LIKE', 'input', '', 2, 'admin', '2023-05-31 07:23:29', '', '2023-05-31 09:00:24');
-INSERT INTO `gen_table_column` VALUES (160, '22', 'month', '月份', 'int', 'Long', 'month', '1', '0', NULL, '0', NULL, '1', '1', 'EQ', 'input', '', 3, 'admin', '2023-05-31 07:23:29', '', '2023-05-31 09:00:24');
-INSERT INTO `gen_table_column` VALUES (161, '22', 'basic_pay', '基本工资', 'float', 'Long', 'basicPay', '0', '0', NULL, '0', '0', '1', '0', 'EQ', 'input', '', 4, 'admin', '2023-05-31 07:23:29', '', '2023-05-31 09:00:24');
-INSERT INTO `gen_table_column` VALUES (162, '22', 'job', '职务', 'int', 'Long', 'job', '0', '0', NULL, '0', '0', '1', '0', 'EQ', 'select', 'faculty_job', 5, 'admin', '2023-05-31 07:23:29', '', '2023-05-31 09:00:24');
-INSERT INTO `gen_table_column` VALUES (163, '22', 'title', '职称', 'int', 'Long', 'title', '0', '0', NULL, '0', '0', '1', '0', 'EQ', 'select', 'faculty_title', 6, 'admin', '2023-05-31 07:23:29', '', '2023-05-31 09:00:24');
-INSERT INTO `gen_table_column` VALUES (164, '22', 'living_subsidy', '生活补贴', 'float', 'Long', 'livingSubsidy', '0', '0', NULL, '0', '0', '1', '0', 'EQ', 'input', '', 7, 'admin', '2023-05-31 07:23:29', '', '2023-05-31 09:00:24');
-INSERT INTO `gen_table_column` VALUES (165, '22', 'reading_subsidy', '书报费', 'float', 'Long', 'readingSubsidy', '0', '0', NULL, '0', '0', '1', '0', 'EQ', 'input', '', 8, 'admin', '2023-05-31 07:23:29', '', '2023-05-31 09:00:24');
-INSERT INTO `gen_table_column` VALUES (166, '22', 'transportation_subsidy', '交通费', 'float', 'Long', 'transportationSubsidy', '0', '0', NULL, '0', '0', '1', '0', 'EQ', 'input', '', 9, 'admin', '2023-05-31 07:23:29', '', '2023-05-31 09:00:24');
-INSERT INTO `gen_table_column` VALUES (167, '22', 'washing_subsidy', '洗理费', 'float', 'Long', 'washingSubsidy', '0', '0', NULL, '0', '0', '1', '0', 'EQ', 'input', '', 10, 'admin', '2023-05-31 07:23:29', '', '2023-05-31 09:00:24');
-INSERT INTO `gen_table_column` VALUES (168, '22', 'teacher_pay', '课时费', 'float', 'Long', 'teacherPay', '0', '0', NULL, '0', '0', '1', '1', 'EQ', 'input', '', 11, 'admin', '2023-05-31 07:23:29', '', '2023-05-31 09:00:24');
-INSERT INTO `gen_table_column` VALUES (169, '22', 'staff_pay', '岗位津贴', 'float', 'Long', 'staffPay', '0', '0', NULL, '0', '0', '1', '1', 'EQ', 'input', '', 12, 'admin', '2023-05-31 07:23:29', '', '2023-05-31 09:00:24');
-INSERT INTO `gen_table_column` VALUES (170, '22', 'extra_teacher_pay', '超额课时费', 'float', 'Long', 'extraTeacherPay', '0', '0', NULL, '0', '0', '1', '1', 'EQ', 'input', '', 13, 'admin', '2023-05-31 07:23:29', '', '2023-05-31 09:00:24');
-INSERT INTO `gen_table_column` VALUES (171, '22', 'total_pay', '工资总额', 'float', 'Long', 'totalPay', '0', '0', NULL, '0', '0', '1', '1', 'EQ', 'input', '', 14, 'admin', '2023-05-31 07:23:29', '', '2023-05-31 09:00:24');
-INSERT INTO `gen_table_column` VALUES (172, '22', 'tax', '个人所得税', 'float', 'Long', 'tax', '0', '0', NULL, '0', '0', '1', '1', 'EQ', 'input', '', 15, 'admin', '2023-05-31 07:23:29', '', '2023-05-31 09:00:24');
-INSERT INTO `gen_table_column` VALUES (173, '22', 'housing', '住房公积金', 'float', 'Long', 'housing', '0', '0', NULL, '0', '0', '1', '0', 'EQ', 'input', '', 16, 'admin', '2023-05-31 07:23:29', '', '2023-05-31 09:00:24');
-INSERT INTO `gen_table_column` VALUES (174, '22', 'insurance', '保险费', 'float', 'Long', 'insurance', '0', '0', NULL, '0', '0', '1', '0', 'EQ', 'input', '', 17, 'admin', '2023-05-31 07:23:29', '', '2023-05-31 09:00:24');
-INSERT INTO `gen_table_column` VALUES (175, '22', 'net_pay', '实发工资', 'float', 'Long', 'netPay', '0', '0', NULL, '0', '0', '1', '1', 'EQ', 'input', '', 18, 'admin', '2023-05-31 07:23:29', '', '2023-05-31 09:00:24');
-INSERT INTO `gen_table_column` VALUES (176, '23', 'faculty_id', '教职工编号', 'bigint', 'Long', 'facultyId', '1', '0', NULL, '0', NULL, '1', '1', 'EQ', 'input', '', 1, 'admin', '2023-05-31 07:48:43', '', '2023-05-31 07:54:17');
-INSERT INTO `gen_table_column` VALUES (177, '23', 'name', '姓名', 'varchar(30)', 'String', 'name', '0', '0', '0', '0', '0', '1', '1', 'LIKE', 'input', '', 2, 'admin', '2023-05-31 07:48:43', '', '2023-05-31 07:54:17');
-INSERT INTO `gen_table_column` VALUES (178, '23', 'month', '月份', 'int', 'Long', 'month', '1', '0', NULL, '0', NULL, '1', '1', 'EQ', 'input', '', 3, 'admin', '2023-05-31 07:48:43', '', '2023-05-31 07:54:17');
-INSERT INTO `gen_table_column` VALUES (179, '23', 'basic_pay', '基本工资', 'float', 'Long', 'basicPay', '0', '0', NULL, '0', '0', '1', '1', 'EQ', 'input', '', 4, 'admin', '2023-05-31 07:48:43', '', '2023-05-31 07:54:17');
-INSERT INTO `gen_table_column` VALUES (180, '23', 'job', '职务', 'int', 'Long', 'job', '0', '0', NULL, '0', '0', '1', '1', 'EQ', 'select', 'faculty_job', 5, 'admin', '2023-05-31 07:48:43', '', '2023-05-31 07:54:17');
-INSERT INTO `gen_table_column` VALUES (181, '23', 'title', '职称', 'int', 'Long', 'title', '0', '0', NULL, '0', '0', '1', '1', 'EQ', 'select', 'faculty_title', 6, 'admin', '2023-05-31 07:48:43', '', '2023-05-31 07:54:17');
-INSERT INTO `gen_table_column` VALUES (182, '23', 'living_subsidy', '生活补贴', 'float', 'Long', 'livingSubsidy', '0', '0', NULL, '0', '0', '1', '1', 'EQ', 'input', '', 7, 'admin', '2023-05-31 07:48:43', '', '2023-05-31 07:54:17');
-INSERT INTO `gen_table_column` VALUES (183, '23', 'reading_subsidy', '书报费', 'float', 'Long', 'readingSubsidy', '0', '0', NULL, '0', '0', '1', '1', 'EQ', 'input', '', 8, 'admin', '2023-05-31 07:48:43', '', '2023-05-31 07:54:17');
-INSERT INTO `gen_table_column` VALUES (184, '23', 'transportation_subsidy', '交通费', 'float', 'Long', 'transportationSubsidy', '0', '0', NULL, '0', '0', '1', '1', 'EQ', 'input', '', 9, 'admin', '2023-05-31 07:48:43', '', '2023-05-31 07:54:17');
-INSERT INTO `gen_table_column` VALUES (185, '23', 'washing_subsidy', '洗理费', 'float', 'Long', 'washingSubsidy', '0', '0', NULL, '0', '0', '1', '1', 'EQ', 'input', '', 10, 'admin', '2023-05-31 07:48:43', '', '2023-05-31 07:54:17');
-INSERT INTO `gen_table_column` VALUES (186, '23', 'teacher_pay', '课时费', 'float', 'Long', 'teacherPay', '0', '0', NULL, '0', '0', '1', '1', 'EQ', 'input', '', 11, 'admin', '2023-05-31 07:48:43', '', '2023-05-31 07:54:17');
-INSERT INTO `gen_table_column` VALUES (187, '23', 'staff_pay', '岗位津贴', 'float', 'Long', 'staffPay', '0', '0', NULL, '0', '0', '1', '1', 'EQ', 'input', '', 12, 'admin', '2023-05-31 07:48:43', '', '2023-05-31 07:54:17');
-INSERT INTO `gen_table_column` VALUES (188, '23', 'extra_teacher_pay', '超额课时费', 'float', 'Long', 'extraTeacherPay', '0', '0', NULL, '0', '0', '1', '1', 'EQ', 'input', '', 13, 'admin', '2023-05-31 07:48:43', '', '2023-05-31 07:54:17');
-INSERT INTO `gen_table_column` VALUES (189, '23', 'total_pay', '工资总额', 'float', 'Long', 'totalPay', '0', '0', NULL, '0', '0', '1', '1', 'EQ', 'input', '', 14, 'admin', '2023-05-31 07:48:43', '', '2023-05-31 07:54:17');
-INSERT INTO `gen_table_column` VALUES (190, '23', 'tax', '个人所得税', 'float', 'Long', 'tax', '0', '0', NULL, '0', '0', '1', '1', 'EQ', 'input', '', 15, 'admin', '2023-05-31 07:48:43', '', '2023-05-31 07:54:17');
-INSERT INTO `gen_table_column` VALUES (191, '23', 'housing', '住房公积金', 'float', 'Long', 'housing', '0', '0', NULL, '0', '0', '1', '1', 'EQ', 'input', '', 16, 'admin', '2023-05-31 07:48:43', '', '2023-05-31 07:54:17');
-INSERT INTO `gen_table_column` VALUES (192, '23', 'insurance', '保险费', 'float', 'Long', 'insurance', '0', '0', NULL, '0', '0', '1', '1', 'EQ', 'input', '', 17, 'admin', '2023-05-31 07:48:43', '', '2023-05-31 07:54:17');
-INSERT INTO `gen_table_column` VALUES (193, '23', 'net_pay', '实发工资', 'float', 'Long', 'netPay', '0', '0', NULL, '0', '0', '1', '1', 'EQ', 'input', '', 18, 'admin', '2023-05-31 07:48:43', '', '2023-05-31 07:54:17');
-INSERT INTO `gen_table_column` VALUES (194, '14', 'factor', '职务系数', 'float', 'Long', 'factor', '0', '0', '1', '1', '1', '1', '1', 'EQ', 'input', '', 3, '', '2023-05-31 19:12:02', '', '2023-05-31 19:12:11');
-INSERT INTO `gen_table_column` VALUES (195, '24', 'faculty_id', '教职工编号', 'bigint', 'Long', 'facultyId', '1', '0', NULL, '1', NULL, NULL, NULL, 'EQ', 'input', '', 1, 'admin', '2023-05-31 23:01:03', '', NULL);
-INSERT INTO `gen_table_column` VALUES (196, '24', 'name', '姓名', 'varchar(30)', 'String', 'name', '0', '0', '1', '1', '1', '1', '1', 'LIKE', 'input', '', 2, 'admin', '2023-05-31 23:01:03', '', NULL);
-INSERT INTO `gen_table_column` VALUES (197, '24', 'month', '月份', 'int', 'Long', 'month', '1', '0', NULL, '1', NULL, NULL, NULL, 'EQ', 'input', '', 3, 'admin', '2023-05-31 23:01:03', '', NULL);
-INSERT INTO `gen_table_column` VALUES (198, '24', 'basic_pay', '基本工资', 'float', 'Long', 'basicPay', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'input', '', 4, 'admin', '2023-05-31 23:01:03', '', NULL);
-INSERT INTO `gen_table_column` VALUES (199, '24', 'job', '职务', 'int', 'Long', 'job', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'input', '', 5, 'admin', '2023-05-31 23:01:03', '', NULL);
-INSERT INTO `gen_table_column` VALUES (200, '24', 'title', '职称', 'int', 'Long', 'title', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'input', '', 6, 'admin', '2023-05-31 23:01:03', '', NULL);
-INSERT INTO `gen_table_column` VALUES (201, '24', 'living_subsidy', '生活补贴', 'float', 'Long', 'livingSubsidy', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'input', '', 7, 'admin', '2023-05-31 23:01:03', '', NULL);
-INSERT INTO `gen_table_column` VALUES (202, '24', 'reading_subsidy', '书报费', 'float', 'Long', 'readingSubsidy', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'input', '', 8, 'admin', '2023-05-31 23:01:03', '', NULL);
-INSERT INTO `gen_table_column` VALUES (203, '24', 'transportation_subsidy', '交通费', 'float', 'Long', 'transportationSubsidy', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'input', '', 9, 'admin', '2023-05-31 23:01:03', '', NULL);
-INSERT INTO `gen_table_column` VALUES (204, '24', 'washing_subsidy', '洗理费', 'float', 'Long', 'washingSubsidy', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'input', '', 10, 'admin', '2023-05-31 23:01:03', '', NULL);
-INSERT INTO `gen_table_column` VALUES (205, '24', 'teacher_pay', '课时费', 'float', 'Long', 'teacherPay', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'input', '', 11, 'admin', '2023-05-31 23:01:03', '', NULL);
-INSERT INTO `gen_table_column` VALUES (206, '24', 'staff_pay', '岗位津贴', 'float', 'Long', 'staffPay', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'input', '', 12, 'admin', '2023-05-31 23:01:03', '', NULL);
-INSERT INTO `gen_table_column` VALUES (207, '24', 'extra_teacher_pay', '超额课时费', 'float', 'Long', 'extraTeacherPay', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'input', '', 13, 'admin', '2023-05-31 23:01:03', '', NULL);
-INSERT INTO `gen_table_column` VALUES (208, '24', 'total_pay', '工资总额', 'float', 'Long', 'totalPay', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'input', '', 14, 'admin', '2023-05-31 23:01:03', '', NULL);
-INSERT INTO `gen_table_column` VALUES (209, '24', 'tax', '个人所得税', 'float', 'Long', 'tax', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'input', '', 15, 'admin', '2023-05-31 23:01:03', '', NULL);
-INSERT INTO `gen_table_column` VALUES (210, '24', 'housing', '住房公积金', 'float', 'Long', 'housing', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'input', '', 16, 'admin', '2023-05-31 23:01:03', '', NULL);
-INSERT INTO `gen_table_column` VALUES (211, '24', 'insurance', '保险费', 'float', 'Long', 'insurance', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'input', '', 17, 'admin', '2023-05-31 23:01:03', '', NULL);
-INSERT INTO `gen_table_column` VALUES (212, '24', 'net_pay', '实发工资', 'float', 'Long', 'netPay', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'input', '', 18, 'admin', '2023-05-31 23:01:03', '', NULL);
 
 -- ----------------------------
 -- Table structure for job
@@ -505,7 +380,7 @@ CREATE TABLE `job`  (
   `des` varchar(60) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL COMMENT '职务',
   `factor` float NOT NULL DEFAULT 1 COMMENT '职务系数',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 10 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci COMMENT = '职务表' ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 9 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci COMMENT = '职务表' ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of job
@@ -536,7 +411,7 @@ CREATE TABLE `sys_config`  (
   `update_time` datetime NULL DEFAULT NULL COMMENT '更新时间',
   `remark` varchar(500) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL COMMENT '备注',
   PRIMARY KEY (`config_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 100 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci COMMENT = '参数配置表' ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 6 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci COMMENT = '参数配置表' ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of sys_config
@@ -568,21 +443,11 @@ CREATE TABLE `sys_dept`  (
   `update_by` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT '' COMMENT '更新者',
   `update_time` datetime NULL DEFAULT NULL COMMENT '更新时间',
   PRIMARY KEY (`dept_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 200 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci COMMENT = '部门表' ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 109 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci COMMENT = '部门表' ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of sys_dept
 -- ----------------------------
-INSERT INTO `sys_dept` VALUES (100, 0, '0', '若依科技', 0, '若依', '15888888888', 'ry@qq.com', '0', '0', 'admin', '2023-05-28 07:54:27', '', NULL);
-INSERT INTO `sys_dept` VALUES (101, 100, '0,100', '深圳总公司', 1, '若依', '15888888888', 'ry@qq.com', '0', '0', 'admin', '2023-05-28 07:54:27', '', NULL);
-INSERT INTO `sys_dept` VALUES (102, 100, '0,100', '长沙分公司', 2, '若依', '15888888888', 'ry@qq.com', '0', '0', 'admin', '2023-05-28 07:54:27', '', NULL);
-INSERT INTO `sys_dept` VALUES (103, 101, '0,100,101', '研发部门', 1, '若依', '15888888888', 'ry@qq.com', '0', '0', 'admin', '2023-05-28 07:54:27', '', NULL);
-INSERT INTO `sys_dept` VALUES (104, 101, '0,100,101', '市场部门', 2, '若依', '15888888888', 'ry@qq.com', '0', '0', 'admin', '2023-05-28 07:54:27', '', NULL);
-INSERT INTO `sys_dept` VALUES (105, 101, '0,100,101', '测试部门', 3, '若依', '15888888888', 'ry@qq.com', '0', '0', 'admin', '2023-05-28 07:54:27', '', NULL);
-INSERT INTO `sys_dept` VALUES (106, 101, '0,100,101', '财务部门', 4, '若依', '15888888888', 'ry@qq.com', '0', '0', 'admin', '2023-05-28 07:54:27', '', NULL);
-INSERT INTO `sys_dept` VALUES (107, 101, '0,100,101', '运维部门', 5, '若依', '15888888888', 'ry@qq.com', '0', '0', 'admin', '2023-05-28 07:54:27', '', NULL);
-INSERT INTO `sys_dept` VALUES (108, 102, '0,100,102', '市场部门', 1, '若依', '15888888888', 'ry@qq.com', '0', '0', 'admin', '2023-05-28 07:54:27', '', NULL);
-INSERT INTO `sys_dept` VALUES (109, 102, '0,100,102', '财务部门', 2, '若依', '15888888888', 'ry@qq.com', '0', '0', 'admin', '2023-05-28 07:54:27', '', NULL);
 
 -- ----------------------------
 -- Table structure for sys_dict_data
@@ -604,40 +469,11 @@ CREATE TABLE `sys_dict_data`  (
   `update_time` datetime NULL DEFAULT NULL COMMENT '更新时间',
   `remark` varchar(500) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL COMMENT '备注',
   PRIMARY KEY (`dict_code`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 116 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci COMMENT = '字典数据表' ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 115 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci COMMENT = '字典数据表' ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of sys_dict_data
 -- ----------------------------
-INSERT INTO `sys_dict_data` VALUES (1, 1, '男', '0', 'sys_user_sex', '', '', 'Y', '0', 'admin', '2023-05-28 07:54:27', '', NULL, '性别男');
-INSERT INTO `sys_dict_data` VALUES (2, 2, '女', '1', 'sys_user_sex', '', '', 'N', '0', 'admin', '2023-05-28 07:54:27', '', NULL, '性别女');
-INSERT INTO `sys_dict_data` VALUES (3, 3, '未知', '2', 'sys_user_sex', '', '', 'N', '0', 'admin', '2023-05-28 07:54:27', '', NULL, '性别未知');
-INSERT INTO `sys_dict_data` VALUES (4, 1, '显示', '0', 'sys_show_hide', '', 'primary', 'Y', '0', 'admin', '2023-05-28 07:54:27', '', NULL, '显示菜单');
-INSERT INTO `sys_dict_data` VALUES (5, 2, '隐藏', '1', 'sys_show_hide', '', 'danger', 'N', '0', 'admin', '2023-05-28 07:54:27', '', NULL, '隐藏菜单');
-INSERT INTO `sys_dict_data` VALUES (6, 1, '正常', '0', 'sys_normal_disable', '', 'primary', 'Y', '0', 'admin', '2023-05-28 07:54:27', '', NULL, '正常状态');
-INSERT INTO `sys_dict_data` VALUES (7, 2, '停用', '1', 'sys_normal_disable', '', 'danger', 'N', '0', 'admin', '2023-05-28 07:54:27', '', NULL, '停用状态');
-INSERT INTO `sys_dict_data` VALUES (8, 1, '正常', '0', 'sys_job_status', '', 'primary', 'Y', '0', 'admin', '2023-05-28 07:54:27', '', NULL, '正常状态');
-INSERT INTO `sys_dict_data` VALUES (9, 2, '暂停', '1', 'sys_job_status', '', 'danger', 'N', '0', 'admin', '2023-05-28 07:54:27', '', NULL, '停用状态');
-INSERT INTO `sys_dict_data` VALUES (10, 1, '默认', 'DEFAULT', 'sys_job_group', '', '', 'Y', '0', 'admin', '2023-05-28 07:54:27', '', NULL, '默认分组');
-INSERT INTO `sys_dict_data` VALUES (11, 2, '系统', 'SYSTEM', 'sys_job_group', '', '', 'N', '0', 'admin', '2023-05-28 07:54:27', '', NULL, '系统分组');
-INSERT INTO `sys_dict_data` VALUES (12, 1, '是', 'Y', 'sys_yes_no', '', 'primary', 'Y', '0', 'admin', '2023-05-28 07:54:27', '', NULL, '系统默认是');
-INSERT INTO `sys_dict_data` VALUES (13, 2, '否', 'N', 'sys_yes_no', '', 'danger', 'N', '0', 'admin', '2023-05-28 07:54:27', '', NULL, '系统默认否');
-INSERT INTO `sys_dict_data` VALUES (14, 1, '通知', '1', 'sys_notice_type', '', 'warning', 'Y', '0', 'admin', '2023-05-28 07:54:27', '', NULL, '通知');
-INSERT INTO `sys_dict_data` VALUES (15, 2, '公告', '2', 'sys_notice_type', '', 'success', 'N', '0', 'admin', '2023-05-28 07:54:27', '', NULL, '公告');
-INSERT INTO `sys_dict_data` VALUES (16, 1, '正常', '0', 'sys_notice_status', '', 'primary', 'Y', '0', 'admin', '2023-05-28 07:54:27', '', NULL, '正常状态');
-INSERT INTO `sys_dict_data` VALUES (17, 2, '关闭', '1', 'sys_notice_status', '', 'danger', 'N', '0', 'admin', '2023-05-28 07:54:27', '', NULL, '关闭状态');
-INSERT INTO `sys_dict_data` VALUES (18, 99, '其他', '0', 'sys_oper_type', '', 'info', 'N', '0', 'admin', '2023-05-28 07:54:27', '', NULL, '其他操作');
-INSERT INTO `sys_dict_data` VALUES (19, 1, '新增', '1', 'sys_oper_type', '', 'info', 'N', '0', 'admin', '2023-05-28 07:54:27', '', NULL, '新增操作');
-INSERT INTO `sys_dict_data` VALUES (20, 2, '修改', '2', 'sys_oper_type', '', 'info', 'N', '0', 'admin', '2023-05-28 07:54:27', '', NULL, '修改操作');
-INSERT INTO `sys_dict_data` VALUES (21, 3, '删除', '3', 'sys_oper_type', '', 'danger', 'N', '0', 'admin', '2023-05-28 07:54:27', '', NULL, '删除操作');
-INSERT INTO `sys_dict_data` VALUES (22, 4, '授权', '4', 'sys_oper_type', '', 'primary', 'N', '0', 'admin', '2023-05-28 07:54:27', '', NULL, '授权操作');
-INSERT INTO `sys_dict_data` VALUES (23, 5, '导出', '5', 'sys_oper_type', '', 'warning', 'N', '0', 'admin', '2023-05-28 07:54:27', '', NULL, '导出操作');
-INSERT INTO `sys_dict_data` VALUES (24, 6, '导入', '6', 'sys_oper_type', '', 'warning', 'N', '0', 'admin', '2023-05-28 07:54:27', '', NULL, '导入操作');
-INSERT INTO `sys_dict_data` VALUES (25, 7, '强退', '7', 'sys_oper_type', '', 'danger', 'N', '0', 'admin', '2023-05-28 07:54:27', '', NULL, '强退操作');
-INSERT INTO `sys_dict_data` VALUES (26, 8, '生成代码', '8', 'sys_oper_type', '', 'warning', 'N', '0', 'admin', '2023-05-28 07:54:27', '', NULL, '生成操作');
-INSERT INTO `sys_dict_data` VALUES (27, 9, '清空数据', '9', 'sys_oper_type', '', 'danger', 'N', '0', 'admin', '2023-05-28 07:54:27', '', NULL, '清空操作');
-INSERT INTO `sys_dict_data` VALUES (28, 1, '成功', '0', 'sys_common_status', '', 'primary', 'N', '0', 'admin', '2023-05-28 07:54:27', '', NULL, '正常状态');
-INSERT INTO `sys_dict_data` VALUES (29, 2, '失败', '1', 'sys_common_status', '', 'danger', 'N', '0', 'admin', '2023-05-28 07:54:27', '', NULL, '停用状态');
 INSERT INTO `sys_dict_data` VALUES (100, 0, '教师', '0', 'faculty_type', NULL, 'default', 'N', '0', 'admin', '2023-05-27 17:51:49', '', NULL, NULL);
 INSERT INTO `sys_dict_data` VALUES (101, 1, '职工', '1', 'faculty_type', NULL, 'default', 'N', '0', 'admin', '2023-05-27 17:51:55', 'admin', '2023-05-27 19:04:21', NULL);
 INSERT INTO `sys_dict_data` VALUES (102, 0, '校长', '1', 'faculty_job', NULL, 'default', 'N', '0', 'admin', '2023-05-27 18:17:00', 'admin', '2023-05-27 18:19:29', NULL);
@@ -671,21 +507,11 @@ CREATE TABLE `sys_dict_type`  (
   `remark` varchar(500) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL COMMENT '备注',
   PRIMARY KEY (`dict_id`) USING BTREE,
   UNIQUE INDEX `dict_type`(`dict_type` ASC) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 103 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci COMMENT = '字典类型表' ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 102 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci COMMENT = '字典类型表' ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of sys_dict_type
 -- ----------------------------
-INSERT INTO `sys_dict_type` VALUES (1, '用户性别', 'sys_user_sex', '0', 'admin', '2023-05-28 07:54:27', '', NULL, '用户性别列表');
-INSERT INTO `sys_dict_type` VALUES (2, '菜单状态', 'sys_show_hide', '0', 'admin', '2023-05-28 07:54:27', '', NULL, '菜单状态列表');
-INSERT INTO `sys_dict_type` VALUES (3, '系统开关', 'sys_normal_disable', '0', 'admin', '2023-05-28 07:54:27', '', NULL, '系统开关列表');
-INSERT INTO `sys_dict_type` VALUES (4, '任务状态', 'sys_job_status', '0', 'admin', '2023-05-28 07:54:27', '', NULL, '任务状态列表');
-INSERT INTO `sys_dict_type` VALUES (5, '任务分组', 'sys_job_group', '0', 'admin', '2023-05-28 07:54:27', '', NULL, '任务分组列表');
-INSERT INTO `sys_dict_type` VALUES (6, '系统是否', 'sys_yes_no', '0', 'admin', '2023-05-28 07:54:27', '', NULL, '系统是否列表');
-INSERT INTO `sys_dict_type` VALUES (7, '通知类型', 'sys_notice_type', '0', 'admin', '2023-05-28 07:54:27', '', NULL, '通知类型列表');
-INSERT INTO `sys_dict_type` VALUES (8, '通知状态', 'sys_notice_status', '0', 'admin', '2023-05-28 07:54:27', '', NULL, '通知状态列表');
-INSERT INTO `sys_dict_type` VALUES (9, '操作类型', 'sys_oper_type', '0', 'admin', '2023-05-28 07:54:27', '', NULL, '操作类型列表');
-INSERT INTO `sys_dict_type` VALUES (10, '系统状态', 'sys_common_status', '0', 'admin', '2023-05-28 07:54:27', '', NULL, '登录状态列表');
 INSERT INTO `sys_dict_type` VALUES (100, '教师/职工', 'faculty_type', '0', 'admin', '2023-05-27 15:39:15', 'admin', '2023-05-27 17:23:22', NULL);
 INSERT INTO `sys_dict_type` VALUES (101, '职工职务', 'faculty_job', '0', 'admin', '2023-05-27 15:40:35', 'admin', '2023-05-30 17:43:25', NULL);
 INSERT INTO `sys_dict_type` VALUES (102, '教师职称', 'faculty_title', '0', 'admin', '2023-05-27 15:41:26', 'admin', '2023-05-27 18:16:13', NULL);
@@ -709,14 +535,11 @@ CREATE TABLE `sys_job`  (
   `update_time` datetime NULL DEFAULT NULL COMMENT '更新时间',
   `remark` varchar(500) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT '' COMMENT '备注信息',
   PRIMARY KEY (`job_id`, `job_name`, `job_group`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 100 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci COMMENT = '定时任务调度表' ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 3 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci COMMENT = '定时任务调度表' ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of sys_job
 -- ----------------------------
-INSERT INTO `sys_job` VALUES (1, '系统默认（无参）', 'DEFAULT', 'ryTask.ryNoParams', '0/10 * * * * ?', '3', '1', '1', 'admin', '2023-05-28 07:54:27', '', NULL, '');
-INSERT INTO `sys_job` VALUES (2, '系统默认（有参）', 'DEFAULT', 'ryTask.ryParams(\'ry\')', '0/15 * * * * ?', '3', '1', '1', 'admin', '2023-05-28 07:54:27', '', NULL, '');
-INSERT INTO `sys_job` VALUES (3, '系统默认（多参）', 'DEFAULT', 'ryTask.ryMultipleParams(\'ry\', true, 2000L, 316.50D, 100)', '0/20 * * * * ?', '3', '1', '1', 'admin', '2023-05-28 07:54:27', '', NULL, '');
 
 -- ----------------------------
 -- Table structure for sys_job_log
@@ -732,7 +555,7 @@ CREATE TABLE `sys_job_log`  (
   `exception_info` varchar(2000) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT '' COMMENT '异常信息',
   `create_time` datetime NULL DEFAULT NULL COMMENT '创建时间',
   PRIMARY KEY (`job_log_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci COMMENT = '定时任务调度日志表' ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci COMMENT = '定时任务调度日志表' ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of sys_job_log
@@ -755,14 +578,11 @@ CREATE TABLE `sys_logininfor`  (
   PRIMARY KEY (`info_id`) USING BTREE,
   INDEX `idx_sys_logininfor_s`(`status` ASC) USING BTREE,
   INDEX `idx_sys_logininfor_lt`(`login_time` ASC) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 208 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci COMMENT = '系统访问记录' ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 4 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci COMMENT = '系统访问记录' ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of sys_logininfor
 -- ----------------------------
-INSERT INTO `sys_logininfor` VALUES (1, '甲', '127.0.0.1', '内网IP', 'Chrome 11', 'Windows 10', '1', '用户不存在/密码错误', '2023-06-01 15:48:32');
-INSERT INTO `sys_logininfor` VALUES (2, '小甲', '127.0.0.1', '内网IP', 'Chrome 11', 'Windows 10', '1', '验证码错误', '2023-06-01 15:49:08');
-INSERT INTO `sys_logininfor` VALUES (3, '小甲', '127.0.0.1', '内网IP', 'Chrome 11', 'Windows 10', '0', '登录成功', '2023-06-01 15:49:11');
 
 -- ----------------------------
 -- Table structure for sys_menu
@@ -789,7 +609,7 @@ CREATE TABLE `sys_menu`  (
   `update_time` datetime NULL DEFAULT NULL COMMENT '更新时间',
   `remark` varchar(500) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT '' COMMENT '备注',
   PRIMARY KEY (`menu_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 2197 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci COMMENT = '菜单权限表' ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 2196 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci COMMENT = '菜单权限表' ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of sys_menu
@@ -950,13 +770,11 @@ CREATE TABLE `sys_notice`  (
   `update_time` datetime NULL DEFAULT NULL COMMENT '更新时间',
   `remark` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL COMMENT '备注',
   PRIMARY KEY (`notice_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 10 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci COMMENT = '通知公告表' ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci COMMENT = '通知公告表' ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of sys_notice
 -- ----------------------------
-INSERT INTO `sys_notice` VALUES (1, '温馨提醒：2018-07-01 若依新版本发布啦', '2', 0xE696B0E78988E69CACE58685E5AEB9, '0', 'admin', '2023-05-28 07:54:27', '', NULL, '管理员');
-INSERT INTO `sys_notice` VALUES (2, '维护通知：2018-07-01 若依系统凌晨维护', '1', 0xE7BBB4E68AA4E58685E5AEB9, '0', 'admin', '2023-05-28 07:54:27', '', NULL, '管理员');
 
 -- ----------------------------
 -- Table structure for sys_oper_log
@@ -984,7 +802,7 @@ CREATE TABLE `sys_oper_log`  (
   INDEX `idx_sys_oper_log_bt`(`business_type` ASC) USING BTREE,
   INDEX `idx_sys_oper_log_s`(`status` ASC) USING BTREE,
   INDEX `idx_sys_oper_log_ot`(`oper_time` ASC) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 446 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci COMMENT = '操作日志记录' ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci COMMENT = '操作日志记录' ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of sys_oper_log
@@ -1006,7 +824,7 @@ CREATE TABLE `sys_post`  (
   `update_time` datetime NULL DEFAULT NULL COMMENT '更新时间',
   `remark` varchar(500) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL COMMENT '备注',
   PRIMARY KEY (`post_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 5 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci COMMENT = '岗位信息表' ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 4 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci COMMENT = '岗位信息表' ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of sys_post
@@ -1036,7 +854,7 @@ CREATE TABLE `sys_role`  (
   `update_time` datetime NULL DEFAULT NULL COMMENT '更新时间',
   `remark` varchar(500) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL COMMENT '备注',
   PRIMARY KEY (`role_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 105 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci COMMENT = '角色信息表' ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 104 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci COMMENT = '角色信息表' ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of sys_role
@@ -1062,9 +880,6 @@ CREATE TABLE `sys_role_dept`  (
 -- ----------------------------
 -- Records of sys_role_dept
 -- ----------------------------
-INSERT INTO `sys_role_dept` VALUES (2, 100);
-INSERT INTO `sys_role_dept` VALUES (2, 101);
-INSERT INTO `sys_role_dept` VALUES (2, 105);
 
 -- ----------------------------
 -- Table structure for sys_role_menu
@@ -1282,16 +1097,15 @@ CREATE TABLE `sys_user`  (
   `update_time` datetime NULL DEFAULT NULL COMMENT '更新时间',
   `remark` varchar(500) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL COMMENT '备注',
   PRIMARY KEY (`user_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 108 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci COMMENT = '用户信息表' ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 109 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci COMMENT = '用户信息表' ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of sys_user
 -- ----------------------------
-INSERT INTO `sys_user` VALUES (1, NULL, 103, 'admin', '若依', '00', 'ry@163.com', '15888888888', '1', '', '$2a$10$qbEWfxyIvSnrF.al7Iv3BujH5.FbbGXgRIqOVuFI3NrRlrzDHFjiW', '0', '0', '127.0.0.1', '2023-06-01 14:34:38', 'admin', '2023-05-28 07:54:27', '', '2023-06-01 14:34:37', '管理员');
-INSERT INTO `sys_user` VALUES (2, NULL, 105, 'ry', '若依', '00', 'ry@qq.com', '15666666666', '1', '', '$2a$10$7JB720yubVSZvUI0rEqK/.VqGOZTH.ulu33dHOiBE8ByOhJIrdAu2', '0', '0', '127.0.0.1', '2023-05-28 07:54:27', 'admin', '2023-05-28 07:54:27', '', NULL, '测试员');
+INSERT INTO `sys_user` VALUES (1, NULL, 103, 'admin', 'admin', '00', 'ry@163.com', '15888888888', '1', '', '$2a$10$qbEWfxyIvSnrF.al7Iv3BujH5.FbbGXgRIqOVuFI3NrRlrzDHFjiW', '0', '0', '127.0.0.1', '2023-06-01 14:34:38', 'admin', '2023-05-28 07:54:27', '', '2023-06-01 14:34:37', '管理员');
 INSERT INTO `sys_user` VALUES (100, NULL, NULL, '会计', '会计', '00', '', '', '0', '', '$2a$10$GIAJySInsBxv1mmg9FwDeOzmn.oVTnCGvngbwy0Uye2MJYj2hJsuK', '0', '0', '127.0.0.1', '2023-05-31 08:08:36', 'admin', '2023-05-27 15:16:18', '', '2023-05-31 08:08:35', NULL);
 INSERT INTO `sys_user` VALUES (101, 3, NULL, '张三', '张三', '00', '', '', '0', '', '$2a$10$IDvnC7OcqO2h/cIiuyBvwe0iu8VoLH.sL.1htCChn9zdQ3NGhweJe', '0', '0', '127.0.0.1', '2023-06-01 13:16:15', 'admin', '2023-05-27 15:16:43', '', '2023-06-01 13:16:15', NULL);
-INSERT INTO `sys_user` VALUES (102, NULL, NULL, '管理员', '管理员', '00', '', '', '0', '', '$2a$10$3qU6MrBmHx1DOD2vGym.cOpsKkuoom/giTLbAenY4BmmE0a2Izc1y', '0', '0', '127.0.0.1', '2023-06-01 11:53:28', 'admin', '2023-05-27 19:22:32', '', '2023-06-01 11:53:28', NULL);
+INSERT INTO `sys_user` VALUES (102, NULL, NULL, '管理员', '管理员', '00', '', '', '0', '', '$2a$10$3qU6MrBmHx1DOD2vGym.cOpsKkuoom/giTLbAenY4BmmE0a2Izc1y', '0', '0', '127.0.0.1', '2023-06-01 18:03:42', 'admin', '2023-05-27 19:22:32', '', '2023-06-01 18:03:42', NULL);
 INSERT INTO `sys_user` VALUES (103, NULL, NULL, '银行', '银行', '00', '', '', '0', '', '$2a$10$2.kU9IFrlDDZvxf63yUQEuPTZGeZcsrn99oR0Kf97IzoTS2MloovG', '0', '0', '127.0.0.1', '2023-05-31 08:09:11', 'admin', '2023-05-27 19:23:11', '', '2023-05-31 08:09:11', NULL);
 INSERT INTO `sys_user` VALUES (104, 4, NULL, '李四', '李四', '00', '', '', '0', '', '$2a$10$sznQVulcqjy97edpdmzpDuwUfY1aWSHBnv/HI8Hg7L1dY5uVi1w2u', '0', '0', '127.0.0.1', '2023-05-29 13:09:01', 'admin', '2023-05-28 15:15:59', '', '2023-05-29 13:09:01', NULL);
 INSERT INTO `sys_user` VALUES (105, 5, NULL, '王五', '王五', '00', '', '', '0', '', '$2a$10$dp312W9GwZDhNFqdmvTkY.gkOtzoo0/sI9eTZ6h5hNNLKqPFaTNa.', '0', '0', '127.0.0.1', '2023-05-29 08:44:08', 'admin', '2023-05-28 15:27:55', '', '2023-05-29 08:44:08', NULL);
@@ -1312,8 +1126,6 @@ CREATE TABLE `sys_user_post`  (
 -- ----------------------------
 -- Records of sys_user_post
 -- ----------------------------
-INSERT INTO `sys_user_post` VALUES (1, 1);
-INSERT INTO `sys_user_post` VALUES (2, 2);
 
 -- ----------------------------
 -- Table structure for sys_user_role
@@ -1350,7 +1162,7 @@ CREATE TABLE `title`  (
   `des` varchar(60) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL COMMENT '职称',
   `factor` float NOT NULL DEFAULT 1 COMMENT '职称系数',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 6 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci COMMENT = '职称表' ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci COMMENT = '职称表' ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of title
